@@ -3,9 +3,11 @@ package eg.util.io;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.common.base.Preconditions;
+
 public final class Bundle {
 	
-	private Map<String, Object> map = new HashMap<>();
+	private final Map<String, Object> map = new HashMap<>();
 	private int byteSize = 4;
 	
 	public Bundle() {
@@ -30,6 +32,7 @@ public final class Bundle {
 	}
 	
 	private Bundle put(String key, Object value, int objSize) {
+		Preconditions.checkNotNull(key, "Key must not be null.");
 		map.put(key, value);
 		byteSize += key.length() + 2 + objSize;
 		return this;
@@ -64,7 +67,63 @@ public final class Bundle {
 	}
 	
 	public Bundle putString(String key, String value) {
+		Preconditions.checkNotNull(value, "Value must not be null.");
 		return put(key, value, value.length() + 1);
+	}
+	
+	private Object get(String key) {
+		Preconditions.checkNotNull(key, "Key must not be null.");
+		Object obj = map.get(key);
+		Preconditions.checkState(obj != null, "Key does not exist.");
+		return obj;
+	}
+	
+	public boolean getBoolean(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Boolean, "Value for key is not a boolean.");
+		return (boolean) obj;
+	}
+	
+	public byte getByte(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Byte, "Value for key is not a byte.");
+		return (byte) obj;
+	}
+	
+	public short getShort(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Short, "Value for key is not a short.");
+		return (short) obj;
+	}
+	
+	public int getInt(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Integer, "Value for key is not an int.");
+		return (int) obj;
+	}
+	
+	public long getLong(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Long, "Value for key is not a long.");
+		return (long) obj;
+	}
+	
+	public float getFloat(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Float, "Value for key is not a float.");
+		return (float) obj;
+	}
+	
+	public double getDouble(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof Double, "Value for key is not a double.");
+		return (double) obj;
+	}
+	
+	public String getString(String key) {
+		Object obj = get(key);
+		Preconditions.checkState(obj instanceof String, "Value for key is not a String.");
+		return (String) obj;
 	}
 	
 	public byte[] toBytes() {

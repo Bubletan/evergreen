@@ -8,6 +8,7 @@ import eg.global.ProcessMinutelyTask;
 import eg.global.ProcessTask;
 import eg.global.ShutdownHookTask;
 import eg.net.GameServer;
+import eg.util.task.Tasks;
 
 /**
  * Evergreen is a RuneScape Server Emulator Framework for the #317 revision.<br>
@@ -32,9 +33,7 @@ public final class Server {
 	}
 	
 	public static void init() {
-		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-			ShutdownHookTask.getShutdownHookTask().execute();
-		}));
+		Runtime.getRuntime().addShutdownHook(Tasks.toThread(ShutdownHookTask.getShutdownHookTask()));
 		
 		System.setOut(new Logger(System.out));
 		System.setErr(new Logger(System.err));

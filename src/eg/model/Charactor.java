@@ -1,8 +1,6 @@
 package eg.model;
 
 import eg.global.WorldSector;
-import eg.model.npc.Npc;
-import eg.model.player.Player;
 
 public abstract class Charactor {
 
