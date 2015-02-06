@@ -4,6 +4,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import eg.global.InitializationTask;
 import eg.global.ProcessMinutelyTask;
 import eg.global.ProcessTask;
 import eg.global.ShutdownHookTask;
@@ -37,10 +38,12 @@ public final class Server {
 	}
 	
 	public static void init() {
-		Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
 		
 		System.setOut(new Logger(System.out));
 		System.setErr(new Logger(System.err));
+		
+		new InitializationTask().execute();
+		Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
 		
 		new GameServer().bind(Config.PORT);
 		

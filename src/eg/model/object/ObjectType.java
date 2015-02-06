@@ -1,13 +1,13 @@
 package eg.model.object;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 
 import eg.Config;
-import eg.model.npc.NpcType;
 
 public final class ObjectType {
 	
@@ -16,27 +16,42 @@ public final class ObjectType {
 	private int id;
 	private String name;
 	private String desc;
-	private byte[] descAsBytes;
 	
 	private ObjectType() {
 	}
 	
-	public static ObjectType get(int id) {
-		Preconditions.checkArgument(id >= 0 && id < cache.length, "ID out of range: " + id);
-		ObjectType type = cache[id];
-		if (type == null) {
+	public static void load() {
+		int count = 0;
+		
+		Gson gson = new Gson();
+		for (File file : new File("./data/config/object/").listFiles()) {
+			
+			String name = file.getName().toLowerCase();
+			if (!name.endsWith(".json")) {
+				continue;
+			}
+			
 			try {
-				BufferedReader br = new BufferedReader(new FileReader("./data/config/object/" + id + ".json"));
-				type = new Gson().fromJson(br, ObjectType.class);
-				cache[id] = type;
+				int id = Integer.parseInt(name.substring(0, name.length() - 5));
+				
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				ObjectType type = gson.fromJson(br, ObjectType.class);
+				
 				type.id = id;
-				type.descAsBytes = type.desc.getBytes();
-				type.desc = null;
+				cache[id] = type;
+				
+				count++;
+				
 			} catch (Exception e) {
-				throw new RuntimeException("Error loading object type: " + id, e);
 			}
 		}
-		return type;
+		
+		System.out.println("Registered " + count + " out of " + cache.length + " object types.");
+	}
+	
+	public static ObjectType get(int id) {
+		Preconditions.checkElementIndex(id, cache.length, "ID out of bounds: " + id);
+		return cache[id];
 	}
 	
 	public int getId() {
@@ -48,6 +63,6 @@ public final class ObjectType {
 	}
 	
 	public String getDescription() {
-		return new String(descAsBytes);
+		return desc;
 	}
 }
