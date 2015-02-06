@@ -19,5 +19,9 @@ public final class Config {
 	
 	public static final String WELCOMING_MESSAGE = "Welcome to RuneScape.";
 	
+	public static final int N_ITEM_TYPES = 0;
+	public static final int N_NPC_TYPES = 0;
+	public static final int N_OBJECT_TYPES = 0;
+	
 	public static final int IDLE_TIME_SECONDS = 15;
 }

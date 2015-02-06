@@ -5,15 +5,6 @@ import eg.util.task.Task;
 
 public final class ProcessTask implements Task {
 	
-	private static final ProcessTask INSTANCE = new ProcessTask();
-	
-	private ProcessTask() {
-	}
-	
-	public static ProcessTask getProcessTask() {
-		return INSTANCE;
-	}
-	
 	@Override
 	public void execute() {
 		

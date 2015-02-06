@@ -1,33 +1,43 @@
 package eg.model.npc;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import com.google.common.base.Preconditions;
+import com.google.gson.Gson;
+
+import eg.Config;
+
 public final class NpcType {
 	
-	private static NpcType[] cache;
+	private static final NpcType[] cache = new NpcType[Config.N_NPC_TYPES];
 
-	private final int id;
-	private final String name;
-	private final byte[] desc;
-	private final int combatLvl;
-	private final int health;
+	private int id;
+	private String name;
+	private String desc;
+	private byte[] descAsBytes;
+	private int combat;
+	private int health;
 	
-	private NpcType(int id, String name, String desc, int combatLvl, int health) {
-		this.id = id;
-		this.name = name;
-		this.desc = desc.getBytes();
-		this.combatLvl = combatLvl;
-		this.health = health;
-	}
-	
-	public static void load() {
-		cache = new NpcType[0];
-		// TODO
+	private NpcType() {
 	}
 	
 	public static NpcType get(int id) {
-		if (id < 0 || id >= cache.length) {
-			throw new IllegalArgumentException("ID out of range: " + id);
+		Preconditions.checkArgument(id >= 0 && id < cache.length, "ID out of range: " + id);
+		NpcType type = cache[id];
+		if (type == null) {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader("./data/config/npc/" + id + ".json"));
+				type = new Gson().fromJson(br, NpcType.class);
+				cache[id] = type;
+				type.id = id;
+				type.descAsBytes = type.desc.getBytes();
+				type.desc = null;
+			} catch (Exception e) {
+				throw new RuntimeException("Error loading npc type: " + id, e);
+			}
 		}
-		return cache[id];
+		return type;
 	}
 	
 	public int getId() {
@@ -39,11 +49,11 @@ public final class NpcType {
 	}
 	
 	public String getDescription() {
-		return new String(desc);
+		return new String(descAsBytes);
 	}
 	
 	public int getCombatLevel() {
-		return combatLvl;
+		return combat;
 	}
 	
 	public int getHealth() {

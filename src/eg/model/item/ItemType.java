@@ -1,40 +1,46 @@
 package eg.model.item;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import com.google.common.base.Preconditions;
+import com.google.gson.Gson;
+
+import eg.Config;
+
 public final class ItemType {
 	
-	private static ItemType[] cache;
+	private static final ItemType[] cache = new ItemType[Config.N_ITEM_TYPES];
 
-	private final int id;
-	private final String name;
-	private final byte[] desc;
-	private final boolean stackable;
-	private final boolean tradable;
-	private final boolean notable;
-	private final int equipSlot;
-	private final short[] equipBonus;
+	private int id;
+	private String name = "";
+	private String desc = "";
+	private byte[] descAsBytes;
+	private boolean stackable;
+	private boolean tradable;
+	private boolean notable;
+	private int equipSlot;
+	private short[] equipBonus;
 	
-	private ItemType(int id, String name, String desc, boolean stackable, boolean tradable,
-			boolean notable, int equipSlot, short[] equipBonus) {
-		this.id = id;
-		this.name = name;
-		this.desc = desc.getBytes();
-		this.stackable = stackable;
-		this.tradable = tradable;
-		this.notable = notable;
-		this.equipSlot = equipSlot;
-		this.equipBonus = equipBonus;
-	}
-	
-	public static void load() {
-		cache = new ItemType[0];
-		// TODO
+	private ItemType() {
 	}
 	
 	public static ItemType get(int id) {
-		if (id < 0 || id >= cache.length) {
-			throw new IllegalArgumentException("ID out of range: " + id);
+		Preconditions.checkArgument(id >= 0 && id < cache.length, "ID out of range: " + id);
+		ItemType type = cache[id];
+		if (type == null) {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader("./data/config/item/" + id + ".json"));
+				type = new Gson().fromJson(br, ItemType.class);
+				cache[id] = type;
+				type.id = id;
+				type.descAsBytes = type.desc.getBytes();
+				type.desc = null;
+			} catch (Exception e) {
+				throw new RuntimeException("Error loading item type: " + id, e);
+			}
 		}
-		return cache[id];
+		return type;
 	}
 	
 	public int getId() {
@@ -46,7 +52,7 @@ public final class ItemType {
 	}
 	
 	public String getDescription() {
-		return new String(desc);
+		return new String(descAsBytes);
 	}
 	
 	public boolean isStackable() {

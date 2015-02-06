@@ -8,6 +8,7 @@ import eg.global.ProcessMinutelyTask;
 import eg.global.ProcessTask;
 import eg.global.ShutdownHookTask;
 import eg.net.GameServer;
+import eg.util.task.Task;
 import eg.util.task.Tasks;
 
 /**
@@ -26,27 +27,29 @@ import eg.util.task.Tasks;
  */
 public final class Server {
 	
-	private static ScheduledExecutorService process;
+	private static final ScheduledExecutorService process = Executors.newSingleThreadScheduledExecutor();
 	private static int loopCycle;
+	
+	private static final Task processTask = new ProcessTask();
+	private static final Task processMinutelyTask = new ProcessMinutelyTask();
 	
 	private Server() {
 	}
 	
 	public static void init() {
-		Runtime.getRuntime().addShutdownHook(Tasks.toThread(ShutdownHookTask.getShutdownHookTask()));
+		Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
 		
 		System.setOut(new Logger(System.out));
 		System.setErr(new Logger(System.err));
 		
 		new GameServer().bind(Config.PORT);
 		
-		process = Executors.newSingleThreadScheduledExecutor();
 		process.scheduleAtFixedRate(() -> {
 			long cycleBegin = System.currentTimeMillis();
 			loopCycle++;
-			ProcessTask.getProcessTask().execute();
+			processTask.execute();
 			if (loopCycle % 100 == 0) {
-				ProcessMinutelyTask.getProcessMinutelyTask().execute();
+				processMinutelyTask.execute();
 			}
 			long cycleEnd = System.currentTimeMillis();
 			float percent = Math.round((cycleEnd - cycleBegin) / (float) Config.CYCLE_RATE_MILLIS * 10000) / 100f;
