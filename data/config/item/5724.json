@@ -1,0 +1,27 @@
+{
+  "name": "Mithril spear(p++)",
+  "desc": "A poisoned mithril tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5724,
+  "asStackable": 5725,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    17,
+    17,
+    17,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    18,
+    0
+  ]
+}

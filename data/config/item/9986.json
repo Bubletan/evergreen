@@ -1,0 +1,27 @@
+{
+  "name": "Raw beast meat",
+  "desc": "A slab of raw beast meat.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9986,
+  "asStackable": 9987,
+  "value": 32,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

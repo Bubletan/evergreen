@@ -1,0 +1,27 @@
+{
+  "name": "Mithril claws",
+  "desc": "A set of fighting claws.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3099,
+  "asStackable": 3119,
+  "value": 475,
+  "highAlch": 285,
+  "lowAlch": 190,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    11,
+    16,
+    -4,
+    0,
+    0,
+    4,
+    8,
+    2,
+    0,
+    0,
+    17,
+    0
+  ]
+}

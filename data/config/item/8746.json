@@ -1,0 +1,27 @@
+{
+  "name": "Steel kiteshield",
+  "desc": "A shield with the symbol of Arrav.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8746,
+  "asStackable": 1194,
+  "value": 1080,
+  "highAlch": 510,
+  "lowAlch": 340,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

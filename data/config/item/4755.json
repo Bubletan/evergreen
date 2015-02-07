@@ -1,0 +1,27 @@
+{
+  "name": "Veracs flail",
+  "desc": "Verac the Defiled\u0027s flail.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4755,
+  "asStackable": 4756,
+  "value": 160000,
+  "highAlch": 96000,
+  "lowAlch": 64000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    68,
+    -2,
+    82,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    72,
+    0
+  ]
+}

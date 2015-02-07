@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of power",
+  "desc": "An enchanted diamond amulet of power.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1731,
+  "asStackable": 1732,
+  "value": 3525,
+  "highAlch": 2115,
+  "lowAlch": 1410,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    0
+  ]
+}

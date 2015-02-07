@@ -1,0 +1,27 @@
+{
+  "name": "Pot",
+  "desc": "This pot is empty.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1931,
+  "asStackable": 1932,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

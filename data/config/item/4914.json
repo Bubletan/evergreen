@@ -1,0 +1,27 @@
+{
+  "name": "Guthans spear 0",
+  "desc": "Guthan the Infested\u0027s warspear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4914,
+  "asStackable": 4915,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    75,
+    75,
+    75,
+    0,
+    0,
+    7,
+    7,
+    7,
+    0,
+    0,
+    75,
+    0
+  ]
+}

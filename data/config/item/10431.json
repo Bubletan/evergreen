@@ -1,0 +1,27 @@
+{
+  "name": "Blue ele\u0027 skirt",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10430,
+  "asStackable": 10431,
+  "value": 1,
+  "highAlch": 20800,
+  "lowAlch": 18800,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

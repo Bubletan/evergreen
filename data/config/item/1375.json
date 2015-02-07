@@ -1,0 +1,27 @@
+{
+  "name": "Bronze battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1375,
+  "asStackable": 1376,
+  "value": 52,
+  "highAlch": 31,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    6,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    9,
+    0
+  ]
+}

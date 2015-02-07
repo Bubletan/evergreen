@@ -1,0 +1,27 @@
+{
+  "name": "Brown apron",
+  "desc": "A mostly clean apron.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1757,
+  "asStackable": 1758,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

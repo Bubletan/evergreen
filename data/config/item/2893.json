@@ -1,0 +1,27 @@
+{
+  "name": "Elemental metal",
+  "desc": "It\u0027s a bar of refined elemental ore.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2893,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

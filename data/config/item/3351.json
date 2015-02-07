@@ -1,0 +1,27 @@
+{
+  "name": "Blamish blue shell",
+  "desc": "An easy-to-make, blue, Mort Myre snail shell; looks protective.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3351,
+  "asStackable": 3352,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

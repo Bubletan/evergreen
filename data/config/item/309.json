@@ -1,0 +1,27 @@
+{
+  "name": "Fly fishing rod",
+  "desc": "Useful for catching salmon or trout.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 309,
+  "asStackable": 310,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

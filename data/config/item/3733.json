@@ -1,0 +1,27 @@
+{
+  "name": "Frozen jug",
+  "desc": "This jug of water is frozen solid.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3733,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

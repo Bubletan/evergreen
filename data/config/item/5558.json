@@ -1,0 +1,27 @@
+{
+  "name": "Rogue kit",
+  "desc": "It can do almost anything!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5558,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Bronze pickaxe",
+  "desc": "Used for mining.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1265,
+  "asStackable": 1266,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    -2,
+    2,
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    5,
+    0
+  ]
+}

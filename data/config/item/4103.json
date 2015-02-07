@@ -1,0 +1,27 @@
+{
+  "name": "Mystic robe bottom",
+  "desc": "The lower half of a dark magical robe.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4103,
+  "asStackable": 4104,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0
+  ]
+}

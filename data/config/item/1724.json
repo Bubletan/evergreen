@@ -1,0 +1,27 @@
+{
+  "name": "Unholy symbol",
+  "desc": "An unholy symbol of Zamorak.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1724,
+  "asStackable": 3852,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

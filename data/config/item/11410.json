@@ -1,0 +1,27 @@
+{
+  "name": "Adamant hasta(p+)",
+  "desc": "A poison-tipped, one-handed adamantite hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11410,
+  "asStackable": -1,
+  "value": 2642,
+  "highAlch": 1248,
+  "lowAlch": 832,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    24,
+    24,
+    24,
+    0,
+    0,
+    -6,
+    -7,
+    -5,
+    0,
+    -6,
+    28,
+    0
+  ]
+}

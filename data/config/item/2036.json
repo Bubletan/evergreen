@@ -1,0 +1,27 @@
+{
+  "name": "Premade p\u0027 punch",
+  "desc": "A premade Pineapple punch.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2036,
+  "asStackable": 2037,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

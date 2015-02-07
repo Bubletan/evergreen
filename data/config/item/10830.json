@@ -1,0 +1,27 @@
+{
+  "name": "Royal decree",
+  "desc": "The document is stamped with King Gjuki Sorvott IV\u0027s royal seal.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10830,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Blue dye",
+  "desc": "A little bottle of blue dye.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1767,
+  "asStackable": 1768,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

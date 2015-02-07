@@ -1,0 +1,27 @@
+{
+  "name": "Egg whisk",
+  "desc": "A large whisk of death.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7435,
+  "asStackable": 7436,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    5,
+    3,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    4,
+    0
+  ]
+}

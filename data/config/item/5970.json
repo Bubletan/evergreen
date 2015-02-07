@@ -1,0 +1,27 @@
+{
+  "name": "Curry leaf",
+  "desc": "I could make a spicy curry with this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5970,
+  "asStackable": 5971,
+  "value": 19,
+  "highAlch": 11,
+  "lowAlch": 7,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Glarial\u0027s urn",
+  "desc": "An urn containing Glarial\u0027s ashes.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 296,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

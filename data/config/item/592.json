@@ -1,0 +1,27 @@
+{
+  "name": "Ashes",
+  "desc": "A heap of ashes.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 592,
+  "asStackable": 593,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

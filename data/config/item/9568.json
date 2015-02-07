@@ -1,0 +1,27 @@
+{
+  "name": "Mixed blast",
+  "desc": "This Fruit Blast cocktail needs pouring and a lemon slice.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9568,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

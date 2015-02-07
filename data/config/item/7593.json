@@ -1,0 +1,27 @@
+{
+  "name": "Zombie trousers",
+  "desc": "Good for a shamble about town.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 7593,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

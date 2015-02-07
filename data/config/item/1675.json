@@ -1,0 +1,27 @@
+{
+  "name": "Sapphire amulet",
+  "desc": "It needs a string so I can wear it.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1675,
+  "asStackable": 1676,
+  "value": 900,
+  "highAlch": 540,
+  "lowAlch": 360,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

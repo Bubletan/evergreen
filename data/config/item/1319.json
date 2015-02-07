@@ -1,0 +1,27 @@
+{
+  "name": "Rune 2h sword",
+  "desc": "A two handed sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1319,
+  "asStackable": 1320,
+  "value": 64000,
+  "highAlch": 38400,
+  "lowAlch": 25600,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    69,
+    50,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    70,
+    0
+  ]
+}

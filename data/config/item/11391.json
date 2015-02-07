@@ -1,0 +1,27 @@
+{
+  "name": "Iron hasta(p++)",
+  "desc": "A poison-tipped, one-handed iron hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11391,
+  "asStackable": -1,
+  "value": 114,
+  "highAlch": 54,
+  "lowAlch": 36,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    8,
+    8,
+    8,
+    0,
+    0,
+    -2,
+    -2,
+    -2,
+    0,
+    -2,
+    10,
+    0
+  ]
+}

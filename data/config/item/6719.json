@@ -1,0 +1,27 @@
+{
+  "name": "Unsanitary swill",
+  "desc": "Sorry, I mean a bucket of \u0027rum\u0027.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6719,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

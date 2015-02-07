@@ -1,0 +1,27 @@
+{
+  "name": "Runite c\u0027bow (u)",
+  "desc": "An unstrung runite crossbow.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9465,
+  "asStackable": 9466,
+  "value": 10100,
+  "highAlch": 10600,
+  "lowAlch": 9575,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

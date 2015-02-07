@@ -1,0 +1,27 @@
+{
+  "name": "Steel longsword",
+  "desc": "A razor sharp longsword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1295,
+  "asStackable": 1296,
+  "value": 500,
+  "highAlch": 300,
+  "lowAlch": 200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    9,
+    14,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    16,
+    0
+  ]
+}

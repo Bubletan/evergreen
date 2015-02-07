@@ -1,0 +1,27 @@
+{
+  "name": "Spring garden",
+  "desc": "Part of the Sorceress\u0027s Garden minigame.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10853,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

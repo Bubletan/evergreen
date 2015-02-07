@@ -1,0 +1,27 @@
+{
+  "name": "Guthix crozier",
+  "desc": "A Guthix crozier.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10442,
+  "asStackable": 10443,
+  "value": 3175,
+  "highAlch": 1500,
+  "lowAlch": 1000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    7,
+    -1,
+    25,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    32,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Sin\u0027keth\u0027s diary",
+  "desc": "The diary of Sin\u0027keth Magis.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11002,
+  "asStackable": -1,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

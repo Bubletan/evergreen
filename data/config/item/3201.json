@@ -1,0 +1,27 @@
+{
+  "name": "Adamant halberd",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3200,
+  "asStackable": 3201,
+  "value": 1,
+  "highAlch": 4992,
+  "lowAlch": 3328,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

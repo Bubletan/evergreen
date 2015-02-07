@@ -1,0 +1,27 @@
+{
+  "name": "Mithril battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1369,
+  "asStackable": 1370,
+  "value": 1690,
+  "highAlch": 1014,
+  "lowAlch": 676,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    22,
+    17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    29,
+    0
+  ]
+}

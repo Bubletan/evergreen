@@ -1,0 +1,27 @@
+{
+  "name": "Tile",
+  "desc": "A fraction of a roof.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 966,
+  "asStackable": 967,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

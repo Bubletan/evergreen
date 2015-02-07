@@ -1,0 +1,27 @@
+{
+  "name": "Staff of earth",
+  "desc": "A Magical staff.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1385,
+  "asStackable": 1386,
+  "value": 1500,
+  "highAlch": 900,
+  "lowAlch": 600,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    1,
+    -1,
+    9,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    5,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Fish food",
+  "desc": "Keeps your pet fish strong and healthy.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 272,
+  "asStackable": 2478,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

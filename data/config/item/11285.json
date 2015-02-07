@@ -1,0 +1,27 @@
+{
+  "name": "Dragonfire shield",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11283,
+  "asStackable": 11285,
+  "value": 1,
+  "highAlch": 22800000,
+  "lowAlch": 20600000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

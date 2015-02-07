@@ -1,0 +1,27 @@
+{
+  "name": "Spicy sauce",
+  "desc": "A bowl of spicy sauce.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7072,
+  "asStackable": 7073,
+  "value": 9,
+  "highAlch": 5,
+  "lowAlch": 3,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

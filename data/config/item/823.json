@@ -1,0 +1,27 @@
+{
+  "name": "Adamant dart tip",
+  "desc": "A deadly-looking dart tip made of adamant - needs feathers for flight.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 823,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

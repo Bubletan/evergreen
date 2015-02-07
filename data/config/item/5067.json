@@ -1,0 +1,27 @@
+{
+  "name": "Exquisite clothes",
+  "desc": "Clothes for the sculptor\u0027s model.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5067,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

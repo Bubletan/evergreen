@@ -1,0 +1,27 @@
+{
+  "name": "Dragon dagger(p)",
+  "desc": "A powerful dagger.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1231,
+  "asStackable": 1232,
+  "value": 24000,
+  "highAlch": 14400,
+  "lowAlch": 9600,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    40,
+    25,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    40,
+    0
+  ]
+}

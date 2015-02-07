@@ -1,0 +1,27 @@
+{
+  "name": "Bronze scimitar",
+  "desc": "A vicious, curved sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1321,
+  "asStackable": 1322,
+  "value": 32,
+  "highAlch": 19,
+  "lowAlch": 12,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    1,
+    7,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    6,
+    0
+  ]
+}

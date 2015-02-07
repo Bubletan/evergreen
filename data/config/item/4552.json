@@ -1,0 +1,27 @@
+{
+  "name": "Spiny helmet",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4551,
+  "asStackable": 4552,
+  "value": 1,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

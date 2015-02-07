@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of glory",
+  "desc": "A very powerful dragonstone amulet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1704,
+  "asStackable": 1705,
+  "value": 18334,
+  "highAlch": 11000,
+  "lowAlch": 7333,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    3,
+    3,
+    3,
+    3,
+    3,
+    6,
+    0
+  ]
+}

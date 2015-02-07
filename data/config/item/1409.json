@@ -1,0 +1,27 @@
+{
+  "name": "Iban\u0027s staff",
+  "desc": "An ancient staff, formerly the property of Iban.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1409,
+  "asStackable": -1,
+  "value": 42500,
+  "highAlch": 25500,
+  "lowAlch": 17000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    -1,
+    40,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    50,
+    0
+  ]
+}

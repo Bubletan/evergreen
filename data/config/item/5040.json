@@ -1,0 +1,27 @@
+{
+  "name": "Trousers",
+  "desc": "A pair of long dwarven trousers... long for dwarves, of course.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5040,
+  "asStackable": 5041,
+  "value": 700,
+  "highAlch": 420,
+  "lowAlch": 280,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

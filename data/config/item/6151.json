@@ -1,0 +1,27 @@
+{
+  "name": "Rock-shell gloves",
+  "desc": "Fremennik gloves stitched together from rock crab shell shards.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6151,
+  "asStackable": 6152,
+  "value": 650,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    0
+  ]
+}

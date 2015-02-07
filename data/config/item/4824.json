@@ -1,0 +1,27 @@
+{
+  "name": "Rune nails",
+  "desc": "Keeps things in place fairly permanently.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 4824,
+  "value": 220,
+  "highAlch": 132,
+  "lowAlch": 88,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Warrior helm",
+  "desc": "This helmet is worn by warriors.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3753,
+  "asStackable": 3754,
+  "value": 78000,
+  "highAlch": 46800,
+  "lowAlch": 31200,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    5,
+    0,
+    -5,
+    -5,
+    31,
+    33,
+    29,
+    0,
+    30,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Dharoks greataxe",
+  "desc": "Dharok the Wretched\u0027s greataxe.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4718,
+  "asStackable": 4719,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    103,
+    95,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    105,
+    0
+  ]
+}

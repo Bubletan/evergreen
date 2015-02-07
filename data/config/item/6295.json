@@ -1,0 +1,27 @@
+{
+  "name": "Spider on shaft",
+  "desc": "A raw spider threaded onto an arrow shaft.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6295,
+  "asStackable": 6296,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Staff",
+  "desc": "It\u0027s a slightly magical stick.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1379,
+  "asStackable": 1380,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    -1,
+    7,
+    4,
+    0,
+    2,
+    3,
+    1,
+    4,
+    0,
+    3,
+    0
+  ]
+}

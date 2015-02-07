@@ -1,0 +1,27 @@
+{
+  "name": "Meter",
+  "desc": "A broken meter.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10988,
+  "asStackable": -1,
+  "value": 25200,
+  "highAlch": 25200,
+  "lowAlch": 23900,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

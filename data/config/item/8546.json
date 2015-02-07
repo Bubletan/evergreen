@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany demon",
+  "desc": "A ready-to-assemble mahogany demon lectern.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8546,
+  "asStackable": 8547,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Windchimes",
+  "desc": "Chapel windchimes",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8079,
+  "asStackable": -1,
+  "value": 41,
+  "highAlch": 43,
+  "lowAlch": 39,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

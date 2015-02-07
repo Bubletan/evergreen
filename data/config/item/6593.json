@@ -1,0 +1,27 @@
+{
+  "name": "White dagger(p)",
+  "desc": "This dagger is poisoned.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6593,
+  "asStackable": 6594,
+  "value": 240,
+  "highAlch": 144,
+  "lowAlch": 96,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    5,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    7,
+    0
+  ]
+}

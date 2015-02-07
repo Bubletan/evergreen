@@ -1,0 +1,27 @@
+{
+  "name": "Adamant spear(p)",
+  "desc": "A poisoned adamantite tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1259,
+  "asStackable": 1260,
+  "value": 2080,
+  "highAlch": 1248,
+  "lowAlch": 832,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    24,
+    24,
+    24,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    28,
+    0
+  ]
+}

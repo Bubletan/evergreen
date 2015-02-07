@@ -1,0 +1,27 @@
+{
+  "name": "Teak chest",
+  "desc": "Teak dungeon treasure chest",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8150,
+  "asStackable": -1,
+  "value": 279,
+  "highAlch": 292,
+  "lowAlch": 266,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

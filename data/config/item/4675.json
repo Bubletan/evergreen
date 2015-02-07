@@ -1,0 +1,27 @@
+{
+  "name": "Ancient staff",
+  "desc": "A magical staff of ancient origin...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4675,
+  "asStackable": 4676,
+  "value": 100000,
+  "highAlch": 60000,
+  "lowAlch": 40000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    -1,
+    40,
+    15,
+    0,
+    2,
+    3,
+    1,
+    15,
+    0,
+    50,
+    0
+  ]
+}

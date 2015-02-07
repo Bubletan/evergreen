@@ -1,0 +1,27 @@
+{
+  "name": "Half an apple pie",
+  "desc": "Mmm half an apple pie.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2335,
+  "asStackable": 2336,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

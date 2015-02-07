@@ -1,0 +1,27 @@
+{
+  "name": "Relicym\u0027s balm(4)",
+  "desc": "4 doses of Relicym\u0027s balm, which helps cure disease.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4842,
+  "asStackable": 4843,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

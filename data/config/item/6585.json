@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of fury",
+  "desc": "A very powerful onyx amulet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6585,
+  "asStackable": 6586,
+  "value": 202000,
+  "highAlch": 121200,
+  "lowAlch": 80800,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    15,
+    15,
+    15,
+    15,
+    15,
+    8,
+    0
+  ]
+}

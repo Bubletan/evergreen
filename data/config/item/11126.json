@@ -1,0 +1,27 @@
+{
+  "name": "Combat bracelet",
+  "desc": "You will need to recharge the bracelet at the Legends Guild.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11126,
+  "asStackable": 11127,
+  "value": 40082,
+  "highAlch": 18936,
+  "lowAlch": 12624,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    7,
+    7,
+    7,
+    3,
+    7,
+    5,
+    5,
+    5,
+    3,
+    5,
+    6,
+    0
+  ]
+}

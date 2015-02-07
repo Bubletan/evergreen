@@ -1,0 +1,27 @@
+{
+  "name": "Half a fish pie",
+  "desc": "Bounty of the sea.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7190,
+  "asStackable": 7191,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

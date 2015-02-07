@@ -1,0 +1,27 @@
+{
+  "name": "Berserker necklace",
+  "desc": "Makes obsidian weapons even stronger!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11128,
+  "asStackable": 11129,
+  "value": 255270,
+  "highAlch": 120600,
+  "lowAlch": 80400,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    -10,
+    -10,
+    -10,
+    0,
+    0,
+    -20,
+    -20,
+    -20,
+    -20,
+    -20,
+    7,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "3rd age kiteshield",
+  "desc": "Fabulously ancient armour beaten from magical silver.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10352,
+  "asStackable": 10353,
+  "value": 120000,
+  "highAlch": 56693,
+  "lowAlch": 37796,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -10,
+    -4,
+    63,
+    65,
+    61,
+    -3,
+    63,
+    0,
+    0
+  ]
+}

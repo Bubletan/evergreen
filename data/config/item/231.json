@@ -1,0 +1,27 @@
+{
+  "name": "Snape grass",
+  "desc": "Strange spiky grass.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 231,
+  "asStackable": 232,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

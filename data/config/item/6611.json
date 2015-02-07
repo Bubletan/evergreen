@@ -1,0 +1,27 @@
+{
+  "name": "White scimitar",
+  "desc": "A vicious, curved sword.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6611,
+  "asStackable": 6612,
+  "value": 769,
+  "highAlch": 461,
+  "lowAlch": 307,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    19,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    14,
+    0
+  ]
+}

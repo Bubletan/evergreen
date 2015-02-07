@@ -1,0 +1,27 @@
+{
+  "name": "Ghostly cloak",
+  "desc": "Made of a strange ghostly material...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6111,
+  "asStackable": -1,
+  "value": 250,
+  "highAlch": 150,
+  "lowAlch": 100,
+  "weight": 0.0,
+  "equipSlot": 1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    5,
+    0,
+    0,
+    0,
+    0,
+    5,
+    0,
+    0,
+    0
+  ]
+}

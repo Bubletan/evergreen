@@ -1,0 +1,27 @@
+{
+  "name": "Sweetcorn seed",
+  "desc": "A sweetcorn seed - plant in an allotment.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5320,
+  "value": 9,
+  "highAlch": 5,
+  "lowAlch": 3,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

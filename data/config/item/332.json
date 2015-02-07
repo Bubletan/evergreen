@@ -1,0 +1,27 @@
+{
+  "name": "Raw salmon",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 331,
+  "asStackable": 332,
+  "value": 1,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

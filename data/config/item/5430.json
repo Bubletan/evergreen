@@ -1,0 +1,27 @@
+{
+  "name": "Potatoes(6)",
+  "desc": "There are 6 potatoes in this sack.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5430,
+  "asStackable": 5431,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

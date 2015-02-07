@@ -1,0 +1,27 @@
+{
+  "name": "Fremennik blade",
+  "desc": "A sword used only by Fremennik warriors.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3757,
+  "asStackable": -1,
+  "value": 5000,
+  "highAlch": 3000,
+  "lowAlch": 2000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    6,
+    29,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    28,
+    0
+  ]
+}

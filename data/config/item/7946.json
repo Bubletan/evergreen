@@ -1,0 +1,27 @@
+{
+  "name": "Monkfish",
+  "desc": "A tasty fish.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7946,
+  "asStackable": 7947,
+  "value": 230,
+  "highAlch": 138,
+  "lowAlch": 92,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

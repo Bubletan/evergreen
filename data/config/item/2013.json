@@ -1,0 +1,27 @@
+{
+  "name": "Burnt curry",
+  "desc": "Eew, it\u0027s horribly burnt.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2013,
+  "asStackable": 2014,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

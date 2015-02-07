@@ -1,0 +1,27 @@
+{
+  "name": "Wildblood hops",
+  "desc": "A handful of Wildblood Hops.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6002,
+  "asStackable": 6003,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

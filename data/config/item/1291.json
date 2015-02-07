@@ -1,0 +1,27 @@
+{
+  "name": "Bronze longsword",
+  "desc": "A razor sharp longsword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1291,
+  "asStackable": 1292,
+  "value": 40,
+  "highAlch": 24,
+  "lowAlch": 16,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    5,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    7,
+    0
+  ]
+}

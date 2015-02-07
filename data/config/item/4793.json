@@ -1,0 +1,27 @@
+{
+  "name": "Mithril brutal",
+  "desc": "Blunt mithril arrow...ouch",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 4793,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 10,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    34
+  ]
+}

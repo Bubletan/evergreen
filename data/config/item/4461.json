@@ -1,0 +1,27 @@
+{
+  "name": "Cup of hot water",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4460,
+  "asStackable": 4461,
+  "value": 1,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

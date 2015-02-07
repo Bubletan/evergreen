@@ -1,0 +1,27 @@
+{
+  "name": "Adamant battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1371,
+  "asStackable": 1372,
+  "value": 4160,
+  "highAlch": 2496,
+  "lowAlch": 1664,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    31,
+    26,
+    -3,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    41,
+    0
+  ]
+}

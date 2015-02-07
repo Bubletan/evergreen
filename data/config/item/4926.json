@@ -1,0 +1,27 @@
+{
+  "name": "Guthans skirt 0",
+  "desc": "Guthan the Infested\u0027s chainskirt.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4926,
+  "asStackable": 4927,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -14,
+    -7,
+    75,
+    72,
+    73,
+    -4,
+    82,
+    0,
+    0
+  ]
+}

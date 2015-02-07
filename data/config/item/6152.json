@@ -1,0 +1,27 @@
+{
+  "name": "Rock-shell gloves",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6151,
+  "asStackable": 6152,
+  "value": 1,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

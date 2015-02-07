@@ -1,0 +1,27 @@
+{
+  "name": "Runite limbs",
+  "desc": "A pair of runite crossbow limbs.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9431,
+  "asStackable": 9432,
+  "value": 20320,
+  "highAlch": 9600,
+  "lowAlch": 6400,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

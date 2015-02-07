@@ -1,0 +1,27 @@
+{
+  "name": "Teak mw",
+  "desc": "A ready-to-assemble teak magic wardrobe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9854,
+  "asStackable": 9879,
+  "value": 461,
+  "highAlch": 484,
+  "lowAlch": 438,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

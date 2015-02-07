@@ -1,0 +1,27 @@
+{
+  "name": "Desert shirt",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1833,
+  "asStackable": 1834,
+  "value": 1,
+  "highAlch": 24,
+  "lowAlch": 16,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

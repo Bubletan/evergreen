@@ -1,0 +1,27 @@
+{
+  "name": "Thingy",
+  "desc": "Mabob.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10575,
+  "asStackable": 10568,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

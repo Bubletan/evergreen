@@ -1,0 +1,27 @@
+{
+  "name": "Steel key black",
+  "desc": "A steel key with a black painted eyelet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3458,
+  "asStackable": -1,
+  "value": 89,
+  "highAlch": 53,
+  "lowAlch": 35,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "White 2h sword",
+  "desc": "A two handed sword.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6609,
+  "asStackable": 6610,
+  "value": 1920,
+  "highAlch": 1152,
+  "lowAlch": 768,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    27,
+    21,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    26,
+    0
+  ]
+}

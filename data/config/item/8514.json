@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany b\u0027kcase",
+  "desc": "A ready-to-assemble mahogany bookcase.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8514,
+  "asStackable": 8515,
+  "value": 130,
+  "highAlch": 137,
+  "lowAlch": 123,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

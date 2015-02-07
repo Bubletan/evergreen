@@ -1,0 +1,27 @@
+{
+  "name": "Bronze claws",
+  "desc": "A set of fighting claws.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3095,
+  "asStackable": 3115,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    3,
+    4,
+    -4,
+    0,
+    0,
+    1,
+    2,
+    1,
+    0,
+    0,
+    5,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Anti-p supermix(1)",
+  "desc": "One dose of fishy super antipoison potion.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11475,
+  "asStackable": -1,
+  "value": 780,
+  "highAlch": 819,
+  "lowAlch": 741,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

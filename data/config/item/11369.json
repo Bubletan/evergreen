@@ -1,0 +1,27 @@
+{
+  "name": "Iron hasta",
+  "desc": "An iron-tipped, one-handed hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11369,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    8,
+    8,
+    8,
+    0,
+    0,
+    -2,
+    -2,
+    -2,
+    0,
+    -2,
+    10,
+    0
+  ]
+}

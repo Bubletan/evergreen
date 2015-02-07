@@ -1,0 +1,27 @@
+{
+  "name": "Zamorak cloak",
+  "desc": "A Zamorak cloak.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10450,
+  "asStackable": 10451,
+  "value": 7132,
+  "highAlch": 3369,
+  "lowAlch": 2246,
+  "weight": 0.0,
+  "equipSlot": 1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    3,
+    3,
+    3,
+    3,
+    3,
+    0,
+    0
+  ]
+}

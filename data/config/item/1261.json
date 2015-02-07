@@ -1,0 +1,27 @@
+{
+  "name": "Rune spear(p)",
+  "desc": "A poisoned rune tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1261,
+  "asStackable": 1262,
+  "value": 20800,
+  "highAlch": 12480,
+  "lowAlch": 8320,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    36,
+    36,
+    36,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    42,
+    0
+  ]
+}

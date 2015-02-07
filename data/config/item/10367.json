@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of magic(t)",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10366,
+  "asStackable": 10367,
+  "value": 1,
+  "highAlch": 634700,
+  "lowAlch": 574200,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

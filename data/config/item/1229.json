@@ -1,0 +1,27 @@
+{
+  "name": "Rune dagger(p)",
+  "desc": "The blade is covered with a nasty poison.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1229,
+  "asStackable": 1230,
+  "value": 8000,
+  "highAlch": 4800,
+  "lowAlch": 3200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    25,
+    12,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    24,
+    0
+  ]
+}

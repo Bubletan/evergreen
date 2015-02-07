@@ -1,0 +1,27 @@
+{
+  "name": "Rotten tomato",
+  "desc": "Pretty smelly.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2518,
+  "asStackable": 2519,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Bronze spear",
+  "desc": "A bronze tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1237,
+  "asStackable": 1238,
+  "value": 25,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    5,
+    5,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    6,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Pot of cornflour",
+  "desc": "It\u0027s cornflour in a pot.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7468,
+  "asStackable": 7469,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

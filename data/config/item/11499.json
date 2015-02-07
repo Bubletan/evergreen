@@ -1,0 +1,27 @@
+{
+  "name": "Sup. def. mix(1)",
+  "desc": "One dose of fishy super Defence potion.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11499,
+  "asStackable": -1,
+  "value": 307,
+  "highAlch": 322,
+  "lowAlch": 292,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

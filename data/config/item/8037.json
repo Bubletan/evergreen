@@ -1,0 +1,27 @@
+{
+  "name": "Gilded 4-poster",
+  "desc": "Gilded mahogany four-poster bed",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8037,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

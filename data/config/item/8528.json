@@ -1,0 +1,27 @@
+{
+  "name": "Kitchen table",
+  "desc": "A ready-to-assemble wooden kitchen table.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8528,
+  "asStackable": 8529,
+  "value": 12,
+  "highAlch": 13,
+  "lowAlch": 11,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

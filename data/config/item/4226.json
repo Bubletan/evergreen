@@ -1,0 +1,27 @@
+{
+  "name": "Crystal shield 9/10",
+  "desc": "A nice sturdy crystal shield.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4226,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    49,
+    52,
+    51,
+    0,
+    78,
+    0,
+    0
+  ]
+}

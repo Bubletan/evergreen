@@ -1,0 +1,27 @@
+{
+  "name": "Bronze axe",
+  "desc": "A woodcutter\u0027s hatchet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1351,
+  "asStackable": 1352,
+  "value": 1,
+  "highAlch": 25,
+  "lowAlch": 25,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    4,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    5,
+    0
+  ]
+}

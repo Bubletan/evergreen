@@ -1,0 +1,27 @@
+{
+  "name": "Diamond bracelet",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11092,
+  "asStackable": 11093,
+  "value": 1,
+  "highAlch": 2295,
+  "lowAlch": 1530,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

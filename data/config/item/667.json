@@ -1,0 +1,27 @@
+{
+  "name": "Blurite sword",
+  "desc": "Picture of a posing Paladin.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 667,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    9,
+    14,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    10,
+    0
+  ]
+}

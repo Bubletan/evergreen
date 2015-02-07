@@ -1,0 +1,27 @@
+{
+  "name": "Iron scimitar",
+  "desc": "A vicious, curved sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1323,
+  "asStackable": 1324,
+  "value": 112,
+  "highAlch": 67,
+  "lowAlch": 44,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    2,
+    10,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    9,
+    0
+  ]
+}

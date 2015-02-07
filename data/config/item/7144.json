@@ -1,0 +1,27 @@
+{
+  "name": "Book o\u0027 piracy",
+  "desc": "By Cap\u0027n Hook-Hand Morrisane.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7144,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

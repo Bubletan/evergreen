@@ -1,0 +1,27 @@
+{
+  "name": "Unpowered orb",
+  "desc": "I\u0027d prefer it if it was powered.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 567,
+  "asStackable": 568,
+  "value": 100,
+  "highAlch": 60,
+  "lowAlch": 40,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

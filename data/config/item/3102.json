@@ -1,0 +1,27 @@
+{
+  "name": "Combination",
+  "desc": "The combination to Burthorpe Castle\u0027s equipment room.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3102,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Games necklace(1)",
+  "desc": "An enchanted necklace.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3867,
+  "asStackable": 3868,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Ruby bolts (e)",
+  "desc": "Enchanted Ruby tipped Adamantite Crossbow Bolts.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 9242,
+  "value": 452,
+  "highAlch": 475,
+  "lowAlch": 429,
+  "weight": 0.0,
+  "equipSlot": 10,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

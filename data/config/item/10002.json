@@ -1,0 +1,27 @@
+{
+  "name": "Hunter potion(2)",
+  "desc": "2 doses of Hunter potion.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10002,
+  "asStackable": 10003,
+  "value": 324,
+  "highAlch": 340,
+  "lowAlch": 308,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

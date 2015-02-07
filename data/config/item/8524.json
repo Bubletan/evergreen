@@ -1,0 +1,27 @@
+{
+  "name": "Dragon bitter",
+  "desc": "A ready-to-assemble barrel of Dragon Bitter.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8524,
+  "asStackable": 1912,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

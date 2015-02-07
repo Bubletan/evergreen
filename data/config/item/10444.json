@@ -1,0 +1,27 @@
+{
+  "name": "Zamorak crozier",
+  "desc": "A Zamorak crozier.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10444,
+  "asStackable": 10445,
+  "value": 5871,
+  "highAlch": 6165,
+  "lowAlch": 5577,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    7,
+    -1,
+    25,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    32,
+    0
+  ]
+}

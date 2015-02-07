@@ -1,0 +1,27 @@
+{
+  "name": "Ring of visibility",
+  "desc": "A ring that allows you to see things that are normally invisible...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4657,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 9,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

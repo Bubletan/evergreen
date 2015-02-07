@@ -1,0 +1,27 @@
+{
+  "name": "Asgarnian ale",
+  "desc": "Asgarnian Ale barrel",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8241,
+  "asStackable": 1906,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

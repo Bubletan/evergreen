@@ -1,0 +1,27 @@
+{
+  "name": "Citizen shoes",
+  "desc": "Could be used as a disguise in the ghetto of Meiyerditch.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9644,
+  "asStackable": 9645,
+  "value": 206,
+  "highAlch": 206,
+  "lowAlch": 196,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

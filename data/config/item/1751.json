@@ -1,0 +1,27 @@
+{
+  "name": "Blue dragonhide",
+  "desc": "The scaly rough hide from a Blue Dragon.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1751,
+  "asStackable": 1752,
+  "value": 40,
+  "highAlch": 24,
+  "lowAlch": 16,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

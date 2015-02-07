@@ -1,0 +1,27 @@
+{
+  "name": "Part fish pie",
+  "desc": "Still needs two more ingredients.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7182,
+  "asStackable": 7183,
+  "value": 24,
+  "highAlch": 14,
+  "lowAlch": 9,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

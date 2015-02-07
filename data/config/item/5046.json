@@ -1,0 +1,27 @@
+{
+  "name": "Shorts",
+  "desc": "Blue shorts, these would look great on dwarves!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5046,
+  "asStackable": 5047,
+  "value": 390,
+  "highAlch": 234,
+  "lowAlch": 156,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

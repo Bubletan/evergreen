@@ -1,0 +1,27 @@
+{
+  "name": "Willow seed",
+  "desc": "Plant this in a plantpot of soil to grow a sapling.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5313,
+  "value": 17,
+  "highAlch": 10,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

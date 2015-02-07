@@ -1,0 +1,27 @@
+{
+  "name": "Iron mace",
+  "desc": "A spiky mace.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1420,
+  "asStackable": 1421,
+  "value": 64,
+  "highAlch": 38,
+  "lowAlch": 25,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    -2,
+    9,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    7,
+    0
+  ]
+}

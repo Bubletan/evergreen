@@ -1,0 +1,27 @@
+{
+  "name": "null",
+  "desc": "null",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11423,
+  "asStackable": -1,
+  "value": 535000,
+  "highAlch": 561800,
+  "lowAlch": 508300,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

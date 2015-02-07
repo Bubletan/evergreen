@@ -1,0 +1,27 @@
+{
+  "name": "Damaged book",
+  "desc": "An incomplete book of Guthix.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3843,
+  "asStackable": -1,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Iron dagger(p)",
+  "desc": "The blade is covered with poison.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1219,
+  "asStackable": 1220,
+  "value": 35,
+  "highAlch": 21,
+  "lowAlch": 14,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    3,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    4,
+    0
+  ]
+}

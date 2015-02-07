@@ -1,0 +1,27 @@
+{
+  "name": "Dwellberry seed",
+  "desc": "A dwellberry bush seed - plant in a bush patch.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5103,
+  "value": 25,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Oak mage wardrobe",
+  "desc": "A ready-to-assemble oak magic wardrobe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9852,
+  "asStackable": 9877,
+  "value": 275,
+  "highAlch": 289,
+  "lowAlch": 261,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

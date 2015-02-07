@@ -1,0 +1,27 @@
+{
+  "name": "Bones",
+  "desc": "They seem to shake slightly... It might be a good idea to bury them.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3187,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

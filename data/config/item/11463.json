@@ -1,0 +1,27 @@
+{
+  "name": "Agility mix(1)",
+  "desc": "One dose of fishy Agility potion.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11463,
+  "asStackable": -1,
+  "value": 164,
+  "highAlch": 172,
+  "lowAlch": 156,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

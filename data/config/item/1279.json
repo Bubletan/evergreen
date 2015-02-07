@@ -1,0 +1,27 @@
+{
+  "name": "Iron sword",
+  "desc": "A razor sharp sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1279,
+  "asStackable": 1280,
+  "value": 92,
+  "highAlch": 55,
+  "lowAlch": 36,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    6,
+    4,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    1,
+    0,
+    0,
+    7,
+    0
+  ]
+}

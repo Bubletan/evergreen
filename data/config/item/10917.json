@@ -1,0 +1,27 @@
+{
+  "name": "Mixture - step 2(4)",
+  "desc": "This super restore, unicorn dust, snake weed potion needs more ingredients.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10917,
+  "asStackable": 10918,
+  "value": 8666,
+  "highAlch": 9099,
+  "lowAlch": 8233,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

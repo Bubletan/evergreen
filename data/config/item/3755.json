@@ -1,0 +1,27 @@
+{
+  "name": "Farseer helm",
+  "desc": "This helmet is worn by farseers.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3755,
+  "asStackable": 3756,
+  "value": 78000,
+  "highAlch": 46800,
+  "lowAlch": 31200,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    -5,
+    -5,
+    -5,
+    6,
+    -5,
+    8,
+    10,
+    12,
+    6,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Mithril pick head",
+  "desc": "Useless.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 486,
+  "asStackable": 487,
+  "value": 1299,
+  "highAlch": 779,
+  "lowAlch": 519,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

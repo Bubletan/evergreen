@@ -1,0 +1,27 @@
+{
+  "name": "Broken fishing rod",
+  "desc": "This fishing rod seems to have been bitten in half...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6662,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "White mace",
+  "desc": "A spiky mace.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6601,
+  "asStackable": 6602,
+  "value": 432,
+  "highAlch": 259,
+  "lowAlch": 172,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    -2,
+    16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    13,
+    0
+  ]
+}

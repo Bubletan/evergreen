@@ -1,0 +1,27 @@
+{
+  "name": "Dragon bracelet",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11115,
+  "asStackable": 11116,
+  "value": 1,
+  "highAlch": 39000,
+  "lowAlch": 35300,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

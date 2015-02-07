@@ -1,0 +1,27 @@
+{
+  "name": "Mithril 2h sword",
+  "desc": "A two handed sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1315,
+  "asStackable": 1316,
+  "value": 2600,
+  "highAlch": 1560,
+  "lowAlch": 1040,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    30,
+    24,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    31,
+    0
+  ]
+}

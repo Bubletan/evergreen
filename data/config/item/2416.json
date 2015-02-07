@@ -1,0 +1,27 @@
+{
+  "name": "Guthix staff",
+  "desc": "A magical staff imbued with the power of Guthix.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2416,
+  "asStackable": -1,
+  "value": 80000,
+  "highAlch": 48000,
+  "lowAlch": 32000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -1,
+    -1,
+    6,
+    6,
+    0,
+    2,
+    3,
+    1,
+    6,
+    0,
+    0,
+    20
+  ]
+}

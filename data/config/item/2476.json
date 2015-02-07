@@ -1,0 +1,27 @@
+{
+  "name": "Flowers",
+  "desc": "A posy of flowers.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2476,
+  "asStackable": 2477,
+  "value": 100,
+  "highAlch": 60,
+  "lowAlch": 40,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -100,
+    -100,
+    -50,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -10,
+    0
+  ]
+}

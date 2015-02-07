@@ -1,0 +1,27 @@
+{
+  "name": "Menap action kilt",
+  "desc": "Look at those nobbily knees.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6406,
+  "asStackable": 6407,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

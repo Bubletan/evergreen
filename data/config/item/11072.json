@@ -1,0 +1,27 @@
+{
+  "name": "Sapphire bracelet",
+  "desc": "I wonder if this is valuable.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11072,
+  "asStackable": 11073,
+  "value": 1461,
+  "highAlch": 690,
+  "lowAlch": 460,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

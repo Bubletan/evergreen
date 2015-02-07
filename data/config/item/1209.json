@@ -1,0 +1,27 @@
+{
+  "name": "Mithril dagger",
+  "desc": "A dangerous dagger.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1209,
+  "asStackable": 1210,
+  "value": 325,
+  "highAlch": 195,
+  "lowAlch": 130,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    11,
+    5,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    10,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Ruby amulet",
+  "desc": "It needs a string so I can wear it.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1679,
+  "asStackable": 1680,
+  "value": 2025,
+  "highAlch": 1215,
+  "lowAlch": 810,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

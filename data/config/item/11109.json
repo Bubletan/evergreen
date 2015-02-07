@@ -1,0 +1,27 @@
+{
+  "name": "Skills necklace(2)",
+  "desc": "This will help me travel.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11109,
+  "asStackable": 11110,
+  "value": 12400,
+  "highAlch": 13000,
+  "lowAlch": 11800,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

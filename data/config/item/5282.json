@@ -1,0 +1,27 @@
+{
+  "name": "Mushroom spore",
+  "desc": "A Bittercap mushroom spore - plant in a mushroom patch.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5282,
+  "value": 87,
+  "highAlch": 52,
+  "lowAlch": 34,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

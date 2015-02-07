@@ -1,0 +1,27 @@
+{
+  "name": "Uncooked berry pie",
+  "desc": "This would be much more appetising cooked.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2321,
+  "asStackable": 2322,
+  "value": 7,
+  "highAlch": 4,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

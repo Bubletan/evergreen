@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of fury",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6585,
+  "asStackable": 6586,
+  "value": 1,
+  "highAlch": 121200,
+  "lowAlch": 80800,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

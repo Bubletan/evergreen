@@ -1,0 +1,27 @@
+{
+  "name": "Chef\u0027s delight",
+  "desc": "A fruity, full-bodied ale.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7754,
+  "asStackable": 7755,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

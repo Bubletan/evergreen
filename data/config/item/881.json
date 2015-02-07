@@ -1,0 +1,27 @@
+{
+  "name": "Barbed bolts",
+  "desc": "Great if you have a crossbow!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 881,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": 10,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

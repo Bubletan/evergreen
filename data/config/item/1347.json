@@ -1,0 +1,27 @@
+{
+  "name": "Rune warhammer",
+  "desc": "I don\u0027t think it\u0027s intended for joinery.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1347,
+  "asStackable": 1348,
+  "value": 41500,
+  "highAlch": 24900,
+  "lowAlch": 16600,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    -4,
+    53,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    48,
+    0
+  ]
+}

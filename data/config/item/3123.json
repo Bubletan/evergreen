@@ -1,0 +1,27 @@
+{
+  "name": "Shaikahan bones",
+  "desc": "Large glistening bones which glow with a pale yellow aura.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3123,
+  "asStackable": 3124,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

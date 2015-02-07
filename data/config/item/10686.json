@@ -1,0 +1,27 @@
+{
+  "name": "Wizard robe (g)",
+  "desc": "I can do magic better in this.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10686,
+  "asStackable": 7391,
+  "value": 19,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

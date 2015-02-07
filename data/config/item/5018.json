@@ -1,0 +1,27 @@
+{
+  "name": "Bone club",
+  "desc": "Basic but brutal!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5018,
+  "asStackable": 5019,
+  "value": 600,
+  "highAlch": 360,
+  "lowAlch": 240,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    -4,
+    -4,
+    16,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    15,
+    0
+  ]
+}

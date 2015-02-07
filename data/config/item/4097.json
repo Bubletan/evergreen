@@ -1,0 +1,27 @@
+{
+  "name": "Mystic boots",
+  "desc": "Magical boots.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4097,
+  "asStackable": 4098,
+  "value": 10000,
+  "highAlch": 6000,
+  "lowAlch": 4000,
+  "weight": 0.0,
+  "equipSlot": 8,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+  ]
+}

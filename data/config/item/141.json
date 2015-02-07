@@ -1,0 +1,27 @@
+{
+  "name": "Prayer potion(2)",
+  "desc": "2 doses of Prayer restore potion.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 141,
+  "asStackable": 142,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

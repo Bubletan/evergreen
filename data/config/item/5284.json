@@ -1,0 +1,27 @@
+{
+  "name": "Banana tree seed",
+  "desc": "Plant in a plantpot of soil to grow a sapling.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5284,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

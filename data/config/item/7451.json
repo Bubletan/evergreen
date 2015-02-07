@@ -1,0 +1,27 @@
+{
+  "name": "Cleaver",
+  "desc": "An effective tool for chopping tough meat.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7451,
+  "asStackable": 7452,
+  "value": 25600,
+  "highAlch": 15360,
+  "lowAlch": 10240,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    7,
+    45,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    44,
+    0
+  ]
+}

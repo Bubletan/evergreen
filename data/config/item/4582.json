@@ -1,0 +1,27 @@
+{
+  "name": "Black spear(p)",
+  "desc": "A poisoned black tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4582,
+  "asStackable": 4583,
+  "value": 750,
+  "highAlch": 450,
+  "lowAlch": 300,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    15,
+    15,
+    15,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    16,
+    0
+  ]
+}

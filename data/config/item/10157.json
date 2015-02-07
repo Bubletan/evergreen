@@ -1,0 +1,27 @@
+{
+  "name": "Hunters\u0027 crossbow",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10156,
+  "asStackable": 10157,
+  "value": 1,
+  "highAlch": 2321,
+  "lowAlch": 2099,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

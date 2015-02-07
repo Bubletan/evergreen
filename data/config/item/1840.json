@@ -1,0 +1,27 @@
+{
+  "name": "Cell door key",
+  "desc": "A metallic key, usually used by prison guards.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1840,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

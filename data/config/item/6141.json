@@ -1,0 +1,27 @@
+{
+  "name": "Skeletal bottoms",
+  "desc": "A superior set of strengthened slacks for any self respecting seer.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6141,
+  "asStackable": 6142,
+  "value": 40000,
+  "highAlch": 24000,
+  "lowAlch": 16000,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    6,
+    -7,
+    22,
+    20,
+    24,
+    10,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "3rd age platelegs",
+  "desc": "Fabulously ancient armour beaten from magical silver.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10346,
+  "asStackable": 10347,
+  "value": 124380,
+  "highAlch": 58762,
+  "lowAlch": 39175,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -25,
+    -2,
+    78,
+    76,
+    83,
+    -5,
+    75,
+    0,
+    0
+  ]
+}

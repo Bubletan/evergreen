@@ -1,0 +1,27 @@
+{
+  "name": "Pot of tea (4)",
+  "desc": "I\u0027d really like a nice cup of tea.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 7692,
+  "asStackable": 7693,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

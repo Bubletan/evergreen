@@ -1,0 +1,27 @@
+{
+  "name": "Bronze nails",
+  "desc": "Keeps things in place fairly permanently.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 4819,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

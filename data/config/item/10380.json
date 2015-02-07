@@ -1,0 +1,27 @@
+{
+  "name": "Guthix chaps",
+  "desc": "Guthix blessed dragonhide chaps.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10380,
+  "asStackable": 10381,
+  "value": 7620,
+  "highAlch": 3600,
+  "lowAlch": 2400,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -10,
+    17,
+    31,
+    25,
+    33,
+    28,
+    31,
+    0,
+    0
+  ]
+}

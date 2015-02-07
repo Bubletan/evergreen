@@ -1,0 +1,27 @@
+{
+  "name": "Gloves",
+  "desc": "These will keep my hands warm!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3799,
+  "asStackable": 3800,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

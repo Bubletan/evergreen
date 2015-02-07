@@ -1,0 +1,27 @@
+{
+  "name": "Dark bow",
+  "desc": "A bow from a darker dimension.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11235,
+  "asStackable": 11236,
+  "value": 1400000,
+  "highAlch": 1500000,
+  "lowAlch": 1400000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    95,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

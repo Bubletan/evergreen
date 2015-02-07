@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin brew(1)",
+  "desc": "1 dose of Saradomin brew.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6691,
+  "asStackable": 6692,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

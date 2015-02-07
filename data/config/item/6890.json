@@ -1,0 +1,27 @@
+{
+  "name": "Mage\u0027s book",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6889,
+  "asStackable": 6890,
+  "value": 1,
+  "highAlch": 300,
+  "lowAlch": 200,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

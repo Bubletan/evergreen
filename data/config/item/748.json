@@ -1,0 +1,27 @@
+{
+  "name": "Holy force",
+  "desc": "A black obsidian dagger, it has a strange aura about it - it seems to be glowing.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 748,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

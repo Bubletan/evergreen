@@ -1,0 +1,27 @@
+{
+  "name": "Oyster pearls",
+  "desc": "I could work wonders with a chisel on these pearls.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 413,
+  "asStackable": 414,
+  "value": 112,
+  "highAlch": 67,
+  "lowAlch": 44,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

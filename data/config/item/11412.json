@@ -1,0 +1,27 @@
+{
+  "name": "Addy hasta(p++)",
+  "desc": "A poison-tipped, one-handed adamantite hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11412,
+  "asStackable": -1,
+  "value": 7070,
+  "highAlch": 7424,
+  "lowAlch": 6716,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    24,
+    24,
+    24,
+    0,
+    0,
+    -6,
+    -7,
+    -5,
+    0,
+    -6,
+    28,
+    0
+  ]
+}

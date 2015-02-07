@@ -1,0 +1,27 @@
+{
+  "name": "Dwarven battleaxe",
+  "desc": "Three sapphires have been crafted onto the hilt.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5058,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

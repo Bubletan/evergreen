@@ -1,0 +1,27 @@
+{
+  "name": "Hunters\u0027 crossbow",
+  "desc": "A weapon made of bone and wood.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10156,
+  "asStackable": 10157,
+  "value": 2210,
+  "highAlch": 2321,
+  "lowAlch": 2099,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    55,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "D\u0027hide body (g)",
+  "desc": "Made from 100% real dragonhide. With colourful trim!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7374,
+  "asStackable": 7375,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -15,
+    20,
+    45,
+    37,
+    50,
+    30,
+    45,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Choc-ice",
+  "desc": "A tasty treat from Nardah - better eat it before it melts!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6794,
+  "asStackable": 6795,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

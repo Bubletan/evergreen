@@ -1,0 +1,27 @@
+{
+  "name": "Dark dagger",
+  "desc": "A heart shaped crystal.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 746,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    3,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

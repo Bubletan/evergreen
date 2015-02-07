@@ -1,0 +1,27 @@
+{
+  "name": "Iron hasta(kp)",
+  "desc": "A karambwan poison-tipped, one-handed iron hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11388,
+  "asStackable": -1,
+  "value": 114,
+  "highAlch": 54,
+  "lowAlch": 36,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

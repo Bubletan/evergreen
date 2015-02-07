@@ -1,0 +1,27 @@
+{
+  "name": "Unholy book",
+  "desc": "The unholy book of Zamorak.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3842,
+  "asStackable": -1,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5
+  ]
+}

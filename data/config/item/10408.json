@@ -1,0 +1,27 @@
+{
+  "name": "Blue ele\u0027 shirt",
+  "desc": "A well made elegant men\u0027s blue shirt.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10408,
+  "asStackable": 10409,
+  "value": 186600,
+  "highAlch": 195900,
+  "lowAlch": 177300,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

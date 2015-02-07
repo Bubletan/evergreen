@@ -1,0 +1,27 @@
+{
+  "name": "Prototype dart tip",
+  "desc": "A prototype dart tip - it looks deadly.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 1853,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

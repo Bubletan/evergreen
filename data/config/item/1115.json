@@ -1,0 +1,27 @@
+{
+  "name": "Iron platebody",
+  "desc": "Provides excellent protection.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1115,
+  "asStackable": 1116,
+  "value": 560,
+  "highAlch": 336,
+  "lowAlch": 224,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -30,
+    -10,
+    21,
+    20,
+    12,
+    -6,
+    20,
+    0,
+    0
+  ]
+}

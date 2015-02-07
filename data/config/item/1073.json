@@ -1,0 +1,27 @@
+{
+  "name": "Adamant platelegs",
+  "desc": "These look pretty heavy.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1073,
+  "asStackable": 1074,
+  "value": 6400,
+  "highAlch": 3840,
+  "lowAlch": 2560,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -21,
+    -7,
+    33,
+    31,
+    29,
+    -4,
+    31,
+    0,
+    0
+  ]
+}

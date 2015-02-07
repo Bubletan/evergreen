@@ -1,0 +1,27 @@
+{
+  "name": "Spined body",
+  "desc": "A constant reminder that I\u0027m above a Dagannoth in the food chain.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6133,
+  "asStackable": 6134,
+  "value": 7800,
+  "highAlch": 4680,
+  "lowAlch": 3120,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -15,
+    15,
+    40,
+    32,
+    45,
+    20,
+    40,
+    0,
+    0
+  ]
+}

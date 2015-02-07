@@ -1,0 +1,27 @@
+{
+  "name": "Glassblowing pipe",
+  "desc": "Used to form molten glass into useful items.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1785,
+  "asStackable": 1786,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

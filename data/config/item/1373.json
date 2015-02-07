@@ -1,0 +1,27 @@
+{
+  "name": "Rune battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1373,
+  "asStackable": 1374,
+  "value": 41600,
+  "highAlch": 24960,
+  "lowAlch": 16640,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    48,
+    43,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    64,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Iron axe",
+  "desc": "A woodcutter\u0027s hatchet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1349,
+  "asStackable": 1350,
+  "value": 32,
+  "highAlch": 32,
+  "lowAlch": 32,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    5,
+    3,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    7,
+    0
+  ]
+}

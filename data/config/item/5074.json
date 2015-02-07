@@ -1,0 +1,27 @@
+{
+  "name": "Bird nest",
+  "desc": "It\u0027s a bird\u0027s nest with a ring in it.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5074,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

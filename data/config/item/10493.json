@@ -1,0 +1,27 @@
+{
+  "name": "Translated notes",
+  "desc": "They still make no sense, but look more meaningful now.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10493,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

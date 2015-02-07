@@ -1,0 +1,27 @@
+{
+  "name": "Gnome scarf",
+  "desc": "A scarf. You feel your upper lip stiffening.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9470,
+  "asStackable": 9471,
+  "value": 208,
+  "highAlch": 98,
+  "lowAlch": 66,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

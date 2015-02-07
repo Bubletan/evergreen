@@ -1,0 +1,27 @@
+{
+  "name": "Black longsword",
+  "desc": "A razor sharp longsword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1297,
+  "asStackable": 1298,
+  "value": 960,
+  "highAlch": 576,
+  "lowAlch": 384,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    13,
+    18,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    16,
+    0
+  ]
+}

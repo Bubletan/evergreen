@@ -1,0 +1,27 @@
+{
+  "name": "Bone club",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5018,
+  "asStackable": 5019,
+  "value": 1,
+  "highAlch": 360,
+  "lowAlch": 240,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

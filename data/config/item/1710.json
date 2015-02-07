@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of glory(3)",
+  "desc": "A dragonstone amulet with 3 magic charges.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1710,
+  "asStackable": 1711,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    3,
+    3,
+    3,
+    3,
+    3,
+    6,
+    3
+  ]
+}

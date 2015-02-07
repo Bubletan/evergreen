@@ -1,0 +1,27 @@
+{
+  "name": "Torags hammer 0",
+  "desc": "Torag the Corrupted\u0027s twin hammers.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4962,
+  "asStackable": 4963,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    -4,
+    -4,
+    85,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    72,
+    0
+  ]
+}

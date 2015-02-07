@@ -1,0 +1,27 @@
+{
+  "name": "Rupert\u0027s helmet",
+  "desc": "A sturdy helmet belonging to Rupert the Beard.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11199,
+  "asStackable": -1,
+  "value": 20,
+  "highAlch": 21,
+  "lowAlch": 19,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

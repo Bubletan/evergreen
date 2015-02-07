@@ -1,0 +1,27 @@
+{
+  "name": "Adam dagger(p++)",
+  "desc": "A very dangerous poisoned dagger.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5694,
+  "asStackable": 5695,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    15,
+    8,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    14,
+    0
+  ]
+}

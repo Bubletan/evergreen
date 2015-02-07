@@ -1,0 +1,27 @@
+{
+  "name": "Black sword",
+  "desc": "A razor sharp sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1283,
+  "asStackable": 1284,
+  "value": 624,
+  "highAlch": 374,
+  "lowAlch": 249,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    14,
+    10,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    1,
+    0,
+    0,
+    12,
+    0
+  ]
+}

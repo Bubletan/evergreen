@@ -1,0 +1,27 @@
+{
+  "name": "Eclectic impling jar",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11248,
+  "asStackable": 11249,
+  "value": 1,
+  "highAlch": 1807,
+  "lowAlch": 1635,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

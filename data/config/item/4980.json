@@ -1,0 +1,27 @@
+{
+  "name": "Veracs helm 0",
+  "desc": "Verac the Defiled\u0027s helm.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4980,
+  "asStackable": 4981,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -6,
+    -2,
+    55,
+    58,
+    54,
+    0,
+    56,
+    0,
+    0
+  ]
+}

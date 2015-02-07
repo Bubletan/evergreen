@@ -1,0 +1,27 @@
+{
+  "name": "Zamorak d\u0027hide",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10370,
+  "asStackable": 10371,
+  "value": 1,
+  "highAlch": 1200000,
+  "lowAlch": 1100000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

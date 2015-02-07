@@ -1,0 +1,27 @@
+{
+  "name": "Dragon longsword",
+  "desc": "A very powerful sword.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1305,
+  "asStackable": 1306,
+  "value": 100000,
+  "highAlch": 60000,
+  "lowAlch": 40000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    58,
+    69,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    71,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Chopped garlic",
+  "desc": "A bowl of chopped garlic.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7074,
+  "asStackable": 7075,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

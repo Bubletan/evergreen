@@ -1,0 +1,27 @@
+{
+  "name": "Shark",
+  "desc": "I\u0027d better be careful eating this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 385,
+  "asStackable": 386,
+  "value": 300,
+  "highAlch": 180,
+  "lowAlch": 120,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

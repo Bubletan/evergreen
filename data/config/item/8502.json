@@ -1,0 +1,27 @@
+{
+  "name": "Oak chair",
+  "desc": "A ready-to-assemble oak chair.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8502,
+  "asStackable": 8503,
+  "value": 4,
+  "highAlch": 5,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

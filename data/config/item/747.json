@@ -1,0 +1,27 @@
+{
+  "name": "Glowing dagger",
+  "desc": "A black obsidian dagger, it has a strange aura about it.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 747,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    3,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

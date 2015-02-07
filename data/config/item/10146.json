@@ -1,0 +1,27 @@
+{
+  "name": "Orange salamander",
+  "desc": "Slightly slimy but kind of cute.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10146,
+  "asStackable": 10160,
+  "value": 127,
+  "highAlch": 60,
+  "lowAlch": 40,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

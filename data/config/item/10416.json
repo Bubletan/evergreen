@@ -1,0 +1,27 @@
+{
+  "name": "Purple ele\u0027 shirt",
+  "desc": "A well made elegant men\u0027s purple shirt.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10416,
+  "asStackable": 10417,
+  "value": 104300,
+  "highAlch": 109500,
+  "lowAlch": 99000,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

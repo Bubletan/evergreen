@@ -1,0 +1,27 @@
+{
+  "name": "Iron chainbody",
+  "desc": "A series of connected metal rings.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1101,
+  "asStackable": 1102,
+  "value": 210,
+  "highAlch": 126,
+  "lowAlch": 84,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -15,
+    0,
+    10,
+    15,
+    19,
+    -3,
+    12,
+    0,
+    0
+  ]
+}

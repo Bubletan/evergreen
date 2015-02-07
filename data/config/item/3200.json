@@ -1,0 +1,27 @@
+{
+  "name": "Adamant halberd",
+  "desc": "An adamant halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3200,
+  "asStackable": 3201,
+  "value": 8320,
+  "highAlch": 4992,
+  "lowAlch": 3328,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    28,
+    41,
+    0,
+    -4,
+    0,
+    -1,
+    3,
+    4,
+    0,
+    0,
+    42,
+    0
+  ]
+}

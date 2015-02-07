@@ -1,0 +1,27 @@
+{
+  "name": "Book of balance",
+  "desc": "The holy book of Guthix.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3844,
+  "asStackable": -1,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    5
+  ]
+}

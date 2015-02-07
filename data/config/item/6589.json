@@ -1,0 +1,27 @@
+{
+  "name": "White battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6589,
+  "asStackable": 6590,
+  "value": 1249,
+  "highAlch": 749,
+  "lowAlch": 499,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    20,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    24,
+    0
+  ]
+}

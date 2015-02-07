@@ -8,12 +8,13 @@ import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 
 import eg.Config;
+import eg.model.item.ItemType;
 
 public final class NpcType {
 	
 	private static final NpcType[] cache = new NpcType[Config.N_NPC_TYPES];
 
-	private int id;
+	private transient int id;
 	private String name;
 	private String desc;
 	private int combat;
@@ -22,38 +23,27 @@ public final class NpcType {
 	private NpcType() {
 	}
 	
-	public static void load() {
-		int count = 0;
-		
-		Gson gson = new Gson();
-		for (File file : new File("./data/config/npc/").listFiles()) {
-			
-			String name = file.getName().toLowerCase();
-			if (!name.endsWith(".json")) {
-				continue;
-			}
-			
-			try {
-				int id = Integer.parseInt(name.substring(0, name.length() - 5));
-				
-				BufferedReader br = new BufferedReader(new FileReader(file));
-				NpcType type = gson.fromJson(br, NpcType.class);
-				
-				type.id = id;
-				cache[id] = type;
-				
-				count++;
-				
-			} catch (Exception e) {
-			}
-		}
-		
-		System.out.println("Registered " + count + " out of " + cache.length + " NPC types.");
-	}
-	
 	public static NpcType get(int id) {
 		Preconditions.checkElementIndex(id, cache.length, "ID out of bounds: " + id);
-		return cache[id];
+		NpcType type = cache[id];
+		if (type != null) {
+			return type;
+		}
+		synchronized (cache) {
+			type = cache[id];
+			if (type != null) {
+				return type;
+			}
+			try {
+				BufferedReader br = new BufferedReader(new FileReader("./data/config/npc/" + id + ".json"));
+				type = new Gson().fromJson(br, NpcType.class);
+				type.id = id;
+				cache[id] = type;
+				return type;
+			} catch (Exception e) {
+				throw new RuntimeException("Error loading NPC type: " + id);
+			}
+		}
 	}
 	
 	public int getId() {

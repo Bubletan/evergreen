@@ -1,0 +1,27 @@
+{
+  "name": "Decapitated head",
+  "desc": "A gruesome, decapitated head, whose brain has rotted away.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4197,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

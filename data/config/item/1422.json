@@ -1,0 +1,27 @@
+{
+  "name": "Bronze mace",
+  "desc": "A spiky mace.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1422,
+  "asStackable": 1423,
+  "value": 19,
+  "highAlch": 11,
+  "lowAlch": 7,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    1,
+    -2,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5,
+    0
+  ]
+}

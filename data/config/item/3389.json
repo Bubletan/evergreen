@@ -1,0 +1,27 @@
+{
+  "name": "Splitbark legs",
+  "desc": "These should protect my legs.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3389,
+  "asStackable": 3390,
+  "value": 40000,
+  "highAlch": 24000,
+  "lowAlch": 16000,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    7,
+    -7,
+    22,
+    20,
+    25,
+    10,
+    0,
+    0,
+    0
+  ]
+}

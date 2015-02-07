@@ -1,0 +1,27 @@
+{
+  "name": "Blue d\u0027hide body",
+  "desc": "Made from 100% real dragonhide.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2499,
+  "asStackable": 2500,
+  "value": 9360,
+  "highAlch": 5616,
+  "lowAlch": 3744,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -15,
+    20,
+    45,
+    37,
+    50,
+    30,
+    45,
+    0,
+    0
+  ]
+}

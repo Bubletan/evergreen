@@ -1,0 +1,27 @@
+{
+  "name": "Fremennik",
+  "desc": "One of Rellekka\u0027s many citizens.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 3686,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

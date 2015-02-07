@@ -1,0 +1,27 @@
+{
+  "name": "Black ele\u0027 shirt",
+  "desc": "A well made elegant men\u0027s black shirt.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10400,
+  "asStackable": 10401,
+  "value": 665100,
+  "highAlch": 698400,
+  "lowAlch": 631900,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

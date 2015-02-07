@@ -1,0 +1,27 @@
+{
+  "name": "Bone dagger (p)",
+  "desc": "A powerful dagger.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8874,
+  "asStackable": 8875,
+  "value": 2615,
+  "highAlch": 2746,
+  "lowAlch": 2484,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    3,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    4,
+    0
+  ]
+}

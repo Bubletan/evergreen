@@ -1,0 +1,27 @@
+{
+  "name": "Bone spear",
+  "desc": "Basic but brutal!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5016,
+  "asStackable": 5017,
+  "value": 600,
+  "highAlch": 360,
+  "lowAlch": 240,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    11,
+    11,
+    11,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    13,
+    0
+  ]
+}

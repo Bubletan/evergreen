@@ -1,0 +1,27 @@
+{
+  "name": "Egg potato",
+  "desc": "A baked potato with egg and tomato.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7056,
+  "asStackable": 7057,
+  "value": 12,
+  "highAlch": 7,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Rune halberd",
+  "desc": "A rune halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3202,
+  "asStackable": 3203,
+  "value": 128000,
+  "highAlch": 76800,
+  "lowAlch": 51200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    48,
+    67,
+    0,
+    -4,
+    0,
+    -1,
+    4,
+    5,
+    0,
+    0,
+    68,
+    0
+  ]
+}

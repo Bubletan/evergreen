@@ -1,0 +1,27 @@
+{
+  "name": "Willow roots",
+  "desc": "The roots of the Willow tree.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6045,
+  "asStackable": 6046,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

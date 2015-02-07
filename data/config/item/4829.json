@@ -1,0 +1,27 @@
+{
+  "name": "Book of \u0027h.a.m\u0027",
+  "desc": "A book of H.A.M affiliation.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4829,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

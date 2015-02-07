@@ -1,0 +1,27 @@
+{
+  "name": "Bronze halberd",
+  "desc": "A bronze halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3190,
+  "asStackable": 3191,
+  "value": 80,
+  "highAlch": 48,
+  "lowAlch": 32,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    7,
+    8,
+    0,
+    -4,
+    0,
+    -1,
+    1,
+    2,
+    0,
+    0,
+    8,
+    0
+  ]
+}

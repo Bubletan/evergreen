@@ -1,0 +1,27 @@
+{
+  "name": "Splitbark gauntlets",
+  "desc": "These should keep my hands safe.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3391,
+  "asStackable": 3392,
+  "value": 5000,
+  "highAlch": 3000,
+  "lowAlch": 2000,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    2,
+    -1,
+    3,
+    2,
+    4,
+    2,
+    0,
+    0,
+    0
+  ]
+}

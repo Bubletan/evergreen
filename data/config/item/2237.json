@@ -1,0 +1,27 @@
+{
+  "name": "Premade w\u0027m crun\u0027",
+  "desc": "Some Premade Worm Crunchies.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2237,
+  "asStackable": 2238,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Gold bracelet",
+  "desc": "I wonder if this is valuable.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11069,
+  "asStackable": 11070,
+  "value": 699,
+  "highAlch": 330,
+  "lowAlch": 220,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

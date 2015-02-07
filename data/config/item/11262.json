@@ -1,0 +1,27 @@
+{
+  "name": "Imp repellent",
+  "desc": "Imps seem to hate this stuff. Can\u0027t say I blame them.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11262,
+  "asStackable": 11263,
+  "value": 289,
+  "highAlch": 303,
+  "lowAlch": 275,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

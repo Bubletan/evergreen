@@ -1,0 +1,27 @@
+{
+  "name": "Void knight mace",
+  "desc": "A mace used by the order of the Void Knights.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8841,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

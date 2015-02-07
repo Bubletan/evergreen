@@ -1,0 +1,27 @@
+{
+  "name": "Wolfbane",
+  "desc": "A silver dagger that can prevent werewolves changing form.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2952,
+  "asStackable": -1,
+  "value": 300,
+  "highAlch": 180,
+  "lowAlch": 120,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

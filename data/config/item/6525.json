@@ -1,0 +1,27 @@
+{
+  "name": "Toktz-xil-ek",
+  "desc": "A large knife of obsidian.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6525,
+  "asStackable": 6537,
+  "value": 25000,
+  "highAlch": 15000,
+  "lowAlch": 10000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    16,
+    48,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    39,
+    0
+  ]
+}

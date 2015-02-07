@@ -1,0 +1,27 @@
+{
+  "name": "Steel pickaxe",
+  "desc": "Used for mining.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1269,
+  "asStackable": 1270,
+  "value": 500,
+  "highAlch": 300,
+  "lowAlch": 200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    -2,
+    6,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    9,
+    0
+  ]
+}

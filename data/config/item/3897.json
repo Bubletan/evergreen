@@ -1,0 +1,27 @@
+{
+  "name": "Giant nib",
+  "desc": "For making a giant pen.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3897,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Black spear",
+  "desc": "A black tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4580,
+  "asStackable": 4581,
+  "value": 650,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    15,
+    15,
+    15,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    16,
+    0
+  ]
+}

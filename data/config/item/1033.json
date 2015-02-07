@@ -1,0 +1,27 @@
+{
+  "name": "Zamorak robe",
+  "desc": "A robe worn by worshippers of Zamorak.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1033,
+  "asStackable": 1034,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    6,
+    0,
+    0,
+    0
+  ]
+}

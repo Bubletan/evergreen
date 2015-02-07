@@ -1,0 +1,27 @@
+{
+  "name": "Black axe",
+  "desc": "A sinister looking hatchet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1361,
+  "asStackable": 1362,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    10,
+    8,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    12,
+    0
+  ]
+}

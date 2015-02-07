@@ -1,0 +1,27 @@
+{
+  "name": "Leather gloves",
+  "desc": "These will keep my hands warm!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1059,
+  "asStackable": 1060,
+  "value": 7,
+  "highAlch": 4,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    0
+  ]
+}

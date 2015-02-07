@@ -1,0 +1,27 @@
+{
+  "name": "Mithril hasta(p)",
+  "desc": "A poison-tipped, one-handed mithril hasta.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11400,
+  "asStackable": -1,
+  "value": 862,
+  "highAlch": 905,
+  "lowAlch": 819,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    17,
+    17,
+    17,
+    0,
+    0,
+    -5,
+    -5,
+    -4,
+    0,
+    -5,
+    18,
+    0
+  ]
+}

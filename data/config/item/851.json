@@ -1,0 +1,27 @@
+{
+  "name": "Maple longbow",
+  "desc": "A nice sturdy bow made out of Maple.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 851,
+  "asStackable": 852,
+  "value": 640,
+  "highAlch": 384,
+  "lowAlch": 256,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    29,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

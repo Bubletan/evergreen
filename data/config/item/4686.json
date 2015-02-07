@@ -1,0 +1,27 @@
+{
+  "name": "Embalming manual",
+  "desc": "Little book of embalming by Bod E. Wrapper.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4686,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

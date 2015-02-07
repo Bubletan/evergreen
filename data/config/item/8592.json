@@ -1,0 +1,27 @@
+{
+  "name": "Teak clock",
+  "desc": "A ready-to-assemble teak clock.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8592,
+  "asStackable": 8593,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

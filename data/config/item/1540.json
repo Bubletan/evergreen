@@ -1,0 +1,27 @@
+{
+  "name": "Anti-dragon shield",
+  "desc": "This provides partial protection from dragonbreath attacks.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1540,
+  "asStackable": 1541,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    7,
+    9,
+    8,
+    2,
+    8,
+    0,
+    0
+  ]
+}

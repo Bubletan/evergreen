@@ -1,0 +1,27 @@
+{
+  "name": "Bronze boots",
+  "desc": "These will protect my feet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4119,
+  "asStackable": 4120,
+  "value": 25,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": 8,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -3,
+    -1,
+    1,
+    2,
+    3,
+    0,
+    0,
+    0,
+    0
+  ]
+}

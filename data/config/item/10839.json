@@ -1,0 +1,27 @@
+{
+  "name": "Silly jester boots",
+  "desc": "Silly jester boots.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10839,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 8,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

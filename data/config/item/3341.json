@@ -1,0 +1,27 @@
+{
+  "name": "Ochre snelm",
+  "desc": "An easy-to-make, pointed, muddy-yellow, Mort Myre snail shell helmet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3341,
+  "asStackable": 3342,
+  "value": 300,
+  "highAlch": 180,
+  "lowAlch": 120,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -3,
+    -1,
+    7,
+    8,
+    6,
+    -1,
+    7,
+    0,
+    0
+  ]
+}

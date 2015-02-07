@@ -1,0 +1,27 @@
+{
+  "name": "Iron spear",
+  "desc": "An iron tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1239,
+  "asStackable": 1240,
+  "value": 90,
+  "highAlch": 54,
+  "lowAlch": 36,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    8,
+    8,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    10,
+    0
+  ]
+}

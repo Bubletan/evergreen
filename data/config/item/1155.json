@@ -1,0 +1,27 @@
+{
+  "name": "Bronze full helm",
+  "desc": "A full face helmet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1155,
+  "asStackable": 1156,
+  "value": 44,
+  "highAlch": 26,
+  "lowAlch": 17,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -6,
+    -2,
+    4,
+    5,
+    4,
+    -1,
+    3,
+    0,
+    0
+  ]
+}

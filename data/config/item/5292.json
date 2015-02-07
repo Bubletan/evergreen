@@ -1,0 +1,27 @@
+{
+  "name": "Marrentill seed",
+  "desc": "A marrentill seed - plant in a herb patch.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5292,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

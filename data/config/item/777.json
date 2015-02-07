@@ -1,0 +1,27 @@
+{
+  "name": "Chaos gauntlets",
+  "desc": "These gauntlets empower the bearer whilst making gold.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 777,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    2,
+    2,
+    2,
+    0,
+    0,
+    8,
+    9,
+    0,
+    0,
+    0,
+    2,
+    0
+  ]
+}

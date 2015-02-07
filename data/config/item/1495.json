@@ -1,0 +1,27 @@
+{
+  "name": "Klank\u0027s gauntlets",
+  "desc": "Strong dwarvish gloves.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1495,
+  "asStackable": -1,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

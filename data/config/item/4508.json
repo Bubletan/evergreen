@@ -1,0 +1,27 @@
+{
+  "name": "Decorative sword",
+  "desc": "A very decorative sword.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4508,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    9,
+    14,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    16,
+    0
+  ]
+}

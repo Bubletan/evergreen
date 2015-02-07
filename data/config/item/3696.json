@@ -1,0 +1,27 @@
+{
+  "name": "Hunters\u0027 talisman",
+  "desc": "Talisman to bind the Draugen.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3696,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

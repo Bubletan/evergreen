@@ -1,0 +1,27 @@
+{
+  "name": "Silver key brown",
+  "desc": "A silver key with a brown painted eyelet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3466,
+  "asStackable": -1,
+  "value": 97,
+  "highAlch": 58,
+  "lowAlch": 38,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

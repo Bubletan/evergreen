@@ -1,0 +1,27 @@
+{
+  "name": "Sickle mould",
+  "desc": "Used to make sickles.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2976,
+  "asStackable": 2977,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

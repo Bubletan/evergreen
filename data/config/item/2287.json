@@ -1,0 +1,27 @@
+{
+  "name": "Uncooked pizza",
+  "desc": "This needs cooking.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2287,
+  "asStackable": 2288,
+  "value": 25,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

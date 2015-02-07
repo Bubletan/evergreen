@@ -1,0 +1,27 @@
+{
+  "name": "Combat bracelet(1)",
+  "desc": "A handy way to get around.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11124,
+  "asStackable": 11125,
+  "value": 12800,
+  "highAlch": 13500,
+  "lowAlch": 12300,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    7,
+    7,
+    7,
+    3,
+    7,
+    5,
+    5,
+    5,
+    3,
+    5,
+    6,
+    0
+  ]
+}

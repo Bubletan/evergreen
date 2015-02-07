@@ -1,0 +1,27 @@
+{
+  "name": "Ahrims robetop",
+  "desc": "Ahrim the Blighted\u0027s armoured robe top.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4712,
+  "asStackable": 4713,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    30,
+    -10,
+    52,
+    37,
+    63,
+    30,
+    0,
+    0,
+    0
+  ]
+}

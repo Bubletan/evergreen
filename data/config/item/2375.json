@@ -1,0 +1,27 @@
+{
+  "name": "Relic part 3",
+  "desc": "Part of an ogre relic.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2375,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

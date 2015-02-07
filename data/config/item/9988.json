@@ -1,0 +1,27 @@
+{
+  "name": "Roast beast meat",
+  "desc": "A delicious looking slab of roast beast.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9988,
+  "asStackable": 9989,
+  "value": 32,
+  "highAlch": 15,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Ruby bracelet",
+  "desc": "I wonder if this is valuable.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11085,
+  "asStackable": 11086,
+  "value": 2952,
+  "highAlch": 1395,
+  "lowAlch": 930,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

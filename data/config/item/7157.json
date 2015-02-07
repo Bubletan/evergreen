@@ -1,0 +1,27 @@
+{
+  "name": "Braindeath \u0027rum\u0027",
+  "desc": "I think it is eating through the bottle.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7157,
+  "asStackable": -1,
+  "value": 30,
+  "highAlch": 18,
+  "lowAlch": 12,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

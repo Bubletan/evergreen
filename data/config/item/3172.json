@@ -1,0 +1,27 @@
+{
+  "name": "Steel spear(kp)",
+  "desc": "A Karambwan poisoned steel tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3172,
+  "asStackable": -1,
+  "value": 325,
+  "highAlch": 195,
+  "lowAlch": 130,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    12,
+    12,
+    12,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    12,
+    0
+  ]
+}

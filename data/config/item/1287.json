@@ -1,0 +1,27 @@
+{
+  "name": "Adamant sword",
+  "desc": "A razor sharp sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1287,
+  "asStackable": 1288,
+  "value": 2080,
+  "highAlch": 1248,
+  "lowAlch": 832,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    23,
+    18,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    1,
+    0,
+    0,
+    24,
+    0
+  ]
+}

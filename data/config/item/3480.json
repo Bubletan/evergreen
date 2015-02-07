@@ -1,0 +1,27 @@
+{
+  "name": "Guthix plateskirt",
+  "desc": "Rune plateskirt in the colours of Guthix.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 3480,
+  "asStackable": 3676,
+  "value": 64000,
+  "highAlch": 38400,
+  "lowAlch": 25600,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

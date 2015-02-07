@@ -1,0 +1,27 @@
+{
+  "name": "Regen bracelet",
+  "desc": "Helps to restore Hitpoints.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11133,
+  "asStackable": 11134,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    8,
+    8,
+    8,
+    3,
+    7,
+    6,
+    6,
+    6,
+    3,
+    6,
+    7,
+    0
+  ]
+}

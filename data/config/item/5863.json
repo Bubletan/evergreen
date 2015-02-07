@@ -1,0 +1,27 @@
+{
+  "name": "Asgarnian ale(m3)",
+  "desc": "This keg contains 3 pints of mature Asgarnian Ale.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5863,
+  "asStackable": 5864,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

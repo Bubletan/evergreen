@@ -1,0 +1,27 @@
+{
+  "name": "Mind rune",
+  "desc": "Used for basic level missile spells.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 6436,
+  "asStackable": 6437,
+  "value": 4,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

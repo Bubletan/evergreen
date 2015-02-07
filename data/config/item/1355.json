@@ -1,0 +1,27 @@
+{
+  "name": "Mithril axe",
+  "desc": "A powerful hatchet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1355,
+  "asStackable": 1356,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    12,
+    10,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    13,
+    0
+  ]
+}

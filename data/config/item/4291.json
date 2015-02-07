@@ -1,0 +1,27 @@
+{
+  "name": "Cooked chicken",
+  "desc": "This cooked chicken looks disgusting.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4291,
+  "asStackable": 4292,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

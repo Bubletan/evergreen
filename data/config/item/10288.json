@@ -1,0 +1,27 @@
+{
+  "name": "Rune helm (h2)",
+  "desc": "A rune helmet with a heraldic design.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10288,
+  "asStackable": 10289,
+  "value": 44704,
+  "highAlch": 21120,
+  "lowAlch": 14080,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -6,
+    -2,
+    30,
+    32,
+    27,
+    -1,
+    30,
+    0,
+    0
+  ]
+}

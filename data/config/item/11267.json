@@ -1,0 +1,27 @@
+{
+  "name": "Dummy",
+  "desc": "dummy",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11267,
+  "asStackable": 11270,
+  "value": 63,
+  "highAlch": 66,
+  "lowAlch": 60,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

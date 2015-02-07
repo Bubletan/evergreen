@@ -1,0 +1,27 @@
+{
+  "name": "Blue dragon scale",
+  "desc": "A large shiny scale.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 243,
+  "asStackable": 244,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Coconut",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5976,
+  "asStackable": 5977,
+  "value": 1,
+  "highAlch": 52,
+  "lowAlch": 34,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

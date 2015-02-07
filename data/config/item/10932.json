@@ -1,0 +1,27 @@
+{
+  "name": "Sanfew serum(1)",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10931,
+  "asStackable": 10932,
+  "value": 1,
+  "highAlch": 4680,
+  "lowAlch": 4234,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

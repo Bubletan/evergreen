@@ -1,0 +1,27 @@
+{
+  "name": "Adam platelegs (g)",
+  "desc": "Adamant platelegs with gold trim.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2609,
+  "asStackable": 2610,
+  "value": 6400,
+  "highAlch": 3840,
+  "lowAlch": 2560,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -21,
+    -7,
+    33,
+    31,
+    29,
+    -4,
+    31,
+    0,
+    0
+  ]
+}

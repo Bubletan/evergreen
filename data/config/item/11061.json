@@ -1,0 +1,27 @@
+{
+  "name": "Ancient mace",
+  "desc": "It has ancient goblin symbols on it.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11061,
+  "asStackable": 11064,
+  "value": 1270,
+  "highAlch": 600,
+  "lowAlch": 400,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    -2,
+    16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    14,
+    0
+  ]
+}

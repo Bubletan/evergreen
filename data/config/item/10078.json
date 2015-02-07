@@ -1,0 +1,27 @@
+{
+  "name": "Spiky vambraces",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10077,
+  "asStackable": 10078,
+  "value": 1,
+  "highAlch": 76,
+  "lowAlch": 72,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

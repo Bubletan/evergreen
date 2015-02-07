@@ -1,0 +1,27 @@
+{
+  "name": "Darklight",
+  "desc": "The magical sword \u0027Silverlight\u0027, enhanced with the blood of Agrith-Naar.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6746,
+  "asStackable": -1,
+  "value": 834,
+  "highAlch": 500,
+  "lowAlch": 333,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    16,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    2,
+    0,
+    13,
+    0
+  ]
+}

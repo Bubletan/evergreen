@@ -1,0 +1,27 @@
+{
+  "name": "Marinated j\u0027 bones",
+  "desc": "Jogre Bones marinated in Karambwanji sauce. Not quite right.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3133,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

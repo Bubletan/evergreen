@@ -1,0 +1,27 @@
+{
+  "name": "White halberd",
+  "desc": "A white halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6599,
+  "asStackable": 6600,
+  "value": 1920,
+  "highAlch": 1152,
+  "lowAlch": 768,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    19,
+    25,
+    0,
+    -4,
+    0,
+    -1,
+    2,
+    3,
+    0,
+    0,
+    20,
+    0
+  ]
+}

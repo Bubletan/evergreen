@@ -1,0 +1,27 @@
+{
+  "name": "Seaweed sandwich",
+  "desc": "A \u0027Seaweed in Monkey Skin\u0027 sandwich. Perfect for statue repair.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3168,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Elemental talisman",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5516,
+  "asStackable": 5517,
+  "value": 1,
+  "highAlch": 300,
+  "lowAlch": 200,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

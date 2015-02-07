@@ -1,0 +1,27 @@
+{
+  "name": "Chilli potato",
+  "desc": "A baked potato with chilli con carne.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7054,
+  "asStackable": 7055,
+  "value": 14,
+  "highAlch": 8,
+  "lowAlch": 5,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

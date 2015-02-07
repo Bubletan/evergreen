@@ -1,0 +1,27 @@
+{
+  "name": "Barb-tail harpoon",
+  "desc": "A mighty Hunter weapon. One previous owner.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10129,
+  "asStackable": 10130,
+  "value": 1,
+  "highAlch": 21,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    9,
+    4,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    0
+  ]
+}

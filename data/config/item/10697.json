@@ -1,0 +1,27 @@
+{
+  "name": "Adam platebody (t)",
+  "desc": "Adamant platebody with trim.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10697,
+  "asStackable": 2600,
+  "value": 16256,
+  "highAlch": 7680,
+  "lowAlch": 5120,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

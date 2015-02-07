@@ -1,0 +1,27 @@
+{
+  "name": "Barrelchest anchor",
+  "desc": "This is likely to put my back out...",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10887,
+  "asStackable": -1,
+  "value": 292100,
+  "highAlch": 138000,
+  "lowAlch": 92000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    10,
+    92,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    100,
+    0
+  ]
+}

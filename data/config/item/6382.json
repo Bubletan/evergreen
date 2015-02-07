@@ -1,0 +1,27 @@
+{
+  "name": "Fez",
+  "desc": "A Fez hat. Juss like that.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6382,
+  "asStackable": 6383,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

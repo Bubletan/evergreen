@@ -1,0 +1,27 @@
+{
+  "name": "1/2 anchovy pizza",
+  "desc": "Half of this anchovy pizza has been eaten.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2299,
+  "asStackable": 2300,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

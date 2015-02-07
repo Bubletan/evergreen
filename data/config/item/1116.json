@@ -1,0 +1,27 @@
+{
+  "name": "Iron platebody",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1115,
+  "asStackable": 1116,
+  "value": 1,
+  "highAlch": 336,
+  "lowAlch": 224,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

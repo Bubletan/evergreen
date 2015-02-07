@@ -1,0 +1,27 @@
+{
+  "name": "Oak drawers",
+  "desc": "A ready-to-assemble oak chest of drawers.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8612,
+  "asStackable": 8613,
+  "value": 1,
+  "highAlch": 6,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

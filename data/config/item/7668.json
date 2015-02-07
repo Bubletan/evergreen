@@ -1,0 +1,27 @@
+{
+  "name": "Gadderhammer",
+  "desc": "A specially crafted hammer with strange markings on it.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7668,
+  "asStackable": 7669,
+  "value": 3000,
+  "highAlch": 1800,
+  "lowAlch": 1200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    -4,
+    35,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    35,
+    0
+  ]
+}

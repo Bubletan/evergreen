@@ -1,0 +1,27 @@
+{
+  "name": "Yew stock",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9452,
+  "asStackable": 9453,
+  "value": 1,
+  "highAlch": 100,
+  "lowAlch": 67,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

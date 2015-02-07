@@ -1,0 +1,27 @@
+{
+  "name": "Silverlight",
+  "desc": "The magical sword \u0027Silverlight\u0027, stained black with mushroom ink.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6745,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    9,
+    14,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    1,
+    0,
+    12,
+    0
+  ]
+}

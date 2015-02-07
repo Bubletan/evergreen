@@ -1,0 +1,27 @@
+{
+  "name": "Mud battlestaff",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6562,
+  "asStackable": 6726,
+  "value": 1,
+  "highAlch": 10200,
+  "lowAlch": 6800,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    10,
+    -1,
+    40,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    35,
+    0
+  ]
+}

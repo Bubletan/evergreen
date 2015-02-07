@@ -1,0 +1,27 @@
+{
+  "name": "Cooking apple",
+  "desc": "Keeps the doctor away.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1955,
+  "asStackable": 1956,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Watch",
+  "desc": "A fine looking time piece.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2575,
+  "asStackable": -1,
+  "value": 100,
+  "highAlch": 60,
+  "lowAlch": 40,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

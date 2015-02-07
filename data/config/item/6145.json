@@ -1,0 +1,27 @@
+{
+  "name": "Rock-shell boots",
+  "desc": "Some Fremennik boots, made from the shards of a rock crabs\u0027 shell.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6145,
+  "asStackable": 6146,
+  "value": 650,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": 8,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ]
+}

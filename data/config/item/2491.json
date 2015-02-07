@@ -1,0 +1,27 @@
+{
+  "name": "Black d\u0027hide vamb",
+  "desc": "Vambraces made from 100% real dragonhide.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2491,
+  "asStackable": 2492,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -10,
+    11,
+    6,
+    5,
+    7,
+    8,
+    0,
+    0,
+    0
+  ]
+}

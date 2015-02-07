@@ -1,0 +1,27 @@
+{
+  "name": "White warhammer",
+  "desc": "I don\u0027t think it\u0027s intended for joinery.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6613,
+  "asStackable": 6614,
+  "value": 980,
+  "highAlch": 588,
+  "lowAlch": 392,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    -4,
+    22,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    19,
+    0
+  ]
+}

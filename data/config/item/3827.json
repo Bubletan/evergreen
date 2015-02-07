@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin page 1",
+  "desc": "This seems to have been torn from a book...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 3827,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

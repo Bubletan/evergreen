@@ -1,0 +1,27 @@
+{
+  "name": "Salve amulet(e)",
+  "desc": "Increases the wearer\u0027s Strength and accuracy by 20% when fighting the undead.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10588,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

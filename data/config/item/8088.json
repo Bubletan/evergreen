@@ -1,0 +1,27 @@
+{
+  "name": "Medium head",
+  "desc": "Medium slayer monster head",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8088,
+  "asStackable": -1,
+  "value": 126,
+  "highAlch": 132,
+  "lowAlch": 120,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

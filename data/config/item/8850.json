@@ -1,0 +1,27 @@
+{
+  "name": "Rune defender",
+  "desc": "A defensive weapon.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8850,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 5,
+  "equipBonus": [
+    20,
+    19,
+    18,
+    -3,
+    -2,
+    20,
+    19,
+    18,
+    -3,
+    -2,
+    5,
+    0
+  ]
+}

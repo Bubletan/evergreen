@@ -1,0 +1,27 @@
+{
+  "name": "Steel dagger(p+)",
+  "desc": "The blade has been poisoned.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5672,
+  "asStackable": 5673,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    4,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    7,
+    0
+  ]
+}

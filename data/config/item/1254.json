@@ -1,0 +1,27 @@
+{
+  "name": "Iron spear(p)",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1253,
+  "asStackable": 1254,
+  "value": 1,
+  "highAlch": 55,
+  "lowAlch": 36,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

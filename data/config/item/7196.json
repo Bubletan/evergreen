@@ -1,0 +1,27 @@
+{
+  "name": "Raw admiral pie",
+  "desc": "This would taste a lot better cooked.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7196,
+  "asStackable": 7197,
+  "value": 155,
+  "highAlch": 93,
+  "lowAlch": 62,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

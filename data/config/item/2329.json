@@ -1,0 +1,27 @@
+{
+  "name": "Burnt pie",
+  "desc": "I think I left it on the stove too long.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2329,
+  "asStackable": 2330,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

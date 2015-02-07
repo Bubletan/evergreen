@@ -1,0 +1,27 @@
+{
+  "name": "Mystic mud staff",
+  "desc": "It\u0027s a slightly magical stick.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6563,
+  "asStackable": 6727,
+  "value": 45000,
+  "highAlch": 27000,
+  "lowAlch": 18000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    -1,
+    40,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    50,
+    0
+  ]
+}

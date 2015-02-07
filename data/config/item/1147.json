@@ -1,0 +1,27 @@
+{
+  "name": "Rune med helm",
+  "desc": "A medium sized helmet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1147,
+  "asStackable": 1148,
+  "value": 19200,
+  "highAlch": 11520,
+  "lowAlch": 7680,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -3,
+    -1,
+    22,
+    23,
+    21,
+    -1,
+    22,
+    0,
+    0
+  ]
+}

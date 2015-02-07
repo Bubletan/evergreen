@@ -1,0 +1,27 @@
+{
+  "name": "Burnt pitta bread",
+  "desc": "It\u0027s all burnt.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1867,
+  "asStackable": 1868,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

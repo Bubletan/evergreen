@@ -1,0 +1,27 @@
+{
+  "name": "Pure essence",
+  "desc": "An uncharged Rune Stone of extra capability.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 7936,
+  "asStackable": 7937,
+  "value": 4,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

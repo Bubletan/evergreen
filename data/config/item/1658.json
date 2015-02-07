@@ -1,0 +1,27 @@
+{
+  "name": "Emerald necklace",
+  "desc": "I wonder if this is valuable.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1658,
+  "asStackable": 1659,
+  "value": 1425,
+  "highAlch": 855,
+  "lowAlch": 570,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

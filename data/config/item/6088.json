@@ -1,0 +1,27 @@
+{
+  "name": "Green dye bellows",
+  "desc": "A large pair of ogre bellows filled with green dye.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6088,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

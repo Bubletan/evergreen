@@ -1,0 +1,27 @@
+{
+  "name": "Team-38 cape",
+  "desc": "Ooohhh look at the pretty colours...",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4389,
+  "asStackable": 4390,
+  "value": 50,
+  "highAlch": 30,
+  "lowAlch": 20,
+  "weight": 0.0,
+  "equipSlot": 1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    2,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Wooden spoon",
+  "desc": "Spoooooon!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7433,
+  "asStackable": 7434,
+  "value": 35,
+  "highAlch": 21,
+  "lowAlch": 14,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    4,
+    5,
+    -2,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    0,
+    7,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Model ship",
+  "desc": "A small wooden ship with a silk flag.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4254,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

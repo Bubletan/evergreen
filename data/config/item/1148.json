@@ -1,0 +1,27 @@
+{
+  "name": "Rune med helm",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1147,
+  "asStackable": 1148,
+  "value": 1,
+  "highAlch": 11520,
+  "lowAlch": 7680,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

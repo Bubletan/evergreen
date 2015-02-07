@@ -1,0 +1,27 @@
+{
+  "name": "Mithril halberd",
+  "desc": "A mithril halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3198,
+  "asStackable": 3199,
+  "value": 2600,
+  "highAlch": 1560,
+  "lowAlch": 1040,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    22,
+    28,
+    0,
+    -4,
+    0,
+    -1,
+    2,
+    4,
+    0,
+    0,
+    29,
+    0
+  ]
+}

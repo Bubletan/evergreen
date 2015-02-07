@@ -1,0 +1,27 @@
+{
+  "name": "Iron battleaxe",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1363,
+  "asStackable": 1364,
+  "value": 1,
+  "highAlch": 109,
+  "lowAlch": 72,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "White magic staff",
+  "desc": "A Magical staff.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6603,
+  "asStackable": 6604,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    2,
+    -1,
+    10,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    13,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Crystal-mine key",
+  "desc": "A key I found in the lower levels of the Morytanian mines.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4077,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

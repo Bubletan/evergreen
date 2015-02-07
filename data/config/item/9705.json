@@ -1,0 +1,27 @@
+{
+  "name": "Training bow",
+  "desc": "Light and flexible; good for a beginner.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9705,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

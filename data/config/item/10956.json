@@ -1,0 +1,27 @@
+{
+  "name": "Frog-leather chaps",
+  "desc": "Chaps made out of frog hide.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10956,
+  "asStackable": 10957,
+  "value": 1,
+  "highAlch": 540,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -5,
+    2,
+    7,
+    7,
+    9,
+    4,
+    9,
+    0,
+    0
+  ]
+}

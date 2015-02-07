@@ -1,0 +1,27 @@
+{
+  "name": "Lobster",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 379,
+  "asStackable": 380,
+  "value": 1,
+  "highAlch": 160,
+  "lowAlch": 106,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Bronze 2h sword",
+  "desc": "A two handed sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1307,
+  "asStackable": 1308,
+  "value": 80,
+  "highAlch": 48,
+  "lowAlch": 32,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    9,
+    8,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    10,
+    0
+  ]
+}

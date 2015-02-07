@@ -1,0 +1,27 @@
+{
+  "name": "Yak-hide armour",
+  "desc": "Smelly yak body armour.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10822,
+  "asStackable": 10823,
+  "value": 225,
+  "highAlch": 236,
+  "lowAlch": 225,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Black boater",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7327,
+  "asStackable": 7328,
+  "value": 1,
+  "highAlch": 135,
+  "lowAlch": 90,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

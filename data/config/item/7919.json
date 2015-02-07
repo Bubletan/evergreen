@@ -1,0 +1,27 @@
+{
+  "name": "Bottle of wine",
+  "desc": "A very good vintage.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7919,
+  "asStackable": 7920,
+  "value": 500,
+  "highAlch": 300,
+  "lowAlch": 200,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

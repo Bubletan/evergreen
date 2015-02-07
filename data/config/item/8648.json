@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany \u0027scope",
+  "desc": "A ready-to-assemble mahogany telescope.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8648,
+  "asStackable": 8649,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

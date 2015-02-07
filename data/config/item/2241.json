@@ -1,0 +1,27 @@
+{
+  "name": "Premade s\u0027y crunch",
+  "desc": "Some premade Spicy Crunchies.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2241,
+  "asStackable": 2242,
+  "value": 85,
+  "highAlch": 51,
+  "lowAlch": 34,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

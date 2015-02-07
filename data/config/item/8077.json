@@ -1,0 +1,27 @@
+{
+  "name": "Decorative window",
+  "desc": "Decorative chapel window",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8077,
+  "asStackable": -1,
+  "value": 243,
+  "highAlch": 255,
+  "lowAlch": 231,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

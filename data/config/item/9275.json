@@ -1,0 +1,27 @@
+{
+  "name": "null",
+  "desc": "Steel crossbow bolts.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 9275,
+  "value": 4,
+  "highAlch": 5,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

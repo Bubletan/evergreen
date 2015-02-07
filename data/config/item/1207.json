@@ -1,0 +1,27 @@
+{
+  "name": "Steel dagger",
+  "desc": "Short but pointy.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1207,
+  "asStackable": 1208,
+  "value": 125,
+  "highAlch": 75,
+  "lowAlch": 50,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    4,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    7,
+    0
+  ]
+}

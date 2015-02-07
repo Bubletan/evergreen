@@ -1,0 +1,27 @@
+{
+  "name": "Ivory comb",
+  "desc": "Simon Templeton at the Agility Pyramid will give me 50 coins for this.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9026,
+  "asStackable": 9027,
+  "value": 90,
+  "highAlch": 95,
+  "lowAlch": 85,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

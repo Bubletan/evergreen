@@ -1,0 +1,27 @@
+{
+  "name": "Dragon mace",
+  "desc": "A spiky mace.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1434,
+  "asStackable": 1435,
+  "value": 50000,
+  "highAlch": 30000,
+  "lowAlch": 20000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    40,
+    -2,
+    60,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    55,
+    0
+  ]
+}

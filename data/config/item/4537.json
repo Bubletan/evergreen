@@ -1,0 +1,27 @@
+{
+  "name": "Oil lantern",
+  "desc": "An unlit oil lantern.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4537,
+  "asStackable": 4538,
+  "value": 125,
+  "highAlch": 75,
+  "lowAlch": 50,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

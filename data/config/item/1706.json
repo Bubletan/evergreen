@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of glory(1)",
+  "desc": "A dragonstone amulet with 1 magic charge.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1706,
+  "asStackable": 1707,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    3,
+    3,
+    3,
+    3,
+    3,
+    6,
+    3
+  ]
+}

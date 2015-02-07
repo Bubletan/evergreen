@@ -1,0 +1,27 @@
+{
+  "name": "Rune platebody (t)",
+  "desc": "There are some now!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 10801,
+  "value": 81250,
+  "highAlch": 39000,
+  "lowAlch": 26000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

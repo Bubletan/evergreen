@@ -1,0 +1,27 @@
+{
+  "name": "Leather chaps",
+  "desc": "Better than no armour!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1095,
+  "asStackable": 1096,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0
+  ]
+}

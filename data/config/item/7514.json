@@ -1,0 +1,27 @@
+{
+  "name": "Dyed orange",
+  "desc": "Orange slices which have been dyed, but it looks more like they died.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7514,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

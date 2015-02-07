@@ -1,0 +1,27 @@
+{
+  "name": "Cactus spine",
+  "desc": "Don\u0027t prick yourself with this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6016,
+  "asStackable": 6017,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

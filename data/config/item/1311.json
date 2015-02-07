@@ -1,0 +1,27 @@
+{
+  "name": "Steel 2h sword",
+  "desc": "A two handed sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1311,
+  "asStackable": 1312,
+  "value": 1000,
+  "highAlch": 600,
+  "lowAlch": 400,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    21,
+    16,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    22,
+    0
+  ]
+}

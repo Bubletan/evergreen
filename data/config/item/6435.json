@@ -1,0 +1,27 @@
+{
+  "name": "Law rune",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 6434,
+  "asStackable": 6435,
+  "value": 1,
+  "highAlch": 144,
+  "lowAlch": 96,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

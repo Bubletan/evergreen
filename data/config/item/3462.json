@@ -1,0 +1,27 @@
+{
+  "name": "Black key crimson",
+  "desc": "A black key with a crimson painted eyelet.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3462,
+  "asStackable": -1,
+  "value": 94,
+  "highAlch": 56,
+  "lowAlch": 37,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

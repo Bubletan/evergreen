@@ -1,0 +1,27 @@
+{
+  "name": "Green d\u0027hide chaps",
+  "desc": "Made from 100% real dragonhide.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1099,
+  "asStackable": 1100,
+  "value": 1,
+  "highAlch": 700,
+  "lowAlch": 230,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -10,
+    8,
+    22,
+    16,
+    24,
+    8,
+    22,
+    0,
+    0
+  ]
+}

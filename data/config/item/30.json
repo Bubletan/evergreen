@@ -1,0 +1,27 @@
+{
+  "name": "Bucket of wax",
+  "desc": "It\u0027s a bucket of wax.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 30,
+  "asStackable": 31,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

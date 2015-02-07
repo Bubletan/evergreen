@@ -1,0 +1,27 @@
+{
+  "name": "Potato with butter",
+  "desc": "A baked potato with butter.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6703,
+  "asStackable": 6704,
+  "value": 9,
+  "highAlch": 5,
+  "lowAlch": 3,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

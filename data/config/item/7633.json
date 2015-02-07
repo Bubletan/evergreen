@@ -1,0 +1,27 @@
+{
+  "name": "Ancient book",
+  "desc": "A book about seven warrior priests, written about 200 years ago.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7633,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

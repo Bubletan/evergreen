@@ -1,0 +1,27 @@
+{
+  "name": "Dramen staff",
+  "desc": "A limb of the fabled Dramen tree.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 772,
+  "asStackable": -1,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -1,
+    -1,
+    10,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    0,
+    0
+  ]
+}

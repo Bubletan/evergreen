@@ -1,0 +1,27 @@
+{
+  "name": "Bag of salt",
+  "desc": "A bag of salt.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 4161,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

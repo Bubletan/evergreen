@@ -1,0 +1,27 @@
+{
+  "name": "Bonemeal",
+  "desc": "A pot of crushed small zombie monkey bones.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4268,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

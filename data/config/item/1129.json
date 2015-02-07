@@ -1,0 +1,27 @@
+{
+  "name": "Leather body",
+  "desc": "Better than no armour!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1129,
+  "asStackable": 1130,
+  "value": 22,
+  "highAlch": 13,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -2,
+    2,
+    8,
+    9,
+    10,
+    4,
+    9,
+    0,
+    0
+  ]
+}

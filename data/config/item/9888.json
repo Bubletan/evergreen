@@ -1,0 +1,27 @@
+{
+  "name": "Teak tr\u0027sure chest",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9863,
+  "asStackable": 9888,
+  "value": 1,
+  "highAlch": 432,
+  "lowAlch": 390,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

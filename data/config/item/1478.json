@@ -1,0 +1,27 @@
+{
+  "name": "Amulet of accuracy",
+  "desc": "It increases my aim.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1478,
+  "asStackable": 1479,
+  "value": 100,
+  "highAlch": 60,
+  "lowAlch": 40,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

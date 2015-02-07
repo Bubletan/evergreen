@@ -1,0 +1,27 @@
+{
+  "name": "Burnt cake",
+  "desc": "Argh what a mess!",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1903,
+  "asStackable": 1904,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

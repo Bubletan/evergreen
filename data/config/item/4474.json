@@ -1,0 +1,27 @@
+{
+  "name": "Herb tea mix",
+  "desc": "An unfinished herb tea made up of water and 2 doses of guam.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4474,
+  "asStackable": 4475,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

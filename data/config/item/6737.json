@@ -1,0 +1,27 @@
+{
+  "name": "Berserker ring",
+  "desc": "A ring reputed to bring out a berserk fury in its wearer.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6737,
+  "asStackable": 6738,
+  "value": 16667,
+  "highAlch": 10000,
+  "lowAlch": 6666,
+  "weight": 0.0,
+  "equipSlot": 9,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    4,
+    0
+  ]
+}

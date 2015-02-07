@@ -1,0 +1,27 @@
+{
+  "name": "Sapphire bolt tips",
+  "desc": "Sapphire bolt tips.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 9189,
+  "value": 67,
+  "highAlch": 31,
+  "lowAlch": 21,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

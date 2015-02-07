@@ -1,0 +1,27 @@
+{
+  "name": "Skewered chompy",
+  "desc": "A skewered chompy bird.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7230,
+  "asStackable": 7235,
+  "value": 149,
+  "highAlch": 89,
+  "lowAlch": 59,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

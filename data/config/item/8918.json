@@ -1,0 +1,27 @@
+{
+  "name": "Black mask (2)",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8917,
+  "asStackable": 8918,
+  "value": 1,
+  "highAlch": 955400,
+  "lowAlch": 864400,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

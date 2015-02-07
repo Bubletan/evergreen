@@ -1,0 +1,27 @@
+{
+  "name": "Bronze dagger",
+  "desc": "Short but pointy.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1205,
+  "asStackable": 1206,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    2,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3,
+    0
+  ]
+}

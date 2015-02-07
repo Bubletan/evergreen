@@ -1,0 +1,27 @@
+{
+  "name": "Weeds",
+  "desc": "A handful of weeds.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6055,
+  "asStackable": 6056,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

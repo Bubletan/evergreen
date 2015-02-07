@@ -1,0 +1,27 @@
+{
+  "name": "M\u0027light mead(m3)",
+  "desc": "This keg contains 3 pints of mature Moonlight Mead.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5895,
+  "asStackable": 5896,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Cooked meat",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4293,
+  "asStackable": 4294,
+  "value": 1,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

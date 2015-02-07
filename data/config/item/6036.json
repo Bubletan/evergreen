@@ -1,0 +1,27 @@
+{
+  "name": "Plant cure",
+  "desc": "Use this on plants to cure disease.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6036,
+  "asStackable": 6037,
+  "value": 40,
+  "highAlch": 24,
+  "lowAlch": 16,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

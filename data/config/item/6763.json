@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin mjolnir",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6762,
+  "asStackable": 6763,
+  "value": 1,
+  "highAlch": 625,
+  "lowAlch": 416,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Cleaver",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7451,
+  "asStackable": 7452,
+  "value": 1,
+  "highAlch": 15360,
+  "lowAlch": 10240,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

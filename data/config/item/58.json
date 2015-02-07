@@ -1,0 +1,27 @@
+{
+  "name": "Willow longbow (u)",
+  "desc": "An unstrung willow longbow; I need a bowstring for this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 58,
+  "asStackable": 59,
+  "value": 160,
+  "highAlch": 96,
+  "lowAlch": 64,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

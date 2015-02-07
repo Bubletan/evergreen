@@ -1,0 +1,27 @@
+{
+  "name": "Tzhaar-ket-em",
+  "desc": "A mace of obsidian.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6527,
+  "asStackable": 6539,
+  "value": 30000,
+  "highAlch": 18000,
+  "lowAlch": 12000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    -4,
+    62,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    56,
+    0
+  ]
+}

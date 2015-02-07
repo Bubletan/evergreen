@@ -1,0 +1,27 @@
+{
+  "name": "Rune platebody (g)",
+  "desc": "Rune platebody with gold trim.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10798,
+  "asStackable": 2616,
+  "value": 82550,
+  "highAlch": 39000,
+  "lowAlch": 26000,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

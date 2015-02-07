@@ -1,0 +1,27 @@
+{
+  "name": "Bagged nice tree",
+  "desc": "You can plant this in your garden.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8419,
+  "asStackable": 8420,
+  "value": 1,
+  "highAlch": 1200,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

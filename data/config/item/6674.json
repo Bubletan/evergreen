@@ -1,0 +1,27 @@
+{
+  "name": "Tiny net",
+  "desc": "A tiny net for grabbing tiny fish.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6674,
+  "asStackable": -1,
+  "value": 10,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

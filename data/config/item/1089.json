@@ -1,0 +1,27 @@
+{
+  "name": "Black plateskirt",
+  "desc": "Designer leg protection.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1089,
+  "asStackable": 1090,
+  "value": 1920,
+  "highAlch": 1152,
+  "lowAlch": 768,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -21,
+    -7,
+    21,
+    20,
+    19,
+    -4,
+    20,
+    0,
+    0
+  ]
+}

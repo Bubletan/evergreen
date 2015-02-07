@@ -1,0 +1,27 @@
+{
+  "name": "Bronze javelin(p)",
+  "desc": "A bronze tipped javelin.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 831,
+  "value": 4,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

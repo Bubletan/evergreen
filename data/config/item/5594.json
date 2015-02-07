@@ -1,0 +1,27 @@
+{
+  "name": "Tin",
+  "desc": "There is an impression of a key embedded in it.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5594,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

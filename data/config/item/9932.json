@@ -1,0 +1,27 @@
+{
+  "name": "Auguste\u0027s sapling",
+  "desc": "This sapling is ready to be replanted in a tree patch.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9932,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

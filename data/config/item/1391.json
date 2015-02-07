@@ -1,0 +1,27 @@
+{
+  "name": "Battlestaff",
+  "desc": "It\u0027s a slightly magical stick.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1391,
+  "asStackable": 1392,
+  "value": 7000,
+  "highAlch": 4200,
+  "lowAlch": 2800,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    7,
+    -1,
+    25,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    32,
+    0
+  ]
+}

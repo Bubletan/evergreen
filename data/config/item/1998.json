@@ -1,0 +1,27 @@
+{
+  "name": "Incomplete stew",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1997,
+  "asStackable": 1998,
+  "value": 1,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

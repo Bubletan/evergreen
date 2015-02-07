@@ -1,0 +1,27 @@
+{
+  "name": "Silver feather",
+  "desc": "An intricate feather crafted from a silver-coloured metal of some sort.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10176,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

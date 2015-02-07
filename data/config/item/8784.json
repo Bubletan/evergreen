@@ -1,0 +1,27 @@
+{
+  "name": "Gold leaf",
+  "desc": "A very delicate sheet of gold.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8784,
+  "asStackable": 8785,
+  "value": 162500,
+  "highAlch": 78000,
+  "lowAlch": 52000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

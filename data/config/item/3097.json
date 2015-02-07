@@ -1,0 +1,27 @@
+{
+  "name": "Steel claws",
+  "desc": "A set of fighting claws.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3097,
+  "asStackable": 3117,
+  "value": 175,
+  "highAlch": 105,
+  "lowAlch": 70,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    11,
+    -4,
+    0,
+    0,
+    3,
+    6,
+    2,
+    0,
+    0,
+    12,
+    0
+  ]
+}

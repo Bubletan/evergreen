@@ -1,0 +1,27 @@
+{
+  "name": "Mixture - step 2(1)",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10923,
+  "asStackable": 10924,
+  "value": 1,
+  "highAlch": 2274,
+  "lowAlch": 2058,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

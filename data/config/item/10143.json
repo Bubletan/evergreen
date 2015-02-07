@@ -1,0 +1,27 @@
+{
+  "name": "Marrentill tar",
+  "desc": "A thick, foul-smelling, tar-like substance with an orange tinge.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 10143,
+  "value": 40,
+  "highAlch": 42,
+  "lowAlch": 38,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    22
+  ]
+}

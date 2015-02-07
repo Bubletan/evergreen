@@ -1,0 +1,27 @@
+{
+  "name": "Timber beam",
+  "desc": "A hefty beam of timber, perfect for building temples.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8837,
+  "asStackable": 8838,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

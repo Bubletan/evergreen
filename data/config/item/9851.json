@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany toy box",
+  "desc": "A ready-to-assemble mahogany toy box.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9851,
+  "asStackable": 9876,
+  "value": 453,
+  "highAlch": 476,
+  "lowAlch": 430,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

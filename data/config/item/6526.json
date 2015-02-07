@@ -1,0 +1,27 @@
+{
+  "name": "Toktz-mej-tal",
+  "desc": "A staff of obsidian.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6526,
+  "asStackable": 6538,
+  "value": 35000,
+  "highAlch": 21000,
+  "lowAlch": 14000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    15,
+    -1,
+    55,
+    15,
+    0,
+    10,
+    15,
+    5,
+    15,
+    0,
+    55,
+    0
+  ]
+}

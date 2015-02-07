@@ -1,0 +1,27 @@
+{
+  "name": "Yew shortbow",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 857,
+  "asStackable": 858,
+  "value": 1,
+  "highAlch": 480,
+  "lowAlch": 320,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

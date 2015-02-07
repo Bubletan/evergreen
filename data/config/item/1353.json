@@ -1,0 +1,27 @@
+{
+  "name": "Steel axe",
+  "desc": "A woodcutter\u0027s hatchet.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1353,
+  "asStackable": 1354,
+  "value": 1,
+  "highAlch": 81,
+  "lowAlch": 81,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    8,
+    6,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    9,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Black warhammer",
+  "desc": "I don\u0027t think it\u0027s intended for joinery.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1341,
+  "asStackable": 1342,
+  "value": 1274,
+  "highAlch": 764,
+  "lowAlch": 509,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    -4,
+    22,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    19,
+    0
+  ]
+}

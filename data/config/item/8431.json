@@ -1,0 +1,27 @@
+{
+  "name": "Bagged plant 1",
+  "desc": "You can plant this in your garden.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8431,
+  "asStackable": 8432,
+  "value": 1270,
+  "highAlch": 600,
+  "lowAlch": 400,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

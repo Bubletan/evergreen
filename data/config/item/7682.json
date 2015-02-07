@@ -1,0 +1,27 @@
+{
+  "name": "Hoop",
+  "desc": "Try to throw it over the stick.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 7682,
+  "asStackable": 7683,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

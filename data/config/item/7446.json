@@ -1,0 +1,27 @@
+{
+  "name": "Rolling pin",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7445,
+  "asStackable": 7446,
+  "value": 1,
+  "highAlch": 8640,
+  "lowAlch": 5760,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

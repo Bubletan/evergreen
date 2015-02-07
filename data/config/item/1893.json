@@ -1,0 +1,27 @@
+{
+  "name": "2/3 cake",
+  "desc": "Someone has eaten a big chunk of this cake.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1893,
+  "asStackable": 1894,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Oak door",
+  "desc": "Oak dungeon door",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8122,
+  "asStackable": -1,
+  "value": 342,
+  "highAlch": 359,
+  "lowAlch": 325,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

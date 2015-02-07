@@ -1,0 +1,27 @@
+{
+  "name": "Palm leaf",
+  "desc": "A thick green palm leaf used by natives to cook meat in.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2339,
+  "asStackable": 2340,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Black claws",
+  "desc": "A set of fighting claws.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3098,
+  "asStackable": 3118,
+  "value": 360,
+  "highAlch": 216,
+  "lowAlch": 144,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    14,
+    -4,
+    0,
+    0,
+    4,
+    7,
+    2,
+    0,
+    0,
+    14,
+    0
+  ]
+}

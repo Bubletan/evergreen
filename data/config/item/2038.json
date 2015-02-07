@@ -1,0 +1,27 @@
+{
+  "name": "Premade sgg",
+  "desc": "A premade Short Green Guy.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2038,
+  "asStackable": 2039,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

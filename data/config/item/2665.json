@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin full",
+  "desc": "Rune full helmet in the colours of Saradomin.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 2665,
+  "asStackable": 2666,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

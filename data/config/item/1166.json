@@ -1,0 +1,27 @@
+{
+  "name": "Black full helm",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1165,
+  "asStackable": 1166,
+  "value": 1,
+  "highAlch": 634,
+  "lowAlch": 422,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

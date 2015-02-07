@@ -1,0 +1,27 @@
+{
+  "name": "Unstrung emblem",
+  "desc": "It needs a string so I can wear it.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1720,
+  "asStackable": 1721,
+  "value": 200,
+  "highAlch": 120,
+  "lowAlch": 80,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Steel battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1365,
+  "asStackable": 1366,
+  "value": 650,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    16,
+    11,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    20,
+    0
+  ]
+}

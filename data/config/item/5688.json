@@ -1,0 +1,27 @@
+{
+  "name": "Br\u0027ze dagger(p++)",
+  "desc": "This dagger is poisoned.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5688,
+  "asStackable": 5689,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    4,
+    2,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    3,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Bronze spear(p)",
+  "desc": "A poisoned bronze tipped spear.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1251,
+  "asStackable": 1252,
+  "value": 27,
+  "highAlch": 16,
+  "lowAlch": 10,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    5,
+    5,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    6,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Adamant pickaxe",
+  "desc": "Used for mining.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1271,
+  "asStackable": 1272,
+  "value": 3200,
+  "highAlch": 1920,
+  "lowAlch": 1280,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    17,
+    -2,
+    15,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    19,
+    0
+  ]
+}

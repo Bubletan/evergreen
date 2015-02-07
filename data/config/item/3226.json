@@ -1,0 +1,27 @@
+{
+  "name": "Raw rabbit",
+  "desc": "Might taste better cooked.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3226,
+  "asStackable": 3227,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Mature cider",
+  "desc": "This looks a good deal stronger than normal cider.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 5765,
+  "asStackable": 5766,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

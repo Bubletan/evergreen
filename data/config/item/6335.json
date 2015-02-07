@@ -1,0 +1,27 @@
+{
+  "name": "Tribal mask",
+  "desc": "A ceremonial wooden mask.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6335,
+  "asStackable": 6336,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

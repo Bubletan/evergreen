@@ -1,0 +1,27 @@
+{
+  "name": "Toktz-xil-ul",
+  "desc": "A razor sharp ring of obsidian.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 6522,
+  "value": 250,
+  "highAlch": 150,
+  "lowAlch": 100,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    69,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    49
+  ]
+}

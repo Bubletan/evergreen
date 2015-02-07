@@ -1,0 +1,27 @@
+{
+  "name": "Adamant dagger",
+  "desc": "Short and deadly.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1211,
+  "asStackable": 1212,
+  "value": 800,
+  "highAlch": 480,
+  "lowAlch": 320,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    15,
+    8,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    14,
+    0
+  ]
+}

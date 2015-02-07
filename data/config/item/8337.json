@@ -1,0 +1,27 @@
+{
+  "name": "Teak eagle lectern",
+  "desc": "Teak eagle lectern",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8337,
+  "asStackable": 8541,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

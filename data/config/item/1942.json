@@ -1,0 +1,27 @@
+{
+  "name": "Potato",
+  "desc": "This could be used to make a good stew.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1942,
+  "asStackable": 1943,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

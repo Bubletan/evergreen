@@ -1,0 +1,27 @@
+{
+  "name": "Kitchen knife",
+  "desc": "A sharp, dependable knife, for filleting meat.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7447,
+  "asStackable": 7448,
+  "value": 8000,
+  "highAlch": 4800,
+  "lowAlch": 3200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    25,
+    12,
+    -4,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    24,
+    0
+  ]
+}

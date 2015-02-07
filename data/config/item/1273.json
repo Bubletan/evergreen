@@ -1,0 +1,27 @@
+{
+  "name": "Mithril pickaxe",
+  "desc": "Used for mining.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1273,
+  "asStackable": 1274,
+  "value": 1300,
+  "highAlch": 780,
+  "lowAlch": 520,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    12,
+    -2,
+    10,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    13,
+    0
+  ]
+}

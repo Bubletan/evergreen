@@ -1,0 +1,27 @@
+{
+  "name": "Adamant axe head",
+  "desc": "Useless.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 518,
+  "asStackable": 519,
+  "value": 1279,
+  "highAlch": 767,
+  "lowAlch": 511,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Zamorak banner",
+  "desc": "The Zamorak Team Standard.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4039,
+  "asStackable": 4040,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

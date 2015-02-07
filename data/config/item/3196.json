@@ -1,0 +1,27 @@
+{
+  "name": "Black halberd",
+  "desc": "A black halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3196,
+  "asStackable": 3197,
+  "value": 1920,
+  "highAlch": 1152,
+  "lowAlch": 768,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    19,
+    25,
+    0,
+    -4,
+    0,
+    -1,
+    2,
+    3,
+    0,
+    0,
+    20,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Yew shortbow (u)",
+  "desc": "An unstrung yew shortbow; I need a bowstring for this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 68,
+  "asStackable": 69,
+  "value": 400,
+  "highAlch": 240,
+  "lowAlch": 160,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

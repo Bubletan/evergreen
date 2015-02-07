@@ -1,0 +1,27 @@
+{
+  "name": "Half made batta",
+  "desc": "This fruit batta needs baking and garnishing with spice.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9478,
+  "asStackable": -1,
+  "value": 77,
+  "highAlch": 80,
+  "lowAlch": 74,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

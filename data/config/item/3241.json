@@ -1,0 +1,27 @@
+{
+  "name": "Man",
+  "desc": "One of RuneScape\u0027s many citizens.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 3241,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

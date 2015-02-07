@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany eagle",
+  "desc": "A ready-to-assemble mahogany eagle lectern.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8544,
+  "asStackable": 8545,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Silver pot",
+  "desc": "A silver pot made by Ruantun filled with your blood.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4660,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

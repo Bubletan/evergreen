@@ -1,0 +1,27 @@
+{
+  "name": "Robin hood hat",
+  "desc": "Endorsed by Robin Hood.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2581,
+  "asStackable": 2582,
+  "value": 450,
+  "highAlch": 270,
+  "lowAlch": 180,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -10,
+    8,
+    4,
+    6,
+    8,
+    4,
+    4,
+    0,
+    0
+  ]
+}

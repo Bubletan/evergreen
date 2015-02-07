@@ -1,0 +1,27 @@
+{
+  "name": "Man trap",
+  "desc": "Man trap",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8144,
+  "asStackable": -1,
+  "value": 268,
+  "highAlch": 281,
+  "lowAlch": 255,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

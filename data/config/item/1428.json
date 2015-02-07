@@ -1,0 +1,27 @@
+{
+  "name": "Mithril mace",
+  "desc": "A spiky mace.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1428,
+  "asStackable": 1429,
+  "value": 585,
+  "highAlch": 351,
+  "lowAlch": 234,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    11,
+    -2,
+    18,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    16,
+    0
+  ]
+}

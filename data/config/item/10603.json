@@ -1,0 +1,27 @@
+{
+  "name": "Mystic hat",
+  "desc": "A bright magical hat.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10603,
+  "asStackable": 4090,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Pestle and mortar",
+  "desc": "I can grind things for potions in this.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 233,
+  "asStackable": 234,
+  "value": 4,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

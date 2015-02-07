@@ -1,0 +1,27 @@
+{
+  "name": "Enchant ruby",
+  "desc": "A tablet containing a magic spell.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 8018,
+  "value": 761,
+  "highAlch": 799,
+  "lowAlch": 723,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

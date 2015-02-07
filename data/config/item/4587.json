@@ -1,0 +1,27 @@
+{
+  "name": "Dragon scimitar",
+  "desc": "A vicious, curved sword.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4587,
+  "asStackable": 4588,
+  "value": 100000,
+  "highAlch": 60000,
+  "lowAlch": 40000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    8,
+    67,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    66,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Super attack(2)",
+  "desc": "2 doses of super Attack potion.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 147,
+  "asStackable": 148,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

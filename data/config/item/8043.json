@@ -1,0 +1,27 @@
+{
+  "name": "Mahogany \u0027drobe",
+  "desc": "Mahogany wardrobe (bedroom)",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8043,
+  "asStackable": 8621,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

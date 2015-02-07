@@ -1,0 +1,27 @@
+{
+  "name": "Digsite pendant (2)",
+  "desc": "An enchanted necklace.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 11191,
+  "asStackable": -1,
+  "value": 44,
+  "highAlch": 46,
+  "lowAlch": 42,
+  "weight": 0.0,
+  "equipSlot": 2,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

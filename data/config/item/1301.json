@@ -1,0 +1,27 @@
+{
+  "name": "Adamant longsword",
+  "desc": "A razor sharp longsword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1301,
+  "asStackable": 1302,
+  "value": 3200,
+  "highAlch": 1920,
+  "lowAlch": 1280,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    20,
+    29,
+    -2,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    31,
+    0
+  ]
+}

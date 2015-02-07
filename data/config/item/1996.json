@@ -1,0 +1,27 @@
+{
+  "name": "Unfermented wine",
+  "desc": "This wine needs to ferment before it can be drunk.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1995,
+  "asStackable": 1996,
+  "value": 1,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

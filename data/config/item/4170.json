@@ -1,0 +1,27 @@
+{
+  "name": "Slayer\u0027s staff",
+  "desc": "An old and magical staff.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4170,
+  "asStackable": 4171,
+  "value": 21000,
+  "highAlch": 12600,
+  "lowAlch": 8400,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    7,
+    -1,
+    25,
+    12,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    35,
+    0
+  ]
+}

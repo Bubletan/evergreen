@@ -1,0 +1,27 @@
+{
+  "name": "Ice gloves",
+  "desc": "These will keep my hands cold!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1580,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

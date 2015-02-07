@@ -1,0 +1,27 @@
+{
+  "name": "Thatch spar dense",
+  "desc": "A wooden pole for use in primitive construction.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6285,
+  "asStackable": 6286,
+  "value": 20,
+  "highAlch": 12,
+  "lowAlch": 8,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

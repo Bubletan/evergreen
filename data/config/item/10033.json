@@ -1,0 +1,27 @@
+{
+  "name": "Chinchompa",
+  "desc": "Handle with care.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 10033,
+  "value": 178,
+  "highAlch": 84,
+  "lowAlch": 56,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    45,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

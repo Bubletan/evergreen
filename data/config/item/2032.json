@@ -1,0 +1,27 @@
+{
+  "name": "Premade dr\u0027 dragon",
+  "desc": "A premade Drunk Dragon.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2032,
+  "asStackable": 2033,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

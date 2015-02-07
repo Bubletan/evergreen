@@ -1,0 +1,27 @@
+{
+  "name": "Barley",
+  "desc": "A handful of Barley.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6006,
+  "asStackable": 6007,
+  "value": 4,
+  "highAlch": 2,
+  "lowAlch": 1,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

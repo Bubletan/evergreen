@@ -1,0 +1,27 @@
+{
+  "name": "Gloves",
+  "desc": "A pair of very nice gloves.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7460,
+  "asStackable": -1,
+  "value": 80000,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 7,
+  "equipBonus": [
+    9,
+    9,
+    9,
+    5,
+    9,
+    9,
+    9,
+    9,
+    5,
+    9,
+    9,
+    0
+  ]
+}

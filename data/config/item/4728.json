@@ -1,0 +1,27 @@
+{
+  "name": "Guthans platebody",
+  "desc": "Guthan the Infested\u0027s platebody armour.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4728,
+  "asStackable": 4729,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -30,
+    -10,
+    122,
+    120,
+    107,
+    -6,
+    132,
+    0,
+    0
+  ]
+}

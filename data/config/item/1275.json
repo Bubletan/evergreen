@@ -1,0 +1,27 @@
+{
+  "name": "Rune pickaxe",
+  "desc": "Used for mining.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1275,
+  "asStackable": 1276,
+  "value": 32000,
+  "highAlch": 19200,
+  "lowAlch": 12800,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    26,
+    -2,
+    24,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    29,
+    0
+  ]
+}

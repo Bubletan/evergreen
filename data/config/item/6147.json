@@ -1,0 +1,27 @@
+{
+  "name": "Skeletal boots",
+  "desc": "Some finely crafted Fremennik boots, made from the bones of a wallasalki.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6147,
+  "asStackable": 6148,
+  "value": 650,
+  "highAlch": 390,
+  "lowAlch": 260,
+  "weight": 0.0,
+  "equipSlot": 8,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ]
+}

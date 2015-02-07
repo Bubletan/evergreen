@@ -1,0 +1,27 @@
+{
+  "name": "Pineapple punch",
+  "desc": "A fresh healthy fruit mix.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 2048,
+  "asStackable": 2049,
+  "value": 30,
+  "highAlch": 18,
+  "lowAlch": 12,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

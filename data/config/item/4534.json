@@ -1,0 +1,27 @@
+{
+  "name": "Candle lantern",
+  "desc": "A flickering candle in a glass cage.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4534,
+  "asStackable": -1,
+  "value": 15,
+  "highAlch": 9,
+  "lowAlch": 6,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

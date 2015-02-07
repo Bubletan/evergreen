@@ -1,0 +1,27 @@
+{
+  "name": "Carved teak bench",
+  "desc": "A ready-to-assemble carved teak dining bench.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 8570,
+  "asStackable": 8571,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

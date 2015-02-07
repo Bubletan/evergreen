@@ -1,0 +1,27 @@
+{
+  "name": "Mithril sword",
+  "desc": "A razor sharp sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1285,
+  "asStackable": 1286,
+  "value": 845,
+  "highAlch": 507,
+  "lowAlch": 338,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    16,
+    11,
+    -2,
+    0,
+    0,
+    0,
+    2,
+    1,
+    0,
+    0,
+    17,
+    0
+  ]
+}

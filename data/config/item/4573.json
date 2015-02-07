@@ -1,0 +1,27 @@
+{
+  "name": "Pages",
+  "desc": "A collection of missing pages from Rolad\u0027s book!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4573,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

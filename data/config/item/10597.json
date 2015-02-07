@@ -1,0 +1,27 @@
+{
+  "name": "Mission report",
+  "desc": "Zoo penguin\u0027s report.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10597,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

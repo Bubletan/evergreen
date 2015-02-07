@@ -1,0 +1,27 @@
+{
+  "name": "Water battlestaff",
+  "desc": "It\u0027s a slightly magical stick.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 1395,
+  "asStackable": 1396,
+  "value": 15500,
+  "highAlch": 9300,
+  "lowAlch": 6200,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    10,
+    -1,
+    28,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    35,
+    0
+  ]
+}

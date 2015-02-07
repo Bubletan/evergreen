@@ -1,0 +1,27 @@
+{
+  "name": "Compost potion(4)",
+  "desc": "Pour this on compost to turn it into super-compost.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6470,
+  "asStackable": 6471,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

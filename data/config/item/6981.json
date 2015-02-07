@@ -1,0 +1,27 @@
+{
+  "name": "Granite (2kg)",
+  "desc": "A small chunk of granite.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 6981,
+  "asStackable": 6982,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

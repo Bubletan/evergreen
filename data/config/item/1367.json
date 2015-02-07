@@ -1,0 +1,27 @@
+{
+  "name": "Black battleaxe",
+  "desc": "A vicious looking axe.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1367,
+  "asStackable": 1368,
+  "value": 1249,
+  "highAlch": 749,
+  "lowAlch": 499,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -2,
+    20,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    24,
+    0
+  ]
+}

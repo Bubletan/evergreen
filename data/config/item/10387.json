@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin d\u0027hide",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10386,
+  "asStackable": 10387,
+  "value": 1,
+  "highAlch": 7800,
+  "lowAlch": 5200,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

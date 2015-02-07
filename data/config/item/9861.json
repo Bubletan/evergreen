@@ -1,0 +1,27 @@
+{
+  "name": "M\u0027 armour case",
+  "desc": "A ready-to-assemble mahogany armour case.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9861,
+  "asStackable": 9886,
+  "value": 464,
+  "highAlch": 487,
+  "lowAlch": 441,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

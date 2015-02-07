@@ -8,6 +8,7 @@ import eg.global.InitializationTask;
 import eg.global.ProcessMinutelyTask;
 import eg.global.ProcessTask;
 import eg.global.ShutdownHookTask;
+import eg.model.item.ItemType;
 import eg.net.GameServer;
 import eg.util.task.Task;
 import eg.util.task.Tasks;

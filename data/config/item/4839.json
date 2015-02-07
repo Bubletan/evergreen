@@ -1,0 +1,27 @@
+{
+  "name": "Ogre gate key",
+  "desc": "A key to some sort of special tomb area.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4839,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

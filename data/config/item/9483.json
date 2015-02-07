@@ -1,0 +1,27 @@
+{
+  "name": "Half made batta",
+  "desc": "This cheese and tom batta needs baking and garnishing with equa leaves.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 9483,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

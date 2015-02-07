@@ -1,0 +1,27 @@
+{
+  "name": "Minced meat",
+  "desc": "A bowl of finely minced meat.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7070,
+  "asStackable": 7071,
+  "value": 7,
+  "highAlch": 4,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

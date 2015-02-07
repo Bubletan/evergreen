@@ -1,0 +1,27 @@
+{
+  "name": "Raw fishlike thing",
+  "desc": "A raw...fish? Is this a fish??",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 6200,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Archer helm",
+  "desc": "This helmet is worn by archers.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3749,
+  "asStackable": 3750,
+  "value": 76667,
+  "highAlch": 46000,
+  "lowAlch": 30666,
+  "weight": 0.0,
+  "equipSlot": 0,
+  "equipBonus": [
+    -5,
+    -5,
+    -5,
+    -5,
+    6,
+    6,
+    8,
+    10,
+    6,
+    6,
+    0,
+    0
+  ]
+}

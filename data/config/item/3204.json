@@ -1,0 +1,27 @@
+{
+  "name": "Dragon halberd",
+  "desc": "A dragon halberd.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 3204,
+  "asStackable": 3205,
+  "value": 325000,
+  "highAlch": 195000,
+  "lowAlch": 130000,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    70,
+    95,
+    0,
+    -4,
+    0,
+    -1,
+    4,
+    5,
+    0,
+    0,
+    89,
+    0
+  ]
+}

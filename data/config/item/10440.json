@@ -1,0 +1,27 @@
+{
+  "name": "Saradomin crozier",
+  "desc": "A Saradomin crozier.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10440,
+  "asStackable": 10441,
+  "value": 6350,
+  "highAlch": 3000,
+  "lowAlch": 2000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    7,
+    -1,
+    25,
+    10,
+    0,
+    2,
+    3,
+    1,
+    10,
+    0,
+    32,
+    0
+  ]
+}

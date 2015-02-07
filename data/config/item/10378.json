@@ -1,0 +1,27 @@
+{
+  "name": "Guthix dragonhide",
+  "desc": "Guthix blessed dragonhide body armour.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10378,
+  "asStackable": 10379,
+  "value": 133000,
+  "highAlch": 139600,
+  "lowAlch": 126300,
+  "weight": 0.0,
+  "equipSlot": 6,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    -15,
+    30,
+    55,
+    47,
+    60,
+    50,
+    55,
+    0,
+    0
+  ]
+}

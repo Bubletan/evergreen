@@ -1,0 +1,27 @@
+{
+  "name": "Frying pan",
+  "desc": "Looks like it\u0027s non-stick too!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7441,
+  "asStackable": 7442,
+  "value": 1660,
+  "highAlch": 996,
+  "lowAlch": 664,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    -4,
+    -4,
+    25,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0
+  ]
+}

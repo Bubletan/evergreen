@@ -1,0 +1,27 @@
+{
+  "name": "Obsidian amulet",
+  "desc": "Triangular in shape, made from obsidian, and as large as your hand.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4188,
+  "asStackable": -1,
+  "value": 2,
+  "highAlch": 1,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

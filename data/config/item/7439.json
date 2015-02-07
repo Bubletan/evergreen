@@ -1,0 +1,27 @@
+{
+  "name": "Spatula",
+  "desc": "A large spatula... of doom!",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7439,
+  "asStackable": 7440,
+  "value": 1280,
+  "highAlch": 768,
+  "lowAlch": 512,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    -4,
+    27,
+    21,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    22,
+    0
+  ]
+}

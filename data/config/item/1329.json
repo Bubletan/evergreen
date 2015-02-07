@@ -1,0 +1,27 @@
+{
+  "name": "Mithril scimitar",
+  "desc": "A vicious, curved sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1329,
+  "asStackable": 1330,
+  "value": 1040,
+  "highAlch": 624,
+  "lowAlch": 416,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    5,
+    21,
+    -2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    20,
+    0
+  ]
+}

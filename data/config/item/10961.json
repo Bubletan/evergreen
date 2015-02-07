@@ -1,0 +1,27 @@
+{
+  "name": "Frogspawn gumbo",
+  "desc": "A big bowl of frogspawn gumbo.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10961,
+  "asStackable": -1,
+  "value": 13,
+  "highAlch": 6,
+  "lowAlch": 4,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

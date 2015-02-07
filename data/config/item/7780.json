@@ -1,0 +1,27 @@
+{
+  "name": "Fishing tome",
+  "desc": "A tome of learning which focuses on Fishing.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7780,
+  "asStackable": -1,
+  "value": 1,
+  "highAlch": 0,
+  "lowAlch": 0,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Adamant 2h sword",
+  "desc": "A two handed sword.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1317,
+  "asStackable": 1318,
+  "value": 6400,
+  "highAlch": 3840,
+  "lowAlch": 2560,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    -4,
+    43,
+    30,
+    -4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    44,
+    0
+  ]
+}

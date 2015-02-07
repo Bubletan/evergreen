@@ -1,0 +1,27 @@
+{
+  "name": "Dragon 2h sword",
+  "desc": "Swap this note at any bank for the equivalent item.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7158,
+  "asStackable": 7407,
+  "value": 1,
+  "highAlch": 132000,
+  "lowAlch": 88000,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

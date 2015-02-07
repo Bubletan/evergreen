@@ -1,0 +1,27 @@
+{
+  "name": "Papaya tree seed",
+  "desc": "Plant in a plantpot of soil to grow a sapling.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": -1,
+  "asStackable": 5288,
+  "value": 115,
+  "highAlch": 69,
+  "lowAlch": 46,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

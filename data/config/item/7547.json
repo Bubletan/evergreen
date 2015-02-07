@@ -1,0 +1,27 @@
+{
+  "name": "Druid pouch",
+  "desc": "A druid pouch.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 7547,
+  "asStackable": -1,
+  "value": 5,
+  "highAlch": 3,
+  "lowAlch": 2,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

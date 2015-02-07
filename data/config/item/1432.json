@@ -1,0 +1,27 @@
+{
+  "name": "Rune mace",
+  "desc": "A spiky mace.",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 1432,
+  "asStackable": 1433,
+  "value": 14400,
+  "highAlch": 8640,
+  "lowAlch": 5760,
+  "weight": 0.0,
+  "equipSlot": 3,
+  "equipBonus": [
+    20,
+    -2,
+    39,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    36,
+    0
+  ]
+}

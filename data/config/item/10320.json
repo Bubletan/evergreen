@@ -1,0 +1,27 @@
+{
+  "name": "Bob shirt",
+  "desc": " Never trade in the wilderness!\u0027",
+  "members": false,
+  "tradable": true,
+  "asNonStackable": 10320,
+  "asStackable": 10317,
+  "value": 5495,
+  "highAlch": 5770,
+  "lowAlch": 5220,
+  "weight": 0.0,
+  "equipSlot": 4,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

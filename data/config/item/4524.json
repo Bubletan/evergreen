@@ -1,0 +1,27 @@
+{
+  "name": "Oil lamp",
+  "desc": "Not the genie sort.",
+  "members": true,
+  "tradable": true,
+  "asNonStackable": 4524,
+  "asStackable": -1,
+  "value": 29,
+  "highAlch": 17,
+  "lowAlch": 11,
+  "weight": 0.0,
+  "equipSlot": -1,
+  "equipBonus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}
