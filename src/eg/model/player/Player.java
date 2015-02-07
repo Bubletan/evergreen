@@ -17,9 +17,12 @@ import eg.net.game.GameSession;
 import eg.net.game.in.ButtonPacket;
 import eg.net.game.in.CommandPacket;
 import eg.net.game.in.MovementPacket;
+import eg.net.game.out.CameraResetPacket;
 import eg.net.game.out.InterfaceTextPacket;
 import eg.net.game.out.MainInterfacePacket;
 import eg.net.game.out.MessagePacket;
+import eg.net.game.out.MulticombatOverlayPacket;
+import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.SidebarInterfacePacket;
 import eg.net.game.out.SystemUpdatePacket;
 import eg.util.Misc;
@@ -96,6 +99,10 @@ public final class Player extends Charactor {
 		this.password = password;
 	}
 	
+	public boolean isMember() {
+		return true;
+	}
+	
 	public int getPrivilege() {
 		return privilege;
 	}
@@ -138,10 +145,8 @@ public final class Player extends Charactor {
 	
 	public void initialize() {
 		
-		// is members and player id
-		session.send(new GamePacket(249, new Buffer(3)
-				.put128PlusByte(1).put128PlusLEShort(getIndex()).getData()));
-		session.send(new GamePacket(107));
+		session.send(new PlayerInitPacket(this));
+		session.send(new CameraResetPacket());
 		
 		message(Config.WELCOMING_MESSAGE);
 		
@@ -200,7 +205,7 @@ public final class Player extends Charactor {
 	}
 	
 	public void multiway(boolean enabled) {
-		session.send(new GamePacket(61, new Buffer(1).putBoolean(enabled).getData()));
+		session.send(new MulticombatOverlayPacket(enabled));
 	}
 	
 	public int headIcon;

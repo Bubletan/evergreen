@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import eg.global.World;
 import eg.net.game.GamePacket;
+import eg.net.game.out.MapLoadingPacket;
+import eg.net.game.out.PlayerSyncPacket;
 import eg.util.io.Buffer;
 import eg.util.task.Task;
 
@@ -30,10 +32,7 @@ public final class PlayerSyncTask implements Task {
 		player.getActions().preSyncProcess();
 		
 		if (player.getMovement().isRegionChanging()) {
-			player.getSession().send(new GamePacket(73, new Buffer(4)
-					.put128PlusShort(player.getCoord().getRegionX())
-					.putShort(player.getCoord().getRegionY())
-					.getData()));
+			player.getSession().send(new MapLoadingPacket(player.getCoord()));
 		}
 	}
 	
@@ -100,7 +99,7 @@ public final class PlayerSyncTask implements Task {
 		} else {
 			buf.endBitAccess();
 		}
-		player.getSession().send(new GamePacket(81, buf.getData(), buf.getPosition()));
+		player.getSession().send(new PlayerSyncPacket(buf));
 	}
 	
 	//TODO: Update not required when only chat has changed.

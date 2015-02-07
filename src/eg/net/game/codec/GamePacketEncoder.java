@@ -7,7 +7,6 @@ import java.util.Map;
 import eg.net.game.AbstractGamePacket;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.AbstractGamePacketEncoderDeclaration;
-import eg.net.game.GamePacket;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
@@ -38,11 +37,7 @@ public final class GamePacketEncoder extends MessageToMessageEncoder<AbstractGam
 	@Override
 	protected void encode(ChannelHandlerContext ctx, AbstractGamePacket in,
 			List<Object> out) throws Exception {
-		if (in instanceof GamePacket) {
-			out.add(in);
-		} else {
-			encode(in.getClass(), in, out);
-		}
+		encode(in.getClass(), in, out);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -53,8 +48,10 @@ public final class GamePacketEncoder extends MessageToMessageEncoder<AbstractGam
 			try {
 				out.add(encoder.encode((T) in));
 			} catch (Exception e) {
-				// Packet could not be encoded.
+				System.err.println("Error encoding packet: " + type.getName());
 			}
+		} else {
+			System.err.println("Unsupported outbound packet type: " + type.getName());
 		}
 	}
 }

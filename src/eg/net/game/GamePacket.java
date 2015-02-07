@@ -2,7 +2,7 @@ package eg.net.game;
 
 import eg.util.io.Buffer;
 
-public final class GamePacket implements AbstractGamePacket {
+public final class GamePacket {
 	
 	private int type;
 	private byte[] data;
