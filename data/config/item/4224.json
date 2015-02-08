@@ -10,18 +10,16 @@
   "lowAlch": 0,
   "weight": 0.0,
   "equipSlot": 5,
-  "equipBonus": [
-    0,
-    0,
-    0,
-    -10,
-    -10,
-    51,
-    54,
-    53,
-    0,
-    80,
-    0,
-    0
-  ]
+  "stabAttackBonus": 0,
+  "slashAttackBonus": 0,
+  "crushAttackBonus": 0,
+  "magicAttackBonus": -10,
+  "rangedAttackBonus": -10,
+  "stabDefenceBonus": 51,
+  "slashDefenceBonus": 54,
+  "crushDefenceBonus": 53,
+  "magicDefenceBonus": 0,
+  "rangedDefenceBonus": 80,
+  "strengthBonus": 0,
+  "prayerBonus": 0
 }

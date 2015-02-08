@@ -1,8 +1,7 @@
 package eg.model.player.div;
 
 import eg.model.item.Item;
-import eg.model.item.ItemList;
-import eg.util.io.Buffer;
+import eg.model.item.ItemContainer;
 
 public final class Equipment {
 	
@@ -18,123 +17,116 @@ public final class Equipment {
 	private static final int RING = 9;
 	private static final int AMMO = 10;
 	
-	private ItemList list = new ItemList(11, ItemList.STACK_ALWAYS);
+	private ItemContainer list = new ItemContainer(11, ItemContainer.STACK_ALWAYS);
 	
-	public Item wornHead() {
-		return list.get(HEAD);
-	}
+	private int stabAttackBonus;
+	private int slashAttackBonus;
+	private int crushAttackBonus;
+	private int magicAttackBonus;
+	private int rangedAttackBonus;
+	private int stabDefenceBonus;
+	private int slashDefenceBonus;
+	private int crushDefenceBonus;
+	private int magicDefenceBonus;
+	private int rangedDefenceBonus;
+	private int strengthBonus;
+	private int prayerBonus;
 	
-	public void wearHead(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(HEAD, item);
-	}
-	
-	public Item wornCape() {
-		return list.get(CAPE);
-	}
-	
-	public void wearCape(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(CAPE, item);
+	public Item getHeadwear() {
+		return null;
 	}
 	
-	public Item wornNeck() {
-		return list.get(NECK);
+	public Item getBackwear() {
+		return null;
 	}
 	
-	public void wearNeck(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(NECK, item);
+	public Item getNeckwear() {
+		return null;
 	}
 	
-	public Item heldRightHand() {
-		return list.get(RIGHT_HAND);
-	}
-
-	public void holdRightHand(Item item) {
-		list.set(RIGHT_HAND, item);
+	public Item getRightHand() {
+		return null;
 	}
 	
-	public Item wornBody() {
-		return list.get(BODY);
+	public Item getTop() {
+		return null;
 	}
-
-	public void wearBody(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(BODY, item);
+	
+	public Item getLeftHand() {
+		return null;
 	}
-
-	public Item heldLeftHand() {
-		return list.get(LEFT_HAND);
+	
+	public Item getBottom() {
+		return null;
 	}
-
-	public void holdLeftHand(Item item) {
-		list.set(LEFT_HAND, item);
+	
+	public Item getHandwear() {
+		return null;
 	}
-
-	public Item wornLegs() {
-		return list.get(LEGS);
+	
+	public Item getFootwear() {
+		return null;
 	}
-
-	public void wearLegs(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(LEGS, item);
+	
+	public Item getRing() {
+		return null;
 	}
-
-	public Item wornHands() {
-		return list.get(HANDS);
+	
+	public Item getAmmo() {
+		return null;
 	}
-
-	public void wearHands(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(HANDS, item);
+	
+	public int getStabAttackBonus() {
+		return stabAttackBonus;
 	}
-
-	public Item wornFeet() {
-		return list.get(FEET);
+	
+	public int getSlashAttackBonus() {
+		return slashAttackBonus;
 	}
-
-	public void wearFeet(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(FEET, item);
+	
+	public int getCrushAttackBonus() {
+		return crushAttackBonus;
 	}
-
-	public Item wornRing() {
-		return list.get(RING);
+	
+	public int getMagicAttackBonus() {
+		return magicAttackBonus;
 	}
-
-	public void wearRing(Item item) {
-		if (item != null && item.getQuantity() != 1) {
-			throw new IllegalArgumentException("Worn items must have a quantity of one.");
-		}
-		list.set(RING, item);
+	
+	public int getRangedAttackBonus() {
+		return rangedAttackBonus;
 	}
-
-	public Item heldAmmo() {
-		return list.get(AMMO);
+	
+	public int getStabDefenceBonus() {
+		return stabDefenceBonus;
 	}
-
-	public void holdAmmo(Item item) {
-		list.set(AMMO, item);
+	
+	public int getSlashDefenceBonus() {
+		return slashDefenceBonus;
+	}
+	
+	public int getCrushDefenceBonus() {
+		return crushDefenceBonus;
+	}
+	
+	public int getMagicDefenceBonus() {
+		return magicDefenceBonus;
+	}
+	
+	public int getRangedDefenceBonus() {
+		return rangedDefenceBonus;
+	}
+	
+	public int getStrengthBonus() {
+		return strengthBonus;
+	}
+	
+	public int getPrayerBonus() {
+		return prayerBonus;
 	}
 
 	public boolean hasFullHelm() {
 		return false;
-	}
+	} 
 	
 	public boolean hasFullMask() {
 		return false;
@@ -144,3 +136,4 @@ public final class Equipment {
 		return false;
 	}
 }
+ 

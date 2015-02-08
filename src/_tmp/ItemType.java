@@ -17,5 +17,17 @@ public class ItemType {
 	
 	public double weight;
 	public int equipSlot;
-	public int[] equipBonus;
+	
+	public int stabAttackBonus;
+	public int slashAttackBonus;
+	public int crushAttackBonus;
+	public int magicAttackBonus;
+	public int rangedAttackBonus;
+	public int stabDefenceBonus;
+	public int slashDefenceBonus;
+	public int crushDefenceBonus;
+	public int magicDefenceBonus;
+	public int rangedDefenceBonus;
+	public int strengthBonus;
+	public int prayerBonus;
 }

@@ -146,33 +146,33 @@ public final class Actions {
 		buf.putByte(player.getIdentikit().getGender());
 		buf.putByte(player.headIcon);
 		buf.putByte(player.headIconPk);
-		if (player.getEquipment().wornHead() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornHead().getType().getId());
+		if (player.getEquipment().getHeadwear() != null) {
+			buf.putShort(0x200 + player.getEquipment().getHeadwear().getType().getId());
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().wornCape() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornCape().getType().getId());
+		if (player.getEquipment().getBackwear() != null) {
+			buf.putShort(0x200 + player.getEquipment().getBackwear().getType().getId());
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().wornNeck() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornNeck().getType().getId());
+		if (player.getEquipment().getNeckwear() != null) {
+			buf.putShort(0x200 + player.getEquipment().getNeckwear().getType().getId());
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().heldRightHand() != null) {
-			buf.putShort(0x200 + player.getEquipment().heldRightHand().getType().getId());
+		if (player.getEquipment().getRightHand() != null) {
+			buf.putShort(0x200 + player.getEquipment().getRightHand().getType().getId());
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().wornBody() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornBody().getType().getId());
+		if (player.getEquipment().getTop() != null) {
+			buf.putShort(0x200 + player.getEquipment().getTop().getType().getId());
 		} else {
 			buf.putShort(0x100 + player.getIdentikit().getTorso());
 		}
-		if (player.getEquipment().heldLeftHand() != null) {
-			buf.putShort(0x200 + player.getEquipment().heldLeftHand().getType().getId());
+		if (player.getEquipment().getLeftHand() != null) {
+			buf.putShort(0x200 + player.getEquipment().getLeftHand().getType().getId());
 		} else {
 			buf.putByte(0);
 		}
@@ -181,8 +181,8 @@ public final class Actions {
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().wornLegs() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornLegs().getType().getId());
+		if (player.getEquipment().getBottom() != null) {
+			buf.putShort(0x200 + player.getEquipment().getBottom().getType().getId());
 		} else {
 			buf.putShort(0x100 + player.getIdentikit().getLegs());
 		}
@@ -191,13 +191,13 @@ public final class Actions {
 		} else {
 			buf.putByte(0);
 		}
-		if (player.getEquipment().wornHands() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornHands().getType().getId());
+		if (player.getEquipment().getHandwear() != null) {
+			buf.putShort(0x200 + player.getEquipment().getHandwear().getType().getId());
 		} else {
 			buf.putShort(0x100 + player.getIdentikit().getHands());
 		}
-		if (player.getEquipment().wornFeet() != null) {
-			buf.putShort(0x200 + player.getEquipment().wornFeet().getType().getId());
+		if (player.getEquipment().getFootwear() != null) {
+			buf.putShort(0x200 + player.getEquipment().getFootwear().getType().getId());
 		} else {
 			buf.putShort(0x100 + player.getIdentikit().getFeet());
 		}
@@ -211,7 +211,7 @@ public final class Actions {
 		buf.putByte(player.getIdentikit().getLegsColor());	
 		buf.putByte(player.getIdentikit().getFeetColor());	
 		buf.putByte(player.getIdentikit().getSkinColor());	
-		buf.putShort(player.getIdleAnimation().getStand());
+		buf.putShort(player.getIdleAnimation().getStand()); 
 		buf.putShort(player.getIdleAnimation().getTurn());
 		buf.putShort(player.getIdleAnimation().getWalk());
 		buf.putShort(player.getIdleAnimation().getTurn180());

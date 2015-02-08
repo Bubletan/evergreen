@@ -1,7 +1,6 @@
 package eg.model.object;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 
 import com.google.common.base.Preconditions;
@@ -53,5 +52,20 @@ public final class ObjectType {
 	
 	public String getDescription() {
 		return desc;
+	}
+	
+	@Override
+	public int hashCode() {
+		return id;
+	}
+	
+	@Override
+	public boolean equals(java.lang.Object obj) {
+		return obj == this;
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getName() + "[" + "id=" + id + "]";
 	}
 }

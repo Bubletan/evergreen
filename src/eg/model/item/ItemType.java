@@ -29,7 +29,18 @@ public final class ItemType {
 	
 	private double weight;
 	private int equipSlot;
-	private int[] equipBonus;
+	private int stabAttackBonus;
+	private int slashAttackBonus;
+	private int crushAttackBonus;
+	private int magicAttackBonus;
+	private int rangedAttackBonus;
+	private int stabDefenceBonus;
+	private int slashDefenceBonus;
+	private int crushDefenceBonus;
+	private int magicDefenceBonus;
+	private int rangedDefenceBonus;
+	private int strengthBonus;
+	private int prayerBonus;
 	
 	private ItemType() {
 	}
@@ -97,6 +108,66 @@ public final class ItemType {
 	public ItemType toNonNote() {
 		Preconditions.checkState(isNote(), "Item cannot be unnoted.");
 		return get(asNonStackable);
+	}
+	
+	public double getWeight() {
+		return weight;
+	}
+	
+	public boolean isEquipable() {
+		return equipSlot != -1;
+	}
+	
+	public int getEquipSlot() {
+		return equipSlot;
+	}
+	
+	public int getStabAttackBonus() {
+		return stabAttackBonus;
+	}
+	
+	public int getSlashAttackBonus() {
+		return slashAttackBonus;
+	}
+	
+	public int getCrushAttackBonus() {
+		return crushAttackBonus;
+	}
+	
+	public int getMagicAttackBonus() {
+		return magicAttackBonus;
+	}
+	
+	public int getRangedAttackBonus() {
+		return rangedAttackBonus;
+	}
+	
+	public int getStabDefenceBonus() {
+		return stabDefenceBonus;
+	}
+	
+	public int getSlashDefenceBonus() {
+		return slashDefenceBonus;
+	}
+	
+	public int getCrushDefenceBonus() {
+		return crushDefenceBonus;
+	}
+	
+	public int getMagicDefenceBonus() {
+		return magicDefenceBonus;
+	}
+	
+	public int getRangedDefenceBonus() {
+		return rangedDefenceBonus;
+	}
+	
+	public int getStrengthBonus() {
+		return strengthBonus;
+	}
+	
+	public int getPrayerBonus() {
+		return prayerBonus;
 	}
 	
 	@Override

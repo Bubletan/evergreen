@@ -1,14 +1,12 @@
 package eg.model.npc;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 
 import eg.Config;
-import eg.model.item.ItemType;
 
 public final class NpcType {
 	
@@ -64,5 +62,20 @@ public final class NpcType {
 	
 	public int getHealth() {
 		return health;
+	}
+	
+	@Override
+	public int hashCode() {
+		return id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj == this;
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getName() + "[" + "id=" + id + "]";
 	}
 }

@@ -66,7 +66,19 @@ public class ItemTypesToJson {
 			case "ARROWS": type.equipSlot = 10; break;
 			default: System.out.println("Unknown eq type: " + def.getEquipmentType().toUpperCase());
 			}
-			type.equipBonus = def.getBonuses();
+			int[] bonus = def.getBonuses();
+			type.stabAttackBonus = bonus[0];
+			type.slashAttackBonus = bonus[1];
+			type.crushAttackBonus = bonus[2];
+			type.magicAttackBonus = bonus[3];
+			type.rangedAttackBonus = bonus[4];
+			type.stabDefenceBonus = bonus[5];
+			type.slashDefenceBonus = bonus[6];
+			type.crushDefenceBonus = bonus[7];
+			type.magicDefenceBonus = bonus[8];
+			type.rangedDefenceBonus = bonus[9];
+			type.strengthBonus = bonus[10];
+			type.prayerBonus = bonus[11];
 			
 			map.put(def.getId(), type);
 		}

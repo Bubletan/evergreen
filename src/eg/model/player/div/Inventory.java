@@ -1,10 +1,10 @@
 package eg.model.player.div;
 
-import eg.model.item.ItemList;
+import eg.model.item.ItemContainer;
 
 public final class Inventory {
 	
 	private static final int SIZE = 28;
 	
-	private ItemList list = new ItemList(SIZE, ItemList.STACK_SELECTIVELY);
+	private ItemContainer list = new ItemContainer(SIZE, ItemContainer.STACK_SELECTIVELY);
 }
