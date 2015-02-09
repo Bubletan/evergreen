@@ -2,11 +2,11 @@ package eg.net.game.out;
 
 import eg.net.game.AbstractGamePacket;
 
-public final class MessagePacket implements AbstractGamePacket {
+public final class GameMessagePacket implements AbstractGamePacket {
 	
 	private final String message;
 	
-	public MessagePacket(String message) {
+	public GameMessagePacket(String message) {
 		this.message = message;
 	}
 	

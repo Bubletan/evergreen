@@ -4,20 +4,22 @@ import com.google.common.base.Preconditions;
 
 public final class ItemContainer {
 	
-	public static final int STACK_SELECTIVELY = 0;
-	public static final int STACK_ALWAYS = 1;
-	public static final int STACK_NEVER = 2;
-	
 	private int capacity;
 	private int size;
 	private Item[] items;
-	private int stack;
+	private Type type;
 	
-	public ItemContainer(int capacity, int stack) {
-		Preconditions.checkArgument(stack >= 0 && stack <= 2, "Illegal stack value.");
+	public static enum Type {
+		
+		STACK_SELECTIVELY, STACK_ALWAYS, STACK_NEVER
+	}
+	
+	public ItemContainer(int capacity, Type type) {
+		Preconditions.checkArgument(capacity >= 0, "Capacity may not be negative.");
+		Preconditions.checkNotNull(type, "Type may not be null.");
 		this.capacity = capacity;
-		items = new Item[size];
-		this.stack = stack;
+		items = new Item[capacity];
+		this.type = type;
 	}
 	
 	public boolean contains(Item item) {
@@ -28,7 +30,7 @@ public final class ItemContainer {
 		}
 		ItemType type = item.getType();
 		int quantity = item.getQuantity();
-		if (stack == STACK_ALWAYS || stack == STACK_SELECTIVELY && type.isStackable()) {
+		if (this.type == Type.STACK_ALWAYS || this.type == Type.STACK_SELECTIVELY && type.isStackable()) {
 			int used = 0;
 			for (Item it : items) {
 				if (it != null) {
@@ -63,7 +65,7 @@ public final class ItemContainer {
 		}
 		ItemType type = item.getType();
 		int quantity = item.getQuantity();
-		if (stack == STACK_ALWAYS || stack == STACK_SELECTIVELY && type.isStackable()) {
+		if (this.type == Type.STACK_ALWAYS || this.type == Type.STACK_SELECTIVELY && type.isStackable()) {
 			int used = 0;
 			for (int i = 0;; i++) {
 				Item it = items[i];
@@ -116,7 +118,7 @@ public final class ItemContainer {
 		}
 		ItemType type = item.getType();
 		int quantity = item.getQuantity();
-		if (stack == STACK_ALWAYS || stack == STACK_SELECTIVELY && type.isStackable()) {
+		if (this.type == Type.STACK_ALWAYS || this.type == Type.STACK_SELECTIVELY && type.isStackable()) {
 			int used = 0;
 			for (int i = 0;; i++) {
 				Item it = items[i];
@@ -156,7 +158,7 @@ public final class ItemContainer {
 				Item it = items[i];
 				if (it == null) {
 					if (one == null) {
-						one = new Item(type);
+						one = quantity == 1 ? item : new Item(type);
 					}
 					items[i] = one;
 					size++;
@@ -199,5 +201,13 @@ public final class ItemContainer {
 				items[i1] = tmp;
 			}
 		}
+	}
+	
+	public void set(int slot, Item item) {
+		// TODO
+	}
+	
+	public void get(int slot, Item item) {
+		// TODO
 	}
 }

@@ -6,5 +6,5 @@ public final class Inventory {
 	
 	private static final int SIZE = 28;
 	
-	private ItemContainer list = new ItemContainer(SIZE, ItemContainer.STACK_SELECTIVELY);
+	private ItemContainer list = new ItemContainer(SIZE, ItemContainer.Type.STACK_SELECTIVELY);
 }

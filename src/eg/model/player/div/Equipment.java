@@ -17,7 +17,7 @@ public final class Equipment {
 	private static final int RING = 9;
 	private static final int AMMO = 10;
 	
-	private ItemContainer list = new ItemContainer(11, ItemContainer.STACK_ALWAYS);
+	private final ItemContainer items = new ItemContainer(11, ItemContainer.Type.STACK_ALWAYS);
 	
 	private int stabAttackBonus;
 	private int slashAttackBonus;
@@ -33,47 +33,47 @@ public final class Equipment {
 	private int prayerBonus;
 	
 	public Item getHeadwear() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getBackwear() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getNeckwear() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getRightHand() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getTop() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getLeftHand() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getBottom() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getHandwear() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getFootwear() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getRing() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public Item getAmmo() {
-		return null;
+		return Item.NOTHING;
 	}
 	
 	public int getStabAttackBonus() {

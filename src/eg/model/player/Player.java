@@ -20,7 +20,7 @@ import eg.net.game.in.MovementPacket;
 import eg.net.game.out.CameraResetPacket;
 import eg.net.game.out.InterfaceTextPacket;
 import eg.net.game.out.MainInterfacePacket;
-import eg.net.game.out.MessagePacket;
+import eg.net.game.out.GameMessagePacket;
 import eg.net.game.out.MulticombatOverlayPacket;
 import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.SidebarInterfacePacket;
@@ -189,7 +189,7 @@ public final class Player extends Charactor {
 	}
 	
 	public void message(String msg) {
-		session.send(new MessagePacket(msg));
+		session.send(new GameMessagePacket(msg));
 	}
 	
 	public void update(int seconds) {

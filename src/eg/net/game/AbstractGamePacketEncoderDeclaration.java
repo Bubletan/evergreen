@@ -2,9 +2,10 @@ package eg.net.game;
 
 import eg.net.game.out.CameraResetPacket;
 import eg.net.game.out.InterfaceTextPacket;
+import eg.net.game.out.LogoutPacket;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.MainInterfacePacket;
-import eg.net.game.out.MessagePacket;
+import eg.net.game.out.GameMessagePacket;
 import eg.net.game.out.MulticombatOverlayPacket;
 import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.PlayerSyncPacket;
@@ -12,9 +13,10 @@ import eg.net.game.out.SidebarInterfacePacket;
 import eg.net.game.out.SystemUpdatePacket;
 import eg.net.game.out.codec.CameraResetPacketEncoder;
 import eg.net.game.out.codec.InterfaceTextPacketEncoder;
+import eg.net.game.out.codec.LogoutPacketEncoder;
 import eg.net.game.out.codec.MapLoadingPacketEncoder;
 import eg.net.game.out.codec.MainInterfacePacketEncoder;
-import eg.net.game.out.codec.MessagePacketEncoder;
+import eg.net.game.out.codec.GameMessagePacketEncoder;
 import eg.net.game.out.codec.MulticombatOverlayPacketEncoder;
 import eg.net.game.out.codec.PlayerInitPacketEncoder;
 import eg.net.game.out.codec.PlayerSyncPacketEncoder;
@@ -29,10 +31,11 @@ public enum AbstractGamePacketEncoderDeclaration {
 	PLAYER_SYNC_PACKET_ENCODER(81, PlayerSyncPacket.class, PlayerSyncPacketEncoder.class),
 	MAIN_INTERFACE_PACKET_ENCODER(97, MainInterfacePacket.class, MainInterfacePacketEncoder.class),
 	CAMERA_RESET_PACKET_ENCODER(107, CameraResetPacket.class, CameraResetPacketEncoder.class),
+	LOGOUT_PACKET_ENCODER(109, LogoutPacket.class, LogoutPacketEncoder.class),
 	SYSTEM_UPDATE_PACKET_ENCODER(114, SystemUpdatePacket.class, SystemUpdatePacketEncoder.class),
 	INTERFACE_TEXT_PACKET_ENCODER(126, InterfaceTextPacket.class, InterfaceTextPacketEncoder.class),
 	PLAYER_INIT_PACKET_ENCODER(249, PlayerInitPacket.class, PlayerInitPacketEncoder.class),
-	MESSAGE_PACKET_ENCODER(253, MessagePacket.class, MessagePacketEncoder.class);
+	GAME_MESSAGE_PACKET_ENCODER(253, GameMessagePacket.class, GameMessagePacketEncoder.class);
 	
 	private final int packetType;
 	private final Class<? extends AbstractGamePacket> packetClass;
