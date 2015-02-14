@@ -12,7 +12,6 @@ import eg.model.player.div.Equipment;
 import eg.model.player.div.Identikit;
 import eg.model.player.div.Inventory;
 import eg.model.player.div.Statistics;
-import eg.net.game.GamePacket;
 import eg.net.game.GameSession;
 import eg.net.game.in.ButtonPacket;
 import eg.net.game.in.CommandPacket;
@@ -26,7 +25,6 @@ import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.SidebarInterfacePacket;
 import eg.net.game.out.SystemUpdatePacket;
 import eg.util.Misc;
-import eg.util.io.Buffer;
 
 public final class Player extends Charactor {
 	

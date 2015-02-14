@@ -49,8 +49,10 @@ public final class GamePacketDecoder extends MessageToMessageDecoder<GamePacket>
 			try {
 				out.add(decoder.decode(in));
 			} catch (Exception e) {
-				// Packet could not be decoded.
+				System.err.println("Error decoding packet: " + in.getType());
 			}
+		} else {
+			System.err.println("Unsupported inbound packet type: " + in.getType());
 		}
 	}
 }
