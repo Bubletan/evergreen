@@ -1,17 +1,20 @@
 package eg.util;
 
 import java.security.SecureRandom;
+import java.util.Random;
 
 public final class Misc {
 	
 	private Misc() {
 	}
 	
+	private static final Random random = new Random();
+	
 	/**
 	 * Returns a random {@code int} between {@code 0} and {@code range - 1}.
 	 */
 	public static int random(int range) {
-		return (int) (range * Math.random());
+		return random.nextInt(range);
 	}
 	
 	private static final SecureRandom secureRandom = new SecureRandom();
@@ -23,29 +26,32 @@ public final class Misc {
 		return secureRandom.nextInt(range);
 	}
 	
-	public static final int getExperienceForLevel(int lvl) {
+	public static int getExperienceForLevel(int lvl) {
+		if (lvl <= 0) {
+			throw new IllegalArgumentException("Level out of range: " + lvl);
+		}
 		int n = 0;
 		while (--lvl > 0) {
-			n += Math.floor(lvl + 300f * Math.pow(2, lvl / 7f));
+			n += (int) (lvl + 300 * Math.pow(2, lvl / 7f));
 		}
 		return n >> 2;
 	}
-
-	// TODO: Improve?
-	public static final int getLevelForExperience(int exp) {
-		int points = 0;
-		int output = 0;
-		if (exp > 13034430) {
+	
+	public static int getLevelForExperience(int exp) {
+		if (exp < 0 || exp > 200_000_000) {
+			throw new IllegalArgumentException("Experience out of range: " + exp);
+		}
+		if (exp < 83) {
+			return 1;
+		}
+		if (exp >= 13_034_431) {
 			return 99;
 		}
-		for (int lvl = 1; lvl <= 99; lvl++) {
-			points += Math.floor(lvl + 300.0 * Math.pow(2, lvl / 7f));
-			output = (int) Math.floor(points >> 2);
-			if (output >= exp) {
-				return lvl;
-			}
+		int n = 0, lvl = 0, exp4 = exp << 2;
+		while (n < exp4) {
+			n += (int) (++lvl + 300 * Math.pow(2, lvl / 7f));
 		}
-		return 0;
+		return lvl;
 	}
 	
 	public static long encryptUsername(String username) {

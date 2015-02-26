@@ -3,6 +3,7 @@ package eg.model.req;
 import eg.model.npc.Npc;
 import eg.model.player.Player;
 
+// TODO remove
 public final class FocusCharactor {
 		
 	public static final FocusCharactor NULL = new FocusCharactor(0xffff);

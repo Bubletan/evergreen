@@ -1,12 +1,22 @@
 package eg.model.player;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import eg.global.World;
-import eg.net.game.GamePacket;
+import eg.model.sync.SyncBlockSet;
+import eg.model.sync.SyncSegment;
+import eg.model.sync.block.AppearanceBlock;
+import eg.model.sync.block.ChatBlock;
+import eg.model.sync.seg.AddSegment;
+import eg.model.sync.seg.RemoveSegment;
+import eg.model.sync.seg.RunSegment;
+import eg.model.sync.seg.StillSegment;
+import eg.model.sync.seg.TransitionSegment;
+import eg.model.sync.seg.WalkSegment;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.PlayerSyncPacket;
-import eg.util.io.Buffer;
 import eg.util.task.Task;
 
 public final class PlayerSyncTask implements Task {
@@ -29,9 +39,8 @@ public final class PlayerSyncTask implements Task {
 	private void preSyncProcess(Player player) {
 		
 		player.getMovement().preSyncProcess();
-		player.getActions().preSyncProcess();
 		
-		if (player.getMovement().isRegionChanging()) {
+		if (player.getMovement().isSectorChanging()) {
 			player.getSession().send(new MapLoadingPacket(player.getCoord()));
 		}
 	}
@@ -39,110 +48,69 @@ public final class PlayerSyncTask implements Task {
 	private void postSyncProcess(Player player) {
 		
 		player.getMovement().postSyncProcess();
-		player.getActions().postSyncProcess();
 	}
 	
 	private void syncProcess(Player player) {
 		
-		Buffer buf = new Buffer();
-		buf.beginBitAccess();
-		
-		Buffer payloadBuf = new Buffer();
-		
-		updateThisPlayerMovement(player, buf);
-		if (player.getActions().isSyncRequired()) {
-			player.getActions().putToBuffer(payloadBuf, false, true);
+		SyncSegment localSegment;
+		SyncBlockSet localBlockSet = player.getSyncBlockSet();
+		if (localBlockSet.contains(ChatBlock.class)) {
+			localBlockSet = localBlockSet.clone();
+			localBlockSet.remove(ChatBlock.class);
 		}
-		
-		buf.putBits(8, player.getLocalPlayers().size());
-		for (Iterator<Player> i = player.getLocalPlayers().iterator(); i.hasNext();) {
-			Player other = i.next();
-			if (other.isActive() && !other.getMovement().isTeleporting() &&
-					player.getCoord().getBoxDistance(other.getCoord()) <=
+		if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
+			localSegment = new TransitionSegment(localBlockSet, player.getCoord(),
+					player.getMovement().isTeleporting(), player.getMovement().getLastKnownSector());
+		} else if (player.getMovement().isRunning()) {
+			localSegment = new RunSegment(localBlockSet, player.getMovement().getPrimaryDir(),
+					player.getMovement().getSecondaryDir());
+		} else if (player.getMovement().isWalking()) {
+			localSegment = new WalkSegment(localBlockSet, player.getMovement().getPrimaryDir());
+		} else {
+			localSegment = new StillSegment(localBlockSet);
+		}
+		int localPlayersCount = player.getLocalPlayers().size();
+		List<SyncSegment> nonLocalSegments = new ArrayList<>();
+		for (Iterator<Player> it = player.getLocalPlayers().iterator(); it.hasNext();) {
+			Player p = it.next();
+			if (!p.isActive() || p.getMovement().isTeleporting() ||
+					player.getCoord().getBoxDistance(p.getCoord()) >
 					player.getViewingDistance()) {
-				updatePlayerMovement(buf, other);
-				if (other.getActions().isSyncRequired()) {
-					other.getActions().putToBuffer(payloadBuf, false, false);
-				}
+				it.remove();
+				nonLocalSegments.add(new RemoveSegment());
+			} else if (p.getMovement().isRunning()) {
+				nonLocalSegments.add(new RunSegment(p.getSyncBlockSet(), p.getMovement().getPrimaryDir(),
+						p.getMovement().getSecondaryDir()));
+			} else if (p.getMovement().isWalking()) {
+				nonLocalSegments.add(new WalkSegment(p.getSyncBlockSet(), p.getMovement().getPrimaryDir()));
 			} else {
-				i.remove();
-				buf.putBit(true).putBits(2, 3);
+				nonLocalSegments.add(new StillSegment(p.getSyncBlockSet()));
 			}
 		}
 		int added = 0;
-		for (Player other : World.getWorld().getPlayerList()) { //TODO players on region
+		for (Player p : World.getWorld().getPlayerList()) { //TODO players on region
 			if (player.getLocalPlayers().size() >= 255) {
 				break;
 			}
-			if ((added >= NEW_PLAYERS_PER_CYCLE)) {
+			if (added >= NEW_PLAYERS_PER_CYCLE) {
 				break;
 			}
-			if (other == player || !player.isActive() ||
-					player.getCoord().getBoxDistance(other.getCoord()) >
+			if (p == player || !player.isActive() ||
+					player.getCoord().getBoxDistance(p.getCoord()) >
 					player.getViewingDistance() ||
-					player.getLocalPlayers().contains(other)) {
+					player.getLocalPlayers().contains(p)) {
 				continue;
 			}
 			added++;
-			player.getLocalPlayers().add(other);
-			buf.putBits(11, other.getIndex());
-			buf.putBit(true).putBit(true);
-			int y = other.getCoord().getY() - player.getCoord().getY();
-            int x = other.getCoord().getX() - player.getCoord().getX();
-            buf.putBits(5, y).putBits(5, x);
-			other.getActions().putToBuffer(payloadBuf, true, false);
+			player.getLocalPlayers().add(p);
+			SyncBlockSet blockSet = p.getSyncBlockSet();
+			if (!blockSet.contains(AppearanceBlock.class)) {
+				blockSet = blockSet.clone();
+				blockSet.add(new AppearanceBlock(p));
+			}
+			nonLocalSegments.add(new AddSegment(blockSet, p.getIndex(),
+					p.getCoord(), player.getCoord()));
 		}
-		if (payloadBuf.getPosition() != 0) {
-			buf.putBits(11, 2047);
-			buf.endBitAccess();
-			buf.putBytes(payloadBuf.getData(), 0, payloadBuf.getPosition());
-		} else {
-			buf.endBitAccess();
-		}
-		player.getSession().send(new PlayerSyncPacket(buf));
+		player.getSession().send(new PlayerSyncPacket(localSegment, localPlayersCount, nonLocalSegments));
 	}
-	
-	//TODO: Update not required when only chat has changed.
-    private void updateThisPlayerMovement(Player player, Buffer buf) {
-    	if (player.getMovement().isTeleporting() || player.getMovement().isRegionChanging()) {
-    		buf.putBit(true).putBits(2, 3);
-    		buf.putBits(2, player.getCoord().getHeight());
-    		buf.putBit(player.getMovement().isTeleporting());
-    		buf.putBit(player.getActions().isSyncRequired());
-    		buf.putBits(7, player.getCoord().getRelativeY(player.getMovement().getLastKnownRegion()));
-    		buf.putBits(7, player.getCoord().getRelativeX(player.getMovement().getLastKnownRegion()));
-    	} else if (player.getMovement().isRunning()) {
-    		buf.putBit(true).putBits(2, 2);
-    		buf.putBits(3, player.getMovement().getPrimaryDir().toInt());
-    		buf.putBits(3, player.getMovement().getSecondaryDir().toInt());
-    		buf.putBit(player.getActions().isSyncRequired());
-    	} else if (player.getMovement().isWalking()) {
-    		buf.putBit(true).putBits(2, 1);
-    		buf.putBits(3, player.getMovement().getPrimaryDir().toInt());
-    		buf.putBit(player.getActions().isSyncRequired());
-    	} else if (player.getActions().isSyncRequired()) {
-    		buf.putBit(true).putBits(2, 0);
-    	} else {
-    		buf.putBit(false);
-    	}
-    }
-    
-	public void updatePlayerMovement(Buffer buf, Player otherPlayer) {
-        if (otherPlayer.getMovement().isStanding()) {
-        	if (otherPlayer.getActions().isSyncRequired()) {
-        		buf.putBit(true).putBits(2, 0);
-        	} else {
-        		buf.putBit(false);
-        	}
-        } else if (otherPlayer.getMovement().isWalking()) {
-        	buf.putBit(true).putBits(2, 1);
-        	buf.putBits(3, otherPlayer.getMovement().getPrimaryDir().toInt());
-        	buf.putBit(otherPlayer.getActions().isSyncRequired());
-        } else {
-        	buf.putBit(true).putBits(2, 2);
-        	buf.putBits(3, otherPlayer.getMovement().getPrimaryDir().toInt());
-        	buf.putBits(3, otherPlayer.getMovement().getSecondaryDir().toInt());
-        	buf.putBit(otherPlayer.getActions().isSyncRequired());
-        }
-    }
 }

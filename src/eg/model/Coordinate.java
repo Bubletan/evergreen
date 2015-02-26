@@ -94,36 +94,20 @@ public final class Coordinate {
 		return y & 63;
 	}
 	
-	public int getRegionX() {
+	public int getSectorX() {
 		return x >> 3;
 	}
 	
-	public int getRegionY() {
+	public int getSectorY() {
 		return y >> 3;
 	}
 	
-	public int getRegionX2() {
-		return (x >> 3) - 6;
+	public int getSectorOriginX() {
+		return x - 48 & ~0b111;
 	}
 	
-	public int getRegionY2() {
-		return (y >> 3) - 6;
-	}
-	
-	public int getLocalX() {
-		return (x & 7) + 48;
-	}
-	
-	public int getLocalY() {
-		return (y & 7) + 48;
-	}
-	
-	public int getCentralRegionX() {
-		return x >> 3;
-	}
-	
-	public int getCentralRegionY() {
-		return y >> 3;
+	public int getSectorOriginY() {
+		return y - 48 & ~0b111;
 	}
 	
 	public int getTopLeftRegionX() {

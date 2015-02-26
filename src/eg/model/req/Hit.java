@@ -11,7 +11,7 @@ public final class Hit {
 	private final int type;
 	
 	public Hit(int damage) {
-		this(damage, damage != 0 ? TYPE_DEFAULT : TYPE_MISS);
+		this(damage, TYPE_DEFAULT);
 	}
 	
 	public Hit(int damage, int type) {
@@ -19,14 +19,14 @@ public final class Hit {
 			throw new IllegalArgumentException("Type out of range.");
 		}
 		this.damage = damage;
-		this.type = type;
+		this.type = damage != 0 ? type : TYPE_MISS;
 	}
 	
-	public final int getDamage() {
+	public int getDamage() {
 		return damage;
 	}
 	
-	public final int getType() {
+	public int getType() {
 		return type;
 	}
 }

@@ -6,12 +6,13 @@ import eg.model.Charactor;
 import eg.model.Coordinate;
 import eg.model.IdleAnimation;
 import eg.model.MovementProvider;
-import eg.model.player.div.Actions;
 import eg.model.player.div.Bank;
 import eg.model.player.div.Equipment;
 import eg.model.player.div.Identikit;
 import eg.model.player.div.Inventory;
 import eg.model.player.div.Statistics;
+import eg.model.sync.SyncBlockSet;
+import eg.model.sync.block.AppearanceBlock;
 import eg.net.game.GameSession;
 import eg.net.game.in.ButtonPacket;
 import eg.net.game.in.CommandPacket;
@@ -38,7 +39,11 @@ public final class Player extends Charactor {
 	private final Bank bank = new Bank();
 	private final Statistics stats = new Statistics();
 	private final IdleAnimation idleAnimation = new IdleAnimation();
-	private final Actions actions = new Actions(this);
+	
+	private SyncBlockSet syncBlockSet = new SyncBlockSet();
+	{
+		syncBlockSet.add(new AppearanceBlock(this));
+	}
 	
 	private final GameSession session;
 	
@@ -133,12 +138,14 @@ public final class Player extends Charactor {
 		return movement;
 	}
 	
-	public Actions getActions() {
-		return actions;
-	}
-	
 	public int getViewingDistance() {
 		return 15;
+	}
+	
+	public SyncBlockSet getSyncBlockSet() {
+		SyncBlockSet old = syncBlockSet;
+		syncBlockSet = new SyncBlockSet();
+		return old;
 	}
 	
 	public void initialize() {

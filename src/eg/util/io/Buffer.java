@@ -462,7 +462,7 @@ public final class Buffer {
 		data[pos++] = (byte) (value + 128);
 		return this;
 	}
-
+	
 	public Buffer put128PlusLEShort(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
@@ -512,7 +512,7 @@ public final class Buffer {
 		data[pos++] = (byte) (value >> 16);
 		return this;
 	}
-
+	
 	/**
 	 * Puts an {@code int} as a big-endian 32 bit value.<br>
 	 * Returns itself to allow method chaining.
@@ -531,7 +531,7 @@ public final class Buffer {
 		data[pos++] = (byte) value;
 		return this;
 	}
-
+	
 	/**
 	 * Puts an {@code int} as a little-endian 32 bit value.<br>
 	 * Returns itself to allow method chaining.
@@ -824,7 +824,7 @@ public final class Buffer {
 	}
 	
 	/**
-	 * Gets a signed 8 bit value with an opposite sign as an {@code int}.
+	 * Gets a signed 8 bit value with an opposite sign modifier as an {@code int}.
 	 * @see #putNegatedByte(int)
 	 */
 	public byte getNegatedByte() {
@@ -838,7 +838,7 @@ public final class Buffer {
 	}
 	
 	/**
-	 * Gets an unsigned 8 bit value with an opposite sign as an {@code int}.
+	 * Gets an unsigned 8 bit value with an opposite sign modifier as an {@code int}.
 	 * @see #putNegatedByte(int)
 	 */
 	public int getNegatedUByte() {

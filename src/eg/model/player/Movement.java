@@ -9,8 +9,8 @@ public final class Movement {
 	private Player player;
 	private MovementProvider provider;
 	
-	private Coordinate lastKnownRegion;
-	private boolean regionChanging;
+	private Coordinate lastKnownSector;
+	private boolean sectorChanging;
 	
 	private Coordinate teleportDestination;
 	
@@ -28,16 +28,16 @@ public final class Movement {
 		provider.nextMoment();
 		player.setCoord(player.getCoord().at(provider.getCurrentX(), provider.getCurrentY()));
 		// TODO if (teleporting) { reset viewing distance; }
-		if (lastKnownRegion == null || isRegionUpdateRequired()) {
-			regionChanging = true;
-			lastKnownRegion = player.getCoord();
+		if (lastKnownSector == null || isSectorUpdateRequired()) {
+			sectorChanging = true;
+			lastKnownSector = player.getCoord();
 		}
 	}
 	
-	private boolean isRegionUpdateRequired() {
+	private boolean isSectorUpdateRequired() {
 		Coordinate current = player.getCoord();
-		int dx = current.getRelativeX(lastKnownRegion);
-		int dy = current.getRelativeY(lastKnownRegion);
+		int dx = current.getRelativeX(lastKnownSector);
+		int dy = current.getRelativeY(lastKnownSector);
 		return dx < 16 || dx >= 88 || dy < 16 || dy >= 88;
 	}
 	
@@ -46,8 +46,7 @@ public final class Movement {
 	 */
 	public void postSyncProcess() {
 		teleportDestination = null;
-		regionChanging = false;
-		// TODO reset block set
+		sectorChanging = false;
 		/*
 		if (!player.isExcessivePlayersSet()) {
 			player.incrementViewingDistance();
@@ -62,12 +61,12 @@ public final class Movement {
 		return provider;
 	}
 	
-	public boolean isRegionChanging() {
-		return regionChanging;
+	public boolean isSectorChanging() {
+		return sectorChanging;
 	}
 	
-	public Coordinate getLastKnownRegion() {
-		return lastKnownRegion;
+	public Coordinate getLastKnownSector() {
+		return lastKnownSector;
 	}
 	
 	public Direction getPrimaryDir() {

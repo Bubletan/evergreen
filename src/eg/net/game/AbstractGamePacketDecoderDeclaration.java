@@ -5,6 +5,7 @@ import eg.net.game.in.CameraAlteredPacket;
 import eg.net.game.in.ChatPacket;
 import eg.net.game.in.CommandPacket;
 import eg.net.game.in.KeepalivePacket;
+import eg.net.game.in.MapLoadedPacket;
 import eg.net.game.in.MouseClickPacket;
 import eg.net.game.in.MovementPacket;
 import eg.net.game.in.WindowFocusAlteredPacket;
@@ -13,6 +14,7 @@ import eg.net.game.in.codec.CameraAlteredPacketDecoder;
 import eg.net.game.in.codec.ChatPacketDecoder;
 import eg.net.game.in.codec.CommandPacketDecoder;
 import eg.net.game.in.codec.KeepalivePacketDecoder;
+import eg.net.game.in.codec.MapLoadedPacketDecoder;
 import eg.net.game.in.codec.MouseClickPacketDecoder;
 import eg.net.game.in.codec.MovementPacketDecoder;
 import eg.net.game.in.codec.WindowFocusAlteredPacketDecoder;
@@ -25,6 +27,7 @@ public enum AbstractGamePacketDecoderDeclaration {
 	CAMERA_ALTERED_PACKET_DECODER(86, CameraAlteredPacket.class, CameraAlteredPacketDecoder.class),
 	AUTO_MOVEMENT_PACKET_DECODER(98, MovementPacket.class, MovementPacketDecoder.class),
 	COMMAND_PACKET_DECODER(103, CommandPacket.class, CommandPacketDecoder.class),
+	MAP_LOADED_PACKET_DECODER(121, MapLoadedPacket.class, MapLoadedPacketDecoder.class),
 	DEFAULT_MOVEMENT_PACKET_DECODER(164, MovementPacket.class, MovementPacketDecoder.class),
 	BUTTON_PACKET_DECODER(185, ButtonPacket.class, ButtonPacketDecoder.class),
 	MOUSE_CLICK_PACKET_DECODER(241, MouseClickPacket.class, MouseClickPacketDecoder.class),
