@@ -39,7 +39,7 @@ public final class PlayerSyncTask implements Task {
 		player.getMovement().preSyncProcess();
 		
 		if (player.getMovement().isSectorChanging()) {
-			player.getSession().send(new MapLoadingPacket(player.getCoord()));
+			player.getSession().send(new MapLoadingPacket(player.getCoordinate()));
 		}
 	}
 	
@@ -57,8 +57,8 @@ public final class PlayerSyncTask implements Task {
 			localBlockSet.remove(ChatBlock.class);
 		}
 		if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
-			localSegment = new SyncSegment(new SyncStatus.Transition(player.getCoord(),
-					player.getMovement().getLastKnownSector(), player.getMovement().isTeleporting()), 
+			localSegment = new SyncSegment(new SyncStatus.Transition(player.getCoordinate(),
+					player.getMovement().getSectorOrigin(), player.getMovement().isTeleporting()), 
 					localBlockSet);
 		} else if (player.getMovement().isRunning()) {
 			localSegment = new SyncSegment(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
@@ -74,7 +74,7 @@ public final class PlayerSyncTask implements Task {
 		for (Iterator<Player> it = player.getLocalPlayers().iterator(); it.hasNext();) {
 			Player p = it.next();
 			if (!p.isActive() || p.getMovement().isTeleporting() ||
-					player.getCoord().getBoxDistance(p.getCoord()) >
+					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
 					player.getViewingDistance()) {
 				it.remove();
 				nonLocalSegments.add(new SyncSegment(REMOVAL_STATUS, p.getSyncBlockSet()));
@@ -98,7 +98,7 @@ public final class PlayerSyncTask implements Task {
 				break;
 			}
 			if (p == player || !player.isActive() ||
-					player.getCoord().getBoxDistance(p.getCoord()) >
+					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
 					player.getViewingDistance() ||
 					player.getLocalPlayers().contains(p)) {
 				continue;
@@ -110,10 +110,10 @@ public final class PlayerSyncTask implements Task {
 				blockSet = blockSet.clone();
 				blockSet.add(new AppearanceBlock(p));
 			}
-			nonLocalSegments.add(new SyncSegment(new SyncStatus.Addition(p.getIndex(), p.getCoord()),
+			nonLocalSegments.add(new SyncSegment(new SyncStatus.Addition(p.getIndex(), p.getCoordinate()),
 					blockSet));
 		}
 		player.getSession().send(new PlayerSyncPacket(localSegment, localPlayersCount,
-				player.getCoord(), nonLocalSegments));
+				player.getCoordinate(), nonLocalSegments));
 	}
 }

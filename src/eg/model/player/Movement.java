@@ -9,14 +9,14 @@ public final class Movement {
 	private Player player;
 	private MovementProvider provider;
 	
-	private Coordinate lastKnownSector;
+	private Coordinate sectorOrigin;
 	private boolean sectorChanging;
 	
 	private Coordinate teleportDestination;
 	
 	public Movement(Player player) {
 		this.player = player;
-		Coordinate coord = player.getCoord();
+		Coordinate coord = player.getCoordinate();
 		this.provider = new MovementProvider(coord.getX(), coord.getY());
 		teleportDestination = coord;
 	}
@@ -26,18 +26,24 @@ public final class Movement {
 	 */
 	public void preSyncProcess() {
 		provider.nextMoment();
-		player.setCoord(player.getCoord().at(provider.getCurrentX(), provider.getCurrentY()));
+		int x = provider.getCurrentX();
+		int y = provider.getCurrentY();
+		Coordinate coord = player.getCoordinate();
+		if (coord.getX() != x || coord.getY() != y) {
+			player.setCoordinate(new Coordinate(x, y, coord.getHeight()));
+		}
 		// TODO if (teleporting) { reset viewing distance; }
-		if (lastKnownSector == null || isSectorUpdateRequired()) {
+		if (sectorOrigin == null || isSectorUpdateRequired()) {
 			sectorChanging = true;
-			lastKnownSector = player.getCoord();
+			sectorOrigin = new Coordinate(player.getCoordinate().getX() - 48 & ~0b111,
+					player.getCoordinate().getY() - 48 & ~0b111);
 		}
 	}
 	
 	private boolean isSectorUpdateRequired() {
-		Coordinate current = player.getCoord();
-		int dx = current.getRelativeX(lastKnownSector);
-		int dy = current.getRelativeY(lastKnownSector);
+		Coordinate current = player.getCoordinate();
+		int dx = current.getX() - sectorOrigin.getX();
+		int dy = current.getY() - sectorOrigin.getY();
 		return dx < 16 || dx >= 88 || dy < 16 || dy >= 88;
 	}
 	
@@ -65,8 +71,8 @@ public final class Movement {
 		return sectorChanging;
 	}
 	
-	public Coordinate getLastKnownSector() {
-		return lastKnownSector;
+	public Coordinate getSectorOrigin() {
+		return sectorOrigin;
 	}
 	
 	public Direction getPrimaryDir() {

@@ -23,13 +23,13 @@ public abstract class SyncStatus {
 	public static final class Transition extends SyncStatus {
 		
 		private final Coordinate coordinate;
-		private final Coordinate lastKnownSector;
+		private final Coordinate sectorOrigin;
 		private final boolean teleporting;
 		
-		public Transition(Coordinate coordinate, Coordinate lastKnownSector, boolean teleporting) {
+		public Transition(Coordinate coordinate, Coordinate sectorOrigin, boolean teleporting) {
 			super(Type.TRANSITION);
 			this.coordinate = coordinate;
-			this.lastKnownSector = lastKnownSector;
+			this.sectorOrigin = sectorOrigin;
 			this.teleporting = teleporting;
 		}
 		
@@ -37,8 +37,8 @@ public abstract class SyncStatus {
 			return coordinate;
 		}
 		
-		public Coordinate getLastKnownSector() {
-			return lastKnownSector;
+		public Coordinate getSectorOrigin() {
+			return sectorOrigin;
 		}
 		
 		public boolean isTeleporting() {

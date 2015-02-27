@@ -66,79 +66,29 @@ public final class Coordinate {
 		return Math.max(Math.abs(dx), Math.abs(dy));
 	}
 	
-	/**
-	 * Gets the X-coordinate of the 64x64 map square.
-	 */
-	public int getMapsquareX() {
-		return x >> 6;
-	}
-	
-	/**
-	 * Gets the Y-coordinate of the 64x64 map square.
-	 */
-	public int getMapsquareY() {
-		return y >> 6;
-	}
-	
-	/**
-	 * Gets the tile X-coordinate relative to the map square.
-	 */
-	public int getSubMapsquareX() {
-		return x & 63;
-	}
-	
-	/**
-	 * Gets the tile Y-coordinate relative to the map square.
-	 */
-	public int getSubMapsquareY() {
-		return y & 63;
-	}
-	
-	public int getSectorX() {
-		return x >> 3;
-	}
-	
-	public int getSectorY() {
-		return y >> 3;
-	}
-	
-	public int getSectorOriginX() {
-		return x - 48 & ~0b111;
-	}
-	
-	public int getSectorOriginY() {
-		return y - 48 & ~0b111;
-	}
-	
-	public int getTopLeftRegionX() {
-		return (x >> 3) - 6;
-	}
-	
-	public int getTopLeftRegionY() {
-		return (y >> 3) - 6;
-	}
-	
-	public int getRelativeX(Coordinate other) {
-		return x - (other.getTopLeftRegionX() << 3);
-	}
-	
-	public int getRelativeY(Coordinate other) {
-		return y - (other.getTopLeftRegionY() << 3);
-	}
-	
 	public Coordinate translate(int dx, int dy) {
 		return translate(dx, dy, 0);
 	}
 	
-	public Coordinate translate(int dx, int dy, int dplane) {
-		return new Coordinate(x + dx , y + dy, height + dplane);
+	public Coordinate translate(int dx, int dy, int dheight) {
+		if (dx == 0 && dy == 0 && dheight == 0) {
+			return this;
+		}
+		return new Coordinate(x + dx, y + dy, height + dheight);
 	}
 	
-	public Coordinate at(int x, int y) {
-		if (this.x != x || this.y != y) {
-			return new Coordinate(x, y, height);
+	public Coordinate above() {
+		if (height == 3) {
+			throw new IllegalStateException("You cannot go above the height 3.");
 		}
-		return this;
+		return new Coordinate(x, y, height + 1);
+	}
+	
+	public Coordinate below() {
+		if (height == 0) {
+			throw new IllegalStateException("You cannot go below the height 0.");
+		}
+		return new Coordinate(x, y, height - 1);
 	}
 	
 	@Override
@@ -174,6 +124,6 @@ public final class Coordinate {
 	
 	@Override
 	public String toString() {
-		return getClass().getName() + "[x=" + x + ",y=" + y + ",height=" + height + "]";
+		return getClass().getSimpleName() + " [x=" + x + ", y=" + y + ", height=" + height + "]";
 	}
 }

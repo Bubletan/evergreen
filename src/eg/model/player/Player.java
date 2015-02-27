@@ -61,7 +61,7 @@ public final class Player extends Charactor {
 		this.session = session;
 		this.username = username;
 		this.password = password;
-		setCoord(new Coordinate(3200, 3200));
+		setCoordinate(new Coordinate(3200, 3200));
 		movement = new Movement(this);
 	}
 	

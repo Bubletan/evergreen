@@ -70,9 +70,9 @@ public final class PlayerSyncPacketEncoder implements
 			buf.putBit(((SyncStatus.Transition) status).isTeleporting());
 			buf.putBit(set.size() != 0);
 			Coordinate coordinate = ((SyncStatus.Transition) status).getCoordinate();
-			Coordinate lastKnownSector = ((SyncStatus.Transition) status).getLastKnownSector();
-			buf.putBits(7, coordinate.getRelativeY(lastKnownSector));
-			buf.putBits(7, coordinate.getRelativeX(lastKnownSector));
+			Coordinate sectorOrigin = ((SyncStatus.Transition) status).getSectorOrigin();
+			buf.putBits(7, coordinate.getY() - sectorOrigin.getY());
+			buf.putBits(7, coordinate.getX() - sectorOrigin.getX());
 			break;
 			
 		case RUN:

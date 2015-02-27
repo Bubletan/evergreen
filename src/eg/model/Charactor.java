@@ -5,7 +5,7 @@ import eg.global.WorldSector;
 public abstract class Charactor {
 
 	private int index;
-	private Coordinate coord;
+	private Coordinate coordinate;
 	private WorldSector sector;
 	
 	public int getIndex() {
@@ -16,12 +16,12 @@ public abstract class Charactor {
 		this.index = index;
 	}
 	
-	public Coordinate getCoord() {
-		return coord;
+	public Coordinate getCoordinate() {
+		return coordinate;
 	}
 	
-	public void setCoord(Coordinate coord) {
-		this.coord = coord;
+	public void setCoordinate(Coordinate coordinate) {
+		this.coordinate = coordinate;
 	}
 	
 	public WorldSector getWorldSector() {

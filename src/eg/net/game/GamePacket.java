@@ -66,6 +66,6 @@ public final class GamePacket {
 	
 	@Override
 	public String toString() {
-		return getClass().getName() + "[type=" + type + ",data=" + toDataString() + "]";
+		return getClass().getSimpleName() + " [type=" + type + ", data=" + toDataString() + "]";
 	}
 }

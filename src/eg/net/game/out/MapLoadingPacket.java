@@ -5,13 +5,13 @@ import eg.net.game.AbstractGamePacket;
 
 public final class MapLoadingPacket implements AbstractGamePacket {
 	
-	private final Coordinate coord;
+	private final Coordinate coordinate;
 	
-	public MapLoadingPacket(Coordinate coord) {
-		this.coord = coord;
+	public MapLoadingPacket(Coordinate coordinate) {
+		this.coordinate = coordinate;
 	}
 	
-	public Coordinate getCoord() {
-		return coord;
+	public Coordinate getCoordinate() {
+		return coordinate;
 	}
 }

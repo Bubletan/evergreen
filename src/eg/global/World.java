@@ -46,7 +46,7 @@ public final class World {
 		npcList = Collections.unmodifiableList(npcs);
 		
 		playerList.stream().forEach(player -> {
-			WorldSector sector = getOrCreateWorldSector(player.getCoord());
+			WorldSector sector = getOrCreateWorldSector(player.getCoordinate());
 			if (sector != player.getWorldSector()) {
 				player.getWorldSector().removePlayer(player);
 				sector.addPlayer(player);
@@ -55,7 +55,7 @@ public final class World {
 		});
 		
 		npcList.stream().forEach(npc -> {
-			WorldSector sector = getOrCreateWorldSector(npc.getCoord());
+			WorldSector sector = getOrCreateWorldSector(npc.getCoordinate());
 			if (sector != npc.getWorldSector()) {
 				npc.getWorldSector().removeNpc(npc);
 				sector.addNpc(npc);
@@ -74,7 +74,7 @@ public final class World {
 				playerCountLive++;
 				playerForHash.put(player.getHash(), player);
 				player.setIndex(i + 1);
-				WorldSector sector = getOrCreateWorldSector(player.getCoord());
+				WorldSector sector = getOrCreateWorldSector(player.getCoordinate());
 				sector.addPlayer(player);
 				player.setWorldSector(sector);
 				player.initialize();
@@ -118,7 +118,7 @@ public final class World {
 				npcListLive[i] = npc;
 				npcCountLive++;
 				npc.setIndex(i + 1);
-				WorldSector sector = getOrCreateWorldSector(npc.getCoord());
+				WorldSector sector = getOrCreateWorldSector(npc.getCoordinate());
 				sector.addNpc(npc);
 				npc.setWorldSector(sector);
 				return true;
