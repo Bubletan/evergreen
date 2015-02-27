@@ -11,6 +11,7 @@ import eg.model.req.ForceChat;
 import eg.model.req.Hit;
 import eg.model.sync.SyncBlockSet;
 import eg.model.sync.SyncSegment;
+import eg.model.sync.SyncStatus;
 import eg.model.sync.block.AnimationBlock;
 import eg.model.sync.block.AppearanceBlock;
 import eg.model.sync.block.ChatBlock;
@@ -21,12 +22,6 @@ import eg.model.sync.block.InteractBlock;
 import eg.model.sync.block.PrimaryHitBlock;
 import eg.model.sync.block.SecondaryHitBlock;
 import eg.model.sync.block.TurnBlock;
-import eg.model.sync.seg.AddSegment;
-import eg.model.sync.seg.RemoveSegment;
-import eg.model.sync.seg.RunSegment;
-import eg.model.sync.seg.StillSegment;
-import eg.model.sync.seg.TransitionSegment;
-import eg.model.sync.seg.WalkSegment;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerSyncPacket;
@@ -44,15 +39,13 @@ public final class PlayerSyncPacketEncoder implements
 		
 		Buffer payloadBuf = new Buffer();
 		
-		putSegment(packet.getLocalSegment(), buf, payloadBuf);
+		putSegment(packet.getLocalSegment(), buf, payloadBuf, packet.getOrigin());
 		
 		buf.putBits(8, packet.getLocalPlayersCount());
 		
 		for (SyncSegment seg : packet.getNonLocalSegments()) {
-			putSegment(seg, buf, payloadBuf);
+			putSegment(seg, buf, payloadBuf, packet.getOrigin());
 		}
-		
-		//TODO
 		
 		if (payloadBuf.getPosition() != 0) {
 			buf.putBits(11, 2047);
@@ -64,60 +57,73 @@ public final class PlayerSyncPacketEncoder implements
 		return new GamePacket(81, buf.getData(), buf.getPosition());
 	}
 	
-	private void putSegment(SyncSegment segment, Buffer buf, Buffer payloadBuf) {
+	private void putSegment(SyncSegment segment, Buffer buf, Buffer payloadBuf, Coordinate origin) {
 		
-		if (segment instanceof TransitionSegment) {
-			putTransitionSegment((TransitionSegment) segment, buf);
-		} else if (segment instanceof RunSegment) {
-			putRunSegment((RunSegment) segment, buf);
-		} else if (segment instanceof WalkSegment) {
-			putWalkSegment((WalkSegment) segment, buf);
-		} else if (segment instanceof AddSegment) {
-			putAddSegment((AddSegment) segment, buf);
-		} else if (segment instanceof RemoveSegment) {
-			putRemoveSegment((RemoveSegment) segment, buf);
-		} else {
-			putStillSegment((StillSegment) segment, buf);
-		}
-		
+		SyncStatus status = segment.getStatus();
 		SyncBlockSet set = segment.getBlockSet();
+		
+		switch (status.getType()) {
+		
+		case TRANSITION:
+			buf.putBit(true).putBits(2, 3);
+			buf.putBits(2, ((SyncStatus.Transition) status).getCoordinate().getHeight());
+			buf.putBit(((SyncStatus.Transition) status).isTeleporting());
+			buf.putBit(set.size() != 0);
+			Coordinate coordinate = ((SyncStatus.Transition) status).getCoordinate();
+			Coordinate lastKnownSector = ((SyncStatus.Transition) status).getLastKnownSector();
+			buf.putBits(7, coordinate.getRelativeY(lastKnownSector));
+			buf.putBits(7, coordinate.getRelativeX(lastKnownSector));
+			break;
+			
+		case RUN:
+			buf.putBit(true).putBits(2, 2);
+			buf.putBits(3, ((SyncStatus.Run) status).getPrimaryDirection().toInt());
+	    	buf.putBits(3, ((SyncStatus.Run) status).getSecondaryDirection().toInt());
+	    	buf.putBit(set.size() != 0);
+			break;
+			
+		case WALK:
+			buf.putBit(true).putBits(2, 1);
+			buf.putBits(3, ((SyncStatus.Walk) status).getDirection().toInt());
+			buf.putBit(set.size() != 0);
+			break;
+			
+		case ADDITION:
+			buf.putBits(11, ((SyncStatus.Addition) status).getIndex());
+			buf.putBit(true).putBit(true);
+			int dx = ((SyncStatus.Addition) status).getCoordinate().getX() - origin.getX();
+			int dy = ((SyncStatus.Addition) status).getCoordinate().getY() - origin.getY();
+			buf.putBits(5, dy).putBits(5, dx);
+			break;
+			
+		case REMOVAL:
+			buf.putBit(true).putBits(2, 3);
+			break;
+			
+		case STAND:
+			if (set.size() != 0) {
+				buf.putBit(true).putBits(2, 0);
+			} else {
+				buf.putBit(false);
+			}
+			break;
+		}
 		
 		if (set.size() != 0) {
 			
 			int config = 0;
-			if (set.contains(ForceMovementBlock.class)) {
-				config |= 0b100_0000_0000;
-			}
-			if (set.contains(EffectBlock.class)) {
-				config |= 0b1_0000_0000;
-			}
-			if (set.contains(AnimationBlock.class)) {
-				config |= 0b1000;
-			}
-			if (set.contains(ForceChatBlock.class)) {
-				config |= 0b100;
-			}
-			if (set.contains(ChatBlock.class)) {
-				config |= 0b1000_0000;
-			}
-			if (set.contains(InteractBlock.class)) {
-				config |= 0b1;
-			}
-			if (set.contains(AppearanceBlock.class)) {
-				config |= 0b1_0000;
-			}
-			if (set.contains(TurnBlock.class)) {
-				config |= 0b10;
-			}
-			if (set.contains(PrimaryHitBlock.class)) {
-				config |= 0b10_0000;
-			}
-			if (set.contains(SecondaryHitBlock.class)) {
-				config |= 0b10_0000_0000;
-			}
+			if (set.contains(ForceMovementBlock.class)) config |= 0b100_0000_0000;
+			if (set.contains(EffectBlock.class)) config |= 0b1_0000_0000;
+			if (set.contains(AnimationBlock.class)) config |= 0b1000;
+			if (set.contains(ForceChatBlock.class)) config |= 0b100;
+			if (set.contains(ChatBlock.class)) config |= 0b1000_0000;
+			if (set.contains(InteractBlock.class)) config |= 0b1;
+			if (set.contains(AppearanceBlock.class)) config |= 0b1_0000;
+			if (set.contains(TurnBlock.class)) config |= 0b10;
+			if (set.contains(PrimaryHitBlock.class)) config |= 0b10_0000;
+			if (set.contains(SecondaryHitBlock.class)) config |= 0b10_0000_0000;
 			if (config >= 0x100) {
-				config |= 0x40;
-				payloadBuf.putLEShort(config);
+				payloadBuf.putLEShort(config | 0b100_0000);
 			} else {
 				payloadBuf.putByte(config);
 			}
@@ -153,48 +159,6 @@ public final class PlayerSyncPacketEncoder implements
 				putSecondaryHitBlock(set.get(SecondaryHitBlock.class), payloadBuf);
 			}
 			
-		}
-	}
-	
-	private void putTransitionSegment(TransitionSegment segment, Buffer buf) {
-		buf.putBit(true).putBits(2, 3);
-		buf.putBits(2, segment.getCoord().getHeight());
-		buf.putBit(segment.isTeleporting());
-		buf.putBit(segment.getBlockSet().size() != 0);
-		buf.putBits(7, segment.getCoord().getRelativeY(segment.getLastKnownSector()));
-		buf.putBits(7, segment.getCoord().getRelativeX(segment.getLastKnownSector()));
-	}
-	
-	private void putRunSegment(RunSegment segment, Buffer buf) {
-		buf.putBit(true).putBits(2, 2);
-    	buf.putBits(3, segment.getPrimaryDirection().toInt());
-    	buf.putBits(3, segment.getSecondaryDirection().toInt());
-    	buf.putBit(segment.getBlockSet().size() != 0);
-	}
-	
-	private void putWalkSegment(WalkSegment segment, Buffer buf) {
-		buf.putBit(true).putBits(2, 1);
-		buf.putBits(3, segment.getDirection().toInt());
-		buf.putBit(segment.getBlockSet().size() != 0);
-	}
-	
-	private void putAddSegment(AddSegment segment, Buffer buf) {
-		buf.putBits(11, segment.getIndex());
-		buf.putBit(true).putBit(true);
-		int y = segment.getCoord().getY() - segment.getOrigin().getY();
-        int x = segment.getCoord().getX() - segment.getOrigin().getX();
-        buf.putBits(5, y).putBits(5, x);
-	}
-	
-	private void putRemoveSegment(@SuppressWarnings("unused") RemoveSegment segment, Buffer buf) {
-		buf.putBit(true).putBits(2, 3);
-	}
-	
-	private void putStillSegment(StillSegment segment, Buffer buf) {
-		if (segment.getBlockSet().size() != 0) {
-			buf.putBit(true).putBits(2, 0);
-		} else {
-			buf.putBit(false);
 		}
 	}
 	

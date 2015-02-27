@@ -10,5 +10,4 @@ public final class MapLoadedPacketDecoder implements AbstractGamePacketDecoder<M
 	public MapLoadedPacket decode(GamePacket packet) throws Exception {
 		return new MapLoadedPacket();
 	}
-
 }

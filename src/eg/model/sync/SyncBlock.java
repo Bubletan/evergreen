@@ -1,5 +1,4 @@
 package eg.model.sync;
 
-public class SyncBlock {
-
+public abstract class SyncBlock {
 }

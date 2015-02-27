@@ -7,14 +7,9 @@ import java.util.List;
 import eg.global.World;
 import eg.model.sync.SyncBlockSet;
 import eg.model.sync.SyncSegment;
+import eg.model.sync.SyncStatus;
 import eg.model.sync.block.AppearanceBlock;
 import eg.model.sync.block.ChatBlock;
-import eg.model.sync.seg.AddSegment;
-import eg.model.sync.seg.RemoveSegment;
-import eg.model.sync.seg.RunSegment;
-import eg.model.sync.seg.StillSegment;
-import eg.model.sync.seg.TransitionSegment;
-import eg.model.sync.seg.WalkSegment;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.task.Task;
@@ -22,6 +17,9 @@ import eg.util.task.Task;
 public final class PlayerSyncTask implements Task {
 	
 	private static final int NEW_PLAYERS_PER_CYCLE = 20;
+	
+	private static final SyncStatus.Stand STAND_STATUS = new SyncStatus.Stand();
+	private static final SyncStatus.Removal REMOVAL_STATUS = new SyncStatus.Removal();
 	
 	@Override
 	public void execute() {
@@ -59,15 +57,17 @@ public final class PlayerSyncTask implements Task {
 			localBlockSet.remove(ChatBlock.class);
 		}
 		if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
-			localSegment = new TransitionSegment(localBlockSet, player.getCoord(),
-					player.getMovement().isTeleporting(), player.getMovement().getLastKnownSector());
+			localSegment = new SyncSegment(new SyncStatus.Transition(player.getCoord(),
+					player.getMovement().getLastKnownSector(), player.getMovement().isTeleporting()), 
+					localBlockSet);
 		} else if (player.getMovement().isRunning()) {
-			localSegment = new RunSegment(localBlockSet, player.getMovement().getPrimaryDir(),
-					player.getMovement().getSecondaryDir());
+			localSegment = new SyncSegment(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
+					player.getMovement().getSecondaryDir()), localBlockSet);
 		} else if (player.getMovement().isWalking()) {
-			localSegment = new WalkSegment(localBlockSet, player.getMovement().getPrimaryDir());
+			localSegment = new SyncSegment(new SyncStatus.Walk(player.getMovement().getPrimaryDir()),
+					localBlockSet);
 		} else {
-			localSegment = new StillSegment(localBlockSet);
+			localSegment = new SyncSegment(STAND_STATUS, localBlockSet);
 		}
 		int localPlayersCount = player.getLocalPlayers().size();
 		List<SyncSegment> nonLocalSegments = new ArrayList<>();
@@ -77,14 +77,16 @@ public final class PlayerSyncTask implements Task {
 					player.getCoord().getBoxDistance(p.getCoord()) >
 					player.getViewingDistance()) {
 				it.remove();
-				nonLocalSegments.add(new RemoveSegment());
+				nonLocalSegments.add(new SyncSegment(REMOVAL_STATUS, p.getSyncBlockSet()));
 			} else if (p.getMovement().isRunning()) {
-				nonLocalSegments.add(new RunSegment(p.getSyncBlockSet(), p.getMovement().getPrimaryDir(),
-						p.getMovement().getSecondaryDir()));
+				nonLocalSegments.add(new SyncSegment(new SyncStatus.Run(p.getMovement().getPrimaryDir(),
+						p.getMovement().getSecondaryDir()),
+						p.getSyncBlockSet()));
 			} else if (p.getMovement().isWalking()) {
-				nonLocalSegments.add(new WalkSegment(p.getSyncBlockSet(), p.getMovement().getPrimaryDir()));
+				nonLocalSegments.add(new SyncSegment(new SyncStatus.Walk(p.getMovement().getPrimaryDir()),
+						p.getSyncBlockSet()));
 			} else {
-				nonLocalSegments.add(new StillSegment(p.getSyncBlockSet()));
+				nonLocalSegments.add(new SyncSegment(STAND_STATUS, p.getSyncBlockSet()));
 			}
 		}
 		int added = 0;
@@ -108,9 +110,10 @@ public final class PlayerSyncTask implements Task {
 				blockSet = blockSet.clone();
 				blockSet.add(new AppearanceBlock(p));
 			}
-			nonLocalSegments.add(new AddSegment(blockSet, p.getIndex(),
-					p.getCoord(), player.getCoord()));
+			nonLocalSegments.add(new SyncSegment(new SyncStatus.Addition(p.getIndex(), p.getCoord()),
+					blockSet));
 		}
-		player.getSession().send(new PlayerSyncPacket(localSegment, localPlayersCount, nonLocalSegments));
+		player.getSession().send(new PlayerSyncPacket(localSegment, localPlayersCount,
+				player.getCoord(), nonLocalSegments));
 	}
 }
