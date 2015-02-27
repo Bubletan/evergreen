@@ -3,26 +3,26 @@ package eg.net.game.out;
 import java.util.List;
 
 import eg.model.Coordinate;
-import eg.model.sync.SyncSegment;
+import eg.model.sync.SyncSection;
 import eg.net.game.AbstractGamePacket;
 
 public final class PlayerSyncPacket implements AbstractGamePacket {
 	
-	private final SyncSegment localSegment;
+	private final SyncSection localSection;
 	private final int localPlayersCount;
 	private final Coordinate origin;
-	private final List<SyncSegment> nonLocalSegments;
+	private final List<SyncSection> nonLocalSections;
 	
-	public PlayerSyncPacket(SyncSegment localSegment, int localPlayersCount,
-			Coordinate origin, List<SyncSegment> nonLocalSegments) {
-		this.localSegment = localSegment;
+	public PlayerSyncPacket(SyncSection localSection, int localPlayersCount,
+			Coordinate origin, List<SyncSection> nonLocalSections) {
+		this.localSection = localSection;
 		this.localPlayersCount = localPlayersCount;
 		this.origin = origin;
-		this.nonLocalSegments = nonLocalSegments;
+		this.nonLocalSections = nonLocalSections;
 	}
 	
-	public SyncSegment getLocalSegment() {
-		return localSegment;
+	public SyncSection getLocalSection() {
+		return localSection;
 	}
 	
 	public int getLocalPlayersCount() {
@@ -33,7 +33,7 @@ public final class PlayerSyncPacket implements AbstractGamePacket {
 		return origin;
 	}
 	
-	public List<SyncSegment> getNonLocalSegments() {
-		return nonLocalSegments;
+	public List<SyncSection> getNonLocalSections() {
+		return nonLocalSections;
 	}
 }

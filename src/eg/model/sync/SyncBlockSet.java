@@ -5,11 +5,10 @@ import java.util.Map;
 
 public final class SyncBlockSet implements Cloneable {
 	
-	private final Map<Class<? extends SyncBlock>, SyncBlock> blocks = new HashMap<>(8);
+	private final Map<SyncBlock.Type, SyncBlock> blocks = new HashMap<>(8);
 	
 	public void add(SyncBlock block) {
-		Class<? extends SyncBlock> clazz = block.getClass();
-		blocks.put(clazz, block);
+		blocks.put(block.getType(), block);
 	}
 	
 	public void clear() {
@@ -23,18 +22,18 @@ public final class SyncBlockSet implements Cloneable {
 		return copy;
 	}
 	
-	public boolean contains(Class<? extends SyncBlock> clazz) {
-		return blocks.containsKey(clazz);
+	public boolean contains(SyncBlock.Type type) {
+		return blocks.containsKey(type);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends SyncBlock> T get(Class<T> clazz) {
-		return (T) blocks.get(clazz);
+	public <T extends SyncBlock> T get(SyncBlock.Type type) {
+		return (T) blocks.get(type);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends SyncBlock> T remove(Class<? extends SyncBlock> clazz) {
-		return (T) blocks.remove(clazz);
+	public <T extends SyncBlock> T remove(SyncBlock.Type type) {
+		return (T) blocks.remove(type);
 	}
 	
 	public int size() {

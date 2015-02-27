@@ -1,11 +1,11 @@
 package eg.model.sync;
 
-public final class SyncSegment {
+public final class SyncSection {
 	
 	private final SyncStatus status;
 	private final SyncBlockSet blockSet;
 	
-	public SyncSegment(SyncStatus status, SyncBlockSet blockSet) {
+	public SyncSection(SyncStatus status, SyncBlockSet blockSet) {
 		this.status = status;
 		this.blockSet = blockSet;
 	}

@@ -2,10 +2,10 @@ package eg.net.game.in.codec;
 
 import eg.net.game.AbstractGamePacketDecoder;
 import eg.net.game.GamePacket;
-import eg.net.game.in.ChatPacket;
+import eg.net.game.in.ChatMessagePacket;
 import eg.util.io.Buffer;
 
-public final class ChatPacketDecoder implements AbstractGamePacketDecoder<ChatPacket> {
+public final class ChatMessagePacketDecoder implements AbstractGamePacketDecoder<ChatMessagePacket> {
 	
 	private static final char[] XLATE_TABLE = {
 		' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 'd', 'l', 'u', 'm', 'w', 'c',
@@ -15,7 +15,7 @@ public final class ChatPacketDecoder implements AbstractGamePacketDecoder<ChatPa
 	};
 	
 	@Override
-	public ChatPacket decode(GamePacket packet) throws Exception {
+	public ChatMessagePacket decode(GamePacket packet) throws Exception {
 		Buffer buf = packet.toBuffer();
 		int animEffect = buf.getUByte3();
 		int colorEffect = buf.getUByte3();
@@ -29,7 +29,7 @@ public final class ChatPacketDecoder implements AbstractGamePacketDecoder<ChatPa
 		unpacked = optimizeText(unpacked);
 		byte[] packed = new byte[size];
 		textPack(packed, unpacked);
-		return new ChatPacket(animEffect, colorEffect, unpacked, packed);
+		return new ChatMessagePacket(animEffect, colorEffect, unpacked, packed);
 	}
 	
 	public static String textUnpack(byte packedData[], int size) {

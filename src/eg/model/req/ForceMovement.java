@@ -1,10 +1,9 @@
-package eg.model.sync.block;
+package eg.model.req;
 
-import eg.model.Coordinate;
 import eg.model.Direction;
-import eg.model.sync.SyncBlock;
 
-public final class ForceMovementBlock extends SyncBlock {
+// TODO clean this a little
+public final class ForceMovement {
 	
 	private final Direction direction;
 	private final int originX;
@@ -14,7 +13,7 @@ public final class ForceMovementBlock extends SyncBlock {
 	private final int durationX;
 	private final int durationY;
 	
-	public ForceMovementBlock(Direction direction, int originX, int originY, int destinationX,
+	public ForceMovement(Direction direction, int originX, int originY, int destinationX,
 			int destinationY, int durationX, int durationY) {
 		this.direction = direction;
 		this.originX = originX;

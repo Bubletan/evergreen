@@ -11,10 +11,13 @@ import eg.model.player.div.Equipment;
 import eg.model.player.div.Identikit;
 import eg.model.player.div.Inventory;
 import eg.model.player.div.Statistics;
+import eg.model.req.Animation;
+import eg.model.req.ForceChatMessage;
+import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
-import eg.model.sync.block.AppearanceBlock;
 import eg.net.game.GameSession;
 import eg.net.game.in.ButtonPacket;
+import eg.net.game.in.ChatMessagePacket;
 import eg.net.game.in.CommandPacket;
 import eg.net.game.in.MovementPacket;
 import eg.net.game.out.CameraResetPacket;
@@ -42,7 +45,7 @@ public final class Player extends Charactor {
 	
 	private SyncBlockSet syncBlockSet = new SyncBlockSet();
 	{
-		syncBlockSet.add(new AppearanceBlock(this));
+		syncBlockSet.add(new SyncBlock.Appearance(this));
 	}
 	
 	private final GameSession session;
@@ -143,9 +146,11 @@ public final class Player extends Charactor {
 	}
 	
 	public SyncBlockSet getSyncBlockSet() {
-		SyncBlockSet old = syncBlockSet;
+		return syncBlockSet;
+	}
+	
+	public void resetSyncBlockSet() {
 		syncBlockSet = new SyncBlockSet();
-		return old;
 	}
 	
 	public void initialize() {
@@ -173,8 +178,13 @@ public final class Player extends Charactor {
 	
 	public void process() {
 		session.receive().stream().forEach(packet -> {
-			if (packet instanceof CommandPacket) {
-				
+			if (packet instanceof ChatMessagePacket) {
+				ChatMessagePacket p = (ChatMessagePacket) packet;
+				syncBlockSet.add(new SyncBlock.ChatMessage(p.getCompressedMessage(), p.getColorEffect(),
+						p.getAnimationEffect(), getPrivilege()));
+			} else if (packet instanceof CommandPacket) {
+				syncBlockSet.add(new SyncBlock.ForceChatMessage(new ForceChatMessage("Hi!", true)));
+				syncBlockSet.add(new SyncBlock.Animation(new Animation(231)));
 			} else if (packet instanceof ButtonPacket) {
 				
 			} else if (packet instanceof MovementPacket) {

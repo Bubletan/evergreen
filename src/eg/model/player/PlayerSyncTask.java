@@ -5,11 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import eg.global.World;
+import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
-import eg.model.sync.SyncSegment;
+import eg.model.sync.SyncSection;
 import eg.model.sync.SyncStatus;
-import eg.model.sync.block.AppearanceBlock;
-import eg.model.sync.block.ChatBlock;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.task.Task;
@@ -20,6 +19,8 @@ public final class PlayerSyncTask implements Task {
 	
 	private static final SyncStatus.Stand STAND_STATUS = new SyncStatus.Stand();
 	private static final SyncStatus.Removal REMOVAL_STATUS = new SyncStatus.Removal();
+	
+	private static final SyncBlockSet emptyBlockSet = new SyncBlockSet();
 	
 	@Override
 	public void execute() {
@@ -46,47 +47,48 @@ public final class PlayerSyncTask implements Task {
 	private void postSyncProcess(Player player) {
 		
 		player.getMovement().postSyncProcess();
+		player.resetSyncBlockSet();
 	}
 	
 	private void syncProcess(Player player) {
 		
-		SyncSegment localSegment;
+		SyncSection localSection;
 		SyncBlockSet localBlockSet = player.getSyncBlockSet();
-		if (localBlockSet.contains(ChatBlock.class)) {
+		if (localBlockSet.contains(SyncBlock.Type.CHAT_MESSAGE)) {
 			localBlockSet = localBlockSet.clone();
-			localBlockSet.remove(ChatBlock.class);
+			localBlockSet.remove(SyncBlock.Type.CHAT_MESSAGE);
 		}
 		if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
-			localSegment = new SyncSegment(new SyncStatus.Transition(player.getCoordinate(),
+			localSection = new SyncSection(new SyncStatus.Transition(player.getCoordinate(),
 					player.getMovement().getSectorOrigin(), player.getMovement().isTeleporting()), 
 					localBlockSet);
 		} else if (player.getMovement().isRunning()) {
-			localSegment = new SyncSegment(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
+			localSection = new SyncSection(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
 					player.getMovement().getSecondaryDir()), localBlockSet);
 		} else if (player.getMovement().isWalking()) {
-			localSegment = new SyncSegment(new SyncStatus.Walk(player.getMovement().getPrimaryDir()),
+			localSection = new SyncSection(new SyncStatus.Walk(player.getMovement().getPrimaryDir()),
 					localBlockSet);
 		} else {
-			localSegment = new SyncSegment(STAND_STATUS, localBlockSet);
+			localSection = new SyncSection(STAND_STATUS, localBlockSet);
 		}
 		int localPlayersCount = player.getLocalPlayers().size();
-		List<SyncSegment> nonLocalSegments = new ArrayList<>();
+		List<SyncSection> nonLocalSections = new ArrayList<>();
 		for (Iterator<Player> it = player.getLocalPlayers().iterator(); it.hasNext();) {
 			Player p = it.next();
 			if (!p.isActive() || p.getMovement().isTeleporting() ||
 					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
 					player.getViewingDistance()) {
 				it.remove();
-				nonLocalSegments.add(new SyncSegment(REMOVAL_STATUS, p.getSyncBlockSet()));
+				nonLocalSections.add(new SyncSection(REMOVAL_STATUS, emptyBlockSet));
 			} else if (p.getMovement().isRunning()) {
-				nonLocalSegments.add(new SyncSegment(new SyncStatus.Run(p.getMovement().getPrimaryDir(),
+				nonLocalSections.add(new SyncSection(new SyncStatus.Run(p.getMovement().getPrimaryDir(),
 						p.getMovement().getSecondaryDir()),
 						p.getSyncBlockSet()));
 			} else if (p.getMovement().isWalking()) {
-				nonLocalSegments.add(new SyncSegment(new SyncStatus.Walk(p.getMovement().getPrimaryDir()),
+				nonLocalSections.add(new SyncSection(new SyncStatus.Walk(p.getMovement().getPrimaryDir()),
 						p.getSyncBlockSet()));
 			} else {
-				nonLocalSegments.add(new SyncSegment(STAND_STATUS, p.getSyncBlockSet()));
+				nonLocalSections.add(new SyncSection(STAND_STATUS, p.getSyncBlockSet()));
 			}
 		}
 		int added = 0;
@@ -106,14 +108,14 @@ public final class PlayerSyncTask implements Task {
 			added++;
 			player.getLocalPlayers().add(p);
 			SyncBlockSet blockSet = p.getSyncBlockSet();
-			if (!blockSet.contains(AppearanceBlock.class)) {
+			if (!blockSet.contains(SyncBlock.Type.APPEARANCE)) {
 				blockSet = blockSet.clone();
-				blockSet.add(new AppearanceBlock(p));
+				blockSet.add(new SyncBlock.Appearance(p));
 			}
-			nonLocalSegments.add(new SyncSegment(new SyncStatus.Addition(p.getIndex(), p.getCoordinate()),
+			nonLocalSections.add(new SyncSection(new SyncStatus.Addition(p.getIndex(), p.getCoordinate()),
 					blockSet));
 		}
-		player.getSession().send(new PlayerSyncPacket(localSegment, localPlayersCount,
-				player.getCoordinate(), nonLocalSegments));
+		player.getSession().send(new PlayerSyncPacket(localSection, localPlayersCount,
+				player.getCoordinate(), nonLocalSections));
 	}
 }

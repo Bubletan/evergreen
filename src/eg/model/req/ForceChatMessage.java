@@ -1,15 +1,15 @@
 package eg.model.req;
 
-public final class ForceChat {
+public final class ForceChatMessage {
 
 	private final String message;
 	private final boolean showInChatbox;
 	
-	public ForceChat(String message) {
+	public ForceChatMessage(String message) {
 		this(message, false);
 	}
 	
-	public ForceChat(String message, boolean showInChatbox) {
+	public ForceChatMessage(String message, boolean showInChatbox) {
 		this.message = message;
 		this.showInChatbox = showInChatbox;
 	}

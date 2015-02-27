@@ -654,7 +654,7 @@ public final class Buffer {
 		}
 		System.arraycopy(value.getBytes(), 0, data, pos, value.length());
 		pos += value.length();
-		data[pos++] = 10;
+		data[pos++] = '\n';
 		return this;
 	}
 	
@@ -1193,7 +1193,7 @@ public final class Buffer {
 			if (pos >= data.length) {
 				throw new ArrayIndexOutOfBoundsException("Buffer overflow.");
 			}
-		} while (data[pos++] != 10);
+		} while (data[pos++] != '\n');
 		return new String(data, begin, pos - begin - 1);
 	}
 	
