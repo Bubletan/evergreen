@@ -69,8 +69,8 @@ public final class PlayerSyncPacketEncoder implements
 		case RUN:
 			buf.putBit(true).putBits(2, 2);
 			buf.putBits(3, ((SyncStatus.Run) status).getPrimaryDirection().toInt());
-	    	buf.putBits(3, ((SyncStatus.Run) status).getSecondaryDirection().toInt());
-	    	buf.putBit(set.size() != 0);
+			buf.putBits(3, ((SyncStatus.Run) status).getSecondaryDirection().toInt());
+			buf.putBit(set.size() != 0);
 			break;
 			
 		case WALK:

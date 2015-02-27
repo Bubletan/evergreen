@@ -12,20 +12,6 @@ import eg.net.GameServer;
 import eg.util.task.Task;
 import eg.util.task.Tasks;
 
-/**
- * Evergreen is a RuneScape Server Emulator Framework for the #317 revision.<br>
- * <br>
- * <b>References:</b>
- * <ul>
- * <li>Hyperion</li>
- * <li>Project Insanity</li>
- * <li>Apollo</li>
- * <li>BlakeScape</li>
- * <li><a href="link http://www.rune-server.org/runescape-development/rs-503-client-server/downloads/572004-basic-netty-framework.html">Basic Netty Framework</a></li>
- * </ul>
- * @author Rob / Bubletan
- * @see <a href="http://rsps.wikia.com/wiki/317_Protocol">317 Protocol - Runescape Private Server Wiki</a>
- */
 public final class Server {
 	
 	private static final ScheduledExecutorService process = Executors.newSingleThreadScheduledExecutor();
