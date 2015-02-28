@@ -60,8 +60,7 @@ public final class PlayerSyncTask implements Task {
 		}
 		if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
 			localSection = new SyncSection(new SyncStatus.Transition(player.getCoordinate(),
-					player.getMovement().getSectorOrigin(), player.getMovement().isTeleporting()), 
-					localBlockSet);
+					player.getMovement().isSectorChanging()), localBlockSet);
 		} else if (player.getMovement().isRunning()) {
 			localSection = new SyncSection(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
 					player.getMovement().getSecondaryDir()), localBlockSet);
@@ -116,6 +115,6 @@ public final class PlayerSyncTask implements Task {
 					blockSet));
 		}
 		player.getSession().send(new PlayerSyncPacket(localSection, localPlayersCount,
-				player.getCoordinate(), nonLocalSections));
+				player.getCoordinate(), player.getMovement().getSectorOrigin(), nonLocalSections));
 	}
 }

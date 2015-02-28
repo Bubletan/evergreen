@@ -25,12 +25,21 @@ public final class Movement {
 	 * Process done before building the synchronization packet.
 	 */
 	public void preSyncProcess() {
-		provider.nextMoment();
-		int x = provider.getCurrentX();
-		int y = provider.getCurrentY();
-		Coordinate coord = player.getCoordinate();
-		if (coord.getX() != x || coord.getY() != y) {
-			player.setCoordinate(new Coordinate(x, y, coord.getHeight()));
+		int x, y, height;
+		if (teleportDestination != null) {
+			provider.clearPath();
+			x = teleportDestination.getX();
+			y = teleportDestination.getY();
+			provider.setPosition(x, y);
+			height = teleportDestination.getHeight();
+		} else {
+			provider.nextMoment();
+			x = provider.getCurrentX();
+			y = provider.getCurrentY();
+			height = player.getCoordinate().getHeight();
+		}
+		if (!player.getCoordinate().equals(x, y, height)) {
+			player.setCoordinate(new Coordinate(x, y, height));
 		}
 		// TODO if (teleporting) { reset viewing distance; }
 		if (sectorOrigin == null || isSectorUpdateRequired()) {
@@ -98,5 +107,13 @@ public final class Movement {
 	
 	public boolean isTeleporting() {
 		return teleportDestination != null;
+	}
+	
+	public void teleportTo(Coordinate coordinate) {
+		teleportDestination = coordinate;
+	}
+	
+	public void stop() {
+		provider.clearPath();
 	}
 }

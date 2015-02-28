@@ -4,6 +4,7 @@ import eg.Config;
 import eg.global.World;
 import eg.model.Charactor;
 import eg.model.Coordinate;
+import eg.model.Direction;
 import eg.model.IdleAnimation;
 import eg.model.MovementProvider;
 import eg.model.player.div.Bank;
@@ -13,6 +14,7 @@ import eg.model.player.div.Inventory;
 import eg.model.player.div.Statistics;
 import eg.model.req.Animation;
 import eg.model.req.ForceChatMessage;
+import eg.model.req.ForceMovement;
 import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
 import eg.net.game.GameSession;
@@ -183,8 +185,6 @@ public final class Player extends Charactor {
 				syncBlockSet.add(new SyncBlock.ChatMessage(p.getCompressedMessage(), p.getColorEffect(),
 						p.getAnimationEffect(), getPrivilege()));
 			} else if (packet instanceof CommandPacket) {
-				syncBlockSet.add(new SyncBlock.ForceChatMessage(new ForceChatMessage("Hi!", true)));
-				syncBlockSet.add(new SyncBlock.Animation(new Animation(231)));
 			} else if (packet instanceof ButtonPacket) {
 				
 			} else if (packet instanceof MovementPacket) {

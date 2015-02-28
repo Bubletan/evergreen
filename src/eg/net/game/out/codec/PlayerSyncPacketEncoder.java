@@ -30,12 +30,12 @@ public final class PlayerSyncPacketEncoder implements
 		
 		Buffer payloadBuf = new Buffer();
 		
-		putSection(packet.getLocalSection(), buf, payloadBuf, packet.getOrigin());
+		putSection(packet.getLocalSection(), buf, payloadBuf, packet.getOrigin(), packet.getSectorOrigin());
 		
 		buf.putBits(8, packet.getLocalPlayersCount());
 		
 		for (SyncSection sec : packet.getNonLocalSections()) {
-			putSection(sec, buf, payloadBuf, packet.getOrigin());
+			putSection(sec, buf, payloadBuf, packet.getOrigin(), packet.getSectorOrigin());
 		}
 		
 		if (payloadBuf.getPosition() != 0) {
@@ -48,7 +48,8 @@ public final class PlayerSyncPacketEncoder implements
 		return new GamePacket(81, buf.getData(), buf.getPosition());
 	}
 	
-	private void putSection(SyncSection sec, Buffer buf, Buffer payloadBuf, Coordinate origin) {
+	private void putSection(SyncSection sec, Buffer buf, Buffer payloadBuf, Coordinate localCoordinate,
+			Coordinate sectorOrigin) {
 		
 		SyncStatus status = sec.getStatus();
 		SyncBlockSet set = sec.getBlockSet();
@@ -57,11 +58,10 @@ public final class PlayerSyncPacketEncoder implements
 		
 		case TRANSITION:
 			buf.putBit(true).putBits(2, 3);
-			buf.putBits(2, ((SyncStatus.Transition) status).getCoordinate().getHeight());
-			buf.putBit(((SyncStatus.Transition) status).isTeleporting());
-			buf.putBit(set.size() != 0);
 			Coordinate coordinate = ((SyncStatus.Transition) status).getCoordinate();
-			Coordinate sectorOrigin = ((SyncStatus.Transition) status).getSectorOrigin();
+			buf.putBits(2, coordinate.getHeight());
+			buf.putBit(!((SyncStatus.Transition) status).isSectorChanging());
+			buf.putBit(set.size() != 0);
 			buf.putBits(7, coordinate.getY() - sectorOrigin.getY());
 			buf.putBits(7, coordinate.getX() - sectorOrigin.getX());
 			break;
@@ -82,8 +82,8 @@ public final class PlayerSyncPacketEncoder implements
 		case ADDITION:
 			buf.putBits(11, ((SyncStatus.Addition) status).getIndex());
 			buf.putBit(true).putBit(true);
-			int dx = ((SyncStatus.Addition) status).getCoordinate().getX() - origin.getX();
-			int dy = ((SyncStatus.Addition) status).getCoordinate().getY() - origin.getY();
+			int dx = ((SyncStatus.Addition) status).getCoordinate().getX() - localCoordinate.getX();
+			int dy = ((SyncStatus.Addition) status).getCoordinate().getY() - localCoordinate.getY();
 			buf.putBits(5, dy).putBits(5, dx);
 			break;
 			
@@ -122,13 +122,15 @@ public final class PlayerSyncPacketEncoder implements
 			if (set.contains(SyncBlock.Type.FORCE_MOVEMENT)) {
 				SyncBlock.ForceMovement block = set.get(SyncBlock.Type.FORCE_MOVEMENT);
 				ForceMovement forceMovement = block.getForceMovement();
-				// TODO something else if forceMovement is null
-				payloadBuf.put128PlusNegatedByte(forceMovement.getOriginX());
-				payloadBuf.put128PlusNegatedByte(forceMovement.getOriginY());
-				payloadBuf.put128PlusNegatedByte(forceMovement.getDestinationX());
-				payloadBuf.put128PlusNegatedByte(forceMovement.getDestinationY());
-				payloadBuf.put128PlusLEShort(forceMovement.getDurationX());
-				payloadBuf.put128PlusShort(forceMovement.getDurationY());
+				// TODO reset movement when forceMovement is null?
+				Coordinate primaryDestination = forceMovement.getPrimaryDestination();
+				Coordinate secondaryDestination = forceMovement.getSecondaryDestination();
+				payloadBuf.put128PlusNegatedByte(primaryDestination.getX() - sectorOrigin.getX());
+				payloadBuf.put128PlusNegatedByte(primaryDestination.getY() - sectorOrigin.getY());
+				payloadBuf.put128PlusNegatedByte(secondaryDestination.getX() - sectorOrigin.getX());
+				payloadBuf.put128PlusNegatedByte(secondaryDestination.getY() - sectorOrigin.getY());
+				payloadBuf.put128PlusLEShort(forceMovement.getPrimaryDuration());
+				payloadBuf.put128PlusShort(forceMovement.getPrimaryDuration() + forceMovement.getSecondaryDuration());
 				payloadBuf.put128PlusNegatedByte(forceMovement.getDirection().toInt());
 			}
 			

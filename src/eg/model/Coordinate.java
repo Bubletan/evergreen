@@ -122,6 +122,14 @@ public final class Coordinate {
 		return false;
 	}
 	
+	public boolean equals(int x, int y) {
+		return this.x == x && this.y == y;
+	}
+	
+	public boolean equals(int x, int y, int height) {
+		return this.x == x && this.y == y && this.height == height;
+	}
+	
 	@Override
 	public String toString() {
 		return getClass().getSimpleName() + " [x=" + x + ", y=" + y + ", height=" + height + "]";

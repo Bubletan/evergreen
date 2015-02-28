@@ -23,26 +23,20 @@ public abstract class SyncStatus {
 	public static final class Transition extends SyncStatus {
 		
 		private final Coordinate coordinate;
-		private final Coordinate sectorOrigin;
-		private final boolean teleporting;
+		private final boolean sectorChanging;
 		
-		public Transition(Coordinate coordinate, Coordinate sectorOrigin, boolean teleporting) {
+		public Transition(Coordinate coordinate, boolean sectorChanging) {
 			super(Type.TRANSITION);
 			this.coordinate = coordinate;
-			this.sectorOrigin = sectorOrigin;
-			this.teleporting = teleporting;
+			this.sectorChanging = sectorChanging;
 		}
 		
 		public Coordinate getCoordinate() {
 			return coordinate;
 		}
 		
-		public Coordinate getSectorOrigin() {
-			return sectorOrigin;
-		}
-		
-		public boolean isTeleporting() {
-			return teleporting;
+		public boolean isSectorChanging() {
+			return sectorChanging;
 		}
 	}
 	

@@ -22,6 +22,10 @@ public final class MovementProvider {
 		firstDirection = secondDirection = Direction.NONE;
 	}
 	
+	public void setPosition(int x, int y) {
+		currentPosition = new Position(x, y);
+	}
+	
 	public int getCurrentX() {
 		return currentPosition.x;
 	}
