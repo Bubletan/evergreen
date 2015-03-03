@@ -1,14 +1,14 @@
 package eg.net.game.out.codec;
 
+import eg.model.Animation;
 import eg.model.Charactor;
 import eg.model.Coordinate;
+import eg.model.Effect;
+import eg.model.ForceChatMessage;
+import eg.model.ForceMovement;
+import eg.model.Hit;
 import eg.model.item.Item;
 import eg.model.player.Player;
-import eg.model.req.Animation;
-import eg.model.req.Effect;
-import eg.model.req.ForceChatMessage;
-import eg.model.req.ForceMovement;
-import eg.model.req.Hit;
 import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
 import eg.model.sync.SyncSection;

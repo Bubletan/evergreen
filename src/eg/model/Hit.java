@@ -1,4 +1,4 @@
-package eg.model.req;
+package eg.model;
 
 public final class Hit {
 	

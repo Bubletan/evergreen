@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import eg.net.game.out.LogoutPacket;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -35,7 +37,13 @@ public final class GameSession extends ChannelInboundHandlerAdapter {
 	}
 	
 	public void send(AbstractGamePacket packet) {
-		channel.writeAndFlush(packet);
+		if (channel.isActive() && channel.isOpen()) {
+			if (packet instanceof LogoutPacket) {
+				channel.writeAndFlush(packet).addListener(ChannelFutureListener.CLOSE);
+			} else {
+				channel.writeAndFlush(packet);
+			}
+		}
 	}
 	
 	public String getIP() {

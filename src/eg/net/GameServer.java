@@ -1,6 +1,8 @@
 package eg.net;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 
 import eg.Config;
 import eg.net.login.codec.LoginProtocolDecoder;
@@ -59,6 +61,10 @@ public final class GameServer {
 	}
 	
 	public void bind(int port) {
+		try (Socket socket = new Socket("localhost", port)) {
+			throw new IllegalStateException("Port unavailable: " + port);
+		} catch (IOException e) {
+		}
 		bootstrap.bind(new InetSocketAddress(port));
 	}
 }

@@ -2,8 +2,8 @@ package eg.model.sync;
 
 import eg.model.Charactor;
 import eg.model.Coordinate;
+import eg.model.Hit;
 import eg.model.player.Player;
-import eg.model.req.Hit;
 
 public abstract class SyncBlock {
 	
@@ -25,56 +25,56 @@ public abstract class SyncBlock {
 	
 	public static final class ForceMovement extends SyncBlock {
 		
-		private final eg.model.req.ForceMovement forceMovement;
+		private final eg.model.ForceMovement forceMovement;
 		
-		public ForceMovement(eg.model.req.ForceMovement forceMovement) {
+		public ForceMovement(eg.model.ForceMovement forceMovement) {
 			super(Type.FORCE_MOVEMENT);
 			this.forceMovement = forceMovement;
 		}
 		
-		public eg.model.req.ForceMovement getForceMovement() {
+		public eg.model.ForceMovement getForceMovement() {
 			return forceMovement;
 		}
 	}
 	
 	public static final class Effect extends SyncBlock {
 		
-		private final eg.model.req.Effect effect;
+		private final eg.model.Effect effect;
 		
-		public Effect(eg.model.req.Effect effect) {
+		public Effect(eg.model.Effect effect) {
 			super(Type.EFFECT);
 			this.effect = effect;
 		}
 		
-		public eg.model.req.Effect getEffect() {
+		public eg.model.Effect getEffect() {
 			return effect;
 		}
 	}
 	
 	public static final class Animation extends SyncBlock {
 		
-		private final eg.model.req.Animation animation;
+		private final eg.model.Animation animation;
 		
-		public Animation(eg.model.req.Animation animation) {
+		public Animation(eg.model.Animation animation) {
 			super(Type.ANIMATION);
 			this.animation = animation;
 		}
 		
-		public eg.model.req.Animation getAnimation() {
+		public eg.model.Animation getAnimation() {
 			return animation;
 		}
 	}
 	
 	public static final class ForceChatMessage extends SyncBlock {
 		
-		private final eg.model.req.ForceChatMessage forceChatMessage;
+		private final eg.model.ForceChatMessage forceChatMessage;
 		
-		public ForceChatMessage(eg.model.req.ForceChatMessage forceChatMessage) {
+		public ForceChatMessage(eg.model.ForceChatMessage forceChatMessage) {
 			super(Type.FORCE_CHAT_MESSAGE);
 			this.forceChatMessage = forceChatMessage;
 		}
 		
-		public eg.model.req.ForceChatMessage getForceChatMessage() {
+		public eg.model.ForceChatMessage getForceChatMessage() {
 			return forceChatMessage;
 		}
 	}

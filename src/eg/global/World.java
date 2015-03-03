@@ -6,11 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import eg.Config;
 import eg.model.Coordinate;
 import eg.model.npc.Npc;
 import eg.model.player.Player;
+import eg.model.sync.task.PrePlayerSyncTask;
 
 public final class World {
 	
@@ -105,6 +107,10 @@ public final class World {
 		return playerList;
 	}
 	
+	public Stream<Player> getPlayerStream() {
+		return playerList.parallelStream();
+	}
+	
 	public int getPlayerCount() {
 		return playerList.size();
 	}
@@ -141,6 +147,10 @@ public final class World {
 	
 	public List<Npc> getNpcList() {
 		return npcList;
+	}
+	
+	public Stream<Npc> getNpcStream() {
+		return npcList.parallelStream();
 	}
 	
 	public int getNpcCount() {

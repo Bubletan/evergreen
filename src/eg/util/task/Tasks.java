@@ -8,6 +8,10 @@ public final class Tasks {
 	private Tasks() {
 	}
 	
+	public static void execute(Task task) {
+		task.execute();
+	}
+	
 	public static Thread toThread(Task task) {
 		return new Thread(() -> task.execute());
 	}
@@ -24,11 +28,11 @@ public final class Tasks {
 		return () -> tasks.parallelStream().forEach(t -> t.execute());
 	}
 	
-	public static Task toConsecutiveTask(Task... tasks) {
+	public static Task toSequentialTask(Task... tasks) {
 		return () -> Arrays.stream(tasks).forEach(t -> t.execute());
 	}
 	
-	public static Task toConsecutiveTask(Collection<Task> tasks) {
+	public static Task toSequentialTask(Collection<Task> tasks) {
 		return () -> tasks.stream().forEach(t -> t.execute());
 	}
 }

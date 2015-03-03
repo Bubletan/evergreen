@@ -1,15 +1,15 @@
-package eg.model.player;
+package eg.model.sync.task;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import eg.global.World;
+import eg.model.player.Player;
 import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
 import eg.model.sync.SyncSection;
 import eg.model.sync.SyncStatus;
-import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.task.Task;
 
@@ -17,41 +17,19 @@ public final class PlayerSyncTask implements Task {
 	
 	private static final int NEW_PLAYERS_PER_CYCLE = 20;
 	
-	private static final SyncStatus.Stand STAND_STATUS = new SyncStatus.Stand();
-	private static final SyncStatus.Removal REMOVAL_STATUS = new SyncStatus.Removal();
+	private static final SyncStatus.Stand SYNC_STATUS_STAND = new SyncStatus.Stand();
+	private static final SyncStatus.Removal SYNC_STATUS_REMOVAL = new SyncStatus.Removal();
 	
 	private static final SyncBlockSet emptyBlockSet = new SyncBlockSet();
 	
+	private final Player player;
+	
+	public PlayerSyncTask(Player player) {
+		this.player = player;
+	}
+	
 	@Override
 	public void execute() {
-		
-		World.getWorld().getPlayerList().parallelStream()
-				.forEach(this::preSyncProcess);
-		
-		World.getWorld().getPlayerList().parallelStream()
-				.forEach(this::syncProcess);
-		
-		World.getWorld().getPlayerList().parallelStream()
-				.forEach(this::postSyncProcess);
-	}
-	
-	private void preSyncProcess(Player player) {
-		
-		player.getMovement().preSyncProcess();
-		
-		if (player.getMovement().isSectorChanging()) {
-			player.getSession().send(new MapLoadingPacket(player.getCoordinate()));
-		}
-	}
-	
-	private void postSyncProcess(Player player) {
-		
-		player.getMovement().postSyncProcess();
-		player.resetSyncBlockSet();
-	}
-	
-	private void syncProcess(Player player) {
-		
 		SyncSection localSection;
 		SyncBlockSet localBlockSet = player.getSyncBlockSet();
 		if (localBlockSet.contains(SyncBlock.Type.CHAT_MESSAGE)) {
@@ -68,7 +46,7 @@ public final class PlayerSyncTask implements Task {
 			localSection = new SyncSection(new SyncStatus.Walk(player.getMovement().getPrimaryDir()),
 					localBlockSet);
 		} else {
-			localSection = new SyncSection(STAND_STATUS, localBlockSet);
+			localSection = new SyncSection(SYNC_STATUS_STAND, localBlockSet);
 		}
 		int localPlayersCount = player.getLocalPlayers().size();
 		List<SyncSection> nonLocalSections = new ArrayList<>();
@@ -78,7 +56,7 @@ public final class PlayerSyncTask implements Task {
 					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
 					player.getViewingDistance()) {
 				it.remove();
-				nonLocalSections.add(new SyncSection(REMOVAL_STATUS, emptyBlockSet));
+				nonLocalSections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
 			} else if (p.getMovement().isRunning()) {
 				nonLocalSections.add(new SyncSection(new SyncStatus.Run(p.getMovement().getPrimaryDir(),
 						p.getMovement().getSecondaryDir()),
@@ -87,7 +65,7 @@ public final class PlayerSyncTask implements Task {
 				nonLocalSections.add(new SyncSection(new SyncStatus.Walk(p.getMovement().getPrimaryDir()),
 						p.getSyncBlockSet()));
 			} else {
-				nonLocalSections.add(new SyncSection(STAND_STATUS, p.getSyncBlockSet()));
+				nonLocalSections.add(new SyncSection(SYNC_STATUS_STAND, p.getSyncBlockSet()));
 			}
 		}
 		int added = 0;

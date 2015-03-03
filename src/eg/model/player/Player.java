@@ -4,17 +4,8 @@ import eg.Config;
 import eg.global.World;
 import eg.model.Charactor;
 import eg.model.Coordinate;
-import eg.model.Direction;
 import eg.model.IdleAnimation;
 import eg.model.MovementProvider;
-import eg.model.player.div.Bank;
-import eg.model.player.div.Equipment;
-import eg.model.player.div.Identikit;
-import eg.model.player.div.Inventory;
-import eg.model.player.div.Statistics;
-import eg.model.req.Animation;
-import eg.model.req.ForceChatMessage;
-import eg.model.req.ForceMovement;
 import eg.model.sync.SyncBlock;
 import eg.model.sync.SyncBlockSet;
 import eg.net.game.GameSession;
@@ -30,6 +21,7 @@ import eg.net.game.out.MulticombatOverlayPacket;
 import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.SidebarInterfacePacket;
 import eg.net.game.out.SystemUpdatePacket;
+import eg.util.ChatMessageUtils;
 import eg.util.Misc;
 
 public final class Player extends Charactor {
@@ -182,7 +174,9 @@ public final class Player extends Charactor {
 		session.receive().stream().forEach(packet -> {
 			if (packet instanceof ChatMessagePacket) {
 				ChatMessagePacket p = (ChatMessagePacket) packet;
-				syncBlockSet.add(new SyncBlock.ChatMessage(p.getCompressedMessage(), p.getColorEffect(),
+				String decodedMsg = ChatMessageUtils.decode(p.getEncodedMessage());
+				byte[] encodedMsg = ChatMessageUtils.encode(decodedMsg);
+				syncBlockSet.add(new SyncBlock.ChatMessage(encodedMsg, p.getColorEffect(),
 						p.getAnimationEffect(), getPrivilege()));
 			} else if (packet instanceof CommandPacket) {
 			} else if (packet instanceof ButtonPacket) {
@@ -225,4 +219,19 @@ public final class Player extends Charactor {
 	
 	public int headIcon;
 	public int headIconPk;
+	
+	@Override
+	public int hashCode() {
+		return username.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this == obj;
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [username=" + username + "]";
+	}
 }

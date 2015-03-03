@@ -6,15 +6,12 @@ public final class ChatMessagePacket implements AbstractGamePacket {
 	
 	private final int animEffect;
 	private final int colorEffect;
-	private final String unpacked;
-	private final byte[] packed;
+	private final byte[] encodedMessage;
 	
-	public ChatMessagePacket(int animEffect, int colorEffect, String unpacked,
-			byte[] packed) {
-		this.animEffect = animEffect;
+	public ChatMessagePacket(int colorEffect, int animationEffect, byte[] encodedMessage) {
+		this.animEffect = animationEffect;
 		this.colorEffect = colorEffect;
-		this.unpacked = unpacked;
-		this.packed = packed;
+		this.encodedMessage = encodedMessage;
 	}
 	
 	public int getColorEffect() {
@@ -25,7 +22,7 @@ public final class ChatMessagePacket implements AbstractGamePacket {
 		return animEffect;
 	}
 	
-	public byte[] getCompressedMessage() {
-		return packed;
+	public byte[] getEncodedMessage() {
+		return encodedMessage;
 	}
 }

@@ -1,4 +1,4 @@
-package eg.model.player.div;
+package eg.model.player;
 
 import eg.Config;
 import eg.util.Misc;

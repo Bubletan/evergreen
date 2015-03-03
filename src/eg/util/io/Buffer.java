@@ -210,9 +210,13 @@ public final class Buffer {
 	 */
 	public byte[] getShrunkUnmodifiableData() {
 		int size = getPosition();
-		byte[] tmp = new byte[size];
-		System.arraycopy(data, 0, tmp, 0, size);
-		return tmp;
+		if (size == data.length) {
+			return data.clone();
+		} else {
+			byte[] tmp = new byte[size];
+			System.arraycopy(data, 0, tmp, 0, size);
+			return tmp;
+		}
 	}
 	
 	/**
@@ -1301,7 +1305,7 @@ public final class Buffer {
 			return getUShort() - 0xc000;
 		}
 	}
-
+	
 	/**
 	 * Gets an unsigned smart (8 or 16 bit) value as an {@code int}.
 	 * @see #putUSmart(int)
@@ -1327,7 +1331,7 @@ public final class Buffer {
 		}
 		return getInt() & 0x7fffffff;
 	}
-
+	
 	/**
 	 * Begins a bit access block.<br>
 	 * Returns itself to allow method chaining.

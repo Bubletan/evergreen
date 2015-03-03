@@ -1,7 +1,10 @@
 package eg.global;
 
-import eg.model.player.PlayerSyncTask;
+import eg.model.sync.task.PlayerSyncTask;
+import eg.model.sync.task.PostPlayerSyncTask;
+import eg.model.sync.task.PrePlayerSyncTask;
 import eg.util.task.Task;
+import eg.util.task.Tasks;
 
 public final class ProcessTask implements Task {
 	
@@ -10,10 +13,12 @@ public final class ProcessTask implements Task {
 		
 		World.getWorld().updateLists();
 		
-		World.getWorld().getPlayerList().parallelStream().forEach(player -> {
+		World.getWorld().getPlayerStream().forEach(player -> {
 			player.process();
 		});
 		
-		new PlayerSyncTask().execute();
+		World.getWorld().getPlayerStream().map(p -> new PrePlayerSyncTask(p)).forEach(Tasks::execute);
+		World.getWorld().getPlayerStream().map(p -> new PlayerSyncTask(p)).forEach(Tasks::execute);
+		World.getWorld().getPlayerStream().map(p -> new PostPlayerSyncTask(p)).forEach(Tasks::execute);
 	}
 }

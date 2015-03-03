@@ -1,7 +1,5 @@
-package eg.model.req;
+package eg.model;
 
-import eg.model.Coordinate;
-import eg.model.Direction;
 
 public final class ForceMovement {
 	
