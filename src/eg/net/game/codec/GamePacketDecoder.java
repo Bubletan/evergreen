@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import eg.net.game.AbstractGamePacketDecoder;
-import eg.net.game.AbstractGamePacketDecoderDeclaration;
+import eg.net.game.InboundAbstractGamePacketDeclaration;
 import eg.net.game.GamePacket;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
@@ -21,8 +21,8 @@ public final class GamePacketDecoder extends MessageToMessageDecoder<GamePacket>
 		int successCount = 0, totalCount = 0;
 		Map<Class<? extends AbstractGamePacketDecoder<?>>, AbstractGamePacketDecoder<?>> pool =
 				new HashMap<>();
-		for (AbstractGamePacketDecoderDeclaration dec :
-			AbstractGamePacketDecoderDeclaration.values()) {
+		for (InboundAbstractGamePacketDeclaration dec :
+			InboundAbstractGamePacketDeclaration.values()) {
 			try {
 				AbstractGamePacketDecoder<?> decoder = pool.get(dec.getDecoderClass());
 				if (decoder == null) {

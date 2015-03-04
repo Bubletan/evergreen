@@ -6,7 +6,7 @@ import java.util.Map;
 
 import eg.net.game.AbstractGamePacket;
 import eg.net.game.AbstractGamePacketEncoder;
-import eg.net.game.AbstractGamePacketEncoderDeclaration;
+import eg.net.game.OutboundAbstractGamePacketDeclaration;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
@@ -19,8 +19,8 @@ public final class GamePacketEncoder extends MessageToMessageEncoder<AbstractGam
 	
 	static {
 		int successCount = 0, totalCount = 0;
-		for (AbstractGamePacketEncoderDeclaration dec :
-				AbstractGamePacketEncoderDeclaration.values()) {
+		for (OutboundAbstractGamePacketDeclaration dec :
+				OutboundAbstractGamePacketDeclaration.values()) {
 			try {
 				ENCODERS.put(dec.getPacketClass(), dec.getEncoderClass().newInstance());
 				successCount++;
