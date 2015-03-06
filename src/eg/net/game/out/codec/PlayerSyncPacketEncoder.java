@@ -285,7 +285,7 @@ public final class PlayerSyncPacketEncoder implements
 				SyncBlock.PrimaryHit block = set.get(SyncBlock.Type.PRIMARY_HIT);
 				Hit hit = block.getHit();
 				payloadBuf.putByte(hit.getDamage());
-				payloadBuf.put128PlusByte(hit.getType());
+				payloadBuf.put128PlusByte(hit.getType().toInt());
 				payloadBuf.putNegatedByte(block.getHealthLeft());
 				payloadBuf.putByte(block.getHealthTotal());
 			}
@@ -294,7 +294,7 @@ public final class PlayerSyncPacketEncoder implements
 				SyncBlock.SecondaryHit block = set.get(SyncBlock.Type.SECONDARY_HIT);
 				Hit hit = block.getHit();
 				payloadBuf.putByte(hit.getDamage());
-				payloadBuf.put128PlusNegatedByte(hit.getType());
+				payloadBuf.put128PlusNegatedByte(hit.getType().toInt());
 				payloadBuf.putByte(block.getHealthLeft());
 				payloadBuf.putNegatedByte(block.getHealthTotal());
 			}

@@ -2,8 +2,6 @@ package eg.model;
 
 public final class Animation {
 	
-	public static final Animation NULL = new Animation(0xffff);
-	
 	public static final Animation YES = new Animation(855);
 	public static final Animation NO = new Animation(856);
 	public static final Animation THINKING = new Animation(857);
@@ -41,6 +39,12 @@ public final class Animation {
 	}
 	
 	public Animation(int id, int delay) {
+		if (id < 0 || id >= 0xffff) {
+			throw new IllegalArgumentException("ID out of bounds: " + id);
+		}
+		if (delay < 0 || delay > 0xff) {
+			throw new IllegalArgumentException("Delay out of bounds: " + delay);
+		}
 		this.id = id;
 		this.delay = delay;
 	}

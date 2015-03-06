@@ -1,6 +1,5 @@
 package eg.model;
 
-
 public final class ForceMovement {
 	
 	private final Coordinate primaryDestination;
