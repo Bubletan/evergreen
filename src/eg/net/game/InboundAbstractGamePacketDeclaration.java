@@ -1,7 +1,23 @@
 package eg.net.game;
 
-import eg.net.game.in.*;
-import eg.net.game.in.codec.*;
+import eg.net.game.in.ButtonPacket;
+import eg.net.game.in.CameraAlteredPacket;
+import eg.net.game.in.ChatMessagePacket;
+import eg.net.game.in.CommandPacket;
+import eg.net.game.in.KeepalivePacket;
+import eg.net.game.in.MapLoadedPacket;
+import eg.net.game.in.MouseClickPacket;
+import eg.net.game.in.MovementPacket;
+import eg.net.game.in.WindowFocusAlteredPacket;
+import eg.net.game.in.codec.ButtonPacketDecoder;
+import eg.net.game.in.codec.CameraAlteredPacketDecoder;
+import eg.net.game.in.codec.ChatMessagePacketDecoder;
+import eg.net.game.in.codec.CommandPacketDecoder;
+import eg.net.game.in.codec.KeepalivePacketDecoder;
+import eg.net.game.in.codec.MapLoadedPacketDecoder;
+import eg.net.game.in.codec.MouseClickPacketDecoder;
+import eg.net.game.in.codec.MovementPacketDecoder;
+import eg.net.game.in.codec.WindowFocusAlteredPacketDecoder;
 
 public enum InboundAbstractGamePacketDeclaration {
 	

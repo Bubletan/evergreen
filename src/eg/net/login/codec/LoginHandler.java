@@ -5,14 +5,25 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.List;
 
+import eg.model.player.Player;
+import eg.net.game.GameSession;
+import eg.net.game.codec.GamePacketDecoder;
+import eg.net.game.codec.GamePacketEncoder;
+import eg.net.game.codec.GameProtocolDecoder;
+import eg.net.game.codec.GameProtocolEncoder;
 import eg.net.login.LoginRequest;
 import eg.util.io.IsaacCipher;
+import eg.util.net.TransientByteToMessageDecoder;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.ByteToMessageDecoder;
+import io.netty.channel.ChannelPipeline;
 
-public final class LoginProtocolDecoder extends ByteToMessageDecoder {
+public final class LoginHandler extends TransientByteToMessageDecoder {
+	
+	private static final GamePacketDecoder GAME_PACKET_DECODER = new GamePacketDecoder();
+	private static final GamePacketEncoder GAME_PACKET_ENCODER = new GamePacketEncoder();
 	
 	private static final BigInteger RSA_EXPONENT = new BigInteger("124425314960550024206991065332877157931472210939505789558012215720454903710618146200843877022273818555405810618059191162604008259757866640421952188957253368398733319663236323097864278319463888334484786055755767881706264786840339899269810859874287402892848784247637729987603089254067178011764721326471352835473");
 	private static final BigInteger RSA_MODULUS = new BigInteger("143690958001225849100503496893758066948984921380482659564113596152800934352119496873386875214251264258425208995167316497331786595942754290983849878549630226741961610780416197036711585670124061149988186026407785250364328460839202438651793652051153157765358767514800252431284681765433239888090564804146588087023");
@@ -22,28 +33,50 @@ public final class LoginProtocolDecoder extends ByteToMessageDecoder {
 	public static final int TYPE_STANDARD = 16;
 	public static final int TYPE_RECONNECTION = 18;
 	
-	private int state;
-	
 	private static final SecureRandom random = new SecureRandom();
 
 	private int loginLength;
 	private boolean reconnecting;
 	private long serverSeed;
 	private int usernameHash;
+	
+	private static enum State {
+		
+		HANDSHAKE, HEADER, PAYLOAD, COMPLETE
+	}
+	
+	private State state = State.HANDSHAKE;
 
 	@Override
 	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-		if (state == 0 && decodeHandshake(ctx, in, out)
-				|| state == 1 && decodeHeader(ctx, in, out)
-				|| state == 2 && decodePayload(ctx, in, out)) {
-			state++;
+		switch (state) {
+		
+		case HANDSHAKE:
+			if (decodeHandshake(ctx, in, out)) {
+				state = State.HEADER;
+			}
+			break;
+			
+		case HEADER:
+			if (decodeHeader(ctx, in, out)) {
+				state = State.PAYLOAD;
+			}
+			break;
+			
+		case PAYLOAD:
+			if (decodePayload(ctx, in, out)) {
+				state = State.COMPLETE;
+				ctx.pipeline().remove(this);
+			}
+			break;
+			
+		default:
+			throw new IllegalStateException("Illegal login protocol state.");
 		}
 	}
 	
 	private boolean decodeHandshake(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
-		if (in.readableBytes() >= 2) {
-			
-			in.readUnsignedByte(); // 14, login request
+		if (in.isReadable()) {
 			
 			usernameHash = in.readUnsignedByte();
 			serverSeed = random.nextLong();
@@ -52,7 +85,7 @@ public final class LoginProtocolDecoder extends ByteToMessageDecoder {
 			response.writeByte(STATUS_EXCHANGE_DATA);
 			response.writeLong(0);
 			response.writeLong(serverSeed);
-			ctx.channel().writeAndFlush(response);
+			ctx.writeAndFlush(response);
 			
 			return true;
 		}
@@ -146,10 +179,23 @@ public final class LoginProtocolDecoder extends ByteToMessageDecoder {
 			LoginRequest request = new LoginRequest(username, password, usernameHash, uid, decodingRandom, encodingRandom, reconnecting, lowMemory, releaseNumber, archiveCrcs,
 					clientVersion);
 
-			out.add(request);
-			if (in.isReadable()) {
-				out.add(in.readBytes(in.readableBytes()));
-			}
+			ByteBuf buf = ctx.alloc().buffer(3);
+			buf.writeByte(2).writeByte(2).writeByte(0);
+			ctx.channel().writeAndFlush(buf);
+			
+			ChannelPipeline p = ctx.pipeline();
+			
+			p.addLast("gameProtocolDecoder", new GameProtocolDecoder(request.getDecodingCipher()));
+			p.addLast("gamePacketDecoder", GAME_PACKET_DECODER);
+			GameSession session = new GameSession(ctx.channel());
+			Player player = new Player(session, request.getUsername(), request.getPassword());
+			p.addLast("gameSession", session);
+			
+			p.addLast("gameProtocolEncoder", new GameProtocolEncoder(request.getEncodingCipher()));
+			p.addLast("gamePacketEncoder", GAME_PACKET_ENCODER);
+			
+			player.setActive(true);
+			
 			return true;
 		}
 		return false;

@@ -2,7 +2,6 @@ package eg.model.player;
 
 import eg.Config;
 import eg.util.Misc;
-import eg.util.io.Buffer;
 
 public final class Skill {
 

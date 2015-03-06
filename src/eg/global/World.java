@@ -12,7 +12,6 @@ import eg.Config;
 import eg.model.Coordinate;
 import eg.model.npc.Npc;
 import eg.model.player.Player;
-import eg.model.sync.task.PrePlayerSyncTask;
 
 public final class World {
 	

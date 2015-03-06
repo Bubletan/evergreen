@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import eg.net.game.AbstractGamePacketDecoder;
-import eg.net.game.InboundAbstractGamePacketDeclaration;
 import eg.net.game.GamePacket;
+import eg.net.game.InboundAbstractGamePacketDeclaration;
+
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;

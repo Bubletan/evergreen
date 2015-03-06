@@ -1,7 +1,31 @@
 package eg.net.game;
 
-import eg.net.game.out.*;
-import eg.net.game.out.codec.*;
+import eg.net.game.out.CameraResetPacket;
+import eg.net.game.out.DialogueInterfacePacket;
+import eg.net.game.out.GameMessagePacket;
+import eg.net.game.out.InterfaceTextPacket;
+import eg.net.game.out.LogoutPacket;
+import eg.net.game.out.MainInterfacePacket;
+import eg.net.game.out.MapLoadingPacket;
+import eg.net.game.out.MulticombatOverlayPacket;
+import eg.net.game.out.PlayerInitPacket;
+import eg.net.game.out.PlayerSyncPacket;
+import eg.net.game.out.SidebarInterfacePacket;
+import eg.net.game.out.SystemUpdatePacket;
+import eg.net.game.out.WeightUpdatePacket;
+import eg.net.game.out.codec.CameraResetPacketEncoder;
+import eg.net.game.out.codec.DialogueInterfacePacketEncoder;
+import eg.net.game.out.codec.GameMessagePacketEncoder;
+import eg.net.game.out.codec.InterfaceTextPacketEncoder;
+import eg.net.game.out.codec.LogoutPacketEncoder;
+import eg.net.game.out.codec.MainInterfacePacketEncoder;
+import eg.net.game.out.codec.MapLoadingPacketEncoder;
+import eg.net.game.out.codec.MulticombatOverlayPacketEncoder;
+import eg.net.game.out.codec.PlayerInitPacketEncoder;
+import eg.net.game.out.codec.PlayerSyncPacketEncoder;
+import eg.net.game.out.codec.SidebarInterfacePacketEncoder;
+import eg.net.game.out.codec.SystemUpdatePacketEncoder;
+import eg.net.game.out.codec.WeightUpdatePacketEncoder;
 
 public enum OutboundAbstractGamePacketDeclaration {
 	
