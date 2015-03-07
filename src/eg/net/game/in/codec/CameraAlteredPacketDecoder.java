@@ -10,8 +10,8 @@ public final class CameraAlteredPacketDecoder implements AbstractGamePacketDecod
 	@Override
 	public CameraAlteredPacket decode(GamePacket packet) throws Exception {
 		Buffer buf = packet.toBuffer();
-		int roll = buf.getLEUShort();
-		int yaw = buf.getLEUShort();
+		int roll = buf.getLeUShort();
+		int yaw = buf.getLeUShort();
 		return new CameraAlteredPacket(roll, yaw);
 	}
 }

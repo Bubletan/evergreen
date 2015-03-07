@@ -404,7 +404,7 @@ public final class Buffer {
 		return this;
 	}
 
-	public Buffer put128PlusNegatedByte(int value) {
+	public Buffer putSubtractedByte(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -415,7 +415,7 @@ public final class Buffer {
 		return this;
 	}
 	
-	public Buffer put128PlusByte(int value) {
+	public Buffer putAddedByte(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -447,10 +447,10 @@ public final class Buffer {
 	/**
 	 * Puts an {@code int} as a little-endian 16 bit value.<br>
 	 * Returns itself to allow method chaining.
-	 * @see #getLEShort()
-	 * @see #getLEUShort()
+	 * @see #getLeShort()
+	 * @see #getLeUShort()
 	 */
-	public Buffer putLEShort(int value) {
+	public Buffer putLeShort(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -462,7 +462,7 @@ public final class Buffer {
 		return this;
 	}
 	
-	public Buffer put128PlusShort(int value) {
+	public Buffer putAddedShort(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -474,7 +474,7 @@ public final class Buffer {
 		return this;
 	}
 	
-	public Buffer put128PlusLEShort(int value) {
+	public Buffer putAddedLeShort(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -508,10 +508,10 @@ public final class Buffer {
 	/**
 	 * Puts an {@code int} as a little-endian 24 bit value.<br>
 	 * Returns itself to allow method chaining.
-	 * @see #getLEMedium()
-	 * @see #getLEUMedium()
+	 * @see #getLeMedium()
+	 * @see #getLeUMedium()
 	 */
-	public Buffer putLEMedium(int value) {
+	public Buffer putLeMedium(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -546,9 +546,9 @@ public final class Buffer {
 	/**
 	 * Puts an {@code int} as a little-endian 32 bit value.<br>
 	 * Returns itself to allow method chaining.
-	 * @see #getLEInt()
+	 * @see #getLeInt()
 	 */
-	public Buffer putLEInt(int value) {
+	public Buffer putLeInt(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -565,9 +565,9 @@ public final class Buffer {
 	/**
 	 * Puts an {@code int} as a middle-endian 32 bit value.<br>
 	 * Returns itself to allow method chaining.
-	 * @see #getMEInt()
+	 * @see #getMeInt()
 	 */
-	public Buffer putMEInt(int value) {
+	public Buffer putMeInt(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -584,9 +584,9 @@ public final class Buffer {
 	/**
 	 * Puts an {@code int} as a reversed middle-endian 32 bit value.<br>
 	 * Returns itself to allow method chaining.
-	 * @see #getRMEInt()
+	 * @see #getRmeInt()
 	 */
-	public Buffer putRMEInt(int value) {
+	public Buffer putRmeInt(int value) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -734,7 +734,7 @@ public final class Buffer {
 		return this;
 	}
 	
-	public Buffer put128PlusBytes(byte[] src, int offset, int length) {
+	public Buffer putAddedBytes(byte[] src, int offset, int length) {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -779,31 +779,6 @@ public final class Buffer {
 		} else {
 			return putShort(value + 0x8000);
 		}
-	}
-	
-	public Buffer putByteLength(int value) {
-		if (bitAccess) {
-			throw new IllegalStateException("Bit access is enabled.");
-		}
-		data[pos - value - 1] = (byte) value;
-		return this;
-	}
-	
-	public Buffer putOppositeByteLength(int value) {
-		if (bitAccess) {
-			throw new IllegalStateException("Bit access is enabled.");
-		}
-		data[pos - value - 1] = (byte) -value;
-		return this;
-	}
-	
-	public Buffer putShortLength(int value) {
-		if (bitAccess) {
-			throw new IllegalStateException("Bit access is enabled.");
-		}
-		data[pos - value - 2] = (byte) (value >> 8);
-		data[pos - value - 1] = (byte) value;
-		return this;
 	}
 	
 	/**
@@ -862,7 +837,7 @@ public final class Buffer {
 		return -data[pos++] & 0xff;
 	}
 	
-	public byte getByte2() {
+	public byte getSubtractedByte() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -872,7 +847,7 @@ public final class Buffer {
 		return (byte) (128 - data[pos++]);
 	}
 	
-	public int getUByte2() {
+	public int getSubtractedUByte() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -882,7 +857,7 @@ public final class Buffer {
 		return 128 - data[pos++] & 0xff;
 	}
 	
-	public byte getByte3() {
+	public byte getAddedByte() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -892,7 +867,7 @@ public final class Buffer {
 		return (byte) (data[pos++] - 128);
 	}
 	
-	public int getUByte3() {
+	public int getAddedUByte() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -938,9 +913,9 @@ public final class Buffer {
 	
 	/**
 	 * Gets a signed little-endian 16 bit value as an {@code int}.
-	 * @see #putLEShort(int)
+	 * @see #putLeShort(int)
 	 */
-	public int getLEShort() {
+	public int getLeShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -957,9 +932,9 @@ public final class Buffer {
 	
 	/**
 	 * Gets an unsigned little-endian 16 bit value as an {@code int}.
-	 * @see #putLEShort(int)
+	 * @see #putLeShort(int)
 	 */
-	public int getLEUShort() {
+	public int getLeUShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -970,7 +945,7 @@ public final class Buffer {
 		return ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
 	}
 	
-	public int getShort2() {
+	public int getAddedShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -985,7 +960,7 @@ public final class Buffer {
 		return tmp;
 	}
 
-	public int getUShort2() {
+	public int getAddedUShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -996,7 +971,7 @@ public final class Buffer {
 		return ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] - 128 & 0xff);
 	}
 	
-	public int getLEShort2() {
+	public int getAddedLeShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1011,7 +986,7 @@ public final class Buffer {
 		return tmp;
 	}
 
-	public int getLEUShort2() {
+	public int getAddedLeUShort() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1058,9 +1033,9 @@ public final class Buffer {
 	
 	/**
 	 * Gets a signed little-endian 24 bit value as an {@code int}.
-	 * @see #putLEMedium(int)
+	 * @see #putLeMedium(int)
 	 */
-	public int getLEMedium() {
+	public int getLeMedium() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1079,7 +1054,7 @@ public final class Buffer {
 	 * Gets an unsigned little-endian 24 bit value as an {@code int}.
 	 * @see #putLEMedium()
 	 */
-	public int getLEUMedium() {
+	public int getLeUMedium() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1089,7 +1064,7 @@ public final class Buffer {
 		pos += 3;
 		return ((data[pos - 1] & 0xff) << 16) + ((data[pos - 2] & 0xff) << 8) + (data[pos - 3] & 0xff);
 	}
-
+	
 	/**
 	 * Gets a signed big-endian 32 bit value as an {@code int}.
 	 * @see #putInt(int)
@@ -1107,9 +1082,9 @@ public final class Buffer {
 	
 	/**
 	 * Gets a signed little-endian 32 bit value as an {@code int}.
-	 * @see #putLEInt(int)
+	 * @see #putLeInt(int)
 	 */
-	public int getLEInt() {
+	public int getLeInt() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1122,9 +1097,9 @@ public final class Buffer {
 
 	/**
 	 * Gets a signed middle-endian 32 bit value as an {@code int}.
-	 * @see #putMEInt(int)
+	 * @see #putMeInt(int)
 	 */
-	public int getMEInt() {
+	public int getMeInt() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1137,9 +1112,9 @@ public final class Buffer {
 	
 	/**
 	 * Gets a signed reversed middle-endian 32 bit value as an {@code int}.
-	 * @see #putRMEInt(int)
+	 * @see #putRmeInt(int)
 	 */
-	public int getRMEInt() {
+	public int getRmeInt() {
 		if (bitAccess) {
 			throw new IllegalStateException("Bit access is enabled.");
 		}
@@ -1223,27 +1198,6 @@ public final class Buffer {
 			}
 		} while (data[pos++] != 0);
 		return new String(data, begin, pos - begin - 1);
-	}
-	
-	/**
-	 * Gets a {@code byte[]} that represents a {@code String} created from bytes ending
-	 * with a line break character (10).<br>
-	 * Can be converted to a {@code String} by {@link String#String(byte[]) String(byte[])}.
-	 * @see #putLine(String)
-	 */
-	public byte[] getLineBytes() {
-		if (bitAccess) {
-			throw new IllegalStateException("Bit access is enabled.");
-		}
-		final int start = pos;
-		do {
-			if (pos >= data.length) {
-				throw new ArrayIndexOutOfBoundsException("Buffer overflow.");
-			}
-		} while (data[pos++] != 10);
-		final byte[] tmp = new byte[pos - start - 1];
-		System.arraycopy(data, start, tmp, start - start, pos - 1 - start);
-		return tmp;
 	}
 	
 	/**

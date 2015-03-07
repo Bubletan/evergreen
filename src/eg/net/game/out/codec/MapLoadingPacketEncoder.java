@@ -12,7 +12,7 @@ public final class MapLoadingPacketEncoder implements AbstractGamePacketEncoder<
 	public GamePacket encode(MapLoadingPacket packet) throws Exception {
 		Coordinate coord = packet.getCoordinate();
 		return new GamePacket(73, new Buffer(4)
-				.put128PlusShort(coord.getX() >> 3)
+				.putAddedShort(coord.getX() >> 3)
 				.putShort(coord.getY() >> 3)
 				.getData());
 	}

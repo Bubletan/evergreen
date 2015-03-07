@@ -16,8 +16,8 @@ public final class Buffers {
 	}
 	
 	/**
-	 * Returns either a pooled or a new {@link Buffer} which has equal settings to
-	 * one created by {@link Buffer#Buffer() new Buffer()} but an unknown size and data.
+	 * Returns either a pooled or a new {@link Buffer} which is equal to one
+	 * created by {@link Buffer#Buffer() Buffer()} but has an unknown size and data.
 	 */
 	public static Buffer allocate() {
 		synchronized (pool) {

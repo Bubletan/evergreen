@@ -120,7 +120,7 @@ public final class PlayerSyncPacketEncoder implements
 					| (set.contains(SyncBlock.Type.SECONDARY_HIT) ? 0b10_0000_0000 : 0);
 			
 			if (config >= 0x100) {
-				payloadBuf.putLEShort(config | 0b100_0000);
+				payloadBuf.putLeShort(config | 0b100_0000);
 			} else {
 				payloadBuf.putByte(config);
 			}
@@ -131,19 +131,19 @@ public final class PlayerSyncPacketEncoder implements
 				// TODO reset movement when forceMovement is null?
 				Coordinate primaryDestination = forceMovement.getPrimaryDestination();
 				Coordinate secondaryDestination = forceMovement.getSecondaryDestination();
-				payloadBuf.put128PlusNegatedByte(primaryDestination.getX() - sectorOrigin.getX());
-				payloadBuf.put128PlusNegatedByte(primaryDestination.getY() - sectorOrigin.getY());
-				payloadBuf.put128PlusNegatedByte(secondaryDestination.getX() - sectorOrigin.getX());
-				payloadBuf.put128PlusNegatedByte(secondaryDestination.getY() - sectorOrigin.getY());
-				payloadBuf.put128PlusLEShort(forceMovement.getPrimaryDuration());
-				payloadBuf.put128PlusShort(forceMovement.getPrimaryDuration() + forceMovement.getSecondaryDuration());
-				payloadBuf.put128PlusNegatedByte(forceMovement.getDirection().toInt());
+				payloadBuf.putSubtractedByte(primaryDestination.getX() - sectorOrigin.getX());
+				payloadBuf.putSubtractedByte(primaryDestination.getY() - sectorOrigin.getY());
+				payloadBuf.putSubtractedByte(secondaryDestination.getX() - sectorOrigin.getX());
+				payloadBuf.putSubtractedByte(secondaryDestination.getY() - sectorOrigin.getY());
+				payloadBuf.putAddedLeShort(forceMovement.getPrimaryDuration());
+				payloadBuf.putAddedShort(forceMovement.getPrimaryDuration() + forceMovement.getSecondaryDuration());
+				payloadBuf.putSubtractedByte(forceMovement.getDirection().toInt());
 			}
 			
 			if (set.contains(SyncBlock.Type.EFFECT)) {
 				SyncBlock.Effect block = set.get(SyncBlock.Type.EFFECT);
 				Effect effect = block.getEffect();
-				payloadBuf.putLEShort(effect != null ? effect.getId() : 0xffff);
+				payloadBuf.putLeShort(effect != null ? effect.getId() : 0xffff);
 				payloadBuf.putShort(effect != null ? effect.getHeight() : 0);
 				payloadBuf.putShort(effect != null ? effect.getDelay() : 0);
 			}
@@ -151,7 +151,7 @@ public final class PlayerSyncPacketEncoder implements
 			if (set.contains(SyncBlock.Type.ANIMATION)) {
 				SyncBlock.Animation block = set.get(SyncBlock.Type.ANIMATION);
 				Animation animation = block.getAnimation();
-				payloadBuf.putLEShort(animation != null ? animation.getId() : 0xffff);
+				payloadBuf.putLeShort(animation != null ? animation.getId() : 0xffff);
 				payloadBuf.putNegatedByte(animation != null ? animation.getDelay() : 0);
 			}
 			
@@ -185,13 +185,13 @@ public final class PlayerSyncPacketEncoder implements
 				if (target instanceof Player) {
 					index += 0x8000;
 				}
-				payloadBuf.putLEShort(index);
+				payloadBuf.putLeShort(index);
 			}
 			
 			if (set.contains(SyncBlock.Type.APPEARANCE)) {
 				SyncBlock.Appearance block = set.get(SyncBlock.Type.APPEARANCE);
 				Player player = block.getPlayer();
-				int begin = payloadBuf.shiftAndGetPosition(1);
+				payloadBuf.beginNegatedUByteBlock();
 				payloadBuf.putByte(player.getIdentikit().getGender());
 				payloadBuf.putByte(player.headIcon);
 				payloadBuf.putByte(player.headIconPk);
@@ -270,8 +270,7 @@ public final class PlayerSyncPacketEncoder implements
 				payloadBuf.putLong(Misc.encryptUsername(player.getUsername()));
 				payloadBuf.putByte(player.getStatistics().getCombatLevel());
 				payloadBuf.putShort(0); // skill
-				payloadBuf.putOppositeByteLength(payloadBuf.getPosition() - begin);
-			
+				payloadBuf.endBlock();
 			}
 			
 			if (set.contains(SyncBlock.Type.TURN)) {
@@ -283,15 +282,15 @@ public final class PlayerSyncPacketEncoder implements
 					x = target.getX() << 1 | 1;
 					y = target.getY() << 1 | 1;
 				}
-				payloadBuf.put128PlusLEShort(x);
-				payloadBuf.putLEShort(y);
+				payloadBuf.putAddedLeShort(x);
+				payloadBuf.putLeShort(y);
 			}
 			
 			if (set.contains(SyncBlock.Type.PRIMARY_HIT)) {
 				SyncBlock.PrimaryHit block = set.get(SyncBlock.Type.PRIMARY_HIT);
 				Hit hit = block.getHit();
 				payloadBuf.putByte(hit.getDamage());
-				payloadBuf.put128PlusByte(hit.getType().toInt());
+				payloadBuf.putAddedByte(hit.getType().toInt());
 				payloadBuf.putNegatedByte(block.getHealthLeft());
 				payloadBuf.putByte(block.getHealthTotal());
 			}
@@ -300,7 +299,7 @@ public final class PlayerSyncPacketEncoder implements
 				SyncBlock.SecondaryHit block = set.get(SyncBlock.Type.SECONDARY_HIT);
 				Hit hit = block.getHit();
 				payloadBuf.putByte(hit.getDamage());
-				payloadBuf.put128PlusNegatedByte(hit.getType().toInt());
+				payloadBuf.putSubtractedByte(hit.getType().toInt());
 				payloadBuf.putByte(block.getHealthLeft());
 				payloadBuf.putNegatedByte(block.getHealthTotal());
 			}

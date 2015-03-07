@@ -12,7 +12,7 @@ public final class SidebarInterfacePacketEncoder implements
 	public GamePacket encode(SidebarInterfacePacket packet) throws Exception {
 		return new GamePacket(71, new Buffer(3)
 				.putShort(packet.getInterfaceId())
-				.put128PlusByte(packet.getIndex())
+				.putAddedByte(packet.getIndex())
 				.getData());
 	}
 }

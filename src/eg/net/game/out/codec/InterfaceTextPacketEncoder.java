@@ -11,6 +11,6 @@ public final class InterfaceTextPacketEncoder implements AbstractGamePacketEncod
 	public GamePacket encode(InterfaceTextPacket packet) throws Exception {
 		String text = packet.getText();
 		return new GamePacket(126, new Buffer(text.length() + 3)
-			.putLine(text).put128PlusShort(packet.getId()).getData());
+			.putLine(text).putAddedShort(packet.getId()).getData());
 	}
 }

@@ -10,8 +10,8 @@ public final class ChatMessagePacketDecoder implements AbstractGamePacketDecoder
 	@Override
 	public ChatMessagePacket decode(GamePacket packet) throws Exception {
 		Buffer buf = packet.toBuffer();
-		int animationEffect = buf.getUByte2();
-		int colorEffect = buf.getUByte2();
+		int animationEffect = buf.getSubtractedUByte();
+		int colorEffect = buf.getSubtractedUByte();
 		int length = packet.getSize() - 2;
 		byte[] encodedMessage = buf.getBytesReversely(null, 0, length);
 		for (int i = 0; i < length; i++) {

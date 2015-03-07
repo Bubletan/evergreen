@@ -12,8 +12,8 @@ public final class PlayerInitPacketEncoder implements AbstractGamePacketEncoder<
 	public GamePacket encode(PlayerInitPacket packet) throws Exception {
 		Player player = packet.getPlayer();
 		return new GamePacket(249, new Buffer(3)
-				.put128PlusByte(player.isMember() ? 1 : 0)
-				.put128PlusLEShort(player.getIndex())
+				.putAddedByte(player.isMember() ? 1 : 0)
+				.putAddedLeShort(player.getIndex())
 				.getData());
 	}
 }

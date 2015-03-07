@@ -108,16 +108,16 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
 			if (set.contains(SyncBlock.Type.ANIMATION)) {
 				SyncBlock.Animation block = set.get(SyncBlock.Type.ANIMATION);
 				Animation animation = block.getAnimation();
-				payloadBuf.putLEShort(animation != null ? animation.getId() : 0xffff);
+				payloadBuf.putLeShort(animation != null ? animation.getId() : 0xffff);
 				payloadBuf.putByte(animation != null ? animation.getDelay() : 0);
 			}
 			
 			if (set.contains(SyncBlock.Type.PRIMARY_HIT)) {
 				SyncBlock.PrimaryHit block = set.get(SyncBlock.Type.PRIMARY_HIT);
 				Hit hit = block.getHit();
-				payloadBuf.put128PlusByte(hit.getDamage());
+				payloadBuf.putAddedByte(hit.getDamage());
 				payloadBuf.putNegatedByte(hit.getType().toInt());
-				payloadBuf.put128PlusByte(block.getHealthLeft());
+				payloadBuf.putAddedByte(block.getHealthLeft());
 				payloadBuf.putByte(block.getHealthTotal());
 			}
 			
@@ -154,15 +154,15 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
 				SyncBlock.SecondaryHit block = set.get(SyncBlock.Type.SECONDARY_HIT);
 				Hit hit = block.getHit();
 				payloadBuf.putNegatedByte(hit.getDamage());
-				payloadBuf.put128PlusNegatedByte(hit.getType().toInt());
-				payloadBuf.put128PlusNegatedByte(block.getHealthLeft());
+				payloadBuf.putSubtractedByte(hit.getType().toInt());
+				payloadBuf.putSubtractedByte(block.getHealthLeft());
 				payloadBuf.putNegatedByte(block.getHealthTotal());
 			}
 			 
 			if (set.contains(SyncBlock.Type.TRANSFORM)) {
 				SyncBlock.Transform block = set.get(SyncBlock.Type.TRANSFORM);
 				NpcType npcType = block.getNpcType(); // TODO do something if type is null?
-				payloadBuf.put128PlusLEShort(npcType.getId());
+				payloadBuf.putAddedLeShort(npcType.getId());
 			}
 			
 			if (set.contains(SyncBlock.Type.TURN)) {
@@ -174,8 +174,8 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
 					x = target.getX() << 1 | 1;
 					y = target.getY() << 1 | 1;
 				}
-				payloadBuf.putLEShort(x);
-				payloadBuf.putLEShort(y);
+				payloadBuf.putLeShort(x);
+				payloadBuf.putLeShort(y);
 			}
 		}
 	}

@@ -10,6 +10,6 @@ public final class SystemUpdatePacketEncoder implements
 
 	@Override
 	public GamePacket encode(SystemUpdatePacket packet) throws Exception {
-		return new GamePacket(114, new Buffer(2).putLEShort(packet.getSeconds()).getData());
+		return new GamePacket(114, new Buffer(2).putLeShort(packet.getSeconds()).getData());
 	}
 }
