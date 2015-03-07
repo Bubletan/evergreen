@@ -1,13 +1,14 @@
 package eg.model.player;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import eg.Config;
-import eg.global.World;
 import eg.model.Charactor;
-import eg.model.Coordinate;
 import eg.model.IdleAnimation;
 import eg.model.MovementProvider;
+import eg.model.npc.Npc;
 import eg.model.sync.SyncBlock;
-import eg.model.sync.SyncBlockSet;
 import eg.net.game.GameSession;
 import eg.net.game.in.ButtonPacket;
 import eg.net.game.in.ChatMessagePacket;
@@ -37,42 +38,24 @@ public final class Player extends Charactor {
 	private final Statistics stats = new Statistics();
 	private final IdleAnimation idleAnimation = new IdleAnimation();
 	
-	private SyncBlockSet syncBlockSet = new SyncBlockSet();
-	{
-		syncBlockSet.add(new SyncBlock.Appearance(this));
-	}
-	
 	private final GameSession session;
 	
-	private boolean active;
+	private final List<Player> localPlayerList = new LinkedList<>();
+	private final List<Npc> localNpcList = new LinkedList<>();
 	
-	private final PlayerList localPlayers = new PlayerList(0xff);
-	
-	public PlayerList getLocalPlayers() {
-		return localPlayers;
+	public List<Player> getLocalPlayerList() {
+		return localPlayerList;
 	}
 	
-	private final Movement movement;
+	public List<Npc> getLocalNpcList() {
+		return localNpcList;
+	}
 	
 	public Player(GameSession session, String username, String password) {
 		this.session = session;
 		this.username = username;
 		this.password = password;
-		setCoordinate(new Coordinate(3200, 3200));
-		movement = new Movement(this);
-	}
-	
-	public boolean isActive() {
-		return active;
-	}
-	
-	public void setActive(boolean active) {
-		this.active = active;
-		if (active) {
-			World.getWorld().addPlayer(this);
-		} else {
-			World.getWorld().removePlayer(this);
-		}
+		getSyncBlockSet().add(new SyncBlock.Appearance(this));
 	}
 	
 	public GameSession getSession() {
@@ -131,20 +114,8 @@ public final class Player extends Charactor {
 		return idleAnimation;
 	}
 	
-	public Movement getMovement() {
-		return movement;
-	}
-	
 	public int getViewingDistance() {
 		return 15;
-	}
-	
-	public SyncBlockSet getSyncBlockSet() {
-		return syncBlockSet;
-	}
-	
-	public void resetSyncBlockSet() {
-		syncBlockSet = new SyncBlockSet();
 	}
 	
 	public void initialize() {
@@ -176,14 +147,14 @@ public final class Player extends Charactor {
 				ChatMessagePacket p = (ChatMessagePacket) packet;
 				String decodedMsg = ChatMessageUtils.decode(p.getEncodedMessage());
 				byte[] encodedMsg = ChatMessageUtils.encode(decodedMsg);
-				syncBlockSet.add(new SyncBlock.ChatMessage(encodedMsg, p.getColorEffect(),
+				getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, p.getColorEffect(),
 						p.getAnimationEffect(), getPrivilege()));
 			} else if (packet instanceof CommandPacket) {
 			} else if (packet instanceof ButtonPacket) {
 				
 			} else if (packet instanceof MovementPacket) {
 				MovementPacket p = (MovementPacket) packet;
-				MovementProvider mp = movement.getProvider();
+				MovementProvider mp = getMovement().getProvider();
 				mp.beginPath(p.isCtrlRun());
 				for (int i = 0, n = p.getJumpPointCount(); i < n; i++) {
 					mp.addJumpPoint(p.getJumpPointX(i), p.getJumpPointY(i));

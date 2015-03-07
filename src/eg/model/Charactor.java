@@ -1,12 +1,18 @@
 package eg.model;
 
+import eg.global.World;
 import eg.global.WorldSector;
+import eg.model.npc.Npc;
+import eg.model.player.Player;
+import eg.model.sync.SyncBlockSet;
 
 public abstract class Charactor {
 
 	private int index;
-	private Coordinate coordinate;
+	private final Movement movement = new Movement(new Coordinate(3200, 3200));
 	private WorldSector sector;
+	private boolean active;
+	private SyncBlockSet syncBlockSet = new SyncBlockSet();
 	
 	public int getIndex() {
 		return index;
@@ -16,12 +22,12 @@ public abstract class Charactor {
 		this.index = index;
 	}
 	
-	public Coordinate getCoordinate() {
-		return coordinate;
+	public Movement getMovement() {
+		return movement;
 	}
 	
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
+	public Coordinate getCoordinate() {
+		return movement.getCoordinate();
 	}
 	
 	public WorldSector getWorldSector() {
@@ -30,5 +36,34 @@ public abstract class Charactor {
 	
 	public void setWorldSector(WorldSector sector) {
 		this.sector = sector;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+		if (this instanceof Player) {
+			if (active) {
+				World.getWorld().addPlayer((Player) this);
+			} else {
+				World.getWorld().removePlayer((Player) this);
+			}
+		} else {
+			if (active) {
+				World.getWorld().addNpc((Npc) this);
+			} else {
+				World.getWorld().removeNpc((Npc) this);
+			}
+		}
+	}
+	
+	public SyncBlockSet getSyncBlockSet() {
+		return syncBlockSet;
+	}
+	
+	public void resetSyncBlockSet() {
+		syncBlockSet = new SyncBlockSet();
 	}
 }

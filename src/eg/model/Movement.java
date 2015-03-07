@@ -1,12 +1,7 @@
-package eg.model.player;
-
-import eg.model.Coordinate;
-import eg.model.Direction;
-import eg.model.MovementProvider;
+package eg.model;
 
 public final class Movement {
 	
-	private Player player;
 	private MovementProvider provider;
 	
 	private Coordinate sectorOrigin;
@@ -14,14 +9,15 @@ public final class Movement {
 	
 	private Coordinate teleportDestination;
 	
-	public Movement(Player player) {
-		this.player = player;
-		Coordinate coord = player.getCoordinate();
-		this.provider = new MovementProvider(coord.getX(), coord.getY());
-		teleportDestination = coord;
+	private Coordinate current;
+	
+	public Movement(Coordinate coordinate) {
+		current = coordinate;
+		this.provider = new MovementProvider(coordinate.getX(), coordinate.getY());
+		teleportDestination = coordinate;
 	}
 	
-	/**
+	/** 
 	 * Process done before building the synchronization packet.
 	 */
 	public void preSyncProcess() {
@@ -36,21 +32,20 @@ public final class Movement {
 			provider.nextMoment();
 			x = provider.getCurrentX();
 			y = provider.getCurrentY();
-			height = player.getCoordinate().getHeight();
+			height = current.getHeight();
 		}
-		if (!player.getCoordinate().equals(x, y, height)) {
-			player.setCoordinate(new Coordinate(x, y, height));
+		if (!current.equals(x, y, height)) {
+			current = new Coordinate(x, y, height);
 		}
 		// TODO if (teleporting) { reset viewing distance; }
 		if (sectorOrigin == null || isSectorUpdateRequired()) {
 			sectorChanging = true;
-			sectorOrigin = new Coordinate(player.getCoordinate().getX() - 48 & ~0b111,
-					player.getCoordinate().getY() - 48 & ~0b111);
+			sectorOrigin = new Coordinate(current.getX() - 48 & ~0b111,
+					current.getY() - 48 & ~0b111);
 		}
 	}
 	
 	private boolean isSectorUpdateRequired() {
-		Coordinate current = player.getCoordinate();
 		int dx = current.getX() - sectorOrigin.getX();
 		int dy = current.getY() - sectorOrigin.getY();
 		return dx < 16 || dx >= 88 || dy < 16 || dy >= 88;
@@ -72,6 +67,10 @@ public final class Movement {
 		*/
 	}
 	
+	public Coordinate getCoordinate() {
+		return current;
+	}
+	
 	public MovementProvider getProvider() {
 		return provider;
 	}
@@ -84,11 +83,11 @@ public final class Movement {
 		return sectorOrigin;
 	}
 	
-	public Direction getPrimaryDir() {
+	public Direction getPrimaryDirection() {
 		return provider.getPrimaryDir();
 	}
 	
-	public Direction getSecondaryDir() {
+	public Direction getSecondaryDirection() {
 		return provider.getSecondaryDir();
 	}
 	

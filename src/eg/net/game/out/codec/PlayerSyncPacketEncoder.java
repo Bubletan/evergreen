@@ -18,6 +18,7 @@ import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.Misc;
 import eg.util.io.Buffer;
+import eg.util.io.Buffers;
 
 public final class PlayerSyncPacketEncoder implements
 		AbstractGamePacketEncoder<PlayerSyncPacket> {
@@ -28,7 +29,7 @@ public final class PlayerSyncPacketEncoder implements
 		Buffer buf = new Buffer();
 		buf.beginBitAccess();
 		
-		Buffer payloadBuf = new Buffer();
+		Buffer payloadBuf = Buffers.allocate();
 		
 		putSection(packet.getLocalSection(), buf, payloadBuf, packet.getOrigin(), packet.getSectorOrigin());
 		
@@ -45,6 +46,8 @@ public final class PlayerSyncPacketEncoder implements
 		} else {
 			buf.endBitAccess();
 		}
+		Buffers.release(payloadBuf);
+		
 		return new GamePacket(81, buf.getData(), buf.getPosition());
 	}
 	
@@ -79,11 +82,11 @@ public final class PlayerSyncPacketEncoder implements
 			buf.putBit(set.size() != 0);
 			break;
 			
-		case ADDITION:
-			buf.putBits(11, ((SyncStatus.Addition) status).getIndex());
+		case PLAYER_ADDITION:
+			buf.putBits(11, ((SyncStatus.PlayerAddition) status).getIndex());
 			buf.putBit(true).putBit(true);
-			int dx = ((SyncStatus.Addition) status).getCoordinate().getX() - localCoordinate.getX();
-			int dy = ((SyncStatus.Addition) status).getCoordinate().getY() - localCoordinate.getY();
+			int dx = ((SyncStatus.PlayerAddition) status).getCoordinate().getX() - localCoordinate.getX();
+			int dy = ((SyncStatus.PlayerAddition) status).getCoordinate().getY() - localCoordinate.getY();
 			buf.putBits(5, dy).putBits(5, dx);
 			break;
 			
@@ -98,6 +101,9 @@ public final class PlayerSyncPacketEncoder implements
 				buf.putBit(false);
 			}
 			break;
+			
+		default:
+			throw new IllegalArgumentException("Unknown sync status type.");
 		}
 		
 		if (set.size() != 0) {

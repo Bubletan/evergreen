@@ -2,6 +2,7 @@ package eg.model.sync;
 
 import eg.model.Coordinate;
 import eg.model.Direction;
+import eg.model.npc.NpcType;
 
 public abstract class SyncStatus {
 	
@@ -17,7 +18,7 @@ public abstract class SyncStatus {
 	
 	public static enum Type {
 		
-		TRANSITION, RUN, WALK, STAND, ADDITION, REMOVAL
+		TRANSITION, RUN, WALK, STAND, PLAYER_ADDITION, REMOVAL, NPC_ADDITION
 	}
 	
 	public static final class Transition extends SyncStatus {
@@ -81,13 +82,13 @@ public abstract class SyncStatus {
 		}
 	}
 	
-	public static final class Addition extends SyncStatus {
+	public static final class PlayerAddition extends SyncStatus {
 		
 		private final int index;
 		private final Coordinate coordinate;
 		
-		public Addition(int index, Coordinate coordinate) {
-			super(Type.ADDITION);
+		public PlayerAddition(int index, Coordinate coordinate) {
+			super(Type.PLAYER_ADDITION);
 			this.index = index;
 			this.coordinate = coordinate;
 		}
@@ -98,6 +99,32 @@ public abstract class SyncStatus {
 		
 		public Coordinate getCoordinate() {
 			return coordinate;
+		}
+	}
+	
+	public static final class NpcAddition extends SyncStatus {
+		
+		private final int index;
+		private final Coordinate coordinate;
+		private final NpcType npcType;
+		
+		public NpcAddition(int index, Coordinate coordinate, NpcType npcType) {
+			super(Type.NPC_ADDITION);
+			this.index = index;
+			this.coordinate = coordinate;
+			this.npcType = npcType;
+		}
+		
+		public int getIndex() {
+			return index;
+		}
+		
+		public Coordinate getCoordinate() {
+			return coordinate;
+		}
+		
+		public NpcType getNpcType() {
+			return npcType;
 		}
 	}
 	

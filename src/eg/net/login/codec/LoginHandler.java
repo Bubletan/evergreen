@@ -196,6 +196,8 @@ public final class LoginHandler extends TransientByteToMessageDecoder {
 			
 			player.setActive(true);
 			
+			player.initialize();
+			
 			return true;
 		}
 		return false;

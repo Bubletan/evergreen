@@ -17,8 +17,8 @@ public final class PlayerSyncTask implements Task {
 	
 	private static final int NEW_PLAYERS_PER_CYCLE = 20;
 	
-	private static final SyncStatus.Stand SYNC_STATUS_STAND = new SyncStatus.Stand();
-	private static final SyncStatus.Removal SYNC_STATUS_REMOVAL = new SyncStatus.Removal();
+	private static final SyncStatus SYNC_STATUS_STAND = new SyncStatus.Stand();
+	private static final SyncStatus SYNC_STATUS_REMOVAL = new SyncStatus.Removal();
 	
 	private static final SyncBlockSet emptyBlockSet = new SyncBlockSet();
 	
@@ -40,17 +40,17 @@ public final class PlayerSyncTask implements Task {
 			localSection = new SyncSection(new SyncStatus.Transition(player.getCoordinate(),
 					player.getMovement().isSectorChanging()), localBlockSet);
 		} else if (player.getMovement().isRunning()) {
-			localSection = new SyncSection(new SyncStatus.Run(player.getMovement().getPrimaryDir(),
-					player.getMovement().getSecondaryDir()), localBlockSet);
+			localSection = new SyncSection(new SyncStatus.Run(player.getMovement().getPrimaryDirection(),
+					player.getMovement().getSecondaryDirection()), localBlockSet);
 		} else if (player.getMovement().isWalking()) {
-			localSection = new SyncSection(new SyncStatus.Walk(player.getMovement().getPrimaryDir()),
+			localSection = new SyncSection(new SyncStatus.Walk(player.getMovement().getPrimaryDirection()),
 					localBlockSet);
 		} else {
 			localSection = new SyncSection(SYNC_STATUS_STAND, localBlockSet);
 		}
-		int localPlayersCount = player.getLocalPlayers().size();
+		int localPlayersCount = player.getLocalPlayerList().size();
 		List<SyncSection> nonLocalSections = new ArrayList<>();
-		for (Iterator<Player> it = player.getLocalPlayers().iterator(); it.hasNext();) {
+		for (Iterator<Player> it = player.getLocalPlayerList().iterator(); it.hasNext();) {
 			Player p = it.next();
 			if (!p.isActive() || p.getMovement().isTeleporting() ||
 					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
@@ -58,11 +58,11 @@ public final class PlayerSyncTask implements Task {
 				it.remove();
 				nonLocalSections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
 			} else if (p.getMovement().isRunning()) {
-				nonLocalSections.add(new SyncSection(new SyncStatus.Run(p.getMovement().getPrimaryDir(),
-						p.getMovement().getSecondaryDir()),
+				nonLocalSections.add(new SyncSection(new SyncStatus.Run(p.getMovement().getPrimaryDirection(),
+						p.getMovement().getSecondaryDirection()),
 						p.getSyncBlockSet()));
 			} else if (p.getMovement().isWalking()) {
-				nonLocalSections.add(new SyncSection(new SyncStatus.Walk(p.getMovement().getPrimaryDir()),
+				nonLocalSections.add(new SyncSection(new SyncStatus.Walk(p.getMovement().getPrimaryDirection()),
 						p.getSyncBlockSet()));
 			} else {
 				nonLocalSections.add(new SyncSection(SYNC_STATUS_STAND, p.getSyncBlockSet()));
@@ -70,7 +70,7 @@ public final class PlayerSyncTask implements Task {
 		}
 		int added = 0;
 		for (Player p : World.getWorld().getPlayerList()) { //TODO players on region
-			if (player.getLocalPlayers().size() >= 255) {
+			if (player.getLocalPlayerList().size() >= 255) {
 				break;
 			}
 			if (added >= NEW_PLAYERS_PER_CYCLE) {
@@ -79,17 +79,17 @@ public final class PlayerSyncTask implements Task {
 			if (p == player || !player.isActive() ||
 					player.getCoordinate().getBoxDistance(p.getCoordinate()) >
 					player.getViewingDistance() ||
-					player.getLocalPlayers().contains(p)) {
+					player.getLocalPlayerList().contains(p)) {
 				continue;
 			}
 			added++;
-			player.getLocalPlayers().add(p);
+			player.getLocalPlayerList().add(p);
 			SyncBlockSet blockSet = p.getSyncBlockSet();
 			if (!blockSet.contains(SyncBlock.Type.APPEARANCE)) {
 				blockSet = blockSet.clone();
 				blockSet.add(new SyncBlock.Appearance(p));
 			}
-			nonLocalSections.add(new SyncSection(new SyncStatus.Addition(p.getIndex(), p.getCoordinate()),
+			nonLocalSections.add(new SyncSection(new SyncStatus.PlayerAddition(p.getIndex(), p.getCoordinate()),
 					blockSet));
 		}
 		player.getSession().send(new PlayerSyncPacket(localSection, localPlayersCount,

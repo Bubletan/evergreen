@@ -3,6 +3,9 @@ package eg.global;
 import eg.model.sync.task.PlayerSyncTask;
 import eg.model.sync.task.PostPlayerSyncTask;
 import eg.model.sync.task.PrePlayerSyncTask;
+import eg.model.sync.task.PreNpcSyncTask;
+import eg.model.sync.task.PostNpcSyncTask;
+import eg.model.sync.task.NpcSyncTask;
 import eg.util.task.Task;
 import eg.util.task.Tasks;
 
@@ -18,7 +21,13 @@ public final class ProcessTask implements Task {
 		});
 		
 		World.getWorld().getPlayerStream().map(p -> new PrePlayerSyncTask(p)).forEach(Tasks::execute);
-		World.getWorld().getPlayerStream().map(p -> new PlayerSyncTask(p)).forEach(Tasks::execute);
+		World.getWorld().getNpcStream().map(n -> new PreNpcSyncTask(n)).forEach(Tasks::execute);
+		
+		World.getWorld().getPlayerStream()
+				.map(p -> Tasks.toSequentialTask(new PlayerSyncTask(p), new NpcSyncTask(p)))
+				.forEach(Tasks::execute);
+		
 		World.getWorld().getPlayerStream().map(p -> new PostPlayerSyncTask(p)).forEach(Tasks::execute);
+		World.getWorld().getNpcStream().map(n -> new PostNpcSyncTask(n)).forEach(Tasks::execute);
 	}
 }

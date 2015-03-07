@@ -3,6 +3,7 @@ package eg.model.sync;
 import eg.model.Charactor;
 import eg.model.Coordinate;
 import eg.model.Hit;
+import eg.model.npc.NpcType;
 import eg.model.player.Player;
 
 public abstract class SyncBlock {
@@ -20,7 +21,7 @@ public abstract class SyncBlock {
 	public static enum Type {
 		
 		FORCE_MOVEMENT, EFFECT, ANIMATION, FORCE_CHAT_MESSAGE, CHAT_MESSAGE, INTERACT,
-		APPEARANCE, TURN, PRIMARY_HIT, SECONDARY_HIT
+		APPEARANCE, TURN, PRIMARY_HIT, SECONDARY_HIT, TRANSFORM
 	}
 	
 	public static final class ForceMovement extends SyncBlock {
@@ -204,6 +205,20 @@ public abstract class SyncBlock {
 		
 		public int getHealthTotal() {
 			return healthTotal;
+		}
+	}
+	
+	public static final class Transform extends SyncBlock {
+		
+		private final NpcType npcType;
+		
+		public Transform(NpcType npcType) {
+			super(Type.TRANSFORM);
+			this.npcType = npcType;
+		}
+		
+		public NpcType getNpcType() {
+			return npcType;
 		}
 	}
 }

@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import eg.Config;
 import eg.model.Coordinate;
 import eg.model.npc.Npc;
+import eg.model.npc.NpcType;
 import eg.model.player.Player;
 
 public final class World {
@@ -39,9 +41,9 @@ public final class World {
 	public void updateLists() {
 		
 		List<Player> players = Arrays.stream(playerListLive).parallel()
-				.filter(p -> p != null).collect(Collectors.toList());
+				.filter(Objects::nonNull).collect(Collectors.toList());
 		List<Npc> npcs = Arrays.stream(npcListLive).parallel()
-				.filter(n -> n != null).collect(Collectors.toList());
+				.filter(Objects::nonNull).collect(Collectors.toList());
 		
 		playerList = Collections.unmodifiableList(players);
 		npcList = Collections.unmodifiableList(npcs);
@@ -78,7 +80,6 @@ public final class World {
 				WorldSector sector = getOrCreateWorldSector(player.getCoordinate());
 				sector.addPlayer(player);
 				player.setWorldSector(sector);
-				player.initialize();
 				return true;
 			}
 		}

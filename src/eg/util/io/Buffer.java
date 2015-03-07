@@ -364,6 +364,13 @@ public final class Buffer {
 	}
 	
 	/**
+	 * Returns {@code true} if an unended block exists, {@code false} otherwise.
+	 */
+	public boolean isBlock() {
+		return blockType != 0;
+	}
+	
+	/**
 	 * Puts an {@code int} as an 8 bit value.<br>
 	 * Returns itself to allow method chaining.
 	 * @see #getByte()
@@ -1358,6 +1365,13 @@ public final class Buffer {
 		pos = (pos + 7) >> 3;
 		bitAccess = false;
 		return this;
+	}
+	
+	/**
+	 * Returns {@code true} if bit acces is enabled, {@code false} otherwise.
+	 */
+	public boolean isBitAccess() {
+		return bitAccess;
 	}
 	
 	/** 

@@ -8,6 +8,7 @@ import eg.net.game.out.LogoutPacket;
 import eg.net.game.out.MainInterfacePacket;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.MulticombatOverlayPacket;
+import eg.net.game.out.NpcSyncPacket;
 import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.net.game.out.SidebarInterfacePacket;
@@ -21,6 +22,7 @@ import eg.net.game.out.codec.LogoutPacketEncoder;
 import eg.net.game.out.codec.MainInterfacePacketEncoder;
 import eg.net.game.out.codec.MapLoadingPacketEncoder;
 import eg.net.game.out.codec.MulticombatOverlayPacketEncoder;
+import eg.net.game.out.codec.NpcSyncPacketEncoder;
 import eg.net.game.out.codec.PlayerInitPacketEncoder;
 import eg.net.game.out.codec.PlayerSyncPacketEncoder;
 import eg.net.game.out.codec.SidebarInterfacePacketEncoder;
@@ -30,6 +32,7 @@ import eg.net.game.out.codec.WeightUpdatePacketEncoder;
 public enum OutboundAbstractGamePacketDeclaration {
 	
 	MULTICOMBAT_OVERLAY_PACKET	(61,	MulticombatOverlayPacket.class,	MulticombatOverlayPacketEncoder.class),
+	NPC_SYNC_PACKET				(65,	NpcSyncPacket.class,			NpcSyncPacketEncoder.class),
 	SIDEBAR_INTERFACE_PACKET	(71,	SidebarInterfacePacket.class,	SidebarInterfacePacketEncoder.class),
 	MAP_LOADING_PACKET			(73,	MapLoadingPacket.class,			MapLoadingPacketEncoder.class),
 	PLAYER_SYNC_PACKET			(81,	PlayerSyncPacket.class,			PlayerSyncPacketEncoder.class),
