@@ -1,6 +1,6 @@
 package eg.net.game.out.codec;
 
-import eg.model.Coordinate;
+import eg.game.model.Coordinate;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.MapLoadingPacket;

@@ -1,6 +1,6 @@
 package eg.net.game.out;
 
-import eg.model.player.Player;
+import eg.game.model.player.Player;
 import eg.net.game.AbstractGamePacket;
 
 public final class PlayerInitPacket implements AbstractGamePacket {

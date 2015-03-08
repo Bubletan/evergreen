@@ -4,10 +4,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import eg.global.InitializationTask;
-import eg.global.ProcessMinutelyTask;
-import eg.global.ProcessTask;
-import eg.global.ShutdownHookTask;
+import eg.game.InitializationTask;
+import eg.game.ProcessMinutelyTask;
+import eg.game.ProcessTask;
+import eg.game.ShutdownHookTask;
 import eg.net.GameServer;
 import eg.util.task.Task;
 import eg.util.task.Tasks;

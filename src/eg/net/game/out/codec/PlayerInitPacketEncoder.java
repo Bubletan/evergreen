@@ -1,6 +1,6 @@
 package eg.net.game.out.codec;
 
-import eg.model.player.Player;
+import eg.game.model.player.Player;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerInitPacket;

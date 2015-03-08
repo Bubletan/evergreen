@@ -1,6 +1,6 @@
 package eg.net.game.out;
 
-import eg.model.Coordinate;
+import eg.game.model.Coordinate;
 import eg.net.game.AbstractGamePacket;
 
 public final class MapLoadingPacket implements AbstractGamePacket {

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.List;
 
-import eg.model.player.Player;
+import eg.game.model.player.Player;
 import eg.net.game.GameSession;
 import eg.net.game.codec.GamePacketDecoder;
 import eg.net.game.codec.GamePacketEncoder;
