@@ -5,9 +5,9 @@ import eg.net.game.GamePacket;
 import eg.net.game.out.LogoutPacket;
 
 public final class LogoutPacketEncoder implements AbstractGamePacketEncoder<LogoutPacket> {
-	
-	@Override
-	public GamePacket encode(LogoutPacket packet) throws Exception {
-		return new GamePacket(109);
-	}
+    
+    @Override
+    public GamePacket encode(LogoutPacket packet) throws Exception {
+        return new GamePacket(109);
+    }
 }

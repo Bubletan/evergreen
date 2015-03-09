@@ -13,49 +13,48 @@ import eg.util.task.Task;
 import eg.util.task.Tasks;
 
 public final class Server {
-	
-	private static final ScheduledExecutorService process = Executors.newSingleThreadScheduledExecutor();
-	private static int loopCycle;
-	
-	private static final Task processTask = new ProcessTask();
-	private static final Task processMinutelyTask = new ProcessMinutelyTask();
-	
-	private Server() {
-	}
-	
-	public static void init() {
-		
-		System.setOut(new Logger(System.out));
-		System.setErr(new Logger(System.err));
-		
-		new InitializationTask().execute();
-		Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
-		
-		new GameServer().bind(Config.PORT);
-		
-		process.scheduleAtFixedRate(() -> {
-			long cycleBegin = System.currentTimeMillis();
-			loopCycle++;
-			processTask.execute();
-			if (loopCycle % 100 == 0) {
-				processMinutelyTask.execute();
-			}
-			long cycleEnd = System.currentTimeMillis();
-			float percent = Math.round((cycleEnd - cycleBegin) / (float) Config.CYCLE_RATE_MILLIS * 10000) / 100f;
-			if (false) System.out.println("cycle time: " + (cycleEnd - cycleBegin) + " ms (" + percent + " %)");
-		}, Config.CYCLE_RATE_MILLIS, Config.CYCLE_RATE_MILLIS, TimeUnit.MILLISECONDS);
-		
-		// TODO: ControlPanel.launch(ControlPanel.class);
-		System.out.println("Online!");
-	}
-	
-	public static void exit() {
-		process.shutdown();
-		System.gc();
-		System.exit(0);
-	}
-	
-	public static void main(String[] args) {
-		init();
-	}
+    
+    private static final ScheduledExecutorService process = Executors.newSingleThreadScheduledExecutor();
+    private static int loopCycle;
+    
+    private static final Task processTask = new ProcessTask();
+    private static final Task processMinutelyTask = new ProcessMinutelyTask();
+    
+    private Server() {
+    }
+    
+    public static void init(String[] args) {
+        
+        new InitializationTask().execute();
+        Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
+        
+        new GameServer().bind(Config.PORT);
+        
+        process.scheduleAtFixedRate(() -> {
+            long cycleBegin = System.currentTimeMillis();
+            loopCycle++;
+            processTask.execute();
+            if (loopCycle % 100 == 0) {
+                processMinutelyTask.execute();
+            }
+            long cycleEnd = System.currentTimeMillis();
+            float percent = Math.round((cycleEnd - cycleBegin) / (float) Config.CYCLE_RATE_MILLIS * 10000) / 100f;
+            if (false) System.out.println("cycle time: " + (cycleEnd - cycleBegin) + " ms (" + percent + " %)");
+        }, Config.CYCLE_RATE_MILLIS, Config.CYCLE_RATE_MILLIS, TimeUnit.MILLISECONDS);
+        
+        // TODO: ControlPanel.launch(ControlPanel.class);
+        System.out.println("Online!");
+    }
+    
+    public static void exit() {
+        process.shutdown();
+        System.gc();
+        System.exit(0);
+    }
+    
+    public static void main(String[] args) {
+        System.setOut(new Logger(System.out));
+        System.setErr(new Logger(System.err));
+        init(args);
+    }
 }

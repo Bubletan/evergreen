@@ -5,11 +5,10 @@ import eg.net.game.GamePacket;
 import eg.net.game.out.MulticombatOverlayPacket;
 import eg.util.io.Buffer;
 
-public final class MulticombatOverlayPacketEncoder implements
-		AbstractGamePacketEncoder<MulticombatOverlayPacket> {
-
-	@Override
-	public GamePacket encode(MulticombatOverlayPacket packet) throws Exception {
-		return new GamePacket(61, new Buffer(1).putBoolean(packet.isEnabled()).getData());
-	}
+public final class MulticombatOverlayPacketEncoder implements AbstractGamePacketEncoder<MulticombatOverlayPacket> {
+    
+    @Override
+    public GamePacket encode(MulticombatOverlayPacket packet) throws Exception {
+        return new GamePacket(61, new Buffer(1).putBoolean(packet.isEnabled()).getData());
+    }
 }
