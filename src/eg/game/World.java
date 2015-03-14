@@ -16,8 +16,6 @@ import eg.game.model.player.Player;
 
 public final class World {
     
-    private static final World INSTANCE = new World();
-    
     private final Map<Integer, WorldSector> sectorMap = new HashMap<>();
     
     private final Player[] playerListLive = new Player[Config.MAX_PLAYERS];
@@ -30,14 +28,10 @@ public final class World {
     private List<Player> playerList;
     private List<Npc> npcList;
     
-    private World() {
+    public World() {
     }
     
-    public static World getWorld() {
-        return INSTANCE;
-    }
-    
-    public void updateLists() {
+    public void syncLists() {
         
         List<Player> players = Arrays.stream(playerListLive).parallel()
                 .filter(Objects::nonNull).collect(Collectors.toList());

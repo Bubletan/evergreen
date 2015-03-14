@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import eg.game.World;
+import eg.Server;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 import eg.game.sync.SyncBlockSet;
@@ -50,7 +50,7 @@ public final class NpcSyncTask implements Task {
             }
         }
         int added = 0;
-        for (Npc npc : World.getWorld().getNpcList()) {
+        for (Npc npc : Server.world().getNpcList()) {
             if (player.getLocalNpcList().size() >= 255) {
                 break;
             }

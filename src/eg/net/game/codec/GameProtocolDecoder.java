@@ -34,14 +34,14 @@ public final class GameProtocolDecoder extends ByteToMessageDecoder {
             }
             if (packetSize == -1) {
                 if (available >= 1) {
-                    packetSize = in.readByte() & 0xff;
+                    packetSize = in.readUnsignedByte();
                     available--;
                 } else {
                     return;
                 }
             } else if (packetSize == -2) {
                 if (available >= 2) {
-                    packetSize = ((in.readByte() & 0xff) << 8) + (in.readByte() & 0xff);
+                    packetSize = in.readUnsignedShort();
                     available -= 2;
                 } else {
                     return;

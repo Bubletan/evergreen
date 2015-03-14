@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.List;
 
+import eg.Config;
 import eg.game.model.player.Player;
 import eg.net.game.GameSession;
 import eg.net.game.codec.GamePacketDecoder;
@@ -135,12 +136,11 @@ public final class LoginHandler extends TransientByteToMessageDecoder {
             
             ByteBuf securePayload = payload.readBytes(securePayloadLength);
             
-            if (false) {
+            if (Config.RSA_ENABLED) {
                 BigInteger bigInteger = new BigInteger(securePayload.array());
                 bigInteger = bigInteger.modPow(RSA_EXPONENT, RSA_MODULUS);
                 
-                securePayload = Unpooled
-                        .wrappedBuffer(bigInteger.toByteArray());
+                securePayload = Unpooled.wrappedBuffer(bigInteger.toByteArray());
             }
             
             int secureId = securePayload.readUnsignedByte();

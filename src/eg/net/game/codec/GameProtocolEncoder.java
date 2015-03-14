@@ -27,8 +27,7 @@ public final class GameProtocolEncoder extends MessageToByteEncoder<GamePacket> 
         if (size == -1) {
             out.writeByte(in.getSize());
         } else if (size == -2) {
-            out.writeByte(in.getSize() >> 8);
-            out.writeByte(in.getSize());
+            out.writeShort(in.getSize());
         }
         if (in.getSize() != 0) {
             out.writeBytes(in.getData(), 0, in.getSize());

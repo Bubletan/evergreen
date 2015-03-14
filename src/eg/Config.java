@@ -5,6 +5,10 @@ public final class Config {
     private Config() {
     }
     
+    public static final boolean DEBUG = true;
+    
+    public static final boolean RSA_ENABLED = false;
+    
     public static final String SERVER_NAME = "Evergreen";
     public static final String WEBSITE_ADDRESS = "http://www.mywebsite.com";
     

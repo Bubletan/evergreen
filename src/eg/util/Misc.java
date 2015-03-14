@@ -1,29 +1,28 @@
 package eg.util;
 
-import java.security.SecureRandom;
-import java.util.Random;
-
 public final class Misc {
     
     private Misc() {
     }
     
-    private static final Random random = new Random();
-    
     /**
-     * Returns a random {@code int} between {@code 0} and {@code range - 1}.
+     * Returns a random {@code int} between {@code 0} (inclusive) and {@code range} (exclusive).
      */
     public static int random(int range) {
-        return random.nextInt(range);
+        if (range < 0) {
+            throw new IllegalArgumentException("Range may not be negative.");
+        }
+        return (int) (Math.random() * range);
     }
     
-    private static final SecureRandom secureRandom = new SecureRandom();
-    
     /**
-     * Returns a random {@code int} between {@code 0} and {@code range - 1}.
+     * Returns a random {@code int} between {@code min} and {@code max} (inclusive).
      */
-    public static int secureRandom(int range) {
-        return secureRandom.nextInt(range);
+    public static int random(int min, int max) {
+        if (min > max) {
+            throw new IllegalArgumentException("Min may not be bigger than max.");
+        }
+        return min + (int) (Math.random() * (max - min + 1));
     }
     
     public static int getExperienceForLevel(int lvl) {
@@ -39,8 +38,7 @@ public final class Misc {
     
     public static int getLevelForExperience(int exp) {
         if (exp < 0 || exp > 200_000_000) {
-            throw new IllegalArgumentException("Experience out of range: "
-                    + exp);
+            throw new IllegalArgumentException("Experience out of range: " + exp);
         }
         if (exp < 83) {
             return 1;

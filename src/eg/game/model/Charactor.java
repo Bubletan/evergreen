@@ -1,15 +1,17 @@
 package eg.game.model;
 
-import eg.game.World;
+import eg.Server;
 import eg.game.WorldSector;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 import eg.game.sync.SyncBlockSet;
+import eg.util.Misc;
 
 public abstract class Charactor {
     
     private int index;
-    private final Movement movement = new Movement(new Coordinate(3200, 3200));
+    private final Movement movement = new Movement(new Coordinate(3200 + Misc.random(-32, 32),
+            3200 + Misc.random(-32, 32)));
     private WorldSector sector;
     private boolean active;
     private SyncBlockSet syncBlockSet = new SyncBlockSet();
@@ -46,15 +48,15 @@ public abstract class Charactor {
         this.active = active;
         if (this instanceof Player) {
             if (active) {
-                World.getWorld().addPlayer((Player) this);
+                Server.world().addPlayer((Player) this);
             } else {
-                World.getWorld().removePlayer((Player) this);
+                Server.world().removePlayer((Player) this);
             }
         } else {
             if (active) {
-                World.getWorld().addNpc((Npc) this);
+                Server.world().addNpc((Npc) this);
             } else {
-                World.getWorld().removeNpc((Npc) this);
+                Server.world().removeNpc((Npc) this);
             }
         }
     }

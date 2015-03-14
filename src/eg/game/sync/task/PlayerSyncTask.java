@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import eg.game.World;
+import eg.Server;
 import eg.game.model.player.Player;
 import eg.game.sync.SyncBlock;
 import eg.game.sync.SyncBlockSet;
@@ -55,7 +55,9 @@ public final class PlayerSyncTask implements Task {
                     || player.getCoordinate().getBoxDistance(p.getCoordinate()) > player.getViewingDistance()) {
                 it.remove();
                 nonLocalSections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
-            } else if (p.getMovement().isRunning()) {
+                continue;
+            }
+            if (p.getMovement().isRunning()) {
                 nonLocalSections.add(new SyncSection(new SyncStatus.Run(p.getMovement().getPrimaryDirection(),
                         p.getMovement().getSecondaryDirection()), p.getSyncBlockSet()));
             } else if (p.getMovement().isWalking()) {
@@ -64,9 +66,12 @@ public final class PlayerSyncTask implements Task {
             } else {
                 nonLocalSections.add(new SyncSection(SYNC_STATUS_STAND, p.getSyncBlockSet()));
             }
+            if (p.getAppearanceCycle() == Server.cycle()) {
+                player.getLocalAppearanceCycleMap().put(p.getIndex(), p.getAppearanceCycle());
+            }
         }
         int added = 0;
-        for (Player p : World.getWorld().getPlayerList()) { // TODO players on region
+        for (Player p : Server.world().getPlayerList()) { // TODO players on region
             if (player.getLocalPlayerList().size() >= 255) {
                 break;
             }
@@ -78,13 +83,17 @@ public final class PlayerSyncTask implements Task {
                     || player.getLocalPlayerList().contains(p)) {
                 continue;
             }
+            System.out.println(player.getUsername() + ": " + "added " + p.getUsername());
             added++;
             player.getLocalPlayerList().add(p);
             SyncBlockSet blockSet = p.getSyncBlockSet();
-            if (!blockSet.contains(SyncBlock.Type.APPEARANCE)) {
+            Integer cycle = player.getLocalAppearanceCycleMap().get(p.getIndex());
+            if (!blockSet.contains(SyncBlock.Type.APPEARANCE)
+                    && (cycle == null || cycle != p.getAppearanceCycle())) {
                 blockSet = blockSet.clone();
                 blockSet.add(new SyncBlock.Appearance(p));
             }
+            player.getLocalAppearanceCycleMap().put(p.getIndex(), p.getAppearanceCycle());
             nonLocalSections.add(new SyncSection(new SyncStatus.PlayerAddition(
                     p.getIndex(), p.getCoordinate()), blockSet));
         }

@@ -1,7 +1,9 @@
 package eg.game.model.player;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import eg.Config;
 import eg.game.model.Charactor;
@@ -42,6 +44,8 @@ public final class Player extends Charactor {
     
     private final List<Player> localPlayerList = new LinkedList<>();
     private final List<Npc> localNpcList = new LinkedList<>();
+    private final Map<Integer, Integer> localAppearanceCycleMap = new HashMap<>();
+    private int appearanceCycle;
     
     public List<Player> getLocalPlayerList() {
         return localPlayerList;
@@ -49,6 +53,18 @@ public final class Player extends Charactor {
     
     public List<Npc> getLocalNpcList() {
         return localNpcList;
+    }
+    
+    public Map<Integer, Integer> getLocalAppearanceCycleMap() {
+        return localAppearanceCycleMap;
+    }
+    
+    public int getAppearanceCycle() {
+        return appearanceCycle;
+    }
+    
+    public void setAppearanceCycle(int value) {
+        appearanceCycle = value;
     }
     
     public Player(GameSession session, String username, String password) {

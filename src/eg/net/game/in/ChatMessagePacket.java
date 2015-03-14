@@ -4,12 +4,12 @@ import eg.net.game.AbstractGamePacket;
 
 public final class ChatMessagePacket implements AbstractGamePacket {
     
-    private final int animEffect;
     private final int colorEffect;
+    private final int animationEffect;
     private final byte[] encodedMessage;
     
     public ChatMessagePacket(int colorEffect, int animationEffect, byte[] encodedMessage) {
-        this.animEffect = animationEffect;
+        this.animationEffect = animationEffect;
         this.colorEffect = colorEffect;
         this.encodedMessage = encodedMessage;
     }
@@ -19,7 +19,7 @@ public final class ChatMessagePacket implements AbstractGamePacket {
     }
     
     public int getAnimationEffect() {
-        return animEffect;
+        return animationEffect;
     }
     
     public byte[] getEncodedMessage() {

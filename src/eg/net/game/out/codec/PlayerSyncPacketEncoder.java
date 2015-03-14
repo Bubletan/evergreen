@@ -83,7 +83,8 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
         
         case PLAYER_ADDITION:
             buf.putBits(11, ((SyncStatus.PlayerAddition) status).getIndex());
-            buf.putBit(true).putBit(true);
+            buf.putBit(set.size() != 0);
+            buf.putBit(true);
             int dx = ((SyncStatus.PlayerAddition) status).getCoordinate().getX() - localCoordinate.getX();
             int dy = ((SyncStatus.PlayerAddition) status).getCoordinate().getY() - localCoordinate.getY();
             buf.putBits(5, dy).putBits(5, dx);
