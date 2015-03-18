@@ -10,11 +10,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import eg.Config;
+import eg.game.event.EventDispatcher;
+import eg.game.event.npc.NpcEvent;
+import eg.game.event.player.PlayerEvent;
 import eg.game.model.Coordinate;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 
 public final class World {
+    
+    private final EventDispatcher<PlayerEvent> playerEventDispatcher = new EventDispatcher<>(PlayerEvent.class);
+    private final EventDispatcher<NpcEvent> npcEventDispatcher = new EventDispatcher<>(NpcEvent.class);
     
     private final Map<Integer, WorldSector> sectorMap = new HashMap<>();
     
@@ -58,6 +64,14 @@ public final class World {
                 npc.setWorldSector(sector);
             }
         });
+    }
+    
+    public EventDispatcher<PlayerEvent> getPlayerEventDispatcher() {
+        return playerEventDispatcher;
+    }
+    
+    public EventDispatcher<NpcEvent> getNpcEventDispatcher() {
+        return npcEventDispatcher;
     }
     
     public boolean addPlayer(Player player) {

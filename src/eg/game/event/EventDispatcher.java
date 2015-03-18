@@ -8,8 +8,10 @@ import java.util.Map;
 public final class EventDispatcher<T extends Event> {
     
     private final Map<Class<? extends T>, List<EventListener<? extends T>>> listeners = new HashMap<>();
+    private final Class<T> supertype;
     
-    public EventDispatcher() {
+    public EventDispatcher(Class<T> type) {
+        supertype = type;
     }
     
     public <E extends T> boolean fireEvent(E event) {
@@ -21,12 +23,12 @@ public final class EventDispatcher<T extends Event> {
                 fired = true;
                 for (EventListener<? extends T> listener : list) {
                     @SuppressWarnings("unchecked")
-                    EventListener<E> castListener = (EventListener<E>) listener;
+                    EventListener<? super E> castListener = (EventListener<? super E>) listener;
                     castListener.onEvent(event);
                 }
             }
             type = type.getSuperclass();
-        } while (Event.class.isAssignableFrom(type));
+        } while (supertype.isAssignableFrom(type));
         return fired;
     }
     
