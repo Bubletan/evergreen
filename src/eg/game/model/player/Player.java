@@ -7,8 +7,10 @@ import java.util.Map;
 
 import eg.Config;
 import eg.game.model.Charactor;
+import eg.game.model.Coordinate;
 import eg.game.model.IdleAnimation;
-import eg.game.model.MovementProvider;
+import eg.game.model.Path;
+import eg.game.model.PathBuilder;
 import eg.game.model.npc.Npc;
 import eg.game.sync.SyncBlock;
 import eg.net.game.GameSession;
@@ -166,15 +168,28 @@ public final class Player extends Charactor {
                 getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, p.getColorEffect(),
                         p.getAnimationEffect(), getPrivilege()));
             } else if (packet instanceof CommandPacket) {
+                String[] cmd = ((CommandPacket) packet).getCommand().split(" ");
+                switch (cmd[0]) {
+                case "tele":
+                    try {
+                        int x = Integer.parseInt(cmd[1]);
+                        int y = Integer.parseInt(cmd[2]);
+                        int height = cmd.length >= 4 ? Integer.parseInt(cmd[3]) : 0;
+                        getMovement().setCoordinate(new Coordinate(x, y, height));
+                    } catch (Exception e) {
+                        message("Incorrect syntax.");
+                    }
+                    break;
+                }
             } else if (packet instanceof ButtonPacket) {
             } else if (packet instanceof MovementPacket) {
                 MovementPacket p = (MovementPacket) packet;
-                MovementProvider mp = getMovement().getProvider();
-                mp.beginPath(p.isCtrlRun());
+                getMovement().setRunningEnabled(p.isCtrlRun());
+                PathBuilder pb = new PathBuilder();
                 for (int i = 0, n = p.getJumpPointCount(); i < n; i++) {
-                    mp.addJumpPoint(p.getJumpPointX(i), p.getJumpPointY(i));
+                    pb.appendJumpPoint(new Path.Point(p.getJumpPointX(i), p.getJumpPointY(i)));
                 }
-                mp.endPath();
+                getMovement().setPath(pb.toPath());
             }
         });
     }

@@ -2,40 +2,56 @@ package eg.game.model;
 
 public final class Movement {
     
-    private MovementProvider provider;
+    private final PathManager pathManager;
     
     private Coordinate sectorOrigin;
     private boolean sectorChanging;
     
-    private Coordinate teleportDestination;
+    private Direction primaryDirection;
+    private Direction secondaryDirection;
+    
+    private Coordinate transitionDestination;
     
     private Coordinate current;
     
+    private boolean runningEnabled;
+    
     public Movement(Coordinate coordinate) {
         current = coordinate;
-        this.provider = new MovementProvider(coordinate.getX(), coordinate.getY());
-        teleportDestination = coordinate;
+        pathManager = new PathManager(new Path.Point(coordinate));
+        transitionDestination = coordinate;
     }
     
     /**
      * Process done before building the synchronization packet.
      */
     public void preSyncProcess() {
-        int x, y, height;
-        if (teleportDestination != null) {
-            provider.clearPath();
-            x = teleportDestination.getX();
-            y = teleportDestination.getY();
-            provider.setPosition(x, y);
-            height = teleportDestination.getHeight();
+       
+        if (transitionDestination != null) {
+            pathManager.setPoint(new Path.Point(transitionDestination));
+            current = transitionDestination;
+            primaryDirection = secondaryDirection = Direction.NONE;
         } else {
-            provider.nextMoment();
-            x = provider.getCurrentX();
-            y = provider.getCurrentY();
-            height = current.getHeight();
-        }
-        if (!current.equals(x, y, height)) {
-            current = new Coordinate(x, y, height);
+            if (pathManager.hasNextPoint()) {
+                int x = current.getX();
+                int y = current.getY();
+                Path.Point primaryPoint = pathManager.getNextPoint();
+                primaryDirection = Direction.forDeltas(primaryPoint.getX() - x, primaryPoint.getY() - y);
+                if (runningEnabled && pathManager.hasNextPoint()) {
+                    Path.Point secondaryPoint = pathManager.getNextPoint();
+                    secondaryDirection = Direction.forDeltas(secondaryPoint.getX() - primaryPoint.getX(),
+                            secondaryPoint.getY() - primaryPoint.getY());
+                    x = secondaryPoint.getX();
+                    y = secondaryPoint.getY();
+                } else {
+                    secondaryDirection = Direction.NONE;
+                    x = primaryPoint.getX();
+                    y = primaryPoint.getY();
+                }
+                current = new Coordinate(x, y, current.getHeight());
+            } else {
+                primaryDirection = secondaryDirection = Direction.NONE; 
+            }
         }
         // TODO if (teleporting) { reset viewing distance; }
         if (sectorOrigin == null || isSectorUpdateRequired()) {
@@ -54,7 +70,7 @@ public final class Movement {
      * Process done after building the synchronization packet.
      */
     public void postSyncProcess() {
-        teleportDestination = null;
+        transitionDestination = null;
         sectorChanging = false;
         /*
          * if (!player.isExcessivePlayersSet()) {
@@ -67,8 +83,20 @@ public final class Movement {
         return current;
     }
     
-    public MovementProvider getProvider() {
-        return provider;
+    public void setRunningEnabled(boolean enabled) {
+        runningEnabled = enabled;
+    }
+    
+    public void setCoordinate(Coordinate coordinate) {
+        transitionDestination = coordinate;
+    }
+    
+    public void setPath(Path path) {
+        pathManager.setPath(path);
+    }
+    
+    public void clearPath() {
+        pathManager.clearPath();
     }
     
     public boolean isSectorChanging() {
@@ -80,35 +108,26 @@ public final class Movement {
     }
     
     public Direction getPrimaryDirection() {
-        return provider.getPrimaryDir();
+        return primaryDirection;
     }
     
     public Direction getSecondaryDirection() {
-        return provider.getSecondaryDir();
+        return secondaryDirection;
     }
     
     public boolean isStanding() {
-        return provider.getPrimaryDir() == Direction.NONE;
+        return primaryDirection == Direction.NONE;
     }
     
     public boolean isWalking() {
-        return provider.getPrimaryDir() != Direction.NONE
-                && provider.getSecondaryDir() == Direction.NONE;
+        return primaryDirection != Direction.NONE && secondaryDirection == Direction.NONE;
     }
     
     public boolean isRunning() {
-        return provider.getSecondaryDir() != Direction.NONE;
+        return secondaryDirection != Direction.NONE;
     }
     
-    public boolean isTeleporting() {
-        return teleportDestination != null;
-    }
-    
-    public void teleportTo(Coordinate coordinate) {
-        teleportDestination = coordinate;
-    }
-    
-    public void stop() {
-        provider.clearPath();
+    public boolean isTransiting() {
+        return transitionDestination != null;
     }
 }

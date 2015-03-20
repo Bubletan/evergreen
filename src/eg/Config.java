@@ -5,7 +5,7 @@ public final class Config {
     private Config() {
     }
     
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     
     public static final boolean RSA_ENABLED = false;
     

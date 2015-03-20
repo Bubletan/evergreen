@@ -35,7 +35,7 @@ public final class NpcSyncTask implements Task {
         List<SyncSection> sections = new ArrayList<>();
         for (Iterator<Npc> it = player.getLocalNpcList().iterator(); it.hasNext();) {
             Npc npc = it.next();
-            if (!npc.isActive() || npc.getMovement().isTeleporting()
+            if (!npc.isActive() || npc.getMovement().isTransiting()
                     || player.getCoordinate().getBoxDistance(npc.getCoordinate()) > player.getViewingDistance()) {
                 it.remove();
                 sections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));

@@ -36,7 +36,7 @@ public final class PlayerSyncTask implements Task {
             localBlockSet = localBlockSet.clone();
             localBlockSet.remove(SyncBlock.Type.CHAT_MESSAGE);
         }
-        if (player.getMovement().isTeleporting() || player.getMovement().isSectorChanging()) {
+        if (player.getMovement().isTransiting() || player.getMovement().isSectorChanging()) {
             localSection = new SyncSection(new SyncStatus.Transition(player.getCoordinate(),
                     player.getMovement().isSectorChanging()), localBlockSet);
         } else if (player.getMovement().isRunning()) {
@@ -51,7 +51,7 @@ public final class PlayerSyncTask implements Task {
         List<SyncSection> nonLocalSections = new ArrayList<>();
         for (Iterator<Player> it = player.getLocalPlayerList().iterator(); it.hasNext();) {
             Player p = it.next();
-            if (!p.isActive() || p.getMovement().isTeleporting()
+            if (!p.isActive() || p.getMovement().isTransiting()
                     || player.getCoordinate().getBoxDistance(p.getCoordinate()) > player.getViewingDistance()) {
                 it.remove();
                 nonLocalSections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
