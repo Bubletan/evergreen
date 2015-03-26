@@ -1,4 +1,6 @@
-package eg.game.model;
+package eg.game.world.path;
+
+import eg.game.world.Direction;
 
 public final class PathManager {
     
@@ -22,7 +24,7 @@ public final class PathManager {
         }
         int x0 = path.getPoint(0).getX();
         int y0 = path.getPoint(0).getY();
-        if (Direction.isConnectable(x0 - point.getX(), y0 - point.getY())) {
+        if (Direction.connectable(x0 - point.getX(), y0 - point.getY())) {
             this.path = new PathBuilder().appendOriginPoint(point).appendPath(path).toPath();
             index = 0;
         } else {
@@ -31,7 +33,7 @@ public final class PathManager {
             }
             PathBuilder pb = new PathBuilder().appendOriginPoint(point);
             for (int i = index - 2; i >= 0; i--) {
-                if (Direction.isConnectable(x0 - this.path.getPoint(i).getX(), y0 - this.path.getPoint(i).getY())) {
+                if (Direction.connectable(x0 - this.path.getPoint(i).getX(), y0 - this.path.getPoint(i).getY())) {
                     this.path = pb.appendPath(this.path, index - 2, i).appendPath(path).toPath();
                     index = 0;
                     return;

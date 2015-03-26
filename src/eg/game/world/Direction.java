@@ -1,11 +1,11 @@
-package eg.game.model;
+package eg.game.world;
 
 public enum Direction {
     
     NONE(-1), NORTH_WEST(0), NORTH(1), NORTH_EAST(2), WEST(3), EAST(4),
     SOUTH_WEST(5), SOUTH(6), SOUTH_EAST(7);
     
-    public static Direction forDeltas(int dx, int dy) {
+    public static Direction get(int dx, int dy) {
         if (dy == 1) {
             if (dx == 1) {
                 return Direction.NORTH_EAST;
@@ -30,7 +30,7 @@ public enum Direction {
         return Direction.NONE;
     }
     
-    public static boolean isConnectable(int dx, int dy) {
+    public static boolean connectable(int dx, int dy) {
         return dx == 0 || dy == 0 || Math.abs(dx) == Math.abs(dy);
     }
     

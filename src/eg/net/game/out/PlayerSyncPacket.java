@@ -2,8 +2,8 @@ package eg.net.game.out;
 
 import java.util.List;
 
-import eg.game.model.Coordinate;
-import eg.game.sync.SyncSection;
+import eg.game.world.Coordinate;
+import eg.game.world.sync.SyncSection;
 import eg.net.game.AbstractGamePacket;
 
 public final class PlayerSyncPacket implements AbstractGamePacket {

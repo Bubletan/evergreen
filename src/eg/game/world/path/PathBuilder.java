@@ -1,8 +1,10 @@
-package eg.game.model;
+package eg.game.world.path;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Deque;
+
+import eg.game.world.Direction;
 
 public final class PathBuilder {
     
@@ -95,7 +97,7 @@ public final class PathBuilder {
         if (dx == 0 && dy == 0) {
             return this;
         }
-        if (!Direction.isConnectable(dx, dy)) {
+        if (!Direction.connectable(dx, dy)) {
             interrupted = true;
             return this;
         }

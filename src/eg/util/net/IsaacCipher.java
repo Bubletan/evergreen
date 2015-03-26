@@ -1,4 +1,4 @@
-package eg.util.io;
+package eg.util.net;
 
 /**
  * A cipher that uses ISAAC algorithm.<br>

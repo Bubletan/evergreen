@@ -7,14 +7,16 @@ import java.util.List;
 
 import eg.Config;
 import eg.game.model.player.Player;
+import eg.game.model.player.PlayerInitTask;
 import eg.net.game.GameSession;
 import eg.net.game.codec.GamePacketDecoder;
 import eg.net.game.codec.GamePacketEncoder;
 import eg.net.game.codec.GameProtocolDecoder;
 import eg.net.game.codec.GameProtocolEncoder;
 import eg.net.login.LoginRequest;
-import eg.util.io.IsaacCipher;
+import eg.util.net.IsaacCipher;
 import eg.util.net.TransientByteToMessageDecoder;
+import eg.util.task.Tasks;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -200,7 +202,7 @@ public final class LoginHandler extends TransientByteToMessageDecoder {
             
             player.setActive(true);
             
-            player.initialize();
+            Tasks.asyncExec(new PlayerInitTask(player));
             
             return true;
         }

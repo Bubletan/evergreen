@@ -1,10 +1,11 @@
 package eg.game.model;
 
 import eg.Server;
-import eg.game.WorldSector;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
-import eg.game.sync.SyncBlockSet;
+import eg.game.world.Coordinate;
+import eg.game.world.WorldSector;
+import eg.game.world.sync.SyncBlockSet;
 import eg.util.Misc;
 
 public abstract class Charactor {

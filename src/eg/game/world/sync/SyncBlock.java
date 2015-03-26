@@ -1,10 +1,10 @@
-package eg.game.sync;
+package eg.game.world.sync;
 
 import eg.game.model.Charactor;
-import eg.game.model.Coordinate;
 import eg.game.model.Hit;
 import eg.game.model.npc.NpcType;
 import eg.game.model.player.Player;
+import eg.game.world.Coordinate;
 
 public abstract class SyncBlock {
     

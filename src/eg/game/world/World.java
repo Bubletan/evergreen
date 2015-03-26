@@ -1,4 +1,4 @@
-package eg.game;
+package eg.game.world;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,6 @@ import eg.Config;
 import eg.game.event.EventDispatcher;
 import eg.game.event.npc.NpcEvent;
 import eg.game.event.player.PlayerEvent;
-import eg.game.model.Coordinate;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 

@@ -1,8 +1,8 @@
-package eg.game.sync.task;
+package eg.game.world.sync.task;
 
 import eg.Server;
 import eg.game.model.player.Player;
-import eg.game.sync.SyncBlock;
+import eg.game.world.sync.SyncBlock;
 import eg.net.game.out.MapLoadingPacket;
 import eg.util.task.Task;
 
@@ -21,7 +21,7 @@ public final class PrePlayerSyncTask implements Task {
             player.getSession().send(new MapLoadingPacket(player.getCoordinate()));
         }
         if (player.getSyncBlockSet().contains(SyncBlock.Type.APPEARANCE)) {
-            player.setAppearanceCycle(Server.cycle());
+            player.getSyncContext().setAppearanceCycle(Server.cycle());
         }
     }
 }

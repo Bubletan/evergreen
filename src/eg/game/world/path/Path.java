@@ -1,4 +1,4 @@
-package eg.game.model;
+package eg.game.world.path;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import eg.game.world.Coordinate;
+import eg.game.world.Direction;
 
 public final class Path implements Iterable<Path.Point> {
     
@@ -43,8 +46,8 @@ public final class Path implements Iterable<Path.Point> {
         Point before = points.get(index - 1);
         Point point = points.get(index);
         Point after = points.get(index + 1);
-        return Direction.forDeltas(point.getX() - before.getX(), point.getY() - before.getY())
-                != Direction.forDeltas(after.getX() - point.getX(), after.getY() - point.getY());
+        return Direction.get(point.getX() - before.getX(), point.getY() - before.getY())
+                != Direction.get(after.getX() - point.getX(), after.getY() - point.getY());
     }
     
     public Point getPoint(int index) {

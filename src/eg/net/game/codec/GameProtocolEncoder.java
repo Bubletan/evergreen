@@ -2,7 +2,7 @@ package eg.net.game.codec;
 
 import eg.net.game.GamePacket;
 import eg.net.game.GamePacketConstants;
-import eg.util.io.IsaacCipher;
+import eg.util.net.IsaacCipher;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

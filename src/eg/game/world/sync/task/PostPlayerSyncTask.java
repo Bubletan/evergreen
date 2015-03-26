@@ -1,4 +1,4 @@
-package eg.game.sync.task;
+package eg.game.world.sync.task;
 
 import eg.game.model.player.Player;
 import eg.util.task.Task;

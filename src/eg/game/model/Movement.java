@@ -1,5 +1,10 @@
 package eg.game.model;
 
+import eg.game.world.Coordinate;
+import eg.game.world.Direction;
+import eg.game.world.path.Path;
+import eg.game.world.path.PathManager;
+
 public final class Movement {
     
     private final PathManager pathManager;
@@ -12,12 +17,12 @@ public final class Movement {
     
     private Coordinate transitionDestination;
     
-    private Coordinate current;
+    private Coordinate currentCoordinate;
     
     private boolean runningEnabled;
     
     public Movement(Coordinate coordinate) {
-        current = coordinate;
+        currentCoordinate = coordinate;
         pathManager = new PathManager(new Path.Point(coordinate));
         transitionDestination = coordinate;
     }
@@ -29,17 +34,17 @@ public final class Movement {
        
         if (transitionDestination != null) {
             pathManager.setPoint(new Path.Point(transitionDestination));
-            current = transitionDestination;
+            currentCoordinate = transitionDestination;
             primaryDirection = secondaryDirection = Direction.NONE;
         } else {
             if (pathManager.hasNextPoint()) {
-                int x = current.getX();
-                int y = current.getY();
+                int x = currentCoordinate.getX();
+                int y = currentCoordinate.getY();
                 Path.Point primaryPoint = pathManager.getNextPoint();
-                primaryDirection = Direction.forDeltas(primaryPoint.getX() - x, primaryPoint.getY() - y);
+                primaryDirection = Direction.get(primaryPoint.getX() - x, primaryPoint.getY() - y);
                 if (runningEnabled && pathManager.hasNextPoint()) {
                     Path.Point secondaryPoint = pathManager.getNextPoint();
-                    secondaryDirection = Direction.forDeltas(secondaryPoint.getX() - primaryPoint.getX(),
+                    secondaryDirection = Direction.get(secondaryPoint.getX() - primaryPoint.getX(),
                             secondaryPoint.getY() - primaryPoint.getY());
                     x = secondaryPoint.getX();
                     y = secondaryPoint.getY();
@@ -48,7 +53,7 @@ public final class Movement {
                     x = primaryPoint.getX();
                     y = primaryPoint.getY();
                 }
-                current = new Coordinate(x, y, current.getHeight());
+                currentCoordinate = new Coordinate(x, y, currentCoordinate.getHeight());
             } else {
                 primaryDirection = secondaryDirection = Direction.NONE; 
             }
@@ -56,13 +61,13 @@ public final class Movement {
         // TODO if (teleporting) { reset viewing distance; }
         if (sectorOrigin == null || isSectorUpdateRequired()) {
             sectorChanging = true;
-            sectorOrigin = new Coordinate(current.getX() - 48 & ~0b111, current.getY() - 48 & ~0b111);
+            sectorOrigin = new Coordinate(currentCoordinate.getX() - 48 & ~0b111, currentCoordinate.getY() - 48 & ~0b111);
         }
     }
     
     private boolean isSectorUpdateRequired() {
-        int dx = current.getX() - sectorOrigin.getX();
-        int dy = current.getY() - sectorOrigin.getY();
+        int dx = currentCoordinate.getX() - sectorOrigin.getX();
+        int dy = currentCoordinate.getY() - sectorOrigin.getY();
         return dx < 16 || dx >= 88 || dy < 16 || dy >= 88;
     }
     
@@ -80,7 +85,7 @@ public final class Movement {
     }
     
     public Coordinate getCoordinate() {
-        return current;
+        return currentCoordinate;
     }
     
     public void setRunningEnabled(boolean enabled) {

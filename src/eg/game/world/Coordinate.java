@@ -1,4 +1,4 @@
-package eg.game.model;
+package eg.game.world;
 
 public final class Coordinate {
     

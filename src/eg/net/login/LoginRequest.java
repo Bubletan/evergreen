@@ -1,6 +1,6 @@
 package eg.net.login;
 
-import eg.util.io.IsaacCipher;
+import eg.util.net.IsaacCipher;
 
 public final class LoginRequest {
     

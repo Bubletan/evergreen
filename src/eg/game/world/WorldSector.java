@@ -1,4 +1,4 @@
-package eg.game;
+package eg.game.world;
 
 import java.util.Collections;
 import java.util.LinkedList;

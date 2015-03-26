@@ -1,8 +1,8 @@
-package eg.game.sync;
+package eg.game.world.sync;
 
-import eg.game.model.Coordinate;
-import eg.game.model.Direction;
 import eg.game.model.npc.NpcType;
+import eg.game.world.Coordinate;
+import eg.game.world.Direction;
 
 public abstract class SyncStatus {
     

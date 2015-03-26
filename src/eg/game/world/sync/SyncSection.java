@@ -1,4 +1,4 @@
-package eg.game.sync;
+package eg.game.world.sync;
 
 public final class SyncSection {
     

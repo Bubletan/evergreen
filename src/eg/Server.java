@@ -8,13 +8,14 @@ import java.util.concurrent.TimeUnit;
 
 import eg.game.InitializationTask;
 import eg.game.ShutdownHookTask;
-import eg.game.World;
-import eg.game.sync.task.NpcSyncTask;
-import eg.game.sync.task.PlayerSyncTask;
-import eg.game.sync.task.PostNpcSyncTask;
-import eg.game.sync.task.PostPlayerSyncTask;
-import eg.game.sync.task.PreNpcSyncTask;
-import eg.game.sync.task.PrePlayerSyncTask;
+import eg.game.model.player.PlayerProcessTask;
+import eg.game.world.World;
+import eg.game.world.sync.task.NpcSyncTask;
+import eg.game.world.sync.task.PlayerSyncTask;
+import eg.game.world.sync.task.PostNpcSyncTask;
+import eg.game.world.sync.task.PostPlayerSyncTask;
+import eg.game.world.sync.task.PreNpcSyncTask;
+import eg.game.world.sync.task.PrePlayerSyncTask;
 import eg.net.GameServer;
 import eg.util.task.Task;
 import eg.util.task.Tasks;
@@ -36,21 +37,19 @@ public final class Server {
         
         int nTasks = tasks.size();
         while (nTasks-- > 0) {
-            Tasks.execute(tasks.remove());
+            Tasks.syncExec(tasks.remove());
         }
         
-        world.getPlayerStream().forEach(player -> {
-            player.process();
-        });
+        world.getPlayerStream().map(p -> new PlayerProcessTask(p)).forEach(Tasks::syncExec);
         
-        world.getPlayerStream().map(p -> new PrePlayerSyncTask(p)).forEach(Tasks::execute);
-        world.getNpcStream().map(n -> new PreNpcSyncTask(n)).forEach(Tasks::execute);
+        world.getPlayerStream().map(p -> new PrePlayerSyncTask(p)).forEach(Tasks::syncExec);
+        world.getNpcStream().map(n -> new PreNpcSyncTask(n)).forEach(Tasks::syncExec);
         
         world.getPlayerStream().map(p -> Tasks.toSequentialTask(new PlayerSyncTask(p), new NpcSyncTask(p)))
-                .forEach(Tasks::execute);
+                .forEach(Tasks::syncExec);
         
-        world.getPlayerStream().map(p -> new PostPlayerSyncTask(p)).forEach(Tasks::execute);
-        world.getNpcStream().map(n -> new PostNpcSyncTask(n)).forEach(Tasks::execute);
+        world.getPlayerStream().map(p -> new PostPlayerSyncTask(p)).forEach(Tasks::syncExec);
+        world.getNpcStream().map(n -> new PostNpcSyncTask(n)).forEach(Tasks::syncExec);
         
         if (cycle % 100 == 0) {
             // TODO process minutely

@@ -1,5 +1,8 @@
 package eg.game.model;
 
+import eg.game.world.Coordinate;
+import eg.game.world.Direction;
+
 public final class ForceMovement {
     
     private final Coordinate primaryDestination;

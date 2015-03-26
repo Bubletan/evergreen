@@ -1,4 +1,4 @@
-package eg.game.sync;
+package eg.game.world.sync;
 
 import java.util.HashMap;
 import java.util.Map;
