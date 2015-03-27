@@ -1,7 +1,7 @@
 package eg.game.model.player;
 
 import eg.Config;
-import eg.util.Misc;
+import eg.util.ExperienceUtils;
 
 public final class Skill {
     
@@ -27,7 +27,7 @@ public final class Skill {
         } else if (expTimes10 < 0) {
             expTimes10 = 0;
         }
-        lvl = Misc.getLevelForExperience(expTimes10 / 10);
+        lvl = ExperienceUtils.experienceToLevel(expTimes10 / 10);
     }
     
     public final void addExperience(float n) {

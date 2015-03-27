@@ -16,7 +16,6 @@ import eg.game.world.sync.SyncStatus;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerSyncPacket;
-import eg.util.Misc;
 import eg.util.io.Buffer;
 import eg.util.io.Buffers;
 
@@ -267,7 +266,7 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 payloadBuf.putShort(player.getIdleAnimation().getTurn90Cw());
                 payloadBuf.putShort(player.getIdleAnimation().getTurn90Ccw());
                 payloadBuf.putShort(player.getIdleAnimation().getRun());
-                payloadBuf.putLong(Misc.encryptUsername(player.getUsername()));
+                payloadBuf.putLong(player.getHash());
                 payloadBuf.putByte(player.getStatistics().getCombatLevel());
                 payloadBuf.putShort(0); // skill
                 payloadBuf.endBlock();

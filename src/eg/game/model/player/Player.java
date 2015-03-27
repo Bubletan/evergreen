@@ -1,25 +1,11 @@
 package eg.game.model.player;
 
-import eg.Config;
 import eg.game.model.Charactor;
 import eg.game.model.IdleAnimation;
-import eg.game.world.Coordinate;
-import eg.game.world.path.Path;
-import eg.game.world.path.PathBuilder;
 import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncContext;
 import eg.net.game.GameSession;
-import eg.net.game.in.ButtonPacket;
-import eg.net.game.in.ChatMessagePacket;
-import eg.net.game.in.CommandPacket;
-import eg.net.game.in.MovementPacket;
-import eg.net.game.out.CameraResetPacket;
-import eg.net.game.out.GameMessagePacket;
-import eg.net.game.out.MainInterfacePacket;
-import eg.net.game.out.PlayerInitPacket;
-import eg.net.game.out.SidebarInterfacePacket;
-import eg.util.ChatMessageUtils;
-import eg.util.Misc;
+import eg.util.UsernameUtils;
 
 public final class Player extends Charactor {
     
@@ -57,7 +43,7 @@ public final class Player extends Charactor {
     }
     
     public long getHash() {
-        return Misc.encryptUsername(username);
+        return UsernameUtils.encrypt(username);
     }
     
     public String getPassword() {

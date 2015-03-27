@@ -76,6 +76,6 @@ public final class NpcType {
     
     @Override
     public String toString() {
-        return getClass().getName() + "[" + "id=" + id + "]";
+        return getClass().getSimpleName() + " [" + "id=" + id + "]";
     }
 }

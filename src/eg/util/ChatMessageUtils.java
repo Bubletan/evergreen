@@ -2,13 +2,13 @@ package eg.util;
 
 public final class ChatMessageUtils {
     
-    private static final char[] validChars = {
+    private static final char[] CHAT_MESSAGE_CHAR_TABLE = {
         ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 
         'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p', 
         'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2', 
         '3', '4', '5', '6', '7', '8', '9', ' ', '!', '?', 
         '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\', 
-        '\'', '@', '#', '+', '=', '\243', '$', '%', '"', '[', 
+        '\'', '@', '#', '+', '=', '£', '$', '%', '"', '[', 
         ']', '>', '<', '^', '/', '_'
     };
     
@@ -20,7 +20,7 @@ public final class ChatMessageUtils {
         int outp = 0;
         for (int i = 0, len = in.length; i < len; i++) {
             int inv = in[i] & 0xff;
-            out[outp++] = validChars[inv];
+            out[outp++] = CHAT_MESSAGE_CHAR_TABLE[inv];
         }
         boolean upper = true;
         for (int i = 0; i < outp; i++) {
@@ -46,8 +46,8 @@ public final class ChatMessageUtils {
         for (int i = 0; i < in.length(); i++) {
             char inv = in.charAt(i);
             int outv = 0;
-            for (int inp = 0; inp < validChars.length; inp++) {
-                if (inv != validChars[inp]) {
+            for (int inp = 0; inp < CHAT_MESSAGE_CHAR_TABLE.length; inp++) {
+                if (inv != CHAT_MESSAGE_CHAR_TABLE[inp]) {
                     continue;
                 }
                 outv = inp;

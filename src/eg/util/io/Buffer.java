@@ -593,8 +593,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         data[pos++] = (byte) value;
         data[pos++] = (byte) (value >> 8);
@@ -614,8 +613,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         data[pos++] = (byte) (value >> 16);
         data[pos++] = (byte) (value >> 24);
@@ -635,8 +633,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) value;
@@ -656,8 +653,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasPuttingCapacity(8)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 7));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 7));
         }
         data[pos++] = (byte) (int) (value >> 56);
         data[pos++] = (byte) (int) (value >> 48);
@@ -702,7 +698,7 @@ public final class Buffer {
     }
     
     /**
-     * Puts a {@code String} as bytes ending with a line break character (10).<br>
+     * Puts a {@code String} as bytes ending with a line break character {@code '\n'}.<br>
      * Returns itself to allow method chaining.
      * 
      * @see #getLine()
@@ -712,8 +708,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasPuttingCapacity(value.length() + 1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + value.length()));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + value.length()));
         }
         System.arraycopy(value.getBytes(), 0, data, pos, value.length());
         pos += value.length();
@@ -722,7 +717,7 @@ public final class Buffer {
     }
     
     /**
-     * Puts a {@code String} as bytes ending with a null character (0).<br>
+     * Puts a {@code String} as bytes ending with a null character {@code '\0'}.<br>
      * Returns itself to allow method chaining.
      * 
      * @see #getString()
@@ -1279,7 +1274,7 @@ public final class Buffer {
     
     /**
      * Gets a {@code String} created from bytes ending with a line break
-     * character (10).
+     * character {@code '\n'}.
      * 
      * @see #putLine(String)
      */
@@ -1287,7 +1282,7 @@ public final class Buffer {
         if (bitAccess) {
             throw new IllegalStateException("Bit access is enabled.");
         }
-        final int begin = pos;
+        int begin = pos;
         do {
             if (pos >= data.length) {
                 throw new ArrayIndexOutOfBoundsException("Buffer overflow.");
@@ -1298,7 +1293,7 @@ public final class Buffer {
     
     /**
      * Gets a {@code String} created from bytes ending with a null character
-     * (0).
+     * {@code '\0'}.
      * 
      * @see #putString(String)
      */
@@ -1306,7 +1301,7 @@ public final class Buffer {
         if (bitAccess) {
             throw new IllegalStateException("Bit access is enabled.");
         }
-        final int begin = pos;
+        int begin = pos;
         do {
             if (pos >= data.length) {
                 throw new ArrayIndexOutOfBoundsException("Buffer overflow.");
@@ -1331,12 +1326,10 @@ public final class Buffer {
             dst = new byte[offset + length];
         }
         if (offset + length > dst.length) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "Destination array is not big enough: " + (offset + length));
+            throw new ArrayIndexOutOfBoundsException("Destination array is not big enough: " + (offset + length));
         }
         if (!hasGettingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + length - 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + length - 1));
         }
         System.arraycopy(dst, offset, data, pos, length);
         pos += length;
@@ -1359,12 +1352,10 @@ public final class Buffer {
             dst = new byte[offset + length];
         }
         if (offset + length > dst.length) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "Destination array is not big enough: " + (offset + length));
+            throw new ArrayIndexOutOfBoundsException("Destination array is not big enough: " + (offset + length));
         }
         if (!hasGettingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + length - 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + length - 1));
         }
         for (int i = offset + length - 1; i >= offset; i--) {
             dst[i] = data[pos++];
@@ -1462,6 +1453,8 @@ public final class Buffer {
      * Puts an {@code int} as an {@code n} bit value.<br>
      * Can only be used in a bit access block.<br>
      * Returns itself to allow method chaining.
+     * 
+     * @see #getBits(int)
      */
     public Buffer putBits(int n, int value) {
         if (n < 0 || n > 32) {
@@ -1496,6 +1489,8 @@ public final class Buffer {
      * Puts a {@code boolean} as a single bit value.<br>
      * Can only be used in a bit access block.<br>
      * Returns itself to allow method chaining.
+     * 
+     * @see #getBit()
      */
     public Buffer putBit(boolean value) {
         return putBits(1, value ? 1 : 0);
@@ -1504,6 +1499,8 @@ public final class Buffer {
     /**
      * Gets an {@code n} bit value as an {@code int}.<br>
      * Can only be used in a bit access block.
+     * 
+     * @see #putBits(int, int)
      */
     public int getBits(int n) {
         if (n < 0 || n > 32) {
@@ -1535,6 +1532,8 @@ public final class Buffer {
     /**
      * Gets a single bit value as a {@code boolean}.<br>
      * Can only be used in a bit access block.
+     * 
+     * @see #putBit(boolean)
      */
     public boolean getBit() {
         return getBits(1) != 0;

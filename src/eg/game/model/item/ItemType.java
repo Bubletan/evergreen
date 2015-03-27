@@ -182,6 +182,6 @@ public final class ItemType {
     
     @Override
     public String toString() {
-        return getClass().getName() + "[" + "id=" + id + "]";
+        return getClass().getSimpleName() + " [" + "id=" + id + "]";
     }
 }

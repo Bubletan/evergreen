@@ -6,13 +6,13 @@ import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 import eg.game.world.WorldSector;
 import eg.game.world.sync.SyncBlockSet;
-import eg.util.Misc;
+import eg.util.RandomUtils;
 
 public abstract class Charactor {
     
     private int index;
-    private final Movement movement = new Movement(new Coordinate(3200 + Misc.random(-32, 32),
-            3200 + Misc.random(-32, 32)));
+    private final Movement movement = new Movement(new Coordinate(3200 + RandomUtils.randomInt(-32, 32),
+            3200 + RandomUtils.randomInt(-32, 32)));
     private WorldSector sector;
     private boolean active;
     private SyncBlockSet syncBlockSet = new SyncBlockSet();
