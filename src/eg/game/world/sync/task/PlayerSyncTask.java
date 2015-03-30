@@ -83,7 +83,6 @@ public final class PlayerSyncTask implements Task {
                     || player.getSyncContext().getPlayerList().contains(p)) {
                 continue;
             }
-            System.out.println(player.getUsername() + ": " + "added " + p.getUsername());
             added++;
             player.getSyncContext().getPlayerList().add(p);
             SyncBlockSet blockSet = p.getSyncBlockSet();

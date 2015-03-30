@@ -45,7 +45,7 @@ public final class Buffers {
             buf.endBlock();
         }
         buf.setPosition(0);
-        buf.setAutoExpanding(true);
+        buf.setAutoExpand(true);
         synchronized (pool) {
             pool.add(buf);
         }

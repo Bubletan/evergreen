@@ -226,9 +226,9 @@ public final class Buffer {
      * Sets the automatic expanding of the capacity enabled or disabled.<br>
      * Returns itself to allow method chaining.
      * 
-     * @see #isAutoExpanding()
+     * @see #isAutoExpand()
      */
-    public Buffer setAutoExpanding(boolean enabled) {
+    public Buffer setAutoExpand(boolean enabled) {
         autoExpand = enabled;
         return this;
     }
@@ -236,9 +236,9 @@ public final class Buffer {
     /**
      * Checks if the automatic expanding of the capacity is enabled.
      * 
-     * @see #setAutoExpanding(boolean)
+     * @see #setAutoExpand(boolean)
      */
-    public boolean isAutoExpanding() {
+    public boolean isAutoExpand() {
         return autoExpand;
     }
     
@@ -952,8 +952,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         int tmp = ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
@@ -973,8 +972,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         return ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
@@ -990,8 +988,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         int tmp = ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
@@ -1011,8 +1008,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         return ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
@@ -1023,8 +1019,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         int tmp = ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] - 128 & 0xff);
@@ -1039,8 +1034,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         return ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] - 128 & 0xff);
@@ -1051,8 +1045,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         int tmp = ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] - 128 & 0xff);
@@ -1067,8 +1060,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
         }
         pos += 2;
         return ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] - 128 & 0xff);
@@ -1084,8 +1076,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
         }
         pos += 3;
         int tmp = ((data[pos - 3] & 0xff) << 16)
@@ -1106,8 +1097,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
         }
         pos += 3;
         return ((data[pos - 3] & 0xff) << 16) + ((data[pos - 2] & 0xff) << 8)
@@ -1124,8 +1114,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
         }
         pos += 3;
         int tmp = ((data[pos - 1] & 0xff) << 16)
@@ -1146,8 +1135,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
         }
         pos += 3;
         return ((data[pos - 1] & 0xff) << 16) + ((data[pos - 2] & 0xff) << 8)
@@ -1164,8 +1152,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         pos += 4;
         return ((data[pos - 4] & 0xff) << 24) + ((data[pos - 3] & 0xff) << 16)
@@ -1182,8 +1169,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         pos += 4;
         return ((data[pos - 1] & 0xff) << 24) + ((data[pos - 2] & 0xff) << 16)
@@ -1200,8 +1186,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         pos += 4;
         return ((data[pos - 3] & 0xff) << 24) + ((data[pos - 4] & 0xff) << 16)
@@ -1218,8 +1203,7 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
         }
         pos += 4;
         return ((data[pos - 2] & 0xff) << 24) + ((data[pos - 1] & 0xff) << 16)
@@ -1236,11 +1220,10 @@ public final class Buffer {
             throw new IllegalStateException("Bit access is enabled.");
         }
         if (!hasGettingCapacity(8)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 7));
+            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 7));
         }
-        final long l = getInt() & 0xffffffffL;
-        final long l1 = getInt() & 0xffffffffL;
+        long l = getInt() & 0xffffffffL;
+        long l1 = getInt() & 0xffffffffL;
         return (l << 32) + l1;
     }
     
