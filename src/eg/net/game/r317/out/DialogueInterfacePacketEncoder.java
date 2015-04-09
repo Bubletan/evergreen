@@ -9,6 +9,6 @@ public final class DialogueInterfacePacketEncoder implements AbstractGamePacketE
     
     @Override
     public GamePacket encode(DialogueInterfacePacket packet) throws Exception {
-        return new GamePacket(164, new Buffer(2).putLeShort(packet.getId()).getData());
+        return new GamePacket(164, new Buffer(2).putLeShort(packet.getId()).toData());
     }
 }

@@ -9,6 +9,6 @@ public final class WeightAlteredPacketEncoder implements AbstractGamePacketEncod
     
     @Override
     public GamePacket encode(WeightAlteredPacket packet) throws Exception {
-        return new GamePacket(240, new Buffer(2).putShort(packet.getWeight()).getData());
+        return new GamePacket(240, new Buffer(2).putShort(packet.getWeight()).toData());
     }
 }

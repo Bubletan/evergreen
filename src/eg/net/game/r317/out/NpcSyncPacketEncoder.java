@@ -16,7 +16,6 @@ import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.NpcSyncPacket;
 import eg.util.io.Buffer;
-import eg.util.io.Buffers;
 
 public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<NpcSyncPacket> {
     
@@ -26,7 +25,7 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
         Buffer buf = new Buffer();
         buf.beginBitAccess();
         
-        Buffer payloadBuf = Buffers.allocate();
+        Buffer payloadBuf = new Buffer();
         
         buf.putBits(8, packet.getLocalNpcCount());
         
@@ -37,13 +36,13 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
         if (payloadBuf.getPosition() != 0) {
             buf.putBits(14, 16383);
             buf.endBitAccess();
-            buf.putBytes(payloadBuf.getData(), 0, payloadBuf.getPosition());
+            buf.putBuffer(payloadBuf);
         } else {
             buf.endBitAccess();
         }
-        Buffers.release(payloadBuf);
+        payloadBuf.releaseData();
         
-        return new GamePacket(65, buf.getData(), buf.getPosition());
+        return new GamePacket(65, buf.toData(), buf.getPosition());
     }
     
     private void putSection(SyncSection sec, Buffer buf, Buffer payloadBuf,

@@ -9,7 +9,7 @@ import eg.net.game.in.ChatMessagePacket;
 import eg.net.game.in.CommandPacket;
 import eg.net.game.in.MovementPacket;
 import eg.net.game.out.GameMessagePacket;
-import eg.net.game.out.MainInterfacePacket;
+import eg.net.game.out.GameInterfacePacket;
 import eg.util.ChatMessageUtils;
 import eg.util.task.Task;
 
@@ -63,7 +63,7 @@ public final class PlayerProcessTask implements Task {
                 case "if":
                     try {
                         int id = Integer.parseInt(cmd[1]);
-                        player.getSession().send(new MainInterfacePacket(id));
+                        player.getSession().send(new GameInterfacePacket(id));
                     } catch (Exception e) {
                         player.getSession().send(new GameMessagePacket("error - ::if id"));
                     }

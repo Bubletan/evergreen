@@ -12,9 +12,9 @@ public final class ConfigPacketEncoder implements AbstractGamePacketEncoder<Conf
         Buffer buf = new Buffer().putLeShort(packet.getId());
         int value = packet.getValue();
         if (value >= Byte.MIN_VALUE && value <= Byte.MAX_VALUE) {
-            return new GamePacket(36, buf.putByte(value).getData());
+            return new GamePacket(36, buf.putByte(value).toData());
         } else {
-            return new GamePacket(87, buf.putMeInt(value).getData());
+            return new GamePacket(87, buf.putMeInt(value).toData());
         }
     }
 }

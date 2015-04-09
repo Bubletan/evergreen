@@ -1,5 +1,7 @@
 package eg.game.model.item;
 
+import java.util.Optional;
+
 import com.google.common.base.Preconditions;
 
 public final class ItemContainer {
@@ -23,15 +25,14 @@ public final class ItemContainer {
     }
     
     public boolean contains(Item item) {
-        if (item == Item.NOTHING) {
+        if (item == null) {
             return size != capacity;
         } else if (size == 0) {
             return false;
         }
         ItemType type = item.getType();
         int quantity = item.getQuantity();
-        if (this.type == Type.STACK_ALWAYS
-                || this.type == Type.STACK_SELECTIVELY && type.isStackable()) {
+        if (this.type == Type.STACK_ALWAYS || this.type == Type.STACK_SELECTIVELY && type.isStackable()) {
             int used = 0;
             for (Item it : items) {
                 if (it != null) {
@@ -60,9 +61,9 @@ public final class ItemContainer {
         return false;
     }
     
-    public Item remove(Item item) {
-        if (size == 0 || item == Item.NOTHING) {
-            return Item.NOTHING;
+    public Optional<Item> remove(Item item) {
+        if (size == 0 || item == null) {
+            return Optional.empty();
         }
         ItemType type = item.getType();
         int quantity = item.getQuantity();
@@ -76,11 +77,11 @@ public final class ItemContainer {
                         int qu = it.getQuantity();
                         if (qu > quantity) {
                             items[i] = new Item(type, qu - quantity);
-                            return item;
+                            return Optional.of(item);
                         } else {
                             items[i] = null;
                             size--;
-                            return it;
+                            return Optional.of(it);
                         }
                     }
                     if (++used == size) {
@@ -88,7 +89,7 @@ public final class ItemContainer {
                     }
                 }
             }
-            return Item.NOTHING;
+            return Optional.empty();
         } else {
             int count = 0;
             int used = 0;
@@ -99,7 +100,7 @@ public final class ItemContainer {
                         items[i] = null;
                         size--;
                         if (++count == quantity) {
-                            return item;
+                            return Optional.of(item);
                         }
                     }
                     if (++used == size) {
@@ -108,15 +109,15 @@ public final class ItemContainer {
                 }
             }
             if (count == 0) {
-                return Item.NOTHING;
+                return Optional.empty();
             }
-            return new Item(type, count);
+            return Optional.of(new Item(type, count));
         }
     }
     
-    public Item add(Item item) {
-        if (item == Item.NOTHING) {
-            return item;
+    public Optional<Item> add(Item item) {
+        if (item == null) {
+            return Optional.empty();
         }
         ItemType type = item.getType();
         int quantity = item.getQuantity();
@@ -128,14 +129,13 @@ public final class ItemContainer {
                     if (it.getType() == type) {
                         int qu = it.getQuantity();
                         if (qu == Integer.MAX_VALUE) {
-                            return item;
+                            return Optional.of(item);
                         } else if (Integer.MAX_VALUE - qu >= quantity) {
                             items[i] = new Item(type, qu + quantity);
-                            return Item.NOTHING;
+                            return Optional.empty();
                         } else {
                             items[i] = new Item(type, Integer.MAX_VALUE);
-                            return new Item(type, quantity
-                                    - (Integer.MAX_VALUE - qu));
+                            return Optional.of(new Item(type, quantity - (Integer.MAX_VALUE - qu)));
                         }
                     }
                     if (++used == size) {
@@ -147,13 +147,13 @@ public final class ItemContainer {
                 if (items[i] == null) {
                     items[i] = item;
                     size++;
-                    return Item.NOTHING;
+                    return Optional.empty();
                 }
             }
-            return item;
+            return Optional.of(item);
         } else {
             if (size == capacity) {
-                return item;
+                return Optional.of(item);
             }
             Item one = null;
             int count = 0;
@@ -166,13 +166,13 @@ public final class ItemContainer {
                     items[i] = one;
                     size++;
                     if (++count == quantity) {
-                        return Item.NOTHING;
+                        return Optional.empty();
                     }
                 } else if (one == null && it.getType() == type) {
                     one = it;
                 }
             }
-            return new Item(type, quantity - count);
+            return Optional.of(new Item(type, quantity - count));
         }
     }
     

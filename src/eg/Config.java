@@ -13,7 +13,6 @@ public final class Config {
     public static final String WEBSITE_ADDRESS = "http://www.mywebsite.com";
     
     public static final int CLIENT_BUILD = 317;
-    public static final int CYCLE_RATE_MILLIS = 600;
     public static final int PORT = 43594;
     
     public static final int MAX_PLAYERS = 2000;

@@ -1,5 +1,7 @@
 package eg.game.model.player;
 
+import java.util.Optional;
+
 import eg.game.model.item.Item;
 import eg.game.model.item.ItemContainer;
 
@@ -32,48 +34,48 @@ public final class Equipment {
     private int strengthBonus;
     private int prayerBonus;
     
-    public Item getHeadwear() {
-        return Item.NOTHING;
+    public Optional<Item> getHeadwear() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getBackwear() {
-        return Item.NOTHING;
+    public Optional<Item> getBackwear() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getNeckwear() {
-        return Item.NOTHING;
+    public Optional<Item> getNeckwear() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getRightHand() {
-        return Item.NOTHING;
+    public Optional<Item> getRightHand() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getTop() {
-        return Item.NOTHING;
+    public Optional<Item> getTop() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getLeftHand() {
-        return Item.NOTHING;
+    public Optional<Item> getLeftHand() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getBottom() {
-        return Item.NOTHING;
+    public Optional<Item> getBottom() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getHandwear() {
-        return Item.NOTHING;
+    public Optional<Item> getHandwear() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getFootwear() {
-        return Item.NOTHING;
+    public Optional<Item> getFootwear() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getRing() {
-        return Item.NOTHING;
+    public Optional<Item> getRing() {
+        return Optional.ofNullable(null);
     }
     
-    public Item getAmmo() {
-        return Item.NOTHING;
+    public Optional<Item> getAmmo() {
+        return Optional.ofNullable(null);
     }
     
     public int getStabAttackBonus() {

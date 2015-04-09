@@ -10,6 +10,6 @@ public final class GameMessagePacketEncoder implements AbstractGamePacketEncoder
     @Override
     public GamePacket encode(GameMessagePacket packet) throws Exception {
         String m = packet.getMessage();
-        return new GamePacket(253, new Buffer(m.length() + 1).putLine(m).getData());
+        return new GamePacket(253, new Buffer(m.length() + 1).putLine(m).toData());
     }
 }

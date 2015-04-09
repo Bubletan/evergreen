@@ -17,7 +17,6 @@ import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.io.Buffer;
-import eg.util.io.Buffers;
 
 public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<PlayerSyncPacket> {
     
@@ -27,7 +26,7 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
         Buffer buf = new Buffer();
         buf.beginBitAccess();
         
-        Buffer payloadBuf = Buffers.allocate();
+        Buffer payloadBuf = new Buffer();
         
         putSection(packet.getLocalSection(), buf, payloadBuf, packet.getOrigin(), packet.getSectorOrigin());
         
@@ -40,13 +39,13 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
         if (payloadBuf.getPosition() != 0) {
             buf.putBits(11, 2047);
             buf.endBitAccess();
-            buf.putBytes(payloadBuf.getData(), 0, payloadBuf.getPosition());
+            buf.putBuffer(payloadBuf);
         } else {
             buf.endBitAccess();
         }
-        Buffers.release(payloadBuf);
+        payloadBuf.releaseData();
         
-        return new GamePacket(81, buf.getData(), buf.getPosition());
+        return new GamePacket(81, buf.toData(), buf.getPosition());
     }
     
     private void putSection(SyncSection sec, Buffer buf, Buffer payloadBuf,
@@ -194,33 +193,33 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 payloadBuf.putByte(player.getIdentikit().getGender());
                 payloadBuf.putByte(player.headIcon);
                 payloadBuf.putByte(player.headIconPk);
-                if (player.getEquipment().getHeadwear() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getHeadwear().getType().getId());
+                if (player.getEquipment().getHeadwear().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getHeadwear().get().getType().getId());
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getBackwear() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getBackwear().getType().getId());
+                if (player.getEquipment().getBackwear().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getBackwear().get().getType().getId());
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getNeckwear() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getNeckwear().getType().getId());
+                if (player.getEquipment().getNeckwear().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getNeckwear().get().getType().getId());
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getRightHand() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getRightHand().getType().getId());
+                if (player.getEquipment().getRightHand().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getRightHand().get().getType().getId());
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getTop() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getTop().getType().getId());
+                if (player.getEquipment().getTop().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getTop().get().getType().getId());
                 } else {
                     payloadBuf.putShort(0x100 + player.getIdentikit().getTorso());
                 }
-                if (player.getEquipment().getLeftHand() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getLeftHand().getType().getId());
+                if (player.getEquipment().getLeftHand().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getLeftHand().get().getType().getId());
                 } else {
                     payloadBuf.putByte(0);
                 }
@@ -229,8 +228,8 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getBottom() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getBottom().getType().getId());
+                if (player.getEquipment().getBottom().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getBottom().get().getType().getId());
                 } else {
                     payloadBuf.putShort(0x100 + player.getIdentikit().getLegs());
                 }
@@ -239,13 +238,13 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 } else {
                     payloadBuf.putByte(0);
                 }
-                if (player.getEquipment().getHandwear() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getHandwear().getType().getId());
+                if (player.getEquipment().getHandwear().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getHandwear().get().getType().getId());
                 } else {
                     payloadBuf.putShort(0x100 + player.getIdentikit().getHands());
                 }
-                if (player.getEquipment().getFootwear() != Item.NOTHING) {
-                    payloadBuf.putShort(0x200 + player.getEquipment().getFootwear().getType().getId());
+                if (player.getEquipment().getFootwear().isPresent()) {
+                    payloadBuf.putShort(0x200 + player.getEquipment().getFootwear().get().getType().getId());
                 } else {
                     payloadBuf.putShort(0x100 + player.getIdentikit().getFeet());
                 }

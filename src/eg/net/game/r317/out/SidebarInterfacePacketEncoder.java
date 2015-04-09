@@ -10,6 +10,6 @@ public final class SidebarInterfacePacketEncoder implements AbstractGamePacketEn
     @Override
     public GamePacket encode(SidebarInterfacePacket packet) throws Exception {
         return new GamePacket(71, new Buffer(3).putShort(packet.getInterfaceId())
-                .putAddedByte(packet.getIndex()).getData());
+                .putAddedByte(packet.getIndex()).toData());
     }
 }

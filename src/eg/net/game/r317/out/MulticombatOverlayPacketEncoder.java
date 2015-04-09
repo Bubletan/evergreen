@@ -9,6 +9,6 @@ public final class MulticombatOverlayPacketEncoder implements AbstractGamePacket
     
     @Override
     public GamePacket encode(MulticombatOverlayPacket packet) throws Exception {
-        return new GamePacket(61, new Buffer(1).putBoolean(packet.isEnabled()).getData());
+        return new GamePacket(61, new Buffer(1).putBoolean(packet.isEnabled()).toData());
     }
 }

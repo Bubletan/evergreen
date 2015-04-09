@@ -1,5 +1,8 @@
 package eg.util.io;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * A buffer that allows input and output, bit access system and a cipher that
  * can be bound to encrypt the packet opcodes.<br>
@@ -13,6 +16,11 @@ package eg.util.io;
 public final class Buffer {
     
     /**
+     * Used for empty {@link Buffer}s that no longer contain any data.
+     */
+    private static final byte[] EMPTY = {};
+    
+    /**
      * Bit mask array used for bit based input and output.<br>
      * {@code BIT_MASK[i] = (1 << i) - 1}
      */
@@ -22,20 +30,27 @@ public final class Buffer {
         0x1ffffff, 0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff, 0x3fffffff, 0x7fffffff, -1
     };
     
+    /**
+     * Recycling pool for unaccessed {@code byte[]}s.
+     */
+    private static final Queue<byte[]> pool = new LinkedList<>();
+    
     private byte[] data;
     private int pos;
     private boolean bitAccess;
     private boolean autoExpand;
     private int blockBegin;
     private int blockType;
+    private boolean poolable;
     
     /**
-     * Initializes a new {@link Buffer} by allocating space of the default
-     * capacity (16). Automatic expanding is <b>enabled</b> by default.
+     * Initializes a new {@link Buffer} either by using a pooled backing array with an unknown capacity
+     * and data or by allocating space of the default capacity (16).
+     * Automatic expanding is <b>enabled</b> by default.
      */
     public Buffer() {
-        data = new byte[16];
-        autoExpand = true;
+        data = poolGet();
+        autoExpand = poolable = true;
     }
     
     /**
@@ -43,10 +58,11 @@ public final class Buffer {
      * capacity. Automatic expanding is <b>disabled</b> by default.
      */
     public Buffer(int capacity) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException("Capacity must be one or more.");
+        if (capacity < 0) {
+            throw new IllegalArgumentException("Capacity must not be negative.");
         }
         data = new byte[capacity];
+        poolable = true;
     }
     
     /**
@@ -56,9 +72,6 @@ public final class Buffer {
     public Buffer(byte[] data) {
         if (data == null) {
             throw new IllegalArgumentException("Data must not be null.");
-        } else if (data.length == 0) {
-            throw new IllegalArgumentException(
-                    "Data capacity must not be zero.");
         }
         this.data = data;
     }
@@ -67,22 +80,14 @@ public final class Buffer {
      * Gets the current position as the index of the byte.
      */
     public int getPosition() {
-        if (bitAccess) {
-            return (pos + 7) >> 3;
-        } else {
-            return pos;
-        }
+        return bitAccess ? (pos + 7) >> 3 : pos;
     }
     
     /**
      * Gets the current position as the index of the bit.
      */
     public int getBitPosition() {
-        if (bitAccess) {
-            return pos;
-        } else {
-            return pos << 3;
-        }
+        return bitAccess ? pos : pos << 3;
     }
     
     /**
@@ -90,11 +95,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      */
     public Buffer setPosition(int value) {
-        if (bitAccess) {
-            pos = value << 3;
-        } else {
-            pos = value;
-        }
+        pos = bitAccess ? value << 3 : value;
         return this;
     }
     
@@ -103,11 +104,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      */
     public Buffer setBitPosition(int value) {
-        if (bitAccess) {
-            pos = value;
-        } else {
-            pos = (pos + 7) >> 3;
-        }
+        pos = bitAccess ? value : (value + 7) >> 3;
         return this;
     }
     
@@ -116,11 +113,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      */
     public Buffer shiftPosition(int n) {
-        if (bitAccess) {
-            pos += n << 3;
-        } else {
-            pos += n;
-        }
+        pos += bitAccess ? n << 3 : n;
         return this;
     }
     
@@ -129,11 +122,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      */
     public Buffer shiftBitPosition(int n) {
-        if (bitAccess) {
-            pos += n;
-        } else {
-            pos += (n + 7) >> 3;
-        }
+        pos += bitAccess ? n : (n + 7) >> 3;
         return this;
     }
     
@@ -190,35 +179,98 @@ public final class Buffer {
     }
     
     /**
-     * Gets the data as a modifiable {@code byte[]}. Replacing an element in the
-     * returned array will also replace it in the buffer. Alternatively use
-     * {@link #getUnmodifiableData()} or {@link #getShrunkUnmodifiableData()}.
+     * Sets the capacity to a certain amount of bytes.
+     * If the new capacity is smaller than the previous one, there will be lost data.<br>
+     * Returns itself to allow method chaining.
      */
-    public byte[] getData() {
-        return data;
+    public Buffer setCapacity(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Capacity may not be negative.");
+        }
+        if (value != data.length) {
+            if (poolable) {
+                poolAdd(data);
+            } else {
+                poolable = true;
+            }
+            byte[] newData = new byte[value];
+            System.arraycopy(data, 0, newData, 0, Math.min(data.length, value));
+            data = newData;
+        }
+        return this;
     }
     
     /**
-     * Gets the data as an unmodifiable {@code byte[]}. Alternatively use
-     * {@link #getData()} or {@link #getShrunkUnmodifiableData()}.
+     * Sets the capacity to a certain amount of bits rounded up to the next byte.
+     * If the new capacity is smaller than the previous one, there will be lost data.<br>
+     * Returns itself to allow method chaining.
      */
-    public byte[] getUnmodifiableData() {
-        return data.clone();
+    public Buffer setBitCapacity(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Capacity may not be negative.");
+        }
+        return setCapacity((value + 7) >> 3);
     }
     
     /**
-     * Gets the data as an unmodifiable {@code byte[]} which is shrunk to a size
-     * based on the current position. Alternatively use {@link #getData()} or
-     * {@link #getUnmodifiableData()}.
+     * Returns the amount of bytes remaining in this buffer.
      */
-    public byte[] getShrunkUnmodifiableData() {
+    public int getRemaining() {
+        return getCapacity() - getPosition();
+    }
+    
+    /**
+     * Returns the amount of bits remaining in this buffer.
+     */
+    public int getBitRemaining() {
+        return getBitCapacity() - getBitPosition();
+    }
+    
+    /**
+     * TODO document
+     */
+    public void releaseData() {
+        if (data != EMPTY) {
+            if (poolable) {
+                poolAdd(data);
+                poolable = false;
+            }
+            data = EMPTY;
+        }
+    }
+    
+    /**
+     * Returns a {@code byte[]} representing the data. The backing
+     * array will be replaced by an empty array and the new capacity
+     * will be zero.
+     */
+    public byte[] toData() {
+        byte[] tmp = data;
+        data = EMPTY;
+        if (poolable) {
+            poolable = false;
+        }
+        return tmp;
+    }
+    
+    /**
+     * Returns a {@code byte[]} representing the data from the
+     * position zero to the current position. he backing array will be
+     * replaced by an empty array and the new capacity will be zero.
+     */
+    public byte[] toShrunkData() {
         int size = getPosition();
         if (size == data.length) {
-            return data.clone();
+            return toData();
         } else {
-            byte[] tmp = new byte[size];
-            System.arraycopy(data, 0, tmp, 0, size);
-            return tmp;
+            byte[] copy = new byte[size];
+            System.arraycopy(data, 0, copy, 0, size);
+            if (poolable) {
+                poolAdd(data);
+                poolable = false;
+            }
+            data = EMPTY;
+            return copy;
         }
     }
     
@@ -242,18 +294,16 @@ public final class Buffer {
         return autoExpand;
     }
     
-    /**
-     * Checks if an {@code 8 * n} bit value can be put in the buffer.
-     */
-    private boolean hasPuttingCapacity(int n) {
-        return isPuttingPositionAvailable(pos + n - 1);
+    private void requirePuttingCapacity(int n) {
+        if (!isPuttingPositionAvailable(pos + n - 1)) {
+            throw new IndexOutOfBoundsException("Buffer overflow: " + (pos + n - 1));
+        }
     }
     
-    /**
-     * Checks if an {@code n} bit value can be put in the buffer.
-     */
-    private boolean hasBitPuttingCapacity(int n) {
-        return isPuttingPositionAvailable((pos + n - 1) >> 3);
+    private void requireBitPuttingCapacity(int n) {
+        if (!isPuttingPositionAvailable((pos + n - 1) >> 3)) {
+            throw new IndexOutOfBoundsException("Buffer overflow: " + ((pos + n - 1) >> 3));
+        }
     }
     
     /**
@@ -262,27 +312,72 @@ public final class Buffer {
      * enabled.
      */
     private boolean isPuttingPositionAvailable(int pos) {
+        if (data == null) {
+            return false;
+        }
         if (pos < data.length) {
             return true;
-        } else if (!autoExpand) {
+        }
+        if (!autoExpand) {
             return false;
+        }
+        int newCapacity = data.length * 3 / 2;
+        if (pos >= newCapacity) {
+            newCapacity = pos * 4 / 3;
+        }
+        byte[] newData = new byte[newCapacity];
+        System.arraycopy(data, 0, newData, 0, data.length);
+        if (poolable) {
+            poolAdd(data);
         } else {
-            int newcapacity = data.length;
-            while (pos >= (newcapacity <<= 1))
-                ;
-            byte[] newdata = new byte[newcapacity];
-            System.arraycopy(data, 0, newdata, 0, data.length);
-            data = newdata;
-            return true;
+            poolable = true;
+        }
+        data = newData;
+        return true;
+    }
+    
+    private void requireGettingCapacity(int n) {
+        if (pos + n - 1 >= data.length) {
+            throw new IndexOutOfBoundsException("Buffer overflow: " + (pos + n - 1));
         }
     }
     
-    private boolean hasGettingCapacity(int n) {
-        return pos + n - 1 < data.length;
+    private void requireBitGettingCapacity(int n) {
+        if ((pos + n - 1) >> 3 >= data.length) {
+            throw new IndexOutOfBoundsException("Buffer overflow: " + ((pos + n - 1) >> 3));
+        }
     }
     
-    private boolean hasBitGettingCapacity(int n) {
-        return (pos + n - 1) >> 3 < data.length;
+    private void requireBitAccess(boolean state) {
+        if (bitAccess != state) {
+            throw new IllegalStateException("Bit access is " + (bitAccess ? "enabled" : "disabled") + ".");
+        }
+    }
+    
+    private void checkByteArray(byte[] array, int length) {
+        if (array == null) {
+            throw new NullPointerException("Array must not be null.");
+        }
+        if (length > array.length) {
+            throw new ArrayIndexOutOfBoundsException("Array is not long enough: " + length);
+        }
+    }
+    
+    private static void poolAdd(byte[] data) {
+        synchronized (pool) {
+            if (pool.size() < 100) {
+                pool.add(data);
+            }
+        }
+    }
+    
+    private static byte[] poolGet() {
+        synchronized (pool) {
+            if (!pool.isEmpty()) {
+                return pool.remove();
+            }
+        }
+        return new byte[16];
     }
     
     /**
@@ -293,9 +388,7 @@ public final class Buffer {
      * @see #isBlock()
      */
     public Buffer beginUByteBlock() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         if (blockType != 0) {
             throw new IllegalStateException("Blocks may not be nested.");
         }
@@ -313,9 +406,7 @@ public final class Buffer {
      * @see #isBlock()
      */
     public Buffer beginNegatedUByteBlock() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         if (blockType != 0) {
             throw new IllegalStateException("Blocks may not be nested.");
         }
@@ -332,9 +423,7 @@ public final class Buffer {
      * @see #isBlock()
      */
     public Buffer beginUShortBlock() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         if (blockType != 0) {
             throw new IllegalStateException("Blocks may not be nested.");
         }
@@ -353,28 +442,22 @@ public final class Buffer {
      * @see #isBlock()
      */
     public Buffer endBlock() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         if (blockType == 0) {
             throw new IllegalStateException("No block exists.");
         }
-        final int blockSize = pos - blockBegin;
+        int blockSize = pos - blockBegin;
         if (blockSize < 0) {
-            throw new RuntimeException("Block size must not be negative: "
-                    + blockSize);
+            throw new RuntimeException("Block size must not be negative: " + blockSize);
         }
         if (blockType <= 2) {
             if (blockSize > 0xff) {
-                throw new RuntimeException("Block size out of ubyte range: "
-                        + blockSize);
+                throw new RuntimeException("Block size out of ubyte range: " + blockSize);
             }
-            data[blockBegin - 1] = (byte) (blockType == 1 ? blockSize
-                    : -blockSize);
+            data[blockBegin - 1] = (byte) (blockType == 1 ? blockSize : -blockSize);
         } else {
             if (blockSize > 0xffff) {
-                throw new RuntimeException("Block size out of ushort range: "
-                        + blockSize);
+                throw new RuntimeException("Block size out of ushort range: " + blockSize);
             }
             data[blockBegin - 2] = (byte) (blockSize >> 8);
             data[blockBegin - 1] = (byte) blockSize;
@@ -403,52 +486,50 @@ public final class Buffer {
      * @see #getUByte()
      */
     public Buffer putByte(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(1);
         data[pos++] = (byte) value;
         return this;
     }
     
     /**
-     * Puts an {@code int} as an 8 bit value with an opposite sign.<br>
+     * Puts an {@code int} as an 8 bit value with negation data transformation.<br>
      * Returns itself to allow method chaining.
      * 
      * @see #getNegatedByte()
      * @see #getNegatedUByte()
      */
     public Buffer putNegatedByte(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(1);
         data[pos++] = (byte) -value;
         return this;
     }
     
+    /**
+     * Puts an {@code int} as an 8 bit value with subtraction data transformation.<br>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #getSubtractedByte()
+     * @see #getSubtractedUByte()
+     */
     public Buffer putSubtractedByte(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(1);
         data[pos++] = (byte) (128 - value);
         return this;
     }
     
+    /**
+     * Puts an {@code int} as an 8 bit value with addition data transformation.<br>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #getAddedByte()
+     * @see #getAddedUByte()
+     */
     public Buffer putAddedByte(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(1);
         data[pos++] = (byte) (value + 128);
         return this;
     }
@@ -461,13 +542,8 @@ public final class Buffer {
      * @see #getUShort()
      */
     public Buffer putShort(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(2);
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) value;
         return this;
@@ -481,39 +557,38 @@ public final class Buffer {
      * @see #getLeUShort()
      */
     public Buffer putLeShort(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(2);
         data[pos++] = (byte) value;
         data[pos++] = (byte) (value >> 8);
         return this;
     }
     
+    /**
+     * Puts an {@code int} as a big-endian 16 bit value with addition data transformation.<br>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #getAddedShort()
+     * @see #getAddedUShort()
+     */
     public Buffer putAddedShort(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(2);
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) (value + 128);
         return this;
     }
     
+    /**
+     * Puts an {@code int} as a little-endian 16 bit value with addition data transformation.<br>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #getAddedLeShort()
+     * @see #getAddedLeUShort()
+     */
     public Buffer putAddedLeShort(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 1));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(2);
         data[pos++] = (byte) (value + 128);
         data[pos++] = (byte) (value >> 8);
         return this;
@@ -527,13 +602,8 @@ public final class Buffer {
      * @see #getUMedium()
      */
     public Buffer putMedium(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(3);
         data[pos++] = (byte) (value >> 16);
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) value;
@@ -548,13 +618,8 @@ public final class Buffer {
      * @see #getLeUMedium()
      */
     public Buffer putLeMedium(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 2));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(3);
         data[pos++] = (byte) value;
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) (value >> 16);
@@ -568,13 +633,8 @@ public final class Buffer {
      * @see #getInt()
      */
     public Buffer putInt(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + 3));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(4);
         data[pos++] = (byte) (value >> 24);
         data[pos++] = (byte) (value >> 16);
         data[pos++] = (byte) (value >> 8);
@@ -589,12 +649,8 @@ public final class Buffer {
      * @see #getLeInt()
      */
     public Buffer putLeInt(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(4);
         data[pos++] = (byte) value;
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) (value >> 16);
@@ -609,12 +665,8 @@ public final class Buffer {
      * @see #getMeInt()
      */
     public Buffer putMeInt(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(4);
         data[pos++] = (byte) (value >> 16);
         data[pos++] = (byte) (value >> 24);
         data[pos++] = (byte) value;
@@ -629,12 +681,8 @@ public final class Buffer {
      * @see #getRmeInt()
      */
     public Buffer putRmeInt(int value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(4);
         data[pos++] = (byte) (value >> 8);
         data[pos++] = (byte) value;
         data[pos++] = (byte) (value >> 24);
@@ -649,12 +697,8 @@ public final class Buffer {
      * @see #getLong()
      */
     public Buffer putLong(long value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(8)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 7));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(8);
         data[pos++] = (byte) (int) (value >> 56);
         data[pos++] = (byte) (int) (value >> 48);
         data[pos++] = (byte) (int) (value >> 40);
@@ -704,12 +748,8 @@ public final class Buffer {
      * @see #getLine()
      */
     public Buffer putLine(String value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(value.length() + 1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + value.length()));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(value.length() + 1);
         System.arraycopy(value.getBytes(), 0, data, pos, value.length());
         pos += value.length();
         data[pos++] = '\n';
@@ -723,13 +763,8 @@ public final class Buffer {
      * @see #getString()
      */
     public Buffer putString(String value) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasPuttingCapacity(value.length() + 1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + value.length()));
-        }
+        requireBitAccess(false);
+        requirePuttingCapacity(value.length() + 1);
         System.arraycopy(value.getBytes(), 0, data, pos, value.length());
         pos += value.length();
         data[pos++] = 0;
@@ -737,75 +772,85 @@ public final class Buffer {
     }
     
     /**
+     * TODO document
+     */
+    public Buffer putBuffer(Buffer buf) {
+        return putBuffer(buf, 0, buf.getPosition());
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putBuffer(Buffer buf, int offset, int length) {
+        if (buf == null) {
+            throw new IllegalArgumentException("Buffer must not be null.");
+        }
+        return putBytes(buf.data, offset, length);
+    }
+    
+    /**
+     * A shorthand alternative to {@link #putBytes(byte[], int, int)}.<br>
+     * Equivalent to calling: <pre>putBytes(array, 0, array.length)</pre>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #putBytes(byte[], int, int)
+     * @see #getBytes(byte[], int, int)
+     */
+    public Buffer putBytes(byte[] array) {
+        return putBytes(array, 0, array.length);
+    }
+    
+    /**
      * Puts a {@code byte[]} as an array copy.<br>
      * Returns itself to allow method chaining.
      * 
+     * @see #putBytes(byte[])
      * @see #getBytes(byte[], int, int)
      */
-    public Buffer putBytes(byte[] src, int offset, int length) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (src == null) {
-            throw new NullPointerException("Source array must not be null.");
-        }
-        if (offset + length > src.length) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "Source array is not big enough: " + (offset + length));
-        }
-        if (!hasPuttingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + length - 1));
-        }
-        System.arraycopy(src, offset, data, pos, length);
+    public Buffer putBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        checkByteArray(array, offset + length);
+        System.arraycopy(array, offset, data, pos, length);
         pos += length;
         return this;
+    }
+    
+    /**
+     * A shorthand alternative to {@link #putBytesReversely(byte[], int, int)}.<br>
+     * Equivalent to calling: <pre>putBytesReversely(array, 0, array.length)</pre>
+     * Returns itself to allow method chaining.
+     * 
+     * @see #putBytesReversely(byte[], int, int)
+     * @see #getBytesReversely(byte[], int, int)
+     */
+    public Buffer putBytesReversely(byte[] array) {
+        return putBytesReversely(array, 0, array.length);
     }
     
     /**
      * Puts a {@code byte[]} as an array copy in a reversed byte order.<br>
      * Returns itself to allow method chaining.
      * 
+     * @see #putBytesReversely(byte[])
      * @see #getBytesReversely(byte[], int, int)
      */
-    public Buffer putBytesReversely(byte[] src, int offset, int length) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (src == null) {
-            throw new NullPointerException("Source array must not be null.");
-        }
-        if (offset + length > src.length) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "Source array is not big enough: " + (offset + length));
-        }
-        if (!hasPuttingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + length - 1));
-        }
+    public Buffer putBytesReversely(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        checkByteArray(array, offset + length);
         for (int i = offset + length - 1; i >= offset; i--) {
-            data[pos++] = src[i];
+            data[pos++] = array[i];
         }
         return this;
     }
     
-    public Buffer putAddedBytes(byte[] src, int offset, int length) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (src == null) {
-            throw new NullPointerException("Source array must not be null.");
-        }
-        if (offset + length > src.length) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "Source array is not big enough: " + (offset + length));
-        }
-        if (!hasPuttingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + (pos + length - 1));
-        }
+    public Buffer putAddedBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        checkByteArray(array, offset + length);
         for (int i = offset + length - 1; i >= offset; i--) {
-            data[pos++] = (byte) (src[i] + 128);
+            data[pos++] = (byte) (array[i] + 128);
         }
         return this;
     }
@@ -846,12 +891,8 @@ public final class Buffer {
      * @see #putByte(int)
      */
     public byte getByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return data[pos++];
     }
     
@@ -861,84 +902,80 @@ public final class Buffer {
      * @see #putByte(int)
      */
     public int getUByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return data[pos++] & 0xff;
     }
     
     /**
-     * Gets a signed 8 bit value with an opposite sign modifier as an
-     * {@code int}.
+     * Gets a signed 8 bit value with negation data transformation as a
+     * {@code byte}.
      * 
      * @see #putNegatedByte(int)
      */
     public byte getNegatedByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return (byte) -data[pos++];
     }
     
     /**
-     * Gets an unsigned 8 bit value with an opposite sign modifier as an
+     * Gets an unsigned 8 bit value with negation data transformation as an
      * {@code int}.
      * 
      * @see #putNegatedByte(int)
      */
     public int getNegatedUByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return -data[pos++] & 0xff;
     }
     
+    /**
+     * Gets a signed 8 bit value with subtraction data transformation as a
+     * {@code byte}.
+     * 
+     * @see #putSubtractedByte(int)
+     */
     public byte getSubtractedByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return (byte) (128 - data[pos++]);
     }
     
+    /**
+     * Gets an unsigned 8 bit value with subtraction data transformation as an
+     * {@code int}.
+     * 
+     * @see #putSubtractedByte(int)
+     */
     public int getSubtractedUByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return 128 - data[pos++] & 0xff;
     }
     
+    /**
+     * Gets a signed 8 bit value with addition data transformation as a
+     * {@code byte}.
+     * 
+     * @see #putAddedByte(int)
+     */
     public byte getAddedByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return (byte) (data[pos++] - 128);
     }
     
+    /**
+     * Gets an unsigned 8 bit value with addition data transformation as an
+     * {@code int}.
+     * 
+     * @see #putAddedByte(int)
+     */
     public int getAddedUByte() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(1)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + pos);
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(1);
         return data[pos++] - 128 & 0xff;
     }
     
@@ -948,12 +985,8 @@ public final class Buffer {
      * @see #putShort(int)
      */
     public int getShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         int tmp = ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
         if (tmp > 0x7fff) {
@@ -968,12 +1001,8 @@ public final class Buffer {
      * @see #putShort(int)
      */
     public int getUShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         return ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
     }
@@ -984,12 +1013,8 @@ public final class Buffer {
      * @see #putLeShort(int)
      */
     public int getLeShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         int tmp = ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
         if (tmp > 0x7fff) {
@@ -1004,23 +1029,20 @@ public final class Buffer {
      * @see #putLeShort(int)
      */
     public int getLeUShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         return ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
     }
     
+    /**
+     * Gets a signed big-endian 16 bit value with addition data transformation as an {@code int}.
+     * 
+     * @see #putAddedShort(int)
+     */
     public int getAddedShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         int tmp = ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] - 128 & 0xff);
         if (tmp > 0x7fff) {
@@ -1029,24 +1051,26 @@ public final class Buffer {
         return tmp;
     }
     
+    /**
+     * Gets an unsigned big-endian 16 bit value with addition data transformation as an {@code int}.
+     * 
+     * @see #putAddedShort(int)
+     */
     public int getAddedUShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         return ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] - 128 & 0xff);
     }
     
+    /**
+     * Gets a signed little-endian 16 bit value with addition data transformation as an {@code int}.
+     * 
+     * @see #putAddedLeShort(int)
+     */
     public int getAddedLeShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         int tmp = ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] - 128 & 0xff);
         if (tmp > 0x7fff) {
@@ -1055,13 +1079,14 @@ public final class Buffer {
         return tmp;
     }
     
+    /**
+     * Gets an unsigned little-endian 16 bit value with addition data transformation as an {@code int}.
+     * 
+     * @see #putAddedLeShort(int)
+     */
     public int getAddedLeUShort() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(2)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 1));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(2);
         pos += 2;
         return ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] - 128 & 0xff);
     }
@@ -1072,12 +1097,8 @@ public final class Buffer {
      * @see #putMedium(int)
      */
     public int getMedium() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(3);
         pos += 3;
         int tmp = ((data[pos - 3] & 0xff) << 16)
                 + ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
@@ -1093,12 +1114,8 @@ public final class Buffer {
      * @see #putMedium(int)
      */
     public int getUMedium() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(3);
         pos += 3;
         return ((data[pos - 3] & 0xff) << 16) + ((data[pos - 2] & 0xff) << 8)
                 + (data[pos - 1] & 0xff);
@@ -1110,12 +1127,8 @@ public final class Buffer {
      * @see #putLeMedium(int)
      */
     public int getLeMedium() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(3);
         pos += 3;
         int tmp = ((data[pos - 1] & 0xff) << 16)
                 + ((data[pos - 2] & 0xff) << 8) + (data[pos - 3] & 0xff);
@@ -1131,12 +1144,8 @@ public final class Buffer {
      * @see #putLEMedium()
      */
     public int getLeUMedium() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(3)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 2));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(3);
         pos += 3;
         return ((data[pos - 1] & 0xff) << 16) + ((data[pos - 2] & 0xff) << 8)
                 + (data[pos - 3] & 0xff);
@@ -1148,12 +1157,8 @@ public final class Buffer {
      * @see #putInt(int)
      */
     public int getInt() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(4);
         pos += 4;
         return ((data[pos - 4] & 0xff) << 24) + ((data[pos - 3] & 0xff) << 16)
                 + ((data[pos - 2] & 0xff) << 8) + (data[pos - 1] & 0xff);
@@ -1165,12 +1170,8 @@ public final class Buffer {
      * @see #putLeInt(int)
      */
     public int getLeInt() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(4);
         pos += 4;
         return ((data[pos - 1] & 0xff) << 24) + ((data[pos - 2] & 0xff) << 16)
                 + ((data[pos - 3] & 0xff) << 8) + (data[pos - 4] & 0xff);
@@ -1182,12 +1183,8 @@ public final class Buffer {
      * @see #putMeInt(int)
      */
     public int getMeInt() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(4);
         pos += 4;
         return ((data[pos - 3] & 0xff) << 24) + ((data[pos - 4] & 0xff) << 16)
                 + ((data[pos - 1] & 0xff) << 8) + (data[pos - 2] & 0xff);
@@ -1199,12 +1196,8 @@ public final class Buffer {
      * @see #putRmeInt(int)
      */
     public int getRmeInt() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(4)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 3));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(4);
         pos += 4;
         return ((data[pos - 2] & 0xff) << 24) + ((data[pos - 1] & 0xff) << 16)
                 + ((data[pos - 4] & 0xff) << 8) + (data[pos - 3] & 0xff);
@@ -1216,12 +1209,8 @@ public final class Buffer {
      * @see #putLong(long)
      */
     public long getLong() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (!hasGettingCapacity(8)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + 7));
-        }
+        requireBitAccess(false);
+        requireGettingCapacity(8);
         long l = getInt() & 0xffffffffL;
         long l1 = getInt() & 0xffffffffL;
         return (l << 32) + l1;
@@ -1262,9 +1251,7 @@ public final class Buffer {
      * @see #putLine(String)
      */
     public String getLine() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         int begin = pos;
         do {
             if (pos >= data.length) {
@@ -1281,9 +1268,7 @@ public final class Buffer {
      * @see #putString(String)
      */
     public String getString() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         int begin = pos;
         do {
             if (pos >= data.length) {
@@ -1294,29 +1279,57 @@ public final class Buffer {
     }
     
     /**
+     * TODO document
+     */
+    public Buffer getBuffer(Buffer buf) {
+        if (buf == null) {
+            throw new IllegalArgumentException("Buffer must not be null.");
+        }
+        return getBuffer(buf, buf.getPosition(), buf.getRemaining());
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer getBuffer(Buffer buf, int offset, int length) {
+        if (buf == null) {
+            return new Buffer(getBytes(null, offset, length));
+        } else {
+            byte[] data = getBytes(buf.data, offset, length);
+            return data == buf.data ? buf : new Buffer(data);
+        }
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getBytes(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getBytes(array, 0, array.length);
+    }
+    
+    /**
      * Gets a {@code byte[]} as an array copy.<br>
      * If destination array is {@code null}, it is automatically created with a
      * length that is able to store the required bytes.
      * 
+     * @see #putBytes(byte[])
      * @see #putBytes(byte[], int, int)
-     * @return The array the bytes where stored to.
+     * @return The array the bytes were stored to.
      */
-    public byte[] getBytes(byte[] dst, int offset, int length) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
+    public byte[] getBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requireGettingCapacity(length);
+        if (array == null) {
+            array = new byte[offset + length];
+        } else {
+            checkByteArray(array, offset + length);
         }
-        if (dst == null) {
-            dst = new byte[offset + length];
-        }
-        if (offset + length > dst.length) {
-            throw new ArrayIndexOutOfBoundsException("Destination array is not big enough: " + (offset + length));
-        }
-        if (!hasGettingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + length - 1));
-        }
-        System.arraycopy(dst, offset, data, pos, length);
+        System.arraycopy(array, offset, data, pos, length);
         pos += length;
-        return dst;
+        return array;
     }
     
     /**
@@ -1324,26 +1337,22 @@ public final class Buffer {
      * destination array is {@code null}, it is automatically created with a
      * length that is able to store the required bytes.
      * 
+     * @see #putBytesReversely(byte[])
      * @see #putBytesReversely(byte[], int, int)
-     * @return The array the bytes where stored to.
+     * @return The array the bytes were stored to.
      */
-    public byte[] getBytesReversely(byte[] dst, int offset, int length) {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        if (dst == null) {
-            dst = new byte[offset + length];
-        }
-        if (offset + length > dst.length) {
-            throw new ArrayIndexOutOfBoundsException("Destination array is not big enough: " + (offset + length));
-        }
-        if (!hasGettingCapacity(length)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: " + (pos + length - 1));
+    public byte[] getBytesReversely(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requireGettingCapacity(length);
+        if (array == null) {
+            array = new byte[offset + length];
+        } else {
+            checkByteArray(array, offset + length);
         }
         for (int i = offset + length - 1; i >= offset; i--) {
-            dst[i] = data[pos++];
+            array[i] = data[pos++];
         }
-        return dst;
+        return array;
     }
     
     /**
@@ -1352,10 +1361,8 @@ public final class Buffer {
      * @see #putSmart(int)
      */
     public int getSmart() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        final int tmp = data[pos] & 0xff;
+        requireBitAccess(false);
+        int tmp = data[pos] & 0xff;
         if (tmp < 0x80) {
             return getUByte() - 0x40;
         } else {
@@ -1369,10 +1376,8 @@ public final class Buffer {
      * @see #putUSmart(int)
      */
     public int getUSmart() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
-        final int tmp = data[pos] & 0xff;
+        requireBitAccess(false);
+        int tmp = data[pos] & 0xff;
         if (tmp < 0x80) {
             return getUByte();
         } else {
@@ -1381,9 +1386,7 @@ public final class Buffer {
     }
     
     public int getSmart32() {
-        if (bitAccess) {
-            throw new IllegalStateException("Bit access is enabled.");
-        }
+        requireBitAccess(false);
         if (data[pos] >= 0) {
             return getUShort() & 0x7fff;
         }
@@ -1441,15 +1444,10 @@ public final class Buffer {
      */
     public Buffer putBits(int n, int value) {
         if (n < 0 || n > 32) {
-            throw new IllegalArgumentException("Amount out of range: " + n);
+            throw new IllegalArgumentException("Amount out of bounds: " + n);
         }
-        if (!bitAccess) {
-            throw new IllegalStateException("Bit access is disabled.");
-        }
-        if (!hasBitPuttingCapacity(n)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + ((pos + n - 1) >> 3));
-        }
+        requireBitAccess(true);
+        requireBitPuttingCapacity(n);
         int bytepos = pos >> 3;
         int bitoff = 8 - (pos & 7);
         pos += n;
@@ -1487,15 +1485,10 @@ public final class Buffer {
      */
     public int getBits(int n) {
         if (n < 0 || n > 32) {
-            throw new IllegalArgumentException("Amount out of range: " + n);
+            throw new IllegalArgumentException("Amount out of bounds: " + n);
         }
-        if (!bitAccess) {
-            throw new IllegalStateException("Bit access is disabled.");
-        }
-        if (!hasBitGettingCapacity(n)) {
-            throw new ArrayIndexOutOfBoundsException("Buffer overflow: "
-                    + ((pos + n - 1) >> 3));
-        }
+        requireBitAccess(true);
+        requireBitGettingCapacity(n);
         int bytepos = pos >> 3;
         int bitoff = 8 - (pos & 7);
         int value = 0;

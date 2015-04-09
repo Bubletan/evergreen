@@ -165,7 +165,7 @@ public final class Bundle {
                 buffer.putByte(7).putString((String) value);
             }
         }
-        return buffer.getData();
+        return buffer.toData();
     }
     
     @Override

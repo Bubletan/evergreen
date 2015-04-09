@@ -13,7 +13,7 @@ import eg.net.game.out.DialogueInterfacePacket;
 import eg.net.game.out.GameMessagePacket;
 import eg.net.game.out.InterfaceTextPacket;
 import eg.net.game.out.LogoutPacket;
-import eg.net.game.out.MainInterfacePacket;
+import eg.net.game.out.GameInterfacePacket;
 import eg.net.game.out.MapLoadingPacket;
 import eg.net.game.out.MulticombatOverlayPacket;
 import eg.net.game.out.NpcSyncPacket;
@@ -30,6 +30,9 @@ import eg.net.game.r317.in.KeepalivePacketDecoder;
 import eg.net.game.r317.in.MapLoadedPacketDecoder;
 import eg.net.game.r317.in.MouseClickPacketDecoder;
 import eg.net.game.r317.in.MovementPacketDecoder;
+import eg.net.game.r317.in.NpcOptionPacketDecoder;
+import eg.net.game.r317.in.ObjectOptionPacketDecoder;
+import eg.net.game.r317.in.PlayerOptionPacketDecoder;
 import eg.net.game.r317.in.WindowFocusAlteredPacketDecoder;
 import eg.net.game.r317.out.CameraResetPacketEncoder;
 import eg.net.game.r317.out.ConfigPacketEncoder;
@@ -37,7 +40,7 @@ import eg.net.game.r317.out.DialogueInterfacePacketEncoder;
 import eg.net.game.r317.out.GameMessagePacketEncoder;
 import eg.net.game.r317.out.InterfaceTextPacketEncoder;
 import eg.net.game.r317.out.LogoutPacketEncoder;
-import eg.net.game.r317.out.MainInterfacePacketEncoder;
+import eg.net.game.r317.out.GameInterfacePacketEncoder;
 import eg.net.game.r317.out.MapLoadingPacketEncoder;
 import eg.net.game.r317.out.MulticombatOverlayPacketEncoder;
 import eg.net.game.r317.out.NpcSyncPacketEncoder;
@@ -118,7 +121,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(SidebarInterfacePacket.class, new SidebarInterfacePacketEncoder()); // 71
         putEncoder(MapLoadingPacket.class, new MapLoadingPacketEncoder()); // 73
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
-        putEncoder(MainInterfacePacket.class, new MainInterfacePacketEncoder()); // 97
+        putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
         putEncoder(CameraResetPacket.class, new CameraResetPacketEncoder()); // 107
         putEncoder(LogoutPacket.class, new LogoutPacketEncoder()); // 109
         putEncoder(SystemUpdatePacket.class, new SystemUpdatePacketEncoder()); // 114
@@ -140,6 +143,23 @@ public final class R317GameProtocol implements GameProtocol {
         putDecoder(185, new ButtonPacketDecoder());
         putDecoder(241, new MouseClickPacketDecoder());
         putDecoder(248, mpd);
+        
+        ObjectOptionPacketDecoder oopd = new ObjectOptionPacketDecoder();
+        putDecoder(132, oopd);
+        putDecoder(252, oopd);
+        putDecoder(70, oopd);
+        
+        NpcOptionPacketDecoder nopd = new NpcOptionPacketDecoder();
+        putDecoder(155, nopd);
+        putDecoder(17, nopd);
+        putDecoder(21, nopd);
+        
+        PlayerOptionPacketDecoder popd = new PlayerOptionPacketDecoder();
+        putDecoder(128, popd);
+        putDecoder(153, popd);
+        putDecoder(73, popd);
+        putDecoder(139, popd);
+        putDecoder(39, popd);
     }
     
     private <T extends AbstractGamePacket> void putEncoder(Class<T> type, AbstractGamePacketEncoder<T> encoder) {

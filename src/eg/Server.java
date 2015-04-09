@@ -2,7 +2,7 @@ package eg;
 
 import java.util.Queue;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -22,12 +22,15 @@ import eg.util.task.Tasks;
 
 public final class Server {
     
+    private static final int CYCLE_RATE_MILLIS = 600;
+    
     private static final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+    private static long start;
     private static int cycle;
     private static volatile boolean exit;
     
     private static final World world = new World();
-    private static final Queue<Task> tasks = new LinkedBlockingDeque<>();
+    private static final Queue<Task> tasks = new LinkedBlockingQueue<>();
     
     private static final Runnable process = () -> {
         long time = System.nanoTime();
@@ -59,7 +62,7 @@ public final class Server {
             
             time = System.nanoTime() - time;
             float ms = time / 1000000f;
-            float percent = 100 * ms / Config.CYCLE_RATE_MILLIS;
+            float percent = 100 * ms / CYCLE_RATE_MILLIS;
             
             int memk = (int) ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024L);
             
@@ -85,7 +88,8 @@ public final class Server {
         
         new GameServer().bind(Config.PORT);
         
-        executor.scheduleAtFixedRate(process, Config.CYCLE_RATE_MILLIS, Config.CYCLE_RATE_MILLIS, TimeUnit.MILLISECONDS);
+        start = System.currentTimeMillis();
+        executor.scheduleAtFixedRate(process, CYCLE_RATE_MILLIS, CYCLE_RATE_MILLIS, TimeUnit.MILLISECONDS);
         
         // TODO: ControlPanel.launch(ControlPanel.class);
         System.out.println("Online!");
@@ -95,10 +99,30 @@ public final class Server {
         exit = true;
     }
     
+    /**
+     * Returns the time at the beginning of the current cycle.
+     */
+    public static long time() {
+        return start + uptime();
+    }
+    
+    /**
+     * Returns the uptime at the beginning of the current cycle.
+     */
+    public static long uptime() {
+        return cycle * 600L;
+    }
+    
+    /**
+     * Returns the index of the current cycle.
+     */
     public static int cycle() {
         return cycle;
     }
     
+    /**
+     * Executes the task at the beginning of the next cycle.
+     */
     public static void exec(Task task) {
         tasks.add(task);
     }
@@ -109,7 +133,7 @@ public final class Server {
     
     public static void main(String[] args) {
         System.setOut(new Logger(System.out));
-        System.setErr(new Logger(System.err));
+        if (false) System.setErr(new Logger(System.err));
         init(args);
     }
 }

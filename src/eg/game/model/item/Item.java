@@ -4,15 +4,8 @@ import com.google.common.base.Preconditions;
 
 public final class Item {
     
-    public static final Item NOTHING = new Item();
-    
     private final ItemType type;
     private final int quantity;
-    
-    private Item() {
-        type = null;
-        quantity = 0;
-    }
     
     public Item(ItemType type) {
         this(type, 1);

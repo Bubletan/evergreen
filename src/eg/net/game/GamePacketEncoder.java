@@ -28,6 +28,7 @@ public final class GamePacketEncoder extends MessageToMessageEncoder<AbstractGam
                 out.add(encoder.encode((T) in));
             } catch (Exception e) {
                 System.err.println("Error encoding packet: " + type.getSimpleName());
+                e.printStackTrace();
             }
         } else {
             System.err.println("Unsupported outbound packet type: " + type.getSimpleName());
