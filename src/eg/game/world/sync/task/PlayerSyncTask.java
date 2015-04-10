@@ -71,7 +71,8 @@ public final class PlayerSyncTask implements Task {
             }
         }
         int added = 0;
-        for (Player p : Server.world().getPlayerList()) { // TODO players on region
+        for (Player p : player.getMovement().isMoving() ? Server.world().getPlayerList()
+                : Server.world().getMovingPlayerList()) {
             if (player.getSyncContext().getPlayerList().size() >= 255) {
                 break;
             }

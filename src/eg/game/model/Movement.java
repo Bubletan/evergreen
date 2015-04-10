@@ -120,19 +120,38 @@ public final class Movement {
         return secondaryDirection;
     }
     
+    /**
+     * Returns {@code true} if the author is standing, {@code false} otherwise.
+     */
     public boolean isStanding() {
         return primaryDirection == Direction.NONE;
     }
     
+    /**
+     * Returns {@code true} if the author is walking, {@code false} otherwise.
+     */
     public boolean isWalking() {
         return primaryDirection != Direction.NONE && secondaryDirection == Direction.NONE;
     }
     
+    /**
+     * Returns {@code true} if the author is running, {@code false} otherwise.
+     */
     public boolean isRunning() {
         return secondaryDirection != Direction.NONE;
     }
     
+    /**
+     * Returns {@code true} if the author is transiting, {@code false} otherwise.
+     */
     public boolean isTransiting() {
         return transitionDestination != null;
+    }
+    
+    /**
+     * Returns {@code true} if the author is walking, running or transiting, {@code false} otherwise.
+     */
+    public boolean isMoving() {
+        return transitionDestination != null || primaryDirection != Direction.NONE;
     }
 }

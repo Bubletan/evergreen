@@ -21,48 +21,32 @@ public final class World {
     private final EventDispatcher<PlayerEvent> playerEventDispatcher = new EventDispatcher<>(PlayerEvent.class);
     private final EventDispatcher<NpcEvent> npcEventDispatcher = new EventDispatcher<>(NpcEvent.class);
     
-    private final Map<Integer, WorldSector> sectorMap = new HashMap<>();
-    
-    private final Player[] playerListLive = new Player[Config.MAX_PLAYERS];
-    private int playerCountLive;
-    private final Map<Long, Player> playerForHash = new HashMap<>();
-    
-    private final Npc[] npcListLive = new Npc[Config.MAX_NPCS];
-    private int npcCountLive;
-    
+    private int playerCount;
+    private final Map<Long, Player> playerByHash = new HashMap<>(Config.MAX_PLAYERS);
+    private final Player[] playerByIndex = new Player[Config.MAX_PLAYERS];
     private List<Player> playerList;
+    private List<Player> movingPlayerList;
+    
+    private int npcCount;
+    private final Npc[] npcByIndex = new Npc[Config.MAX_NPCS];
     private List<Npc> npcList;
+    private List<Npc> movingNpcList;
     
     public World() {
     }
     
     public void syncLists() {
         
-        List<Player> players = Arrays.stream(playerListLive).parallel()
+        List<Player> players = Arrays.stream(playerByIndex).parallel()
                 .filter(Objects::nonNull).collect(Collectors.toList());
-        List<Npc> npcs = Arrays.stream(npcListLive).parallel()
+        List<Npc> npcs = Arrays.stream(npcByIndex).parallel()
                 .filter(Objects::nonNull).collect(Collectors.toList());
         
         playerList = Collections.unmodifiableList(players);
         npcList = Collections.unmodifiableList(npcs);
         
-        playerList.stream().forEach(player -> {
-            WorldSector sector = getOrCreateWorldSector(player.getCoordinate());
-            if (sector != player.getWorldSector()) {
-                player.getWorldSector().removePlayer(player);
-                sector.addPlayer(player);
-                player.setWorldSector(sector);
-            }
-        });
-        
-        npcList.stream().forEach(npc -> {
-            WorldSector sector = getOrCreateWorldSector(npc.getCoordinate());
-            if (sector != npc.getWorldSector()) {
-                npc.getWorldSector().removeNpc(npc);
-                sector.addNpc(npc);
-                npc.setWorldSector(sector);
-            }
-        });
+        movingPlayerList = playerList.stream().filter(p -> p.getMovement().isMoving()).collect(Collectors.toList());
+        movingNpcList = npcList.stream().filter(n -> n.getMovement().isMoving()).collect(Collectors.toList());
     }
     
     public EventDispatcher<PlayerEvent> getPlayerEventDispatcher() {
@@ -74,18 +58,15 @@ public final class World {
     }
     
     public boolean addPlayer(Player player) {
-        if (playerCountLive >= Config.MAX_PLAYERS) {
+        if (playerCount >= Config.MAX_PLAYERS) {
             return false;
         }
         for (int i = 0; i < Config.MAX_PLAYERS; i++) {
-            if (playerListLive[i] == null) {
-                playerListLive[i] = player;
-                playerCountLive++;
-                playerForHash.put(player.getHash(), player);
+            if (playerByIndex[i] == null) {
+                playerByIndex[i] = player;
+                playerCount++;
+                playerByHash.put(player.getHash(), player);
                 player.setIndex(i + 1);
-                WorldSector sector = getOrCreateWorldSector(player.getCoordinate());
-                sector.addPlayer(player);
-                player.setWorldSector(sector);
                 return true;
             }
         }
@@ -94,19 +75,17 @@ public final class World {
     
     public boolean removePlayer(Player player) {
         int index = player.getIndex() - 1;
-        if (playerListLive[index] != player) {
+        if (playerByIndex[index] != player) {
             return false;
         }
-        playerListLive[index] = null;
-        playerCountLive--;
-        playerForHash.remove(player.getHash());
-        WorldSector sector = player.getWorldSector();
-        sector.removePlayer(player);
+        playerByIndex[index] = null;
+        playerCount--;
+        playerByHash.remove(player.getHash());
         return true;
     }
     
     public Player getPlayerForHash(long hash) {
-        return playerForHash.get(hash);
+        return playerByHash.get(hash);
     }
     
     public List<Player> getPlayerList() {
@@ -121,18 +100,19 @@ public final class World {
         return playerList.size();
     }
     
+    public List<Player> getMovingPlayerList() {
+        return movingPlayerList;
+    }
+    
     public boolean addNpc(Npc npc) {
-        if (npcCountLive >= Config.MAX_NPCS) {
+        if (npcCount >= Config.MAX_NPCS) {
             return false;
         }
         for (int i = 0; i < Config.MAX_NPCS; i++) {
-            if (npcListLive[i] == null) {
-                npcListLive[i] = npc;
-                npcCountLive++;
+            if (npcByIndex[i] == null) {
+                npcByIndex[i] = npc;
+                npcCount++;
                 npc.setIndex(i + 1);
-                WorldSector sector = getOrCreateWorldSector(npc.getCoordinate());
-                sector.addNpc(npc);
-                npc.setWorldSector(sector);
                 return true;
             }
         }
@@ -141,13 +121,11 @@ public final class World {
     
     public boolean removeNpc(Npc npc) {
         int index = npc.getIndex() - 1;
-        if (npcListLive[index] != npc) {
+        if (npcByIndex[index] != npc) {
             return false;
         }
-        npcListLive[index] = null;
-        npcCountLive--;
-        WorldSector sector = npc.getWorldSector();
-        sector.removeNpc(npc);
+        npcByIndex[index] = null;
+        npcCount--;
         return true;
     }
     
@@ -163,16 +141,7 @@ public final class World {
         return npcList.size();
     }
     
-    private WorldSector getOrCreateWorldSector(Coordinate coord) {
-        int x = coord.getX() >> 3;
-        int y = coord.getY() >> 3;
-        int height = coord.getHeight();
-        int hash = height << 30 | x << 15 | y;
-        WorldSector sector = sectorMap.get(hash);
-        if (sector == null) {
-            sector = new WorldSector();
-            sectorMap.put(hash, sector);
-        }
-        return sector;
+    public List<Npc> getMovingNpcList() {
+        return movingNpcList;
     }
 }

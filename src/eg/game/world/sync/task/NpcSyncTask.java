@@ -49,7 +49,8 @@ public final class NpcSyncTask implements Task {
             }
         }
         int added = 0;
-        for (Npc npc : Server.world().getNpcList()) {
+        for (Npc npc : player.getMovement().isMoving() ? Server.world().getNpcList()
+                : Server.world().getMovingNpcList()) {
             if (player.getSyncContext().getNpcList().size() >= 255) {
                 break;
             }
