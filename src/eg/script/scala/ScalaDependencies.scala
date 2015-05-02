@@ -3,6 +3,7 @@ package eg.script.scala
 import java.lang.reflect.ParameterizedType
 
 import eg.Server
+import eg.game.event.Event
 import eg.game.event.EventListener
 import eg.game.event.player.PlayerEvent
 import eg.game.event.npc.NpcEvent
@@ -13,24 +14,35 @@ object ScalaDependencies {
   
   // allows shortened syntax for adding event listeners
   
-  def onPlayerEvent[T <: PlayerEvent](action: T => Unit): Boolean = {
+  def on[T <: Event](action: T => Unit): Boolean = {
     
     val classOfT = action.getClass.getGenericSuperclass.asInstanceOf[ParameterizedType]
         .getActualTypeArguments()(0).asInstanceOf[Class[T]]
     
-    Server.world.getPlayerEventDispatcher.addEventListener(classOfT, new EventListener[T] {
-      def onEvent(event: T) = action(event)
-    })
+    return if (classOf[PlayerEvent].isAssignableFrom(classOfT)) {
+      
+      def on[E <: PlayerEvent](classOfE: Class[E], action: T => Unit) =
+          Server.world.getPlayerEventDispatcher.addEventListener(classOfE, new EventListener[E] {
+            def onEvent(event: E) = action.asInstanceOf[E => Unit](event)
+          })
+      on(classOfT.asInstanceOf[Class[_ <: PlayerEvent]], action)
+      
+    } else if (classOf[NpcEvent].isAssignableFrom(classOfT)) {
+      
+      def on[E <: NpcEvent](classOfE: Class[E], action: T => Unit) =
+          Server.world.getNpcEventDispatcher.addEventListener(classOfE, new EventListener[E] {
+            def onEvent(event: E) = action.asInstanceOf[E => Unit](event)
+          })
+      on(classOfT.asInstanceOf[Class[_ <: NpcEvent]], action)
+      
+    } else false
   }
   
-  def onNpcEvent[T <: NpcEvent](action: T => Unit): Boolean = {
+  object on {
     
-    val classOfT = action.getClass.getGenericSuperclass.asInstanceOf[ParameterizedType]
-        .getActualTypeArguments()(0).asInstanceOf[Class[T]]
+    import eg.game.event.player.impl._
     
-    Server.world.getNpcEventDispatcher.addEventListener(classOfT, new EventListener[T] {
-      def onEvent(event: T) = action(event)
-    })
+    def command(action: (Player, String) => Unit) = on[CommandEvent](e => action(e.getAuthor, e.getCommand))
   }
   
   // player helpers

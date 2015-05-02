@@ -84,6 +84,8 @@ public final class Server {
     
     public static void init(String[] args) {
         
+        System.out.println("Initializing...");
+        
         new InitializationTask().execute();
         Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
         
