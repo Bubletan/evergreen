@@ -1,0 +1,36 @@
+@.import.eg.model {
+	player.Player
+}
+
+@.const {
+}
+
+// Admin commands
+@.label.command {
+	if ($.this.getPrivilege() == 2) {
+		String[] args = #.String[].args;
+		switch (#.String.cmd) {
+		
+			case "egsload": {
+				$.this.message("Reloading scripts...");
+				eg.script.Scripts.load();
+			} break;
+			
+			case "test": {
+				$.this.message("AAAaReloading scripts...9999");
+			} break;
+		}
+	}
+}
+
+// Player moderator commands
+@.label.command {
+	if ($.this.getPrivilege() == 1 || $.this.getPrivilege() == 2) {
+		String[] args = #.String[].args;
+		switch (#.String.cmd) {
+		
+			case "randomcmd": {
+			} break;
+		}
+	}
+}
