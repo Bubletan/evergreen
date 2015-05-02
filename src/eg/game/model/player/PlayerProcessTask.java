@@ -1,5 +1,7 @@
 package eg.game.model.player;
 
+import eg.Server;
+import eg.game.event.player.impl.CommandEvent;
 import eg.game.world.Coordinate;
 import eg.game.world.path.Path;
 import eg.game.world.path.PathBuilder;
@@ -34,6 +36,9 @@ public final class PlayerProcessTask implements Task {
                         p.getAnimationEffect(), player.getPrivilege()));
                 
             } else if (packet instanceof CommandPacket) {
+                
+                Server.world().getPlayerEventDispatcher().dispatchEvent(new CommandEvent(player,
+                        ((CommandPacket) packet).getCommand()));
                 
                 String[] cmd = ((CommandPacket) packet).getCommand().split(" ");
                 switch (cmd[0]) {

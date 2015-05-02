@@ -15,6 +15,10 @@ public final class PathBuilder {
     public PathBuilder() {
     }
     
+    public PathBuilder(Path.Point origin) {
+        appendOriginPoint(origin);
+    }
+    
     public PathBuilder appendPath(Path path) {
         if (path == null) {
             throw new IllegalArgumentException("Path must not be null.");

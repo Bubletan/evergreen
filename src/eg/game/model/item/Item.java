@@ -13,7 +13,7 @@ public final class Item {
     
     public Item(ItemType type, int quantity) {
         Preconditions.checkNotNull(type, "Type must not be null.");
-        Preconditions.checkArgument(quantity > 0, "Quantity must be positive.");
+        Preconditions.checkArgument(quantity >= 0, "Quantity must not be negative.");
         this.type = type;
         this.quantity = quantity;
     }

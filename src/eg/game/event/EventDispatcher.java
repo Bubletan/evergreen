@@ -14,7 +14,7 @@ public final class EventDispatcher<T extends Event> {
         supertype = type;
     }
     
-    public <E extends T> boolean fireEvent(E event) {
+    public <E extends T> boolean dispatchEvent(E event) {
         boolean fired = false;
         Class<?> type = event.getClass();
         do {

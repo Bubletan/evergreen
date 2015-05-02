@@ -1,6 +1,7 @@
 package eg.util.io;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -30,10 +31,12 @@ public final class Buffer {
         0x1ffffff, 0x3ffffff, 0x7ffffff, 0xfffffff, 0x1fffffff, 0x3fffffff, 0x7fffffff, -1
     };
     
+    private static final int POOL_SIZE = 100;
+    
     /**
      * Recycling pool for unaccessed {@code byte[]}s.
      */
-    private static final Queue<byte[]> pool = new LinkedList<>();
+    private static final List<byte[]> pool = new ArrayList<>(POOL_SIZE);
     
     private byte[] data;
     private int pos;
@@ -364,8 +367,11 @@ public final class Buffer {
     }
     
     private static void poolAdd(byte[] data) {
+        if (data.length <= 64) {
+            return;
+        }
         synchronized (pool) {
-            if (pool.size() < 100) {
+            if (pool.size() < POOL_SIZE) {
                 pool.add(data);
             }
         }
@@ -373,8 +379,9 @@ public final class Buffer {
     
     private static byte[] poolGet() {
         synchronized (pool) {
-            if (!pool.isEmpty()) {
-                return pool.remove();
+            int size = pool.size();
+            if (size != 0) {
+                return pool.remove(--size);
             }
         }
         return new byte[16];

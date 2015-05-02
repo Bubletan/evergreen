@@ -17,6 +17,7 @@ import eg.game.world.sync.task.PostPlayerSyncTask;
 import eg.game.world.sync.task.PreNpcSyncTask;
 import eg.game.world.sync.task.PrePlayerSyncTask;
 import eg.net.GameServer;
+import eg.script.ScriptManager;
 import eg.util.task.Task;
 import eg.util.task.Tasks;
 
@@ -43,16 +44,16 @@ public final class Server {
             Tasks.syncExec(tasks.remove());
         }
         
-        world.getPlayerStream().map(p -> new PlayerProcessTask(p)).forEach(Tasks::syncExec);
+        world.getPlayerStream().map(PlayerProcessTask::new).forEach(Tasks::syncExec);
         
-        world.getPlayerStream().map(p -> new PrePlayerSyncTask(p)).forEach(Tasks::syncExec);
-        world.getNpcStream().map(n -> new PreNpcSyncTask(n)).forEach(Tasks::syncExec);
+        world.getPlayerStream().map(PrePlayerSyncTask::new).forEach(Tasks::syncExec);
+        world.getNpcStream().map(PreNpcSyncTask::new).forEach(Tasks::syncExec);
         
         world.getPlayerStream().map(p -> Tasks.toSequentialTask(new PlayerSyncTask(p), new NpcSyncTask(p)))
                 .forEach(Tasks::syncExec);
         
-        world.getPlayerStream().map(p -> new PostPlayerSyncTask(p)).forEach(Tasks::syncExec);
-        world.getNpcStream().map(n -> new PostNpcSyncTask(n)).forEach(Tasks::syncExec);
+        world.getPlayerStream().map(PostPlayerSyncTask::new).forEach(Tasks::syncExec);
+        world.getNpcStream().map(PostNpcSyncTask::new).forEach(Tasks::syncExec);
         
         if (cycle % 100 == 0) {
             // TODO process minutely
@@ -85,6 +86,8 @@ public final class Server {
         
         new InitializationTask().execute();
         Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
+        
+        new ScriptManager().loadScripts("./script/");
         
         new GameServer().bind(Config.PORT);
         

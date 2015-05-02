@@ -2,20 +2,65 @@ package eg.game.model.player;
 
 public final class Identikit {
     
+    public static enum Gender {
+        
+        MALE(0), FEMALE(1);
+        
+        private final int id;
+        
+        private Gender(int id) {
+            this.id = id;
+        }
+        
+        public int toInt() {
+            return id;
+        }
+    }
+    
+    public static enum HairColor {
+        
+        DARK_BROWN(0), WHITE(1), GRAY(2), BLACK(3), ORANGE(4), BLONDE(5), LIGHT_ORANGE(6),
+        LIGHT_BROWN(7), BLUE(8), GREEN(9), RED(10), PURPLE(11);
+        
+        private final int id;
+        
+        private HairColor(int id) {
+            this.id = id;
+        }
+        
+        public int toInt() {
+            return id;
+        }
+    }
+    
+    public static enum TorsoColor {
+;
+        
+        private final int id;
+        
+        private TorsoColor(int id) {
+            this.id = id;
+        }
+        
+        public int toInt() {
+            return id;
+        }
+    }
+    
     public static final Identikit DEFAULT = new Identikit();
     
     private static final int DEFAULT_GENDER = 0;
-    private static final int DEFAULT_HEAD = 7;
-    private static final int DEFAULT_TORSO = 25;
-    private static final int DEFAULT_ARMS = 29;
-    private static final int DEFAULT_HANDS = 35;
-    private static final int DEFAULT_LEGS = 39;
-    private static final int DEFAULT_FEET = 44;
-    private static final int DEFAULT_BEARD = 14;
-    private static final int DEFAULT_HAIR_COLOR = 7;
-    private static final int DEFAULT_TORSO_COLOR = 8;
-    private static final int DEFAULT_LEGS_COLOR = 9;
-    private static final int DEFAULT_FEET_COLOR = 5;
+    private static final int DEFAULT_HEAD = 0;
+    private static final int DEFAULT_TORSO = 10;
+    private static final int DEFAULT_ARMS = 18;
+    private static final int DEFAULT_HANDS = 26;
+    private static final int DEFAULT_LEGS = 33;
+    private static final int DEFAULT_FEET = 36;
+    private static final int DEFAULT_BEARD = 42;
+    private static final int DEFAULT_HAIR_COLOR = 0;
+    private static final int DEFAULT_TORSO_COLOR = 0;
+    private static final int DEFAULT_LEGS_COLOR = 0;
+    private static final int DEFAULT_FEET_COLOR = 0;
     private static final int DEFAULT_SKIN_COLOR = 0;
     
     private int gender = DEFAULT_GENDER;

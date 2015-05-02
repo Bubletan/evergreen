@@ -6,7 +6,6 @@ import eg.game.model.Effect;
 import eg.game.model.ForceChatMessage;
 import eg.game.model.ForceMovement;
 import eg.game.model.Hit;
-import eg.game.model.item.Item;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 import eg.game.world.sync.SyncBlock;
