@@ -67,6 +67,29 @@ public final class Path implements Iterable<Path.Point> {
                 + points.stream().map(Object::toString).collect(Collectors.joining(",")) + "]";
     }
     
+    @Override
+    public int hashCode() {
+        return points.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Path) {
+            Path path = (Path) obj;
+            int length = points.size();
+            if (path.points.size() != length) {
+                return false;
+            }
+            for (int i = 0; i < length; i++) {
+                if (!path.points.get(i).equals(points.get(i))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    
     public static final class Point {
         
         private final int x;
@@ -92,6 +115,20 @@ public final class Path implements Iterable<Path.Point> {
         @Override
         public String toString() {
             return "(" + x + "," + y + ")";
+        }
+        
+        @Override
+        public int hashCode() {
+            return x << 15 | y;
+        }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Point) {
+                Point point = (Point) obj;
+                return x == point.x && y == point.y;
+            }
+            return false;
         }
     }
 }
