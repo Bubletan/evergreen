@@ -5,35 +5,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class EventDispatcher<T extends Event> {
+public final class EventDispatcher {
     
-    private final Map<Class<? extends T>, List<EventListener<? extends T>>> listeners = new HashMap<>();
-    private final Class<T> supertype;
+    private final Map<Class<?>, List<EventListener<?>>> listeners = new HashMap<>();
     
-    public EventDispatcher(Class<T> type) {
-        supertype = type;
+    public EventDispatcher() {
     }
     
-    public <E extends T> boolean dispatchEvent(E event) {
+    public <E extends Event> boolean dispatchEvent(E event) {
         boolean fired = false;
         Class<?> type = event.getClass();
         do {
-            List<EventListener<? extends T>> list = listeners.get(type);
+            List<EventListener<?>> list = listeners.get(type);
             if (list != null) {
                 fired = true;
-                for (EventListener<? extends T> listener : list) {
+                for (EventListener<?> listener : list) {
                     @SuppressWarnings("unchecked")
                     EventListener<? super E> castListener = (EventListener<? super E>) listener;
-                    castListener.onEvent(event);
+                    try {
+                        castListener.onEvent(event);
+                    } catch (Exception e) {
+                        System.err.println("Error in event listener.");
+                        e.printStackTrace();
+                    }
                 }
             }
             type = type.getSuperclass();
-        } while (supertype.isAssignableFrom(type));
+        } while (Event.class.isAssignableFrom(type));
         return fired;
     }
     
-    public <E extends T> boolean addEventListener(Class<E> type, EventListener<E> listener) {
-        List<EventListener<? extends T>> list = listeners.get(type);
+    public <E extends Event> boolean addEventListener(Class<E> type, EventListener<E> listener) {
+        List<EventListener<?>> list = listeners.get(type);
         if (list == null) {
             list = new ArrayList<>();
             listeners.put(type, list);
@@ -43,8 +46,8 @@ public final class EventDispatcher<T extends Event> {
         return list.add(listener);
     }
     
-    public <E extends T> boolean removeEventListener(Class<E> type, EventListener<E> listener) {
-        List<EventListener<? extends T>> list = listeners.get(type);
+    public <E extends Event> boolean removeEventListener(Class<E> type, EventListener<E> listener) {
+        List<EventListener<?>> list = listeners.get(type);
         if (list == null) {
             return false;
         }

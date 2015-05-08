@@ -1,7 +1,8 @@
 package eg.game.model.player;
 
 import eg.Server;
-import eg.game.event.player.impl.CommandEvent;
+import eg.game.event.impl.ButtonEvent;
+import eg.game.event.impl.CommandEvent;
 import eg.game.world.Coordinate;
 import eg.game.world.path.Path;
 import eg.game.world.path.PathBuilder;
@@ -37,7 +38,7 @@ public final class PlayerProcessTask implements Task {
                 
             } else if (packet instanceof CommandPacket) {
                 
-                Server.world().getPlayerEventDispatcher().dispatchEvent(new CommandEvent(player,
+                Server.world().getEventDispatcher().dispatchEvent(new CommandEvent(player,
                         ((CommandPacket) packet).getCommand()));
                 
                 String[] cmd = ((CommandPacket) packet).getCommand().split(" ");
@@ -76,6 +77,9 @@ public final class PlayerProcessTask implements Task {
                 }
                 
             } else if (packet instanceof ButtonPacket) {
+                
+                Server.world().getEventDispatcher().dispatchEvent(new ButtonEvent(player,
+                        ((ButtonPacket) packet).getId()));
                 
             } else if (packet instanceof MovementPacket) {
                 

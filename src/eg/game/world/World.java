@@ -11,15 +11,12 @@ import java.util.stream.Stream;
 
 import eg.Config;
 import eg.game.event.EventDispatcher;
-import eg.game.event.npc.NpcEvent;
-import eg.game.event.player.PlayerEvent;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 
 public final class World {
     
-    private final EventDispatcher<PlayerEvent> playerEventDispatcher = new EventDispatcher<>(PlayerEvent.class);
-    private final EventDispatcher<NpcEvent> npcEventDispatcher = new EventDispatcher<>(NpcEvent.class);
+    private final EventDispatcher eventDispatcher = new EventDispatcher();
     
     private int playerCount;
     private final Map<Long, Player> playerByHash = new HashMap<>(Config.MAX_PLAYERS);
@@ -49,12 +46,8 @@ public final class World {
         movingNpcList = npcList.stream().filter(n -> n.getMovement().isMoving()).collect(Collectors.toList());
     }
     
-    public EventDispatcher<PlayerEvent> getPlayerEventDispatcher() {
-        return playerEventDispatcher;
-    }
-    
-    public EventDispatcher<NpcEvent> getNpcEventDispatcher() {
-        return npcEventDispatcher;
+    public EventDispatcher getEventDispatcher() {
+        return eventDispatcher;
     }
     
     public boolean addPlayer(Player player) {

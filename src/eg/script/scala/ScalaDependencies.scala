@@ -5,49 +5,77 @@ import java.lang.reflect.ParameterizedType
 import eg.Server
 import eg.game.event.Event
 import eg.game.event.EventListener
-import eg.game.event.player.PlayerEvent
-import eg.game.event.npc.NpcEvent
+import eg.game.model.Charactor
+import eg.game.model.npc.Npc
 import eg.game.model.player.Player
 import eg.net.game.out._
 
 object ScalaDependencies {
   
-  // allows shortened syntax for adding event listeners
+  // global constants
   
-  def on[T <: Event](action: T => Unit): Boolean = {
-    
-    val classOfT = action.getClass.getGenericSuperclass.asInstanceOf[ParameterizedType]
-        .getActualTypeArguments()(0).asInstanceOf[Class[T]]
-    
-    return if (classOf[PlayerEvent].isAssignableFrom(classOfT)) {
-      
-      def on[E <: PlayerEvent](classOfE: Class[E], action: T => Unit) =
-          Server.world.getPlayerEventDispatcher.addEventListener(classOfE, new EventListener[E] {
-            def onEvent(event: E) = action.asInstanceOf[E => Unit](event)
-          })
-      on(classOfT.asInstanceOf[Class[_ <: PlayerEvent]], action)
-      
-    } else if (classOf[NpcEvent].isAssignableFrom(classOfT)) {
-      
-      def on[E <: NpcEvent](classOfE: Class[E], action: T => Unit) =
-          Server.world.getNpcEventDispatcher.addEventListener(classOfE, new EventListener[E] {
-            def onEvent(event: E) = action.asInstanceOf[E => Unit](event)
-          })
-      on(classOfT.asInstanceOf[Class[_ <: NpcEvent]], action)
-      
-    } else false
+  val World = Server.world
+  
+  
+  // shortened syntax for adding event listeners
+  
+  import scala.reflect.ClassTag
+  import scala.reflect._
+  
+  def on[E <: Event: ClassTag](action: E => Unit): Boolean = {
+    val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
+    World.getEventDispatcher.addEventListener(classOfE, new EventListener[E] {
+      def onEvent(event: E) = action(event)
+    })
   }
   
-  object on {
+  
+  // event types
+  
+  import eg.game.event.impl._
+  
+  type Button = ButtonEvent
+  type Command = CommandEvent
+  type Movement = MovementEvent
+  
+  
+  // default types
+  
+  type Coordinate = eg.game.world.Coordinate
+  
+  
+  // char helpers
+  
+  implicit class CharHelpers(char: Charactor) {
     
-    import eg.game.event.player.impl._
-    
-    def command(action: (Player, String) => Unit) = on[CommandEvent](e => action(e.getAuthor, e.getCommand))
+    def coordinate = char.getCoordinate
   }
+  
   
   // player helpers
   
   implicit class PlayerHelpers(player: Player) {
-    def mes(m: String) = player.getSession.send(new GameMessagePacket(m))
+    
+    // getters & setters?
+    def username = player.getUsername
+    def password = player.getUsername
+    def password_=(value: String) = player.setPassword(value)
+    def hash = player.getHash
+    def member = player.isMember
+    def privilege = player.getPrivilege
+    
+    // packet senders
+    def message(message: String) = player.getSession.send(new GameMessagePacket(message))
+    
+    // other
+    def tele(x: Int, y: Int) = player.getMovement.setCoordinate(new Coordinate(x, y))
+    def tele(x: Int, y: Int, height: Int) = player.getMovement.setCoordinate(new Coordinate(x, y, height))
+  }
+  
+  
+  // npc helpers
+  
+  implicit class NpcHelpers(npc: Npc) {
+    
   }
 }

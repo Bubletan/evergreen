@@ -84,16 +84,20 @@ public final class Movement {
          */
     }
     
-    public Coordinate getCoordinate() {
-        return currentCoordinate;
-    }
-    
     public void setRunningEnabled(boolean enabled) {
         runningEnabled = enabled;
     }
     
+    public Coordinate getCoordinate() {
+        return currentCoordinate;
+    }
+    
     public void setCoordinate(Coordinate coordinate) {
-        transitionDestination = coordinate;
+        if (currentCoordinate.equals(coordinate)) {
+           pathManager.clearPath();
+        } else {
+           transitionDestination = coordinate;
+        }
     }
     
     public void setPath(Path path) {
