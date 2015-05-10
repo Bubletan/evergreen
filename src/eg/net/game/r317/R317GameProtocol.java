@@ -30,9 +30,17 @@ import eg.net.game.r317.in.KeepalivePacketDecoder;
 import eg.net.game.r317.in.MapLoadedPacketDecoder;
 import eg.net.game.r317.in.MouseClickPacketDecoder;
 import eg.net.game.r317.in.MovementPacketDecoder;
-import eg.net.game.r317.in.NpcOptionPacketDecoder;
-import eg.net.game.r317.in.ObjectOptionPacketDecoder;
-import eg.net.game.r317.in.PlayerOptionPacketDecoder;
+import eg.net.game.r317.in.NpcOptionOnePacketDecoder;
+import eg.net.game.r317.in.NpcOptionThreePacketDecoder;
+import eg.net.game.r317.in.NpcOptionTwoPacketDecoder;
+import eg.net.game.r317.in.ObjectOptionOnePacketDecoder;
+import eg.net.game.r317.in.ObjectOptionThreePacketDecoder;
+import eg.net.game.r317.in.ObjectOptionTwoPacketDecoder;
+import eg.net.game.r317.in.PlayerOptionFivePacketDecoder;
+import eg.net.game.r317.in.PlayerOptionFourPacketDecoder;
+import eg.net.game.r317.in.PlayerOptionOnePacketDecoder;
+import eg.net.game.r317.in.PlayerOptionThreePacketDecoder;
+import eg.net.game.r317.in.PlayerOptionTwoPacketDecoder;
 import eg.net.game.r317.in.WindowFocusAlteredPacketDecoder;
 import eg.net.game.r317.out.CameraResetPacketEncoder;
 import eg.net.game.r317.out.ConfigPacketEncoder;
@@ -144,22 +152,19 @@ public final class R317GameProtocol implements GameProtocol {
         putDecoder(241, new MouseClickPacketDecoder());
         putDecoder(248, mpd);
         
-        ObjectOptionPacketDecoder oopd = new ObjectOptionPacketDecoder();
-        putDecoder(132, oopd);
-        putDecoder(252, oopd);
-        putDecoder(70, oopd);
+        putDecoder(132, new ObjectOptionOnePacketDecoder());
+        putDecoder(252, new ObjectOptionTwoPacketDecoder());
+        putDecoder(70, new ObjectOptionThreePacketDecoder());
         
-        NpcOptionPacketDecoder nopd = new NpcOptionPacketDecoder();
-        putDecoder(155, nopd);
-        putDecoder(17, nopd);
-        putDecoder(21, nopd);
+        putDecoder(155, new NpcOptionOnePacketDecoder());
+        putDecoder(17, new NpcOptionTwoPacketDecoder());
+        putDecoder(21, new NpcOptionThreePacketDecoder());
         
-        PlayerOptionPacketDecoder popd = new PlayerOptionPacketDecoder();
-        putDecoder(128, popd);
-        putDecoder(153, popd);
-        putDecoder(73, popd);
-        putDecoder(139, popd);
-        putDecoder(39, popd);
+        putDecoder(128, new PlayerOptionOnePacketDecoder());
+        putDecoder(153, new PlayerOptionTwoPacketDecoder());
+        putDecoder(73, new PlayerOptionThreePacketDecoder());
+        putDecoder(139, new PlayerOptionFourPacketDecoder());
+        putDecoder(39, new PlayerOptionFivePacketDecoder());
     }
     
     private <T extends AbstractGamePacket> void putEncoder(Class<T> type, AbstractGamePacketEncoder<T> encoder) {

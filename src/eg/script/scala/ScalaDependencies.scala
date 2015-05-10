@@ -1,5 +1,9 @@
 package eg.script.scala
 
+import scala.language.dynamics
+import scala.reflect.ClassTag
+import scala.reflect._
+
 import java.lang.reflect.ParameterizedType
 
 import eg.Server
@@ -8,6 +12,7 @@ import eg.game.event.EventListener
 import eg.game.model.Charactor
 import eg.game.model.npc.Npc
 import eg.game.model.player.Player
+import eg.game.world.Coordinate
 import eg.net.game.out._
 
 object ScalaDependencies {
@@ -18,9 +23,6 @@ object ScalaDependencies {
   
   
   // shortened syntax for adding event listeners
-  
-  import scala.reflect.ClassTag
-  import scala.reflect._
   
   def on[E <: Event: ClassTag](action: E => Unit): Boolean = {
     val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
@@ -39,16 +41,16 @@ object ScalaDependencies {
   type Movement = MovementEvent
   
   
-  // default types
+  // implicit conversions
   
-  type Coordinate = eg.game.world.Coordinate
+  implicit def tuple2ToCoordinate(t: (Int, Int)) = new Coordinate(t._1, t._2)
+  implicit def tuple3ToCoordinate(t: (Int, Int, Int)) = new Coordinate(t._1, t._2, t._3)
   
   
-  // char helpers
+  // dynamic helpers
   
-  implicit class CharHelpers(char: Charactor) {
+  implicit class DynamicHelpers(char: Charactor) extends Dynamic {
     
-    def coordinate = char.getCoordinate
   }
   
   
@@ -56,20 +58,8 @@ object ScalaDependencies {
   
   implicit class PlayerHelpers(player: Player) {
     
-    // getters & setters?
-    def username = player.getUsername
-    def password = player.getUsername
-    def password_=(value: String) = player.setPassword(value)
-    def hash = player.getHash
-    def member = player.isMember
-    def privilege = player.getPrivilege
-    
     // packet senders
     def message(message: String) = player.getSession.send(new GameMessagePacket(message))
-    
-    // other
-    def tele(x: Int, y: Int) = player.getMovement.setCoordinate(new Coordinate(x, y))
-    def tele(x: Int, y: Int, height: Int) = player.getMovement.setCoordinate(new Coordinate(x, y, height))
   }
   
   
