@@ -13,35 +13,47 @@ public final class Bundle {
     public Bundle() {
     }
     
-    public Bundle(byte[] bytes) {
-        Buffer buffer = new Buffer(bytes);
-        int size = buffer.getInt();
+    public Bundle(byte[] data) {
+        
+        Buffer buf = new Buffer(data);
+        int size = buf.getInt();
+        
         while (--size >= 0) {
-            String key = buffer.getString();
-            switch (buffer.getByte()) {
+            
+            String key = buf.getString();
+            
+            switch (buf.getByte()) {
+            
             case 0:
-                putBoolean(key, buffer.getBoolean());
+                putBoolean(key, buf.getBoolean());
                 break;
+                
             case 1:
-                putByte(key, buffer.getByte());
+                putByte(key, buf.getByte());
                 break;
+                
             case 2:
-                putShort(key, (short) buffer.getShort());
+                putShort(key, (short) buf.getShort());
                 break;
+                
             case 3:
-                putInt(key, buffer.getInt());
+                putInt(key, buf.getInt());
                 break;
+                
             case 4:
-                putLong(key, buffer.getLong());
+                putLong(key, buf.getLong());
                 break;
+                
             case 5:
-                putFloat(key, buffer.getFloat());
+                putFloat(key, buf.getFloat());
                 break;
+                
             case 6:
-                putDouble(key, buffer.getDouble());
+                putDouble(key, buf.getDouble());
                 break;
+                
             case 7:
-                putString(key, buffer.getString());
+                putString(key, buf.getString());
                 break;
             }
         }
@@ -142,30 +154,49 @@ public final class Bundle {
         return (String) obj;
     }
     
-    public byte[] toBytes() {
-        Buffer buffer = new Buffer(byteSize).putInt(map.size());
+    public byte[] toData() {
+        
+        Buffer buf = new Buffer(byteSize).putInt(map.size());
+        
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            buffer.putString(entry.getKey());
+            
+            buf.putString(entry.getKey());
             Object value = entry.getValue();
+            
             if (value instanceof Boolean) {
-                buffer.putByte(0).putBoolean((boolean) value);
+                
+                buf.putByte(0).putBoolean((boolean) value);
+                
             } else if (value instanceof Byte) {
-                buffer.putByte(1).putByte((byte) value);
+                
+                buf.putByte(1).putByte((byte) value);
+                
             } else if (value instanceof Short) {
-                buffer.putByte(2).putShort((short) value);
+                
+                buf.putByte(2).putShort((short) value);
+                
             } else if (value instanceof Integer) {
-                buffer.putByte(3).putInt((int) value);
+                
+                buf.putByte(3).putInt((int) value);
+                
             } else if (value instanceof Long) {
-                buffer.putByte(4).putLong((long) value);
+                
+                buf.putByte(4).putLong((long) value);
+                
             } else if (value instanceof Float) {
-                buffer.putByte(5).putFloat((float) value);
+                
+                buf.putByte(5).putFloat((float) value);
+                
             } else if (value instanceof Double) {
-                buffer.putByte(6).putDouble((double) value);
+                
+                buf.putByte(6).putDouble((double) value);
+                
             } else {
-                buffer.putByte(7).putString((String) value);
+                
+                buf.putByte(7).putString((String) value);
             }
         }
-        return buffer.toData();
+        return buf.toData();
     }
     
     @Override
