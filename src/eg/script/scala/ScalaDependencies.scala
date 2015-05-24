@@ -63,17 +63,15 @@ object ScalaDependencies {
   implicit def tuple3ToCoordinate(t: (Int, Int, Int)) = new Coordinate(t._1, t._2, t._3)
   
   
-  class AttributeHelpers {
-    def apply[A](key: String): A = ???
-    def update(key: String, value: Any): Unit = ???
-  }
-  
-  
-  // char helpers
+  // mobile entity helpers
   
   implicit class MobileEntityHelpers(me: MobileEntity) {
-    
-    def attr = new AttributeHelpers
+    def attr = new AttributeHelpers(me)
+  }
+  
+  class AttributeHelpers(me: MobileEntity) {
+    def apply[A](name: String): A = me.getAttributes.getOrDeclareAttribute(name).getValue[A]
+    def update(name: String, value: Any): Unit = me.getAttributes.getOrDeclareAttribute(name).setValue(value)
   }
   
   
@@ -89,6 +87,5 @@ object ScalaDependencies {
   // npc helpers
   
   implicit class NpcHelpers(npc: Npc) {
-    
   }
 }

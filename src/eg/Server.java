@@ -85,6 +85,7 @@ public final class Server {
     public static void init(String[] args) {
         
         System.out.println("Initializing...");
+        long time = System.nanoTime();
         
         new InitializationTask().execute();
         Runtime.getRuntime().addShutdownHook(Tasks.toThread(new ShutdownHookTask()));
@@ -97,7 +98,9 @@ public final class Server {
         executor.scheduleAtFixedRate(process, CYCLE_RATE_MILLIS, CYCLE_RATE_MILLIS, TimeUnit.MILLISECONDS);
         
         // TODO: ControlPanel.launch(ControlPanel.class);
-        System.out.println("Online!");
+        
+        time = System.nanoTime() - time;
+        System.out.println("Online! (initialization took: " + time / 1_000_000_000d + " s)");
     }
     
     public static void exit() {

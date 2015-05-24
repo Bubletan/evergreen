@@ -5,6 +5,7 @@ import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 import eg.game.world.sync.SyncBlockSet;
+import eg.util.attr.AttributeSet;
 import eg.util.math.Randoms;
 
 public abstract class MobileEntity extends Entity {
@@ -14,6 +15,7 @@ public abstract class MobileEntity extends Entity {
             3200 + Randoms.fromIntRange(-32, 32)));
     private boolean active;
     private SyncBlockSet syncBlockSet = new SyncBlockSet();
+    private final AttributeSet attributes = new AttributeSet();
     
     public int getIndex() {
         return index;
@@ -59,5 +61,9 @@ public abstract class MobileEntity extends Entity {
     
     public void resetSyncBlockSet() {
         syncBlockSet = new SyncBlockSet();
+    }
+    
+    public AttributeSet getAttributes() {
+        return attributes;
     }
 }

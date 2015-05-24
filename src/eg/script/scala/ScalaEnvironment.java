@@ -28,7 +28,7 @@ public final class ScalaEnvironment implements ScriptEnvironment {
         ((scala.tools.nsc.interpreter.IMain) engine).settings().embeddedDefaults(getClass().getClassLoader());
         
         try {
-            engine.eval("import " + getClass().getPackage().getName() + ".deps._");
+            engine.eval("import " + getClass().getPackage().getName() + ".ScalaDependencies._");
         } catch (javax.script.ScriptException e) {
             throw new RuntimeException("Error importing Scala dependencies.");
         }
