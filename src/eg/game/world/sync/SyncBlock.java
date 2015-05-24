@@ -1,6 +1,6 @@
 package eg.game.world.sync;
 
-import eg.game.model.Charactor;
+import eg.game.model.MobileEntity;
 import eg.game.model.Hit;
 import eg.game.model.npc.NpcType;
 import eg.game.model.player.Player;
@@ -114,14 +114,14 @@ public abstract class SyncBlock {
     
     public static final class Interact extends SyncBlock {
         
-        private final Charactor target;
+        private final MobileEntity target;
         
-        public Interact(Charactor target) {
+        public Interact(MobileEntity target) {
             super(Type.INTERACT);
             this.target = target;
         }
         
-        public Charactor getTarget() {
+        public MobileEntity getTarget() {
             return target;
         }
     }

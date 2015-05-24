@@ -1,11 +1,10 @@
 package eg.game.model.object;
 
-import eg.game.world.Coordinate;
+import eg.game.model.ImmobileEntity;
 
-public final class Object {
+public final class Object extends ImmobileEntity {
     
     private ObjectType type;
-    private Coordinate coord;
     
     public ObjectType getType() {
         return type;

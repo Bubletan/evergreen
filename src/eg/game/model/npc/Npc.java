@@ -1,8 +1,8 @@
 package eg.game.model.npc;
 
-import eg.game.model.Charactor;
+import eg.game.model.MobileEntity;
 
-public final class Npc extends Charactor {
+public final class Npc extends MobileEntity {
     
     private final NpcType type;
     

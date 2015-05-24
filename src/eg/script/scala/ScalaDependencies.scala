@@ -1,19 +1,24 @@
 package eg.script.scala
 
-import scala.language.dynamics
 import scala.reflect.ClassTag
 import scala.reflect._
-
-import java.lang.reflect.ParameterizedType
 
 import eg.Server
 import eg.game.event.Event
 import eg.game.event.EventListener
-import eg.game.model.Charactor
+import eg.game.model.MobileEntity
 import eg.game.model.npc.Npc
 import eg.game.model.player.Player
 import eg.game.world.Coordinate
 import eg.net.game.out._
+import eg.game.event.impl.ButtonEvent
+import eg.game.event.impl.CommandEvent
+import eg.game.event.impl.MovementEvent
+import eg.game.event.impl.PlayerOptionFiveEvent
+import eg.game.event.impl.PlayerOptionFourEvent
+import eg.game.event.impl.PlayerOptionOneEvent
+import eg.game.event.impl.PlayerOptionThreeEvent
+import eg.game.event.impl.PlayerOptionTwoEvent
 
 object ScalaDependencies {
   
@@ -32,6 +37,12 @@ object ScalaDependencies {
   }
   
   
+  // shortened syntax for dispatching events
+  
+  def dispatch[E <: Event](event: E): Boolean =
+    World.getEventDispatcher.dispatchEvent(event)
+  
+  
   // event types
   
   import eg.game.event.impl._
@@ -39,6 +50,11 @@ object ScalaDependencies {
   type Button = ButtonEvent
   type Command = CommandEvent
   type Movement = MovementEvent
+  type PlayerOp1 = PlayerOptionOneEvent
+  type PlayerOp2 = PlayerOptionTwoEvent
+  type PlayerOp3 = PlayerOptionThreeEvent
+  type PlayerOp4 = PlayerOptionFourEvent
+  type PlayerOp5 = PlayerOptionFiveEvent
   
   
   // implicit conversions
@@ -47,10 +63,17 @@ object ScalaDependencies {
   implicit def tuple3ToCoordinate(t: (Int, Int, Int)) = new Coordinate(t._1, t._2, t._3)
   
   
-  // dynamic helpers
+  class AttributeHelpers {
+    def apply[A](key: String): A = ???
+    def update(key: String, value: Any): Unit = ???
+  }
   
-  implicit class DynamicHelpers(char: Charactor) extends Dynamic {
+  
+  // char helpers
+  
+  implicit class MobileEntityHelpers(me: MobileEntity) {
     
+    def attr = new AttributeHelpers
   }
   
   

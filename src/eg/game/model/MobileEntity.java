@@ -5,13 +5,13 @@ import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 import eg.game.world.sync.SyncBlockSet;
-import eg.util.RandomUtils;
+import eg.util.math.Randoms;
 
-public abstract class Charactor {
+public abstract class MobileEntity extends Entity {
     
     private int index;
-    private final Movement movement = new Movement(new Coordinate(3200 + RandomUtils.randomInt(-32, 32),
-            3200 + RandomUtils.randomInt(-32, 32)));
+    private final Movement movement = new Movement(new Coordinate(3200 + Randoms.fromIntRange(-32, 32),
+            3200 + Randoms.fromIntRange(-32, 32)));
     private boolean active;
     private SyncBlockSet syncBlockSet = new SyncBlockSet();
     
@@ -27,6 +27,7 @@ public abstract class Charactor {
         return movement;
     }
     
+    @Override
     public Coordinate getCoordinate() {
         return movement.getCoordinate();
     }

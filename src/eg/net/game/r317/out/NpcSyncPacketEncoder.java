@@ -1,7 +1,7 @@
 package eg.net.game.r317.out;
 
 import eg.game.model.Animation;
-import eg.game.model.Charactor;
+import eg.game.model.MobileEntity;
 import eg.game.model.Effect;
 import eg.game.model.ForceChatMessage;
 import eg.game.model.Hit;
@@ -131,7 +131,7 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
             
             if (set.contains(SyncBlock.Type.INTERACT)) {
                 SyncBlock.Interact block = set.get(SyncBlock.Type.INTERACT);
-                Charactor target = block.getTarget();
+                MobileEntity target = block.getTarget();
                 int index = target != null ? target.getIndex() : 0xffff;
                 if (target instanceof Player) {
                     index += 0x8000;

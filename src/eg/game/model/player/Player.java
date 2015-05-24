@@ -1,13 +1,13 @@
 package eg.game.model.player;
 
-import eg.game.model.Charactor;
+import eg.game.model.MobileEntity;
 import eg.game.model.IdleAnimation;
 import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncContext;
 import eg.net.game.GameSession;
 import eg.util.UsernameUtils;
 
-public final class Player extends Charactor {
+public final class Player extends MobileEntity {
     
     private String username;
     private String password;

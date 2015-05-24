@@ -27,15 +27,9 @@ public final class PlayerProcessTask implements Task {
     @Override
     public void execute() {
         
-        player.getSession().receive().stream().forEach(packet -> {
+        player.getSession().receive().forEach(packet -> {
             if (packet instanceof ChatMessagePacket) {
-                
-                ChatMessagePacket p = (ChatMessagePacket) packet;
-                String decodedMsg = ChatMessageUtils.decode(p.getEncodedMessage());
-                byte[] encodedMsg = ChatMessageUtils.encode(decodedMsg);
-                player.getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, p.getColorEffect(),
-                        p.getAnimationEffect(), player.getPrivilege()));
-                
+                handleChatMessagePacket((ChatMessagePacket) packet);
             } else if (packet instanceof CommandPacket) {
                 
                 Server.world().getEventDispatcher().dispatchEvent(new CommandEvent(player,
@@ -82,15 +76,24 @@ public final class PlayerProcessTask implements Task {
                         ((ButtonPacket) packet).getId()));
                 
             } else if (packet instanceof MovementPacket) {
-                
-                MovementPacket p = (MovementPacket) packet;
-                player.getMovement().setRunningEnabled(p.isCtrlRun());
-                PathBuilder pb = new PathBuilder();
-                for (int i = 0, n = p.getJumpPointCount(); i < n; i++) {
-                    pb.appendJumpPoint(new Path.Point(p.getJumpPointX(i), p.getJumpPointY(i)));
-                }
-                player.getMovement().setPath(pb.toPath());
+                handleMovementPacket((MovementPacket) packet);
             }
         });
+    }
+    
+    private void handleChatMessagePacket(ChatMessagePacket packet) {
+        String decodedMsg = ChatMessageUtils.decode(packet.getEncodedMessage());
+        byte[] encodedMsg = ChatMessageUtils.encode(decodedMsg);
+        player.getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, packet.getColorEffect(),
+                packet.getAnimationEffect(), player.getPrivilege()));
+    }
+    
+    private void handleMovementPacket(MovementPacket packet) {
+        player.getMovement().setRunningEnabled(packet.isCtrlRun());
+        PathBuilder pb = new PathBuilder();
+        for (int i = 0, n = packet.getJumpPointCount(); i < n; i++) {
+            pb.appendJumpPoint(new Path.Point(packet.getJumpPointX(i), packet.getJumpPointY(i)));
+        }
+        player.getMovement().setPath(pb.toPath());
     }
 }
