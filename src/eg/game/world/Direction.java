@@ -2,7 +2,7 @@ package eg.game.world;
 
 public enum Direction {
     
-    NONE(-1), NORTH_WEST(0), NORTH(1), NORTH_EAST(2), WEST(3), EAST(4),
+    UNKNOWN(-1), NORTH_WEST(0), NORTH(1), NORTH_EAST(2), WEST(3), EAST(4),
     SOUTH_WEST(5), SOUTH(6), SOUTH_EAST(7);
     
     public static Direction get(int dx, int dy) {
@@ -27,7 +27,7 @@ public enum Direction {
                 return Direction.WEST;
             }
         }
-        return Direction.NONE;
+        return Direction.UNKNOWN;
     }
     
     public static boolean connectable(int dx, int dy) {
@@ -63,7 +63,7 @@ public enum Direction {
         case SOUTH_EAST:
             return NORTH_WEST;
         default:
-            return NONE;
+            return UNKNOWN;
         }
     }
     

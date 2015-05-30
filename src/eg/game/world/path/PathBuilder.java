@@ -5,17 +5,18 @@ import java.util.Collections;
 import java.util.Deque;
 
 import eg.game.world.Direction;
+import eg.game.world.path.Path.Point;
 
 public final class PathBuilder {
     
     private boolean interrupted;
-    private final Deque<Path.Point> points = new ArrayDeque<>();
+    private final Deque<Point> points = new ArrayDeque<>();
     private boolean origin;
     
     public PathBuilder() {
     }
     
-    public PathBuilder(Path.Point origin) {
+    public PathBuilder(Point origin) {
         appendOriginPoint(origin);
     }
     
@@ -76,7 +77,7 @@ public final class PathBuilder {
         return this;
     }
     
-    public PathBuilder appendJumpPoint(Path.Point point) {
+    public PathBuilder appendJumpPoint(Point point) {
         if (point == null) {
             throw new IllegalArgumentException("Point must not be null.");
         }
@@ -89,7 +90,7 @@ public final class PathBuilder {
         }
         int x = point.getX();
         int y = point.getY();
-        Path.Point last;
+        Point last;
         if (origin) {
             last = points.removeLast();
             origin = false;
@@ -117,13 +118,13 @@ public final class PathBuilder {
             } else if (dy > 0) {
                 dy--;
             }
-            points.addLast(new Path.Point(x - dx, y - dy));
+            points.addLast(new Point(x - dx, y - dy));
         }
         points.addLast(point);
         return this;
     }
     
-    public PathBuilder appendOriginPoint(Path.Point point) {
+    public PathBuilder appendOriginPoint(Point point) {
         if (!points.isEmpty()) {
             throw new IllegalStateException("Origin must be the first point.");
         }

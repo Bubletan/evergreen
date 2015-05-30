@@ -35,7 +35,7 @@ public final class Movement {
         if (transitionDestination != null) {
             pathManager.setPoint(new Path.Point(transitionDestination));
             currentCoordinate = transitionDestination;
-            primaryDirection = secondaryDirection = Direction.NONE;
+            primaryDirection = secondaryDirection = Direction.UNKNOWN;
         } else {
             if (pathManager.hasNextPoint()) {
                 int x = currentCoordinate.getX();
@@ -49,16 +49,15 @@ public final class Movement {
                     x = secondaryPoint.getX();
                     y = secondaryPoint.getY();
                 } else {
-                    secondaryDirection = Direction.NONE;
+                    secondaryDirection = Direction.UNKNOWN;
                     x = primaryPoint.getX();
                     y = primaryPoint.getY();
                 }
                 currentCoordinate = new Coordinate(x, y, currentCoordinate.getHeight());
-            } else {
-                primaryDirection = secondaryDirection = Direction.NONE; 
+            } else if (primaryDirection != Direction.UNKNOWN) {
+                primaryDirection = secondaryDirection = Direction.UNKNOWN; 
             }
         }
-        // TODO if (teleporting) { reset viewing distance; }
         if (sectorOrigin == null || isSectorUpdateRequired()) {
             sectorChanging = true;
             sectorOrigin = new Coordinate(currentCoordinate.getX() - 48 & ~0b111, currentCoordinate.getY() - 48 & ~0b111);
@@ -77,15 +76,14 @@ public final class Movement {
     public void postSyncProcess() {
         transitionDestination = null;
         sectorChanging = false;
-        /*
-         * if (!player.isExcessivePlayersSet()) {
-         * player.incrementViewingDistance(); } else {
-         * player.decrementViewingDistance(); player.resetExcessivePlayers(); }
-         */
     }
     
     public void setRunningEnabled(boolean enabled) {
         runningEnabled = enabled;
+    }
+    
+    public boolean isRunningEnabled() {
+        return runningEnabled;
     }
     
     public Coordinate getCoordinate() {
@@ -128,21 +126,21 @@ public final class Movement {
      * Returns {@code true} if the author is standing, {@code false} otherwise.
      */
     public boolean isStanding() {
-        return primaryDirection == Direction.NONE;
+        return primaryDirection == Direction.UNKNOWN;
     }
     
     /**
      * Returns {@code true} if the author is walking, {@code false} otherwise.
      */
     public boolean isWalking() {
-        return primaryDirection != Direction.NONE && secondaryDirection == Direction.NONE;
+        return primaryDirection != Direction.UNKNOWN && secondaryDirection == Direction.UNKNOWN;
     }
     
     /**
      * Returns {@code true} if the author is running, {@code false} otherwise.
      */
     public boolean isRunning() {
-        return secondaryDirection != Direction.NONE;
+        return secondaryDirection != Direction.UNKNOWN;
     }
     
     /**
@@ -156,6 +154,6 @@ public final class Movement {
      * Returns {@code true} if the author is walking, running or transiting, {@code false} otherwise.
      */
     public boolean isMoving() {
-        return transitionDestination != null || primaryDirection != Direction.NONE;
+        return transitionDestination != null || primaryDirection != Direction.UNKNOWN;
     }
 }

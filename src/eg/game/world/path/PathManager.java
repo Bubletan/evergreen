@@ -1,18 +1,19 @@
 package eg.game.world.path;
 
 import eg.game.world.Direction;
+import eg.game.world.path.Path.Point;
 
 public final class PathManager {
     
-    private Path.Point point;
+    private Point point;
     private Path path;
     private int index;
     
-    public PathManager(Path.Point origin) {
+    public PathManager(Point origin) {
         point = origin;
     }
     
-    public void setPoint(Path.Point point) {
+    public void setPoint(Point point) {
         this.point = point;
         path = null;
     }
@@ -44,14 +45,21 @@ public final class PathManager {
     }
     
     public void clearPath() {
-        index = path.getLength();
+        if (path == null || index == path.getLength()) {
+            return;
+        }
+        if (index <= 1) {
+            path = null;
+            return;
+        }
+        path = new PathBuilder().appendPath(path, 0, index - 1).toPath();
     }
     
     public boolean hasNextPoint() {
         return path != null && index != path.getLength();
     }
     
-    public Path.Point getNextPoint() {
+    public Point getNextPoint() {
         if (index == path.getLength()) {
             throw new IllegalStateException("No next point available.");
         }
