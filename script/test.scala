@@ -1,13 +1,11 @@
 
-on[Command](_.getAuthor message "Command")
-
-on[Button](_.getAuthor message "Button")
-
-on[Movement](_.getAuthor message "Movement")
-
 on[Command](e => {
-  val plr = e.getAuthor
-  plr attr("hello") = true
-  val hello: Boolean = plr attr("hello")
-  plr message hello.toString
+  val player = e.getAuthor
+  val command = e.getCommand
+  command match {
+    case "select" => player tab(3) select
+    case "flash" => player tab(3) flash
+    case "sail" => playe.camera.waveRoll(0, 200, 100)
+    case _ => player message ("Unknown command: " + command)
+  }
 })
