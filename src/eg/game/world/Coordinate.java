@@ -2,22 +2,6 @@ package eg.game.world;
 
 public final class Coordinate {
     
-    public static final Coordinate
-            AL_KHARID = new Coordinate(3293, 3174),
-            ARDOUGNE_EAST = new Coordinate(2662, 3305),
-            ARDOUGNE_WEST = new Coordinate(2529, 3307),
-            CAMELOT = new Coordinate(2757, 3477),
-            DRAYNOR_VILLAGE = new Coordinate(3093, 3244),
-            DUEL_ARENA = new Coordinate(3360, 3213),
-            EDGEVILLE = new Coordinate(3093, 3493),
-            FALADOR = new Coordinate(2964, 3378),
-            LUMBRIDGE = new Coordinate(3222, 3218),
-            PORT_PHASMATYS = new Coordinate(3687, 3502),
-            PORT_SARIM = new Coordinate(3023, 3208),
-            RIMMINGTON = new Coordinate(2957, 3214),
-            VARROCK = new Coordinate(3210, 3424),
-            YANILLE = new Coordinate(2606, 3093);
-    
     private final int x;
     private final int y;
     private final int height;
@@ -54,16 +38,25 @@ public final class Coordinate {
         return height;
     }
     
-    public int getDistance(Coordinate coord) {
-        int dx = x - coord.x;
-        int dy = y - coord.y;
-        return (int) Math.ceil(Math.sqrt(dx * dx + dy * dy));
+    public int getDistance(Coordinate other) {
+        int dx = x - other.x;
+        int dy = y - other.y;
+        return dx == 0 ? dy : dy == 0 ? dx : (int) Math.ceil(Math.sqrt(dx * dx + dy * dy));
     }
     
-    public int getBoxDistance(Coordinate coord) {
-        int dx = x - coord.x;
-        int dy = y - coord.y;
+    public int getBoxDistance(Coordinate other) {
+        int dx = x - other.x;
+        int dy = y - other.y;
         return Math.max(Math.abs(dx), Math.abs(dy));
+    }
+    
+    public Direction getDirection(Coordinate other) {
+        int dx = other.x - x;
+        int dy = other.y - y;
+        if (Direction.connectable(dx, dy)) {
+            return Direction.get(Integer.signum(dx), Integer.signum(dy));
+        }
+        return Direction.UNKNOWN;
     }
     
     public Coordinate translate(int dx, int dy) {
@@ -96,38 +89,16 @@ public final class Coordinate {
         return height << 30 | x << 15 | y;
     }
     
-    public static int hashCode(int x, int y) {
-        if (x < 0 || x > 0x7fff || y < 0 || y > 0x7fff) {
-            throw new IllegalArgumentException("X and Y must be between 0 and 0x7fff.");
-        }
-        return x << 15 | y;
-    }
-    
-    public static int hashCode(int x, int y, int height) {
-        if (height < 0 || height > 3) {
-            throw new IllegalArgumentException("Height must be between 0 and 3.");
-        }
-        if (x < 0 || x > 0x7fff || y < 0 || y > 0x7fff) {
-            throw new IllegalArgumentException("X and Y must be between 0 and 0x7fff.");
-        }
-        return height << 30 | x << 15 | y;
-    }
-    
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj instanceof Coordinate) {
-            Coordinate coord = (Coordinate) obj;
-            return height == coord.height && x == coord.x && y == coord.y;
+            Coordinate other = (Coordinate) obj;
+            return height == other.height && x == other.x && y == other.y;
         }
         return false;
-    }
-    
-    public boolean equals(int x, int y) {
-        return this.x == x && this.y == y;
-    }
-    
-    public boolean equals(int x, int y, int height) {
-        return this.x == x && this.y == y && this.height == height;
     }
     
     @Override

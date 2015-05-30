@@ -1,4 +1,4 @@
-package eg.game;
+package eg.game.world;
 
 import java.util.HashMap;
 import java.util.LinkedList;
