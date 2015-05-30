@@ -10,7 +10,6 @@ public final class GameInterfacePacketEncoder implements
     
     @Override
     public GamePacket encode(GameInterfacePacket packet) throws Exception {
-        return new GamePacket(97, new Buffer(2).putShort(packet.getId())
-                .toData());
+        return new GamePacket(97, new Buffer(2).putShort(packet.getId()).toData());
     }
 }

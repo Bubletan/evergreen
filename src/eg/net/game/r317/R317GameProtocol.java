@@ -7,7 +7,10 @@ import eg.net.game.AbstractGamePacket;
 import eg.net.game.AbstractGamePacketDecoder;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GameProtocol;
+import eg.net.game.out.CameraFocusPacket;
 import eg.net.game.out.CameraResetPacket;
+import eg.net.game.out.CameraPositionPacket;
+import eg.net.game.out.CameraWavePacket;
 import eg.net.game.out.ConfigPacket;
 import eg.net.game.out.DialogueInterfacePacket;
 import eg.net.game.out.GameMessagePacket;
@@ -19,8 +22,10 @@ import eg.net.game.out.MulticombatOverlayPacket;
 import eg.net.game.out.NpcSyncPacket;
 import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.PlayerSyncPacket;
-import eg.net.game.out.SidebarInterfacePacket;
+import eg.net.game.out.TabFlashPacket;
+import eg.net.game.out.TabInterfacePacket;
 import eg.net.game.out.SystemUpdatePacket;
+import eg.net.game.out.TabSelectPacket;
 import eg.net.game.out.WeightAlteredPacket;
 import eg.net.game.r317.in.ButtonPacketDecoder;
 import eg.net.game.r317.in.CameraAlteredPacketDecoder;
@@ -42,7 +47,10 @@ import eg.net.game.r317.in.PlayerOptionOnePacketDecoder;
 import eg.net.game.r317.in.PlayerOptionThreePacketDecoder;
 import eg.net.game.r317.in.PlayerOptionTwoPacketDecoder;
 import eg.net.game.r317.in.WindowFocusAlteredPacketDecoder;
+import eg.net.game.r317.out.CameraFocusPacketEncoder;
+import eg.net.game.r317.out.CameraPositionPacketEncoder;
 import eg.net.game.r317.out.CameraResetPacketEncoder;
+import eg.net.game.r317.out.CameraWavePacketEncoder;
 import eg.net.game.r317.out.ConfigPacketEncoder;
 import eg.net.game.r317.out.DialogueInterfacePacketEncoder;
 import eg.net.game.r317.out.GameMessagePacketEncoder;
@@ -54,8 +62,10 @@ import eg.net.game.r317.out.MulticombatOverlayPacketEncoder;
 import eg.net.game.r317.out.NpcSyncPacketEncoder;
 import eg.net.game.r317.out.PlayerInitPacketEncoder;
 import eg.net.game.r317.out.PlayerSyncPacketEncoder;
-import eg.net.game.r317.out.SidebarInterfacePacketEncoder;
+import eg.net.game.r317.out.TabFlashPacketEncoder;
+import eg.net.game.r317.out.TabInterfacePacketEncoder;
 import eg.net.game.r317.out.SystemUpdatePacketEncoder;
+import eg.net.game.r317.out.TabSelectPacketEncoder;
 import eg.net.game.r317.out.WeightAlteredPacketEncoder;
 
 public final class R317GameProtocol implements GameProtocol {
@@ -123,18 +133,23 @@ public final class R317GameProtocol implements GameProtocol {
     
     public R317GameProtocol() {
         
+        putEncoder(TabFlashPacket.class, new TabFlashPacketEncoder()); // 24
+        putEncoder(CameraWavePacket.class, new CameraWavePacketEncoder()); // 35
         putEncoder(ConfigPacket.class, new ConfigPacketEncoder()); // 36, 87
         putEncoder(MulticombatOverlayPacket.class, new MulticombatOverlayPacketEncoder()); // 61
         putEncoder(NpcSyncPacket.class, new NpcSyncPacketEncoder()); // 65
-        putEncoder(SidebarInterfacePacket.class, new SidebarInterfacePacketEncoder()); // 71
+        putEncoder(TabInterfacePacket.class, new TabInterfacePacketEncoder()); // 71
         putEncoder(MapLoadingPacket.class, new MapLoadingPacketEncoder()); // 73
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
         putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
+        putEncoder(TabSelectPacket.class, new TabSelectPacketEncoder()); // 106
         putEncoder(CameraResetPacket.class, new CameraResetPacketEncoder()); // 107
         putEncoder(LogoutPacket.class, new LogoutPacketEncoder()); // 109
         putEncoder(SystemUpdatePacket.class, new SystemUpdatePacketEncoder()); // 114
         putEncoder(InterfaceTextPacket.class, new InterfaceTextPacketEncoder()); // 126
         putEncoder(DialogueInterfacePacket.class, new DialogueInterfacePacketEncoder()); // 164
+        putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
+        putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
         putEncoder(WeightAlteredPacket.class, new WeightAlteredPacketEncoder()); // 240
         putEncoder(PlayerInitPacket.class, new PlayerInitPacketEncoder()); // 249
         putEncoder(GameMessagePacket.class, new GameMessagePacketEncoder()); // 253
