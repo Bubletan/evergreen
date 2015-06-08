@@ -18,7 +18,7 @@ public final class CameraWavePacket implements AbstractGamePacket {
     
     public static enum Type {
         
-        X(0), Y(1), HEIGHT(2), ROLL(3), YAW(4);
+        X(0), HEIGHT(1), Y(2), YAW(3), ROLL(4);
         
         private final int value;
         

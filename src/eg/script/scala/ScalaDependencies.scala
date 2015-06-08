@@ -130,8 +130,18 @@ object ScalaDependencies {
       def waveVertical(noise: Int, amplitude: Int, frequency: Int) = send(new CameraWavePacket(Type.HEIGHT, noise, amplitude, frequency))
       def waveRoll(noise: Int, amplitude: Int, frequency: Int) = send(new CameraWavePacket(Type.ROLL, noise, amplitude, frequency))
       def waveYaw(noise: Int, amplitude: Int, frequency: Int) = send(new CameraWavePacket(Type.YAW, noise, amplitude, frequency))
+      private def localXOf(coord: Coordinate) = coord.getX - player.getMovement.getSectorOrigin.getX
+      private def localYOf(coord: Coordinate) = coord.getY - player.getMovement.getSectorOrigin.getY
+      def turnTo(coord: Coordinate, height: Int) = send(new CameraFocusPacket(localXOf(coord), localYOf(coord), height))
+      def turnTo(coord: Coordinate, height: Int, trans: Int, glide: Int) = send(new CameraFocusPacket(localXOf(coord), localYOf(coord), height, trans, glide))
+      def moveTo(coord: Coordinate, height: Int) = send(new CameraPositionPacket(localXOf(coord), localYOf(coord), height))
+      def moveTo(coord: Coordinate, height: Int, trans: Int, glide: Int) = send(new CameraPositionPacket(localXOf(coord), localYOf(coord), height, trans, glide))
     }
   }
+  
+  on[Button](e => {
+    // TODO handle dialogue input
+  })
   
   
   // npc helpers
