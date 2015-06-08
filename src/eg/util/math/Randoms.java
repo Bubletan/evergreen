@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public final class Randoms {
@@ -41,30 +42,52 @@ public final class Randoms {
         return array[ThreadLocalRandom.current().nextInt(array.length)];
     }
     
+    public static <T> T fromList(List<T> list) {
+        if (Objects.requireNonNull(list).isEmpty()) {
+            throw new IllegalArgumentException("List must not be empty.");
+        }
+        return list.get(ThreadLocalRandom.current().nextInt(list.size()));
+    }
+    
+    public static <T> T fromSet(Set<T> set) {
+        if (Objects.requireNonNull(set).isEmpty()) {
+            throw new IllegalArgumentException("Set must not be empty.");
+        }
+        int index = ThreadLocalRandom.current().nextInt(set.size());
+        Iterator<T> it = set.iterator();
+        while (index-- > 0) {
+            it.next();
+        }
+        return it.next();
+    }
+    
+    public static <T> T fromCollection(Collection<T> collection) {
+        if (Objects.requireNonNull(collection).isEmpty()) {
+            throw new IllegalArgumentException("Collection must not be empty.");
+        }
+        if (collection instanceof List) {
+            return fromList((List<T>) collection);
+        }
+        int index = ThreadLocalRandom.current().nextInt(collection.size());
+        Iterator<T> it = collection.iterator();
+        while (index-- > 0) {
+            it.next();
+        }
+        return it.next();
+    }
+    
     public static <T> T fromIterable(Iterable<T> iterable) {
         Objects.requireNonNull(iterable);
-        if (iterable instanceof List) {
-            List<T> list = (List<T>) iterable;
-            if (list.isEmpty()) {
-                throw new IllegalArgumentException();
-            }
-            return list.get(ThreadLocalRandom.current().nextInt(list.size()));
-        }
         if (iterable instanceof Collection) {
             Collection<T> collection = (Collection<T>) iterable;
             if (collection.isEmpty()) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Iterable must not be empty.");
             }
-            int index = ThreadLocalRandom.current().nextInt(collection.size());
-            Iterator<T> it = collection.iterator();
-            while (index-- > 0) {
-                it.next();
-            }
-            return it.next();
+            return fromCollection(collection);
         }
         Iterator<T> it = iterable.iterator();
         if (!it.hasNext()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Iterable must not be empty.");
         }
         List<T> list = new ArrayList<T>();
         do {
