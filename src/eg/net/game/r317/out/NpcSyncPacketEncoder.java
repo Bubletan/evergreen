@@ -12,6 +12,7 @@ import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncBlockSet;
 import eg.game.world.sync.SyncSection;
 import eg.game.world.sync.SyncStatus;
+import eg.game.world.sync.SyncUtils;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.NpcSyncPacket;
@@ -69,14 +70,14 @@ public final class NpcSyncPacketEncoder implements AbstractGamePacketEncoder<Npc
         
         case RUN:
             buf.putBit(true).putBits(2, 2);
-            buf.putBits(3, ((SyncStatus.Run) status).getPrimaryDirection().toInt());
-            buf.putBits(3, ((SyncStatus.Run) status).getSecondaryDirection().toInt());
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Run) status).getPrimaryDirection()));
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Run) status).getSecondaryDirection()));
             buf.putBit(set.size() != 0);
             break;
         
         case WALK:
             buf.putBit(true).putBits(2, 1);
-            buf.putBits(3, ((SyncStatus.Walk) status).getDirection().toInt());
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Walk) status).getDirection()));
             buf.putBit(set.size() != 0);
             break;
         

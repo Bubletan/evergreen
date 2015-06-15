@@ -12,6 +12,7 @@ import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncBlockSet;
 import eg.game.world.sync.SyncSection;
 import eg.game.world.sync.SyncStatus;
+import eg.game.world.sync.SyncUtils;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GamePacket;
 import eg.net.game.out.PlayerSyncPacket;
@@ -67,14 +68,14 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
         
         case RUN:
             buf.putBit(true).putBits(2, 2);
-            buf.putBits(3, ((SyncStatus.Run) status).getPrimaryDirection().toInt());
-            buf.putBits(3, ((SyncStatus.Run) status).getSecondaryDirection().toInt());
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Run) status).getPrimaryDirection()));
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Run) status).getSecondaryDirection()));
             buf.putBit(set.size() != 0);
             break;
         
         case WALK:
             buf.putBit(true).putBits(2, 1);
-            buf.putBits(3, ((SyncStatus.Walk) status).getDirection().toInt());
+            buf.putBits(3, SyncUtils.directionToInt(((SyncStatus.Walk) status).getDirection()));
             buf.putBit(set.size() != 0);
             break;
         
@@ -134,7 +135,7 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 payloadBuf.putSubtractedByte(secondaryDestination.getY() - sectorOrigin.getY());
                 payloadBuf.putAddedLeShort(forceMovement.getPrimaryDuration());
                 payloadBuf.putAddedShort(forceMovement.getPrimaryDuration() + forceMovement.getSecondaryDuration());
-                payloadBuf.putSubtractedByte(forceMovement.getDirection().toInt());
+                payloadBuf.putSubtractedByte(SyncUtils.directionToInt(forceMovement.getDirection()));
             }
             
             if (set.contains(SyncBlock.Type.EFFECT)) {
