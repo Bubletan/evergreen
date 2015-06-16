@@ -2,7 +2,6 @@ package eg.util.io;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * A buffer that allows input and output, bit access system and a cipher that
@@ -34,9 +33,14 @@ public final class Buffer {
     private static final int POOL_SIZE = 100;
     
     /**
-     * Recycling pool for unaccessed {@code byte[]}s.
+     * Recycling pools for unaccessed {@code byte[]}s.
      */
-    private static final List<byte[]> pool = new ArrayList<>(POOL_SIZE);
+    private static final ThreadLocal<List<byte[]>> pools = new ThreadLocal<List<byte[]>>() {
+        @Override
+        public List<byte[]> initialValue() {
+            return new ArrayList<>();
+        }
+    };
     
     private byte[] data;
     private int pos;
@@ -183,7 +187,7 @@ public final class Buffer {
     
     /**
      * Sets the capacity to a certain amount of bytes.
-     * If the new capacity is smaller than the previous one, there will be lost data.<br>
+     * If the new capacity is smaller than the previous one, the rest of the data will be lost.<br>
      * Returns itself to allow method chaining.
      */
     public Buffer setCapacity(int value) {
@@ -205,7 +209,7 @@ public final class Buffer {
     
     /**
      * Sets the capacity to a certain amount of bits rounded up to the next byte.
-     * If the new capacity is smaller than the previous one, there will be lost data.<br>
+     * If the new capacity is smaller than the previous one, the rest of the data will be lost.<br>
      * Returns itself to allow method chaining.
      */
     public Buffer setBitCapacity(int value) {
@@ -341,13 +345,13 @@ public final class Buffer {
     
     private void requireGettingCapacity(int n) {
         if (pos + n - 1 >= data.length) {
-            throw new IndexOutOfBoundsException("Buffer overflow: " + (pos + n - 1));
+            throw new IndexOutOfBoundsException("Buffer underflow: " + (pos + n - 1));
         }
     }
     
     private void requireBitGettingCapacity(int n) {
         if ((pos + n - 1) >> 3 >= data.length) {
-            throw new IndexOutOfBoundsException("Buffer overflow: " + ((pos + n - 1) >> 3));
+            throw new IndexOutOfBoundsException("Buffer underflow: " + ((pos + n - 1) >> 3));
         }
     }
     
@@ -370,21 +374,20 @@ public final class Buffer {
         if (data.length <= 64) {
             return;
         }
-        synchronized (pool) {
-            if (pool.size() < POOL_SIZE) {
-                pool.add(data);
-            }
+        List<byte[]> pool = pools.get();
+        if (pool.size() < POOL_SIZE) {
+            pool.add(data);
         }
     }
     
     private static byte[] poolGet() {
-        synchronized (pool) {
-            int size = pool.size();
-            if (size != 0) {
-                return pool.remove(--size);
-            }
+        List<byte[]> pool = pools.get();
+        int size = pool.size();
+        byte[] array = size != 0 ? pool.remove(--size) : new byte[16];
+        if (size == 0) {
+            pools.remove();
         }
-        return new byte[16];
+        return array;
     }
     
     /**
