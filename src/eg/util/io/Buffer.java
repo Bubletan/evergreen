@@ -383,11 +383,7 @@ public final class Buffer {
     private static byte[] poolGet() {
         List<byte[]> pool = pools.get();
         int size = pool.size();
-        byte[] array = size != 0 ? pool.remove(--size) : new byte[16];
-        if (size == 0) {
-            pools.remove();
-        }
-        return array;
+        return size != 0 ? pool.remove(--size) : new byte[16];
     }
     
     /**

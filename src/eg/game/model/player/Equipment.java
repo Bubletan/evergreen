@@ -3,7 +3,7 @@ package eg.game.model.player;
 import java.util.Optional;
 
 import eg.game.model.item.Item;
-import eg.game.model.item.ItemContainer;
+import eg.game.model.item.inv.ItemContainer;
 
 public final class Equipment {
     
@@ -18,8 +18,6 @@ public final class Equipment {
     private static final int FEET = 8;
     private static final int RING = 9;
     private static final int AMMO = 10;
-    
-    private final ItemContainer items = new ItemContainer(11, ItemContainer.Type.STACK_ALWAYS);
     
     private int stabAttackBonus;
     private int slashAttackBonus;

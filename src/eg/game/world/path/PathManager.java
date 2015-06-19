@@ -9,8 +9,8 @@ public final class PathManager {
     private Path path;
     private int index;
     
-    public PathManager(Point origin) {
-        point = origin;
+    public PathManager(Point point) {
+        this.point = point;
     }
     
     public void setPoint(Point point) {
