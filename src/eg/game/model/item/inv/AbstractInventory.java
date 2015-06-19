@@ -149,18 +149,24 @@ public abstract class AbstractInventory implements Inventory {
     @Override
     public Optional<Item> clearSlot(int slot) {
         checkSlot(slot);
-        Optional<Item> old = Optional.ofNullable(items[slot]);
-        items[slot] = null;
-        return old;
+        Item oldItem = items[slot];
+        if (oldItem != null) {
+            items[slot] = null;
+            itemsCount--;
+        }
+        return Optional.ofNullable(oldItem);
     }
     
     @Override
     public Optional<Item> setSlot(int slot, Item item) {
         checkSlot(slot);
         checkItem(item);
-        Optional<Item> old = Optional.ofNullable(items[slot]);
+        Item oldItem = items[slot];
         items[slot] = item;
-        return old;
+        if (oldItem == null) {
+            itemsCount++;
+        }
+        return Optional.ofNullable(oldItem);
     }
     
     @Override
