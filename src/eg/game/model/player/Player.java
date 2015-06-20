@@ -2,6 +2,9 @@ package eg.game.model.player;
 
 import eg.game.model.MobileEntity;
 import eg.game.model.IdleAnimation;
+import eg.game.model.item.inv.AlwaysStackingInventory;
+import eg.game.model.item.inv.Inventory;
+import eg.game.model.item.inv.SelectivelyStackingInventory;
 import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncContext;
 import eg.net.game.GameSession;
@@ -15,8 +18,8 @@ public final class Player extends MobileEntity {
     
     private final Identikit identikit = new Identikit();
     private final Equipment equipment = new Equipment();
-    private final Inventory inv = new Inventory();
-    private final Bank bank = new Bank();
+    private final Inventory inv = new SelectivelyStackingInventory(28);
+    private final Inventory bank = new AlwaysStackingInventory(352);
     private final Statistics stats = new Statistics();
     private final IdleAnimation idleAnimation = new IdleAnimation();
     private final SyncContext syncContext = new SyncContext();
@@ -74,7 +77,7 @@ public final class Player extends MobileEntity {
         return inv;
     }
     
-    public Bank getBank() {
+    public Inventory getBank() {
         return bank;
     }
     
