@@ -2,88 +2,71 @@ package eg.game.world;
 
 public enum Direction {
     
-    UNKNOWN, NORTH_WEST, NORTH, NORTH_EAST, WEST, EAST,
-    SOUTH_WEST, SOUTH, SOUTH_EAST;
+    UNKNOWN(0, 0),
+    NORTH_WEST(-1, 1),
+    NORTH(0, 1),
+    NORTH_EAST(1, 1),
+    WEST(-1, 0),
+    EAST(1, 0),
+    SOUTH_WEST(-1, -1),
+    SOUTH(0, -1),
+    SOUTH_EAST(1, -1);
+    
+    private final int dx;
+    private final int dy;
+    
+    private Direction(int dx, int dy) {
+        this.dx = dx;
+        this.dy = dy;
+    }
     
     public static Direction get(int dx, int dy) {
         if (dy == 1) {
             if (dx == 1) {
-                return Direction.NORTH_EAST;
-            } else if (dx == 0) {
-                return Direction.NORTH;
+                return NORTH_EAST;
             }
-            return Direction.NORTH_WEST;
-        } else if (dy == -1) {
-            if (dx == 1) {
-                return Direction.SOUTH_EAST;
-            } else if (dx == 0) {
-                return Direction.SOUTH;
+            if (dx == 0) {
+                return NORTH;
             }
-            return Direction.SOUTH_WEST;
-        } else {
-            if (dx == 1) {
-                return Direction.EAST;
-            } else if (dx == -1) {
-                return Direction.WEST;
+            if (dx == -1) {
+                return NORTH_WEST;
             }
         }
-        return Direction.UNKNOWN;
+        if (dy == 0) {
+            if (dx == 1) {
+                return EAST;
+            }
+            if (dx == -1) {
+                return WEST;
+            }
+        }
+        if (dy == -1) {
+            if (dx == 1) {
+                return SOUTH_EAST;
+            }
+            if (dx == 0) {
+                return SOUTH;
+            }
+            if (dx == -1) {
+                return SOUTH_WEST;
+            }
+        }
+        return UNKNOWN;
     }
     
     public static boolean connectable(int dx, int dy) {
         return dx == 0 || dy == 0 || Math.abs(dx) == Math.abs(dy);
     }
     
-    public Direction toOpposite() {
-        switch (this) {
-        case NORTH_WEST:
-            return SOUTH_EAST;
-        case NORTH:
-            return SOUTH;
-        case NORTH_EAST:
-            return SOUTH_WEST;
-        case WEST:
-            return EAST;
-        case EAST:
-            return WEST;
-        case SOUTH_WEST:
-            return NORTH_EAST;
-        case SOUTH:
-            return NORTH;
-        case SOUTH_EAST:
-            return NORTH_WEST;
-        default:
-            return UNKNOWN;
-        }
-    }
-    
     public int getDeltaX() {
-        switch (this) {
-        case NORTH_EAST:
-        case EAST:
-        case SOUTH_EAST:
-            return 1;
-        case NORTH_WEST:
-        case WEST:
-        case SOUTH_WEST:
-            return -1;
-        default:
-            return 0;
-        }
+        return dx;
     }
     
     public int getDeltaY() {
-        switch (this) {
-        case NORTH_EAST:
-        case NORTH:
-        case NORTH_WEST:
-            return 1;
-        case SOUTH_EAST:
-        case SOUTH:
-        case SOUTH_WEST:
-            return -1;
-        default:
-            return 0;
-        }
+        return dy;
+    }
+    
+    public Direction toOpposite() {
+        return get(-dx, -dy);
     }
 }

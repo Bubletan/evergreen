@@ -1,5 +1,7 @@
 package eg.game.world;
 
+import java.util.Optional;
+
 public final class Coordinate {
     
     private final int x;
@@ -53,10 +55,7 @@ public final class Coordinate {
     public Direction getDirection(Coordinate other) {
         int dx = other.x - x;
         int dy = other.y - y;
-        if (Direction.connectable(dx, dy)) {
-            return Direction.get(Integer.signum(dx), Integer.signum(dy));
-        }
-        return Direction.UNKNOWN;
+        return Direction.get(Integer.signum(dx), Integer.signum(dy));
     }
     
     public Coordinate translate(int dx, int dy) {
