@@ -20,9 +20,10 @@ object ScalaDependencies {
   val World = Server.world
   def Cycle = Server.cycle
   
-  // TODO
-  def Item(typ: ItemType) = new Item(typ)
-  def Item(typ: ItemType, quantity: Int) = new Item(typ, quantity)
+  object Item {
+    def apply(typ: ItemType) = new Item(typ)
+    def apply(typ: ItemType, quantity: Int) = new Item(typ, quantity)
+  }
   
   
   // implicit conversions and helpers
@@ -58,7 +59,7 @@ object ScalaDependencies {
   
   // shortened syntax for dispatching events
   
-  def dispatch[E <: Event](event: E): Boolean =
+  def fire[E <: Event](event: E): Boolean =
     World.getEventDispatcher.dispatchEvent(event)
   
   
@@ -99,10 +100,27 @@ object ScalaDependencies {
     def attr = new AttributeHelper
     class AttributeHelper private[MobileEntityHelpers] {
       def apply[A](name: String): A = me.getAttributes.getOrDeclareAttribute(name).getValue[A]
-      def update(name: String, value: Any): Unit = me.getAttributes.getOrDeclareAttribute(name).setValue(value)
+      def update[A](name: String, value: A): Unit = me.getAttributes.getOrDeclareAttribute(name).setValue(value)
     }
   }
-   
+  
+  
+  /*
+   * Experimental feature to allow using bean getters and setters
+   * 
+   * a.%something      ~~~>  a.getSomething()
+   * a.%something = b  ~~~>  a.setSomething(b)
+   * 
+   * To access directly, use:
+   * 
+   * (a.%something).something
+   * (a%).something.something
+   */
+  implicit class BeanHelperCreator[T <: AnyRef](prefix: T) {
+    def % = new BeanHelper[T](prefix)
+  }
+  
+  
   // player helpers
   
   implicit class PlayerHelpers(player: Player) {
@@ -142,7 +160,6 @@ object ScalaDependencies {
   on[Button](e => {
     // TODO handle dialogue input
   })
-  
   
   // npc helpers
   

@@ -3,7 +3,6 @@ package eg.game.model.player;
 import java.util.Optional;
 
 import eg.game.model.item.Item;
-import eg.game.model.item.inv.ItemContainer;
 
 public final class Equipment {
     

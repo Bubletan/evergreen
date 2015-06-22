@@ -1,3 +1,7 @@
+on[Button](e => {
+  (e.%author).message("Testing...")
+})
+
 def splitCommand(command: String) = {
   val indexOfSpace = command.indexOf(' ')
   if (indexOfSpace == -1) (command, Array.empty[String])
