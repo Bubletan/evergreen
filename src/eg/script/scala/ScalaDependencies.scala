@@ -1,5 +1,7 @@
 package eg.script.scala
 
+import scala.language.dynamics
+import scala.language.experimental.macros
 import scala.reflect.ClassTag
 import scala.reflect._
 

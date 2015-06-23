@@ -22,7 +22,7 @@ object BeanHelper {
     import c.universe._
     
     val getterNameString = name.tree match {
-      case Literal(Constant(nameString: String)) => "get" + eg.util.BeanUtils.capitalize(nameString)
+      case Literal(Constant(nameString: String)) => "get" + eg.util.Beans.capitalize(nameString)
       case _ => c.abort(name.tree.pos, "Invalid field name: " + name.tree)
     }
     
@@ -45,7 +45,7 @@ object BeanHelper {
     import c.universe._
     
     val setterName = name.tree match {
-      case Literal(Constant(fieldName: String)) => "set" + eg.util.BeanUtils.capitalize(fieldName)
+      case Literal(Constant(fieldName: String)) => "set" + eg.util.Beans.capitalize(fieldName)
       case _ => c.abort(name.tree.pos, "Invalid field name: " + name.tree)
     }
     
