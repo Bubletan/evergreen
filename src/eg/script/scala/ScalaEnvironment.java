@@ -29,6 +29,8 @@ public final class ScalaEnvironment implements ScriptEnvironment {
         
         try {
             engine.eval("import " + getClass().getPackage().getName() + ".ScalaDependencies._");
+            engine.eval("import scala.language.dynamics");
+            engine.eval("import scala.language.experimental.macros");
         } catch (javax.script.ScriptException e) {
             throw new RuntimeException("Error importing Scala dependencies.");
         }

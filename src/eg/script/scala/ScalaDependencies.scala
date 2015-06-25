@@ -101,8 +101,8 @@ object ScalaDependencies {
     
     def attr = new AttributeHelper
     class AttributeHelper private[MobileEntityHelpers] {
-      def apply[A](name: String): A = me.getAttributes.getOrDeclareAttribute(name).getValue[A]
-      def update[A](name: String, value: A): Unit = me.getAttributes.getOrDeclareAttribute(name).setValue(value)
+      def apply[A](name: String): A = ???//me.getAttributes.getOrDeclareAttribute(name).getValue[A]
+      def update[A](name: String, value: A): Unit = ???//me.getAttributes.getOrDeclareAttribute(name).setValue(value)
     }
   }
   
