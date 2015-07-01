@@ -2,6 +2,7 @@ package eg.util.task;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.StreamSupport;
 
 import eg.Server;
 
@@ -36,15 +37,23 @@ public final class Tasks {
         return () -> Arrays.stream(tasks).parallel().forEach(Task::execute);
     }
     
-    public static Task toParallelTask(Collection<Task> tasks) {
-        return () -> tasks.parallelStream().forEach(Task::execute);
+    public static Task toParallelTask(Iterable<Task> tasks) {
+        if (tasks instanceof Collection) {
+            Collection<Task> collection = (Collection<Task>) tasks;
+            return () -> collection.parallelStream().forEach(Task::execute);
+        }
+        return () -> StreamSupport.stream(tasks.spliterator(), true).forEach(Task::execute);
     }
     
     public static Task toSequentialTask(Task... tasks) {
-        return () -> Arrays.stream(tasks).forEach(Task::execute);
+        return () -> {
+            for (Task task : tasks) {
+                task.execute();
+            }
+        };
     }
     
-    public static Task toSequentialTask(Collection<Task> tasks) {
+    public static Task toSequentialTask(Iterable<Task> tasks) {
         return () -> tasks.forEach(Task::execute);
     }
 }
