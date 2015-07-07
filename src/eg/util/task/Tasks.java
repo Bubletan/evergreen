@@ -11,26 +11,28 @@ public final class Tasks {
     private Tasks() {
     }
     
-    /**
-     * Executes the task immediately and returns when it has been finished.
-     */
-    public static void syncExec(Task task) {
+    public static void exec(Task task) {
         task.execute();
     }
     
-    /**
-     * Queues the task to be executed in the next server cycle.
-     */
+    public static void syncExec(Task task) {
+        Server.processor().syncExec(task);
+    }
+    
     public static void asyncExec(Task task) {
-        Server.exec(task);
+        Server.processor().asyncExec(task);
     }
     
     public static Thread toThread(Task task) {
-        return new Thread(task::execute);
+        return new Thread(toRunnable(task));
     }
     
     public static Runnable toRunnable(Task task) {
         return task::execute;
+    }
+    
+    public static Task fromRunnable(Runnable runnable) {
+        return runnable::run;
     }
     
     public static Task toParallelTask(Task... tasks) {

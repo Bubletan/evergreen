@@ -206,7 +206,7 @@ public final class LoginHandler extends TransientByteToMessageDecoder {
             
             player.setActive(true);
             
-            Tasks.asyncExec(new PlayerInitTask(player));
+            Tasks.syncExec(new PlayerInitTask(player));
             
             return true;
         }

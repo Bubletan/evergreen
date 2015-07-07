@@ -1,5 +1,5 @@
 on[Button](e => {
-  (e.%author).message("Testing...")
+  (e.%author).message("Testing...") // TODO: this gives a feature warning..
 })
 
 def splitCommand(command: String) = {

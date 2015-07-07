@@ -106,6 +106,11 @@ object ScalaDependencies {
     }
   }
   
+  private[ScalaDependencies] class attr[T: ClassTag](name: String)
+  object attr extends Dynamic {
+    def selectDynamic[T](name: String): T = ???
+  }
+  
   
   /*
    * Experimental feature to allow using bean getters and setters
