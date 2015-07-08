@@ -23,25 +23,30 @@ public final class PathManager {
             clearPath();
             return;
         }
+        if (path.getPoint(0).equals(point)) {
+            this.path = path;
+            index = 1;
+            return;
+        }
         int x0 = path.getPoint(0).getX();
         int y0 = path.getPoint(0).getY();
         if (Direction.connectable(x0 - point.getX(), y0 - point.getY())) {
-            this.path = new PathBuilder().appendOriginPoint(point).appendPath(path).toPath();
-            index = 0;
-        } else {
-            if (this.path == null) {
+            this.path = new PathBuilder().appendJumpPoint(point).appendPath(path).toPath();
+            index = 1;
+            return;
+        }
+        if (this.path == null) {
+            return;
+        }
+        PathBuilder pb = new PathBuilder().appendJumpPoint(point);
+        for (int i = index - 2; i >= 0; i--) {
+            if (Direction.connectable(x0 - this.path.getPoint(i).getX(), y0 - this.path.getPoint(i).getY())) {
+                this.path = pb.appendPath(this.path, index - 2, i).appendPath(path).toPath();
+                index = 1;
                 return;
             }
-            PathBuilder pb = new PathBuilder().appendOriginPoint(point);
-            for (int i = index - 2; i >= 0; i--) {
-                if (Direction.connectable(x0 - this.path.getPoint(i).getX(), y0 - this.path.getPoint(i).getY())) {
-                    this.path = pb.appendPath(this.path, index - 2, i).appendPath(path).toPath();
-                    index = 0;
-                    return;
-                }
-            }
-            clearPath();
         }
+        clearPath();
     }
     
     public void clearPath() {

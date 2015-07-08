@@ -1,7 +1,6 @@
 package eg.game.world.path;
 
 import java.util.ArrayDeque;
-import java.util.Collections;
 import java.util.Deque;
 
 import eg.game.world.Direction;
@@ -11,13 +10,8 @@ public final class PathBuilder {
     
     private boolean interrupted;
     private final Deque<Point> points = new ArrayDeque<>();
-    private boolean origin;
     
     public PathBuilder() {
-    }
-    
-    public PathBuilder(Point origin) {
-        appendOriginPoint(origin);
     }
     
     public PathBuilder appendPath(Path path) {
@@ -84,19 +78,13 @@ public final class PathBuilder {
         if (interrupted) {
             return this;
         }
-        if (!origin && points.isEmpty()) {
+        if (points.isEmpty()) {
             points.add(point);
             return this;
         }
         int x = point.getX();
         int y = point.getY();
-        Point last;
-        if (origin) {
-            last = points.removeLast();
-            origin = false;
-        } else {
-            last = points.getLast();
-        }
+        Point last = points.getLast();
         int dx = x - last.getX();
         int dy = y - last.getY();
         if (dx == 0 && dy == 0) {
@@ -124,19 +112,7 @@ public final class PathBuilder {
         return this;
     }
     
-    public PathBuilder appendOriginPoint(Point point) {
-        if (!points.isEmpty()) {
-            throw new IllegalStateException("Origin must be the first point.");
-        }
-        points.add(point);
-        origin = true;
-        return this;
-    }
-    
     public Path toPath() {
-        if (origin) {
-            return new Path(Collections.emptyList());
-        }
         return new Path(points);
     }
 }
