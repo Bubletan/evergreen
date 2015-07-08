@@ -2,7 +2,7 @@ package eg.game.model.player;
 
 import java.util.Arrays;
 
-public final class Statistics {
+public final class SkillSet {
     
     private static final int SKILL_COUNT = 21;
     
@@ -30,13 +30,12 @@ public final class Statistics {
     
     private final Skill[] skills = new Skill[SKILL_COUNT];
     
-    public Statistics() {
+    public SkillSet() {
         for (int i = 0; i < SKILL_COUNT; i++) {
             skills[i] = new Skill();
         }
         Skill hitpoints = getHitpoints();
-        hitpoints.setExperience10(1184_0);
-        hitpoints.setPseudoLevel(10);
+        hitpoints.addExperienceExact(1184);
     }
     
     public int getCombatLevel() {
@@ -60,11 +59,11 @@ public final class Statistics {
     }
     
     public int getTotalLevel() {
-        return Arrays.stream(skills).mapToInt(s -> s.getLevel()).sum();
+        return Arrays.stream(skills).mapToInt(Skill::getLevel).sum();
     }
     
-    public long getTotalExperience() {
-        return Arrays.stream(skills).mapToLong(s -> s.getExperience()).sum();
+    public double getTotalExperience() {
+        return Arrays.stream(skills).mapToDouble(Skill::getExperience).sum();
     }
     
     public Skill getAttack() {

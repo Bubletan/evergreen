@@ -20,7 +20,7 @@ public final class Player extends MobileEntity {
     private final Equipment equipment = new Equipment();
     private final Inventory inv = new SelectivelyStackingInventory(28);
     private final Inventory bank = new AlwaysStackingInventory(352);
-    private final Statistics stats = new Statistics();
+    private final SkillSet stats = new SkillSet();
     private final IdleAnimation idleAnimation = new IdleAnimation();
     private final SyncContext syncContext = new SyncContext();
     
@@ -81,7 +81,7 @@ public final class Player extends MobileEntity {
         return bank;
     }
     
-    public Statistics getStatistics() {
+    public SkillSet getStatistics() {
         return stats;
     }
     

@@ -18,7 +18,7 @@ public final class Config {
     public static final int MAX_PLAYERS = 2000;
     public static final int MAX_NPCS = 32000;
     
-    public static final float EXP_MULTIPLIER = 1;
+    public static final float XP_MULTIPLIER = 1;
     
     public static final String WELCOMING_MESSAGE = "Welcome to RuneScape.";
     

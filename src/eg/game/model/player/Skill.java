@@ -5,55 +5,52 @@ import eg.util.ExperienceUtils;
 
 public final class Skill {
     
-    private static final int MAX_EXP = 200_000_000;
-    private static final int MAX_EXP_TMS_10 = 10 * MAX_EXP;
+    private static final int MAX_XP = 200_000_000;
+    private static final int MAX_XP_10 = MAX_XP * 10;
     
-    private int expTimes10;
-    private int lvl;
-    private int pseudoLvl = 1;
+    private int xp10;
+    private int level;
+    private int pseudoLevel;
     
-    public final int getExperience() {
-        return expTimes10 / 10;
+    public double getExperience() {
+        return xp10 / 10d;
     }
     
-    /**
-     * Sets the experience by an {@code int} that has a value of ten times the
-     * experience wanted.
-     */
-    protected final void setExperience10(int n) {
-        expTimes10 = n;
-        if (expTimes10 > MAX_EXP_TMS_10) {
-            expTimes10 = MAX_EXP_TMS_10;
-        } else if (expTimes10 < 0) {
-            expTimes10 = 0;
+    public void addExperience(double n) {
+        addExperienceExact(n * Config.XP_MULTIPLIER);
+    }
+    
+    public void addExperienceExact(double n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException();
         }
-        lvl = ExperienceUtils.experienceToLevel(expTimes10 / 10);
-    }
-    
-    public final void addExperience(float n) {
-        setExperience10((int) (10 * n));
-    }
-    
-    public final void addTrainedExperience(float n) {
-        addExperience(n * Config.EXP_MULTIPLIER);
-    }
-    
-    public final int getLevel() {
-        return lvl;
-    }
-    
-    public final int getPseudoLevel() {
-        return pseudoLvl;
-    }
-    
-    public void setPseudoLevel(int n) {
-        pseudoLvl = n;
-        if (pseudoLvl < 0) {
-            pseudoLvl = 0;
+        int n10 = (int) (n * 10);
+        if (xp10 <= MAX_XP_10 - n10) {
+            xp10 += n10;
+        } else if (xp10 != MAX_XP_10) {
+            xp10 = MAX_XP_10;
+        } else {
+            return;
         }
+        int newLevel = ExperienceUtils.experienceToLevel(xp10 / 10);
+        if (level != newLevel) {
+            pseudoLevel += newLevel - level;
+            level = newLevel;
+        }
+    }
+    
+    public int getLevel() {
+        return level;
+    }
+    
+    public int getPseudoLevel() {
+        return pseudoLevel;
     }
     
     public void addPseudoLevel(int n) {
-        setPseudoLevel(pseudoLvl + n);
+        pseudoLevel += n;
+        if (pseudoLevel < 0) {
+            pseudoLevel = 0;
+        }
     }
 }
