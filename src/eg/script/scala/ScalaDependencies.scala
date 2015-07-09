@@ -23,8 +23,29 @@ object ScalaDependencies {
   def Cycle = Server.cycle
   
   object Item {
-    def apply(typ: ItemType) = new Item(typ)
-    def apply(typ: ItemType, quantity: Int) = new Item(typ, quantity)
+    def apply(typ: ItemType, quantity: Int = 1) = new Item(typ, quantity)
+    def unapply(item: Item) = Some(item.getType, item.getQuantity)
+  }
+  
+  object ItemType {
+    import eg.game.model.item.{ItemType => JItemType}
+    def apply(id: Int) = JItemType.get(id)
+    def unapply(typ: JItemType) = Some(typ.getId)
+  }
+  object NpcType {
+    import eg.game.model.npc.{NpcType => JNpcType}
+    def apply(id: Int) = JNpcType.get(id)
+    def unapply(typ: JNpcType) = Some(typ.getId)
+  }
+  object ObjectType {
+    import eg.game.model.`object`.{ObjectType => JObjectType}
+    def apply(id: Int) = JObjectType.get(id)
+    def unapply(typ: JObjectType) = Some(typ.getId)
+  }
+  
+  object Coordinate {
+    def apply(x: Int, y: Int, height: Int = 0) = new Coordinate(x, y, height)
+    def unapply(c: Coordinate) = Some(c.getX, c.getY, c.getHeight)
   }
   
   
@@ -32,21 +53,10 @@ object ScalaDependencies {
   
   implicit def tuple2ToCoordinate(t: (Int, Int)) = new Coordinate(t._1, t._2)
   implicit def tuple3ToCoordinate(t: (Int, Int, Int)) = new Coordinate(t._1, t._2, t._3)
-  implicit class CoordinateHelpers(c: Coordinate) {
-    def x = c.getX
-    def y = c.getY
-    def height = c.getHeight
-  }
-  implicit def tuple2ToCoordinateHelpers(t: (Int, Int)) = new CoordinateHelpers(t)
-  implicit def tuple3ToCoordinateHelpers(t: (Int, Int, Int)) = new CoordinateHelpers(t)
   
   implicit def function0ToTask(f: => Unit) = new eg.util.task.Task {
     def execute = f
   }
-  
-  implicit def intToItemType(id: Int) = ItemType.get(id)
-  implicit def intToNpcType(id: Int) = NpcType.get(id)
-  implicit def intToObjectType(id: Int) = ObjectType.get(id)
   
   
   // shortened syntax for adding event listeners
@@ -70,7 +80,17 @@ object ScalaDependencies {
   import eg.game.event.impl._
   
   type Button = ButtonEvent
+  object Button {
+    def apply(author: Player, id: Int) = new Button(author, id)
+    def unapply(event: Button) = Some(event.getAuthor, event.getId)
+  }
+  
   type Command = CommandEvent
+  object Command {
+    def apply(author: Player, command: String) = new Command(author, command)
+    def unapply(event: Command) = Some(event.getAuthor, event.getCommand)
+  }
+  
   type Movement = MovementEvent
   type PlayerOp1 = PlayerOptionOneEvent
   type PlayerOp2 = PlayerOptionTwoEvent

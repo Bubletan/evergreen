@@ -1,6 +1,8 @@
-on[Button](e => {
-  (e.%author).message("Testing...") // TODO: this gives a feature warning..
-})
+
+on[Button] {
+  case Button(author, 8654) => author.message("Attack button in skill tab!")
+  case Button(author, id) => author.message(s"Button: $id")
+}
 
 def splitCommand(command: String) = {
   val indexOfSpace = command.indexOf(' ')
