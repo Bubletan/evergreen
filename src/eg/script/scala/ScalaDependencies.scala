@@ -61,10 +61,10 @@ object ScalaDependencies {
   
   // shortened syntax for adding event listeners
   
-  def on[E <: Event: ClassTag](action: E => Unit): Boolean = {
+  def on[E <: Event: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
     val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
     World.getEventDispatcher.addEventListener(classOfE, new EventListener[E] {
-      def onEvent(event: E) = action(event)
+      def onEvent(event: E) = if (action.isDefinedAt(event)) action(event)
     })
   }
   
@@ -183,10 +183,6 @@ object ScalaDependencies {
       def moveTo(coord: Coordinate, height: Int, trans: Int, glide: Int) = send(new CameraPositionPacket(localXOf(coord), localYOf(coord), height, trans, glide))
     }
   }
-  
-  on[Button](e => {
-    // TODO handle dialogue input
-  })
   
   // npc helpers
   

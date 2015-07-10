@@ -13,27 +13,28 @@ val Rimmington     = (2957, 3214)
 val Varrock        = (3210, 3424)
 val Yanille        = (2606, 3093)
 
-on[Command](e => {
-  val player = e.getAuthor
-  val coord = e.getCommand match {
-    
-    case "alkharid" => AlKharid
-    case "eastardy" => ArdougneEast
-    case "westardy" => ArdougneWest
-    case "camelot" => Camelot
-    case "draynor" => DraynorVillage
-    case "duel" => DuelArena
-    case "edge" => Edgeville
-    case "fally" => Falador
-    case "lumb" => Lumbridge
-    case "phasmatys" => PortPhasmatys
-    case "portsarim" => PortSarim
-    case "rimmington" => Rimmington
-    case "varrock" => Varrock
-    case "yanille" => Yanille
-    
-    case _ => null
+on[Command] {
+  case Command(player, command) => {
+    val coord = command match {
+      
+      case "alkharid" => AlKharid
+      case "eastardy" => ArdougneEast
+      case "westardy" => ArdougneWest
+      case "camelot" => Camelot
+      case "draynor" => DraynorVillage
+      case "duel" => DuelArena
+      case "edge" => Edgeville
+      case "fally" => Falador
+      case "lumb" => Lumbridge
+      case "phasmatys" => PortPhasmatys
+      case "portsarim" => PortSarim
+      case "rimmington" => Rimmington
+      case "varrock" => Varrock
+      case "yanille" => Yanille
+      
+      case _ => null
+    }
+    if (coord != null) 
+      player.getMovement.setCoordinate(coord)
   }
-  if (coord != null) 
-    player.getMovement.setCoordinate(coord)
-})
+}
