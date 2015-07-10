@@ -1,3 +1,5 @@
+import eg.game.model.player.Player
+
 val AlKharid       = (3293, 3174)
 val ArdougneEast   = (2662, 3305)
 val ArdougneWest   = (2529, 3307)
@@ -14,7 +16,7 @@ val Varrock        = (3210, 3424)
 val Yanille        = (2606, 3093)
 
 on[Command] {
-  case Command(player, command) => {
+  case Command(command) => {
     val coord = command match {
       
       case "alkharid" => AlKharid
@@ -35,6 +37,6 @@ on[Command] {
       case _ => null
     }
     if (coord != null) 
-      player.getMovement.setCoordinate(coord)
+      self[Player].getMovement.setCoordinate(coord)
   }
 }

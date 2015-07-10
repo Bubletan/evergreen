@@ -4,18 +4,19 @@ import eg.game.event.Event;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 
-public final class MovementEvent implements Event {
+public final class MovementEvent implements Event<Player> {
     
-    private final Player author;
+    private final Player self;
     private final Coordinate coordinate;
     
-    public MovementEvent(Player author, Coordinate coordinate) {
-        this.author = author;
+    public MovementEvent(Player self, Coordinate coordinate) {
+        this.self = self;
         this.coordinate = coordinate;
     }
     
-    public Player getAuthor() {
-        return author;
+    @Override
+    public Player getSelf() {
+        return self;
     }
     
     public Coordinate getCoordinate() {

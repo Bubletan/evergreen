@@ -3,18 +3,19 @@ package eg.game.event.impl;
 import eg.game.event.Event;
 import eg.game.model.player.Player;
 
-public final class CommandEvent implements Event {
+public final class CommandEvent implements Event<Player> {
     
-    private final Player author;
+    private final Player self;
     private final String command;
 
-    public CommandEvent(Player author, String command) {
-        this.author = author;
+    public CommandEvent(Player self, String command) {
+        this.self = self;
         this.command = command;
     }
     
-    public Player getAuthor() {
-        return author;
+    @Override
+    public Player getSelf() {
+        return self;
     }
     
     public String getCommand() {

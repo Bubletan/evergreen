@@ -3,18 +3,19 @@ package eg.game.event.impl;
 import eg.game.event.Event;
 import eg.game.model.player.Player;
 
-public final class ButtonEvent implements Event {
+public final class ButtonEvent implements Event<Player> {
     
-    private final Player author;
+    private final Player self;
     private final int id;
 
-    public ButtonEvent(Player author, int id) {
-        this.author = author;
+    public ButtonEvent(Player self, int id) {
+        this.self = self;
         this.id = id;
     }
     
-    public Player getAuthor() {
-        return author;
+    @Override
+    public Player getSelf() {
+        return self;
     }
     
     public int getId() {

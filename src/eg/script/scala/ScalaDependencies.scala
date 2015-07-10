@@ -61,17 +61,25 @@ object ScalaDependencies {
   
   // shortened syntax for adding event listeners
   
-  def on[E <: Event: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
+  private val tlSelf = new ThreadLocal[Any]
+  
+  def on[E <: Event[_]: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
     val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
     World.getEventDispatcher.addEventListener(classOfE, new EventListener[E] {
-      def onEvent(event: E) = if (action.isDefinedAt(event)) action(event)
+      def onEvent(event: E) {
+        tlSelf.set(event.getSelf)
+        if (action.isDefinedAt(event)) action(event)
+        tlSelf.remove
+      }
     })
   }
+  
+  def self[T] = tlSelf.get.asInstanceOf[T]
   
   
   // shortened syntax for dispatching events
   
-  def fire[E <: Event](event: E): Boolean =
+  def fire[E <: Event[_]](event: E): Boolean =
     World.getEventDispatcher.dispatchEvent(event)
   
   
@@ -81,14 +89,14 @@ object ScalaDependencies {
   
   type Button = ButtonEvent
   object Button {
-    def apply(author: Player, id: Int) = new Button(author, id)
-    def unapply(event: Button) = Some(event.getAuthor, event.getId)
+    def apply(id: Int) = new Button(self[Player], id)
+    def unapply(event: Button) = Some(event.getId)
   }
   
   type Command = CommandEvent
   object Command {
-    def apply(author: Player, command: String) = new Command(author, command)
-    def unapply(event: Command) = Some(event.getAuthor, event.getCommand)
+    def apply(command: String) = new Command(self[Player], command)
+    def unapply(event: Command) = Some(event.getCommand)
   }
   
   type Movement = MovementEvent

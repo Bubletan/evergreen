@@ -1,6 +1,8 @@
 
+import eg.game.model.player.Player
+
 on[Button] {
-  case Button(plr, 8654) if plr.getUsername() != "Someone" => plr.message("Attack button in skill tab!")
+  case Button(8654) if self[Player].getUsername != "Someone" => self[Player].message("Attack button in skill tab!")
 }
 
 def splitCommand(command: String) = {
@@ -10,8 +12,9 @@ def splitCommand(command: String) = {
 }
 
 on[Command] {
-  case Command(player, cmd) => {
+  case Command(cmd) => {
     val (command, args) = splitCommand(cmd)
+    val player = self[Player]
     command match {
       case "select" => player.tab(3).select()
       case "flash" => player.tab(3).flash()
