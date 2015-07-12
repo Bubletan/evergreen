@@ -9,22 +9,28 @@ public final class GameMessagePacketEncoder implements AbstractGamePacketEncoder
     
     @Override
     public GamePacket encode(GameMessagePacket packet) throws Exception {
+        String sender = packet.getSender();
+        if (sender.contains(":")) {
+            throw new IllegalArgumentException("Sender must not contain a colon.");
+        }
         String message = packet.getMessage();
         if (message.endsWith(":tradereq:") || message.endsWith(":duelreq:") || message.endsWith(":chalreq:")) {
             throw new IllegalArgumentException("Message must not end with a reserved tag.");
         }
+        String s;
         switch (packet.getType()) {
         case TRADE_REQUEST:
-            message = message.concat(":tradereq:");
+            s = sender + ":tradereq:";
             break;
         case DUEL_REQUEST:
-            message = message.concat(":duelreq:");
+            s = sender + ":duelreq:";
             break;
         case CHALLENGE_REQUEST:
-            message = message.concat(":chalreq:");
+            s = sender + ":" + message + ":chalreq:";
             break;
         default:
+            s = message;
         }
-        return new GamePacket(253, new Buffer(message.length() + 1).putLine(message).toData());
+        return new GamePacket(253, new Buffer(s.length() + 1).putLine(s).toData());
     }
 }
