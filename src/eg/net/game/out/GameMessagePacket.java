@@ -1,5 +1,7 @@
 package eg.net.game.out;
 
+import java.util.Objects;
+
 import eg.net.game.AbstractGamePacket;
 
 public final class GameMessagePacket implements AbstractGamePacket {
@@ -13,9 +15,9 @@ public final class GameMessagePacket implements AbstractGamePacket {
     }
     
     public GameMessagePacket(String sender, String message, Type type) {
-        this.sender = sender;
-        this.message = message;
-        this.type = type;
+        this.sender = Objects.requireNonNull(sender);
+        this.message = Objects.requireNonNull(message);
+        this.type = Objects.requireNonNull(type);
     }
     
     public String getSender() {

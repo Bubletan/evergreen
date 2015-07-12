@@ -1,6 +1,7 @@
 package eg.net.game.out;
 
 import java.util.List;
+import java.util.Objects;
 
 import eg.game.world.Coordinate;
 import eg.game.world.sync.SyncSection;
@@ -16,11 +17,11 @@ public final class PlayerSyncPacket implements AbstractGamePacket {
     
     public PlayerSyncPacket(SyncSection localSection, int localPlayersCount,
             Coordinate origin, Coordinate sectorOrigin, List<SyncSection> nonLocalSections) {
-        this.localSection = localSection;
+        this.localSection = Objects.requireNonNull(localSection);
         this.localPlayersCount = localPlayersCount;
-        this.origin = origin;
-        this.sectorOrigin = sectorOrigin;
-        this.nonLocalSections = nonLocalSections;
+        this.origin = Objects.requireNonNull(origin);
+        this.sectorOrigin = Objects.requireNonNull(sectorOrigin);
+        this.nonLocalSections = Objects.requireNonNull(nonLocalSections);
     }
     
     public SyncSection getLocalSection() {

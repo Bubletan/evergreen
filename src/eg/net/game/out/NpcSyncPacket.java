@@ -1,6 +1,7 @@
 package eg.net.game.out;
 
 import java.util.List;
+import java.util.Objects;
 
 import eg.game.world.Coordinate;
 import eg.game.world.sync.SyncSection;
@@ -13,8 +14,8 @@ public final class NpcSyncPacket implements AbstractGamePacket {
     private final int localNpcCount;
     
     public NpcSyncPacket(Coordinate origin, List<SyncSection> sections, int localNpcCount) {
-        this.origin = origin;
-        this.sections = sections;
+        this.origin = Objects.requireNonNull(origin);
+        this.sections = Objects.requireNonNull(sections);
         this.localNpcCount = localNpcCount;
     }
     

@@ -1,5 +1,7 @@
 package eg.net.game.in;
 
+import java.util.Objects;
+
 import eg.net.game.AbstractGamePacket;
 
 public final class MovementPacket implements AbstractGamePacket {
@@ -13,7 +15,7 @@ public final class MovementPacket implements AbstractGamePacket {
         this.ctrlRun = ctrlRun;
         this.firstX = firstX;
         this.firstY = firstY;
-        this.offsetXY = offsetXY;
+        this.offsetXY = Objects.requireNonNull(offsetXY);
     }
     
     public boolean isCtrlRun() {

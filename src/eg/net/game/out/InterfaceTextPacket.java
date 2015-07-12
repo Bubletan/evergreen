@@ -1,5 +1,7 @@
 package eg.net.game.out;
 
+import java.util.Objects;
+
 import eg.net.game.AbstractGamePacket;
 
 public final class InterfaceTextPacket implements AbstractGamePacket {
@@ -9,7 +11,7 @@ public final class InterfaceTextPacket implements AbstractGamePacket {
     
     public InterfaceTextPacket(int id, String text) {
         this.id = id;
-        this.text = text;
+        this.text = Objects.requireNonNull(text);
     }
     
     public int getId() {

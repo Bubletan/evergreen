@@ -1,5 +1,7 @@
 package eg.net.game.in;
 
+import java.util.Objects;
+
 import eg.net.game.AbstractGamePacket;
 
 public final class ChatMessagePacket implements AbstractGamePacket {
@@ -11,7 +13,7 @@ public final class ChatMessagePacket implements AbstractGamePacket {
     public ChatMessagePacket(int colorEffect, int animationEffect, byte[] encodedMessage) {
         this.animationEffect = animationEffect;
         this.colorEffect = colorEffect;
-        this.encodedMessage = encodedMessage;
+        this.encodedMessage = Objects.requireNonNull(encodedMessage);
     }
     
     public int getColorEffect() {
