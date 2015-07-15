@@ -1,5 +1,7 @@
 package eg.game.model.player;
 
+import java.util.Objects;
+
 import eg.game.model.MobileEntity;
 import eg.game.model.IdleAnimation;
 import eg.game.model.item.inv.AlwaysStackingInventory;
@@ -21,10 +23,11 @@ public final class Player extends MobileEntity {
     private final Inventory inv = new SelectivelyStackingInventory(28);
     private final Inventory bank = new AlwaysStackingInventory(352);
     private final SkillSet stats = new SkillSet();
-    private final IdleAnimation idleAnimation = new IdleAnimation();
     private final SyncContext syncContext = new SyncContext();
     
     private final GameSession session;
+    
+    private IdleAnimation idleAnimation = IdleAnimation.DEFAULT;
     
     public Player(GameSession session, String username, String password) {
         this.session = session;
@@ -87,6 +90,10 @@ public final class Player extends MobileEntity {
     
     public IdleAnimation getIdleAnimation() {
         return idleAnimation;
+    }
+    
+    public void setIdleAnimation(IdleAnimation idleAnimation) {
+        this.idleAnimation = Objects.requireNonNull(idleAnimation);
     }
     
     public SyncContext getSyncContext() {

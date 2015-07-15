@@ -2,21 +2,25 @@ package eg.game.model;
 
 public final class IdleAnimation {
     
-    private static final int DEFAULT_STAND = 808;
-    private static final int DEFAULT_TURN = 823;
-    private static final int DEFAULT_WALK = 819;
-    private static final int DEFAULT_TURN_180 = 820;
-    private static final int DEFAULT_TURN_90_CW = 821;
-    private static final int DEFAULT_TURN_90_CCW = 822;
-    private static final int DEFAULT_RUN = 824;
+    public static final IdleAnimation DEFAULT = new IdleAnimation(808, 823, 819, 820, 821, 822, 824);
     
-    private int stand = DEFAULT_STAND;
-    private int turn = DEFAULT_TURN;
-    private int walk = DEFAULT_WALK;
-    private int turn180 = DEFAULT_TURN_180;
-    private int turn90Cw = DEFAULT_TURN_90_CW;
-    private int turn90Ccw = DEFAULT_TURN_90_CCW;
-    private int run = DEFAULT_RUN;
+    private final int stand;
+    private final int turn;
+    private final int walk;
+    private final int turn180;
+    private final int turn90Cw;
+    private final int turn90Ccw;
+    private final int run;
+    
+    public IdleAnimation(int stand, int turn, int walk, int turn180, int turn90Cw, int turn90Ccw, int run) {
+        this.stand = stand;
+        this.turn = turn;
+        this.walk = walk;
+        this.turn180 = turn180;
+        this.turn90Cw = turn90Cw;
+        this.turn90Ccw = turn90Ccw;
+        this.run = run;
+    }
     
     public int getStand() {
         return stand;
