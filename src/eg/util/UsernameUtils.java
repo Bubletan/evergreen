@@ -1,5 +1,7 @@
 package eg.util;
 
+import java.util.Objects;
+
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
@@ -15,10 +17,14 @@ public final class UsernameUtils {
     private UsernameUtils() {
     }
     
-    public static long encrypt(String username) {
+    public static long encode(String name) {
+        Objects.requireNonNull(name);
+        if (name.length() > 12) {
+            throw new IllegalArgumentException("Name too long: " + name);
+        }
         long l = 0L;
-        for (int i = 0; i < username.length() && i < 12; i++) {
-            char c = username.charAt(i);
+        for (int i = 0; i < name.length() && i < 12; i++) {
+            char c = name.charAt(i);
             l *= 37L;
             if (c >= 'A' && c <= 'Z') {
                 l += 1 + c - 65;
@@ -32,12 +38,12 @@ public final class UsernameUtils {
         return l;
     }
     
-    public static String decrypt(long hash) {
+    public static String decode(long hash) {
         if (hash <= 0L || hash >= 0x5b5b57f8a98a5dd1L) {
-            return "invalid_name";
+            throw new IllegalArgumentException("Invalid name: " + hash);
         }
         if (hash % 37L == 0L) {
-            return "invalid_name";
+            throw new IllegalArgumentException("Invalid name: " + hash);
         }
         int i = 0;
         char[] ac = new char[12];

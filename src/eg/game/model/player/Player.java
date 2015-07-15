@@ -52,7 +52,7 @@ public final class Player extends MobileEntity {
     }
     
     public long getHash() {
-        return UsernameUtils.encrypt(username);
+        return UsernameUtils.encode(username);
     }
     
     public String getPassword() {
