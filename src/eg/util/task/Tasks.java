@@ -7,6 +7,8 @@ import java.util.stream.StreamSupport;
 import eg.Server;
 
 /**
+ * A collection of utilities for tasks.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class Tasks {

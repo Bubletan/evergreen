@@ -1,6 +1,8 @@
 package eg.game.world;
 
 /**
+ * Represents a cardinal direction in the world.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  * @author Graham
  */

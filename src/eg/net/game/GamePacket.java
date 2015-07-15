@@ -3,6 +3,8 @@ package eg.net.game;
 import eg.util.io.Buffer;
 
 /**
+ * An encoded game packet which will either be decoded or sent to a client.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class GamePacket {

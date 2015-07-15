@@ -13,6 +13,8 @@ import eg.util.task.Task;
 import eg.util.task.Tasks;
 
 /**
+ * A task executed once per cycle.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class ProcessTask implements Task {

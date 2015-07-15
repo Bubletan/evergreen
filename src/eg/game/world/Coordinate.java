@@ -1,6 +1,8 @@
 package eg.game.world;
 
 /**
+ * Represents a three-dimensional (x, y, height) coordinate in the world.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class Coordinate {

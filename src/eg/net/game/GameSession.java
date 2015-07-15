@@ -10,6 +10,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
+ * A game session which can be used to both {@link #receive() receive} and
+ * {@link #send() send} game packets.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class GameSession extends ChannelInboundHandlerAdapter {

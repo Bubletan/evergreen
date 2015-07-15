@@ -6,9 +6,11 @@ import eg.script.ScriptManager;
 import eg.util.task.Task;
 
 /**
+ * A task executed on startup.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class StartTask implements Task {
+public final class StartupTask implements Task {
     
     @Override
     public void execute() {

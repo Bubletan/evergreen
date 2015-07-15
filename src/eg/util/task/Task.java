@@ -1,6 +1,8 @@
 package eg.util.task;
 
 /**
+ * A functional interface representing an executable task.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 @FunctionalInterface

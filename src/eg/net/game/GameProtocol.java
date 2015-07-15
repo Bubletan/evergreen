@@ -1,6 +1,8 @@
 package eg.net.game;
 
 /**
+ * An interface for game protocols.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public interface GameProtocol {

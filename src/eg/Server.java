@@ -1,7 +1,7 @@
 package eg;
 
 import eg.game.GameProcessor;
-import eg.game.StartTask;
+import eg.game.StartupTask;
 import eg.game.ShutdownTask;
 import eg.game.world.World;
 
@@ -43,7 +43,7 @@ public final class Server {
         System.out.println("Initializing...");
         long time = System.currentTimeMillis();
         
-        new StartTask().execute();
+        new StartupTask().execute();
         
         processor.start();
         

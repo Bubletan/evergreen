@@ -9,6 +9,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
 /**
+ * A {@link ByteToMessageDecoder} which decodes the game protocol to separate packets.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class GameProtocolDecoder extends ByteToMessageDecoder {

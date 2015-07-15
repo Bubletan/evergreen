@@ -7,6 +7,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 
 /**
+ * A {@link MessageToMessageDecoder} which decodes encoded game packets.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 @Sharable

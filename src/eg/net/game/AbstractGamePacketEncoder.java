@@ -1,6 +1,8 @@
 package eg.net.game;
 
 /**
+ * An interface for abstract game packet encoders.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 @FunctionalInterface

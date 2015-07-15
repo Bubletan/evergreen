@@ -7,6 +7,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
+ * A {@link MessageToByteEncoder} which encodes separate packets to the game protocol.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class GameProtocolEncoder extends MessageToByteEncoder<GamePacket> {
