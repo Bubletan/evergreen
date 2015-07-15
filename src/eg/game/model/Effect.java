@@ -19,8 +19,7 @@ public final class Effect {
             throw new IllegalArgumentException("ID out of bounds: " + id);
         }
         if (height < 0 || height > 0xffff) {
-            throw new IllegalArgumentException("Height out of bounds: "
-                    + height);
+            throw new IllegalArgumentException("Height out of bounds: " + height);
         }
         if (delay < 0 || delay > 0xffff) {
             throw new IllegalArgumentException("Delay out of bounds: " + delay);
