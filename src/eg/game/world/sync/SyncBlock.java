@@ -6,6 +6,9 @@ import eg.game.model.npc.NpcType;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public abstract class SyncBlock {
     
     private final Type type;

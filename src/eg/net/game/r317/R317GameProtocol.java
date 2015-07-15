@@ -68,6 +68,9 @@ import eg.net.game.r317.out.SystemUpdatePacketEncoder;
 import eg.net.game.r317.out.TabSelectPacketEncoder;
 import eg.net.game.r317.out.WeightAlteredPacketEncoder;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class R317GameProtocol implements GameProtocol {
     
     private static final int[] INCOMING_PACKET_SIZE = {

@@ -3,6 +3,9 @@ package eg.util.attr;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class AttributeSet {
     
     private final Map<String, Attribute> map = new HashMap<>();

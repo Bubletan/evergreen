@@ -1,5 +1,8 @@
 package eg.util;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ChatMessageUtils {
     
     private static final char[] CHAT_MESSAGE_CHAR_TABLE = {

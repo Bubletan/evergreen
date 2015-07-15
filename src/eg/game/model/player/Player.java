@@ -12,6 +12,9 @@ import eg.game.world.sync.SyncContext;
 import eg.net.game.GameSession;
 import eg.util.UsernameUtils;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Player extends MobileEntity {
     
     private String username;

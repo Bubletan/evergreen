@@ -4,6 +4,9 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 @Sharable
 public final class SessionHandler extends ChannelInboundHandlerAdapter {
     

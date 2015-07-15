@@ -5,6 +5,9 @@ import java.util.Map;
 
 import com.google.common.base.Preconditions;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Bundle {
     
     private final Map<String, Object> map = new HashMap<>();

@@ -3,6 +3,8 @@ package eg.util.net;
 /**
  * A cipher that uses ISAAC algorithm.<br>
  * Used to encrypt the packet opcodes when interacting with the clients.
+ * 
+ * @author Bob Jenkins
  */
 public final class IsaacCipher {
     

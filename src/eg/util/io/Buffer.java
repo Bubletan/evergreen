@@ -11,7 +11,7 @@ import java.util.List;
  * values. Using the optional methods, it is possible to use different byte
  * orders and get unsigned values.
  * 
- * @author Rob / Bubletan
+ * @author Bubletan <https://github.com/Bubletan>
  */
 public final class Buffer {
     

@@ -4,6 +4,9 @@ import eg.game.model.npc.NpcType;
 import eg.game.world.Coordinate;
 import eg.game.world.Direction;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public abstract class SyncStatus {
     
     private final Type type;

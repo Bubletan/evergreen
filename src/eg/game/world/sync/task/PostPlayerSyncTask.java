@@ -5,6 +5,9 @@ import eg.game.event.impl.MovementEvent;
 import eg.game.model.player.Player;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PostPlayerSyncTask implements Task {
     
     private final Player player;

@@ -8,6 +8,9 @@ import com.google.gson.Gson;
 
 import eg.Config;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ItemType {
     
     private static final ItemType[] cache = new ItemType[Config.N_ITEM_TYPES];

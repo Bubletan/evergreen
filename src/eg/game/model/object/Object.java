@@ -3,6 +3,9 @@ package eg.game.model.object;
 import eg.game.model.ImmobileEntity;
 import eg.game.world.Coordinate;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Object extends ImmobileEntity {
     
     private final ObjectType type;

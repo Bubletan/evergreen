@@ -6,6 +6,9 @@ import java.util.Deque;
 import eg.game.world.Direction;
 import eg.game.world.path.Path.Point;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PathBuilder {
     
     private boolean interrupted;

@@ -9,6 +9,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class HandshakeHandler extends TransientByteToMessageDecoder {
     
     private static final int LOGIN = 14;

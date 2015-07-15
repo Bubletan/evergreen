@@ -1,7 +1,8 @@
 package eg.game.world;
 
-import java.util.Optional;
-
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Coordinate {
     
     private final int x;

@@ -1,5 +1,8 @@
 package eg;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Config {
     
     private Config() {

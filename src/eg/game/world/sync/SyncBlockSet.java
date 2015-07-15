@@ -3,6 +3,10 @@ package eg.game.world.sync;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Graham
+ */
 public final class SyncBlockSet implements Cloneable {
     
     private final Map<SyncBlock.Type, SyncBlock> blocks = new HashMap<>(8);

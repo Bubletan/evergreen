@@ -4,6 +4,9 @@ import java.util.Optional;
 
 import eg.game.model.item.Item;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Equipment {
     
     private static final int HEAD = 0;

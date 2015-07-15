@@ -25,6 +25,10 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Graham
+ */
 public final class LoginHandler extends TransientByteToMessageDecoder {
     
     private static final GameProtocol GAME_PROTOCOL = new R317GameProtocol();

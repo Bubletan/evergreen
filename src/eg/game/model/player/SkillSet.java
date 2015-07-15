@@ -2,6 +2,9 @@ package eg.game.model.player;
 
 import java.util.Arrays;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class SkillSet {
     
     private static final int SKILL_COUNT = 21;

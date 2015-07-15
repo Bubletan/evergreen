@@ -17,6 +17,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class GameServer {
     
     private static final ChannelInboundHandler SESSION_HANDLER = new SessionHandler();

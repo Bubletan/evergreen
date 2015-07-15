@@ -3,6 +3,9 @@ package eg.game.model;
 import eg.game.world.Coordinate;
 import eg.game.world.Direction;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ForceMovement {
     
     private final Coordinate primaryDestination;

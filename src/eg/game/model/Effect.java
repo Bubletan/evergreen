@@ -1,5 +1,8 @@
 package eg.game.model;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Effect {
     
     private final int id;

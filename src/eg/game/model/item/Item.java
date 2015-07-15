@@ -2,6 +2,9 @@ package eg.game.model.item;
 
 import com.google.common.base.Preconditions;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Item {
     
     private final ItemType type;

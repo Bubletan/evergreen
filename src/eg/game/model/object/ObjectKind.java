@@ -1,5 +1,11 @@
 package eg.game.model.object;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Ryley Kimmel <ryley.kimmel@live.com>
+ * @author Maxi <http://www.rune-server.org/members/maxi/>
+ * @author lare96 <http://github.com/lare96>
+ */
 public enum ObjectKind {
     
     STRAIGHT_WALL(0),

@@ -3,6 +3,9 @@ package eg.game.event.impl;
 import eg.game.event.Event;
 import eg.game.model.player.Player;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class CommandEvent implements Event<Player> {
     
     private final Player self;

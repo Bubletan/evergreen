@@ -8,6 +8,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Randoms {
     
     private Randoms() {

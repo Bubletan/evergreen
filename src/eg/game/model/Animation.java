@@ -1,5 +1,8 @@
 package eg.game.model;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Animation {
     
     public static final Animation YES = new Animation(855);

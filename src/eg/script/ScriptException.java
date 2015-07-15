@@ -1,5 +1,8 @@
 package eg.script;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ScriptException extends Exception {
     
     private static final long serialVersionUID = 5750792330450905816L;

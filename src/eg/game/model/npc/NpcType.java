@@ -8,6 +8,9 @@ import com.google.gson.Gson;
 
 import eg.Config;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class NpcType {
     
     private static final NpcType[] cache = new NpcType[Config.N_NPC_TYPES];

@@ -8,6 +8,9 @@ import eg.game.world.sync.SyncBlockSet;
 import eg.util.attr.AttributeSet;
 import eg.util.math.Randoms;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public abstract class MobileEntity extends Entity {
     
     private int index;

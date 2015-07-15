@@ -9,6 +9,9 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class GameSession extends ChannelInboundHandlerAdapter {
     
     private final Channel channel;

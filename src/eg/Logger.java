@@ -2,6 +2,9 @@ package eg;
 
 import java.io.PrintStream;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Logger extends PrintStream {
     
     private StackTraceElement prev;

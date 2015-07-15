@@ -9,6 +9,9 @@ import java.util.Map;
 
 import eg.script.scala.ScalaEnvironment;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ScriptManager {
     
     private final Map<String, ScriptEnvironment> envForExtension = new HashMap<>();

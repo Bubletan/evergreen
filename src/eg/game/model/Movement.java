@@ -5,6 +5,9 @@ import eg.game.world.Direction;
 import eg.game.world.path.Path;
 import eg.game.world.path.PathManager;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Movement {
     
     private final PathManager pathManager;

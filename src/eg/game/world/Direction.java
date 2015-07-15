@@ -1,5 +1,9 @@
 package eg.game.world;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Graham
+ */
 public enum Direction {
     
     UNKNOWN(0, 0),

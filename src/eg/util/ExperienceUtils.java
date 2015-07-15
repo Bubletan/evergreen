@@ -1,5 +1,8 @@
 package eg.util;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ExperienceUtils {
     
     private ExperienceUtils() {

@@ -1,5 +1,8 @@
 package eg.net.game;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public interface GameProtocol {
     
     public int getInboundPacketSize(int type);

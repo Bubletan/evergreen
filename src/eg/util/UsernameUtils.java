@@ -1,5 +1,8 @@
 package eg.util;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class UsernameUtils {
     
     private static final char[] USERNAME_CHAR_TABLE = {

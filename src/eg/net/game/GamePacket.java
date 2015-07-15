@@ -2,6 +2,9 @@ package eg.net.game;
 
 import eg.util.io.Buffer;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class GamePacket {
     
     private int type;

@@ -1,5 +1,8 @@
 package eg.game.model;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class IdleAnimation {
     
     public static final IdleAnimation DEFAULT = new IdleAnimation(808, 823, 819, 820, 821, 822, 824);

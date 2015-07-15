@@ -5,6 +5,9 @@ import eg.game.StartTask;
 import eg.game.ShutdownTask;
 import eg.game.world.World;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Server {
     
     private static volatile boolean exited = false;

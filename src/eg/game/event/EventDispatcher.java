@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class EventDispatcher {
     
     private final Map<Class<?>, List<EventListener<?>>> listeners = new HashMap<>();

@@ -8,6 +8,9 @@ import java.util.Map;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class SyncContext {
     
     private final List<Player> playerList = new LinkedList<>();

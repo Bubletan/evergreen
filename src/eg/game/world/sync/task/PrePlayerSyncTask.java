@@ -6,6 +6,9 @@ import eg.game.world.sync.SyncBlock;
 import eg.net.game.out.MapLoadingPacket;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PrePlayerSyncTask implements Task {
     
     private final Player player;

@@ -6,6 +6,9 @@ import java.util.stream.StreamSupport;
 
 import eg.Server;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Tasks {
     
     private Tasks() {

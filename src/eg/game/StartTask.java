@@ -5,6 +5,9 @@ import eg.net.GameServer;
 import eg.script.ScriptManager;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class StartTask implements Task {
     
     @Override

@@ -6,6 +6,11 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
+/**
+ * A {@link ByteToMessageDecoder} which forwards the input in case it is removed.
+ * 
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public abstract class TransientByteToMessageDecoder extends ByteToMessageDecoder {
     
     @Override

@@ -1,5 +1,8 @@
 package eg.game.model.player;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Identikit {
     
     public static enum Gender {

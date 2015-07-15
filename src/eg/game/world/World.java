@@ -14,6 +14,9 @@ import eg.game.event.EventDispatcher;
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class World {
     
     private final EventDispatcher eventDispatcher = new EventDispatcher();

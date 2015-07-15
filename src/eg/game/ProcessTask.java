@@ -12,6 +12,9 @@ import eg.game.world.sync.task.PrePlayerSyncTask;
 import eg.util.task.Task;
 import eg.util.task.Tasks;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ProcessTask implements Task {
     
     private static final World world = Server.world();

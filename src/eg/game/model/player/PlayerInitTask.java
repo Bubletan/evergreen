@@ -7,6 +7,9 @@ import eg.net.game.out.PlayerInitPacket;
 import eg.net.game.out.TabInterfacePacket;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PlayerInitTask implements Task {
     
     private final Player player;

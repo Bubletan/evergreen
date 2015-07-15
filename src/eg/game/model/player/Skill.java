@@ -3,6 +3,9 @@ package eg.game.model.player;
 import eg.Config;
 import eg.util.ExperienceUtils;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Skill {
     
     private static final int MAX_XP = 200_000_000;

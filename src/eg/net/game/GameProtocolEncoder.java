@@ -6,6 +6,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class GameProtocolEncoder extends MessageToByteEncoder<GamePacket> {
     
     private final GameProtocol protocol;

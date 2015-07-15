@@ -2,6 +2,10 @@ package eg.net.login;
 
 import eg.util.net.IsaacCipher;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Graham
+ */
 public final class LoginRequest {
     
     private final String username;

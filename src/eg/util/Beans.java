@@ -2,6 +2,9 @@ package eg.util;
 
 import java.beans.Introspector;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Beans {
     
     private Beans() {

@@ -1,5 +1,8 @@
 package eg.game.world.sync;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class SyncSection {
     
     private final SyncStatus status;

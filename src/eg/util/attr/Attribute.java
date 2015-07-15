@@ -4,6 +4,9 @@ import java.util.Objects;
 
 import eg.util.Types;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Attribute {
     
     private final String name;

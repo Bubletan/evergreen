@@ -13,6 +13,10 @@ import eg.game.world.sync.SyncStatus;
 import eg.net.game.out.PlayerSyncPacket;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Graham
+ */
 public final class PlayerSyncTask implements Task {
     
     private static final int NEW_PLAYERS_PER_CYCLE = 20;

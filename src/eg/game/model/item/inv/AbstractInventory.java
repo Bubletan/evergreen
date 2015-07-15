@@ -14,6 +14,9 @@ import java.util.stream.Stream;
 import eg.game.model.item.Item;
 import eg.game.model.item.ItemType;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public abstract class AbstractInventory implements Inventory {
     
     private int itemsCount;

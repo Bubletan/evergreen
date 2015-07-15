@@ -2,6 +2,9 @@ package eg.util;
 
 import java.util.Objects;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Types {
     
     private Types() {

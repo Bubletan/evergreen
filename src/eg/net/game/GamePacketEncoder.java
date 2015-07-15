@@ -6,6 +6,9 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 @Sharable
 public final class GamePacketEncoder extends MessageToMessageEncoder<AbstractGamePacket> {
     

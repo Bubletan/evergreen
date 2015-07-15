@@ -5,6 +5,9 @@ import java.util.Map;
 
 import eg.game.world.Direction;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class SyncUtils {
     
     private static final Map<Direction, Integer> directionToIntMap = new EnumMap<>(Direction.class);

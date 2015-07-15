@@ -10,6 +10,9 @@ import eg.script.Script;
 import eg.script.ScriptException;
 import eg.script.ScriptEnvironment;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class ScalaEnvironment implements ScriptEnvironment {
     
     private final ScriptEngine engine;

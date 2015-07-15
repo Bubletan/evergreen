@@ -13,6 +13,10 @@ import eg.game.world.sync.SyncStatus;
 import eg.net.game.out.NpcSyncPacket;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ * @author Major
+ */
 public final class NpcSyncTask implements Task {
     
     private static final int NEW_NPCS_PER_CYCLE = 20;

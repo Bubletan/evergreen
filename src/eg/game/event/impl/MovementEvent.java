@@ -4,6 +4,9 @@ import eg.game.event.Event;
 import eg.game.model.player.Player;
 import eg.game.world.Coordinate;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class MovementEvent implements Event<Player> {
     
     private final Player self;

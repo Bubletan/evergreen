@@ -16,6 +16,9 @@ import eg.net.game.out.GameInterfacePacket;
 import eg.util.ChatMessageUtils;
 import eg.util.task.Task;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PlayerProcessTask implements Task {
     
     private final Player player;

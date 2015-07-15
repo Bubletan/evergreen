@@ -7,6 +7,9 @@ import java.util.stream.StreamSupport;
 
 import eg.game.model.item.Item;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public interface Inventory extends Iterable<Item> {
     
     /**

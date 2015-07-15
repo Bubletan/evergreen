@@ -3,6 +3,9 @@ package eg.game.world.path;
 import eg.game.world.Direction;
 import eg.game.world.path.Path.Point;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class PathManager {
     
     private Point point;

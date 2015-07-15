@@ -11,6 +11,9 @@ import java.util.stream.IntStream;
 import eg.game.world.Coordinate;
 import eg.game.world.Direction;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Path implements Iterable<Path.Point> {
     
     private final List<Point> points;

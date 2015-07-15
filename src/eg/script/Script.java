@@ -1,5 +1,8 @@
 package eg.script;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class Script {
     
     private final String path;
