@@ -149,4 +149,53 @@ public final class Randoms {
         }
         return ThreadLocalRandom.current().nextDouble(min, Math.nextUp(max));
     }
+    
+    public static int[] shuffleIntArray(int... array) {
+        Objects.requireNonNull(array);
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            int tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
+        }
+        return array;
+    }
+    
+    public static long[] shuffleLongArray(long... array) {
+        Objects.requireNonNull(array);
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            long tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
+        }
+        return array;
+    }
+    
+    public static double[] shuffleDoubleArray(double... array) {
+        Objects.requireNonNull(array);
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            double tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
+        }
+        return array;
+    }
+    
+    @SafeVarargs
+    public static <T> T[] shuffleArray(T... array) {
+        Objects.requireNonNull(array);
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            T tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
+        }
+        return array;
+    }
 }
