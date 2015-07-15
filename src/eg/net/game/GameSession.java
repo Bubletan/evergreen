@@ -1,13 +1,10 @@
 package eg.net.game;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-
-import eg.net.game.out.LogoutPacket;
 
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -15,8 +12,9 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public final class GameSession extends ChannelInboundHandlerAdapter {
     
     private final Channel channel;
+    private ChannelFuture future;
     
-    private final Queue<AbstractGamePacket> queue = new LinkedList<>();
+    private final List<AbstractGamePacket> queue = new ArrayList<>();
     
     public GameSession(Channel channel) {
         this.channel = channel;
@@ -39,12 +37,16 @@ public final class GameSession extends ChannelInboundHandlerAdapter {
     
     public void send(AbstractGamePacket packet) {
         if (channel.isActive() && channel.isOpen()) {
-            if (packet instanceof LogoutPacket) {
-                channel.writeAndFlush(packet).addListener(
-                        ChannelFutureListener.CLOSE);
-            } else {
-                channel.writeAndFlush(packet);
-            }
+            future = channel.writeAndFlush(packet);
+        }
+    }
+    
+    public void close() {
+        if (future != null) {
+            future.addListener(ChannelFutureListener.CLOSE);
+            future = null;
+        } else {
+            channel.close();
         }
     }
     
