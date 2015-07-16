@@ -1,10 +1,11 @@
 package eg.game.model.object;
 
 /**
+ * Represents the kind of an {@link Object}.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  * @author Ryley Kimmel <ryley.kimmel@live.com>
  * @author Maxi <http://www.rune-server.org/members/maxi/>
- * @author lare96 <http://github.com/lare96>
  */
 public enum ObjectKind {
     
@@ -18,8 +19,8 @@ public enum ObjectKind {
     DIAGONAL_INSIDE_WALL_DECORATION(7),
     DIAGONAL_INTERIOR_WALL_DECORATION(8),
     DIAGONAL_WALL(9),
-    DEFAULT(10),
-    WALKABLE_DEFAULT(11),
+    GENERAL_PROP(10),
+    WALKABLE_PROP(11),
     STRAIGHT_SLOPED_ROOF(12),
     DIAGONAL_SLOPED_ROOF(13),
     DIAGONAL_SLOPED_CONNECTING_ROOF(14),

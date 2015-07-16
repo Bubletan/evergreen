@@ -1,8 +1,10 @@
 package eg.game.model.object;
 
 /**
+ * Represents the orientation of an {@link Object}.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
- * @author lare96 <http://github.com/lare96>
+ * @author Ryley Kimmel <ryley.kimmel@live.com>
  */
 public enum ObjectOrientation {
     
