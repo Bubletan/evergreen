@@ -14,24 +14,31 @@ import eg.game.world.Direction;
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class Path implements Iterable<Path.Point> {
+public final class Path implements Iterable<Coordinate> {
     
-    private final List<Point> points;
+    private final List<Coordinate> points;
     
-    public Path(Collection<Point> points) {
-        this.points = Collections.unmodifiableList(new ArrayList<>(points));
+    public Path(Iterable<Coordinate> points) {
+        List<Coordinate> list;
+        if (points instanceof Collection) {
+            list = new ArrayList<>((Collection<Coordinate>) points);
+        } else {
+            list = new ArrayList<>();
+            points.forEach(list::add);
+        }
+        this.points = Collections.unmodifiableList(list);
     }
     
     @Override
-    public Iterator<Point> iterator() {
+    public Iterator<Coordinate> iterator() {
         return points.iterator();
     }
     
-    public List<Point> getPoints() {
+    public List<Coordinate> getPoints() {
         return points;
     }
     
-    public List<Point> getJumpPoints() {
+    public List<Coordinate> getJumpPoints() {
         if (points.size() <= 2) {
             return points;
         }
@@ -46,14 +53,14 @@ public final class Path implements Iterable<Path.Point> {
         if (index == 0 || index == points.size() - 1) {
             return true;
         }
-        Point before = points.get(index - 1);
-        Point point = points.get(index);
-        Point after = points.get(index + 1);
+        Coordinate before = points.get(index - 1);
+        Coordinate point = points.get(index);
+        Coordinate after = points.get(index + 1);
         return Direction.get(point.getX() - before.getX(), point.getY() - before.getY())
                 != Direction.get(after.getX() - point.getX(), after.getY() - point.getY());
     }
     
-    public Point getPoint(int index) {
+    public Coordinate getPoint(int index) {
         if (index < 0 || index >= points.size()) {
             throw new ArrayIndexOutOfBoundsException("Point index out of bounds: " + index);
         }
@@ -77,61 +84,25 @@ public final class Path implements Iterable<Path.Point> {
     
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Path) {
-            Path path = (Path) obj;
-            int length = points.size();
-            if (path.points.size() != length) {
-                return false;
-            }
-            for (int i = 0; i < length; i++) {
-                if (!path.points.get(i).equals(points.get(i))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-    
-    public static final class Point {
-        
-        private final int x;
-        private final int y;
-        
-        public Point(Coordinate coordinate) {
-            this(coordinate.getX(), coordinate.getY());
-        }
-        
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-        
-        public int getX() {
-            return x;
-        }
-        
-        public int getY() {
-            return y;
-        }
-        
-        @Override
-        public String toString() {
-            return "(" + x + "," + y + ")";
-        }
-        
-        @Override
-        public int hashCode() {
-            return x << 15 | y;
-        }
-        
-        @Override
-        public boolean equals(Object obj) {
-            if (obj instanceof Point) {
-                Point point = (Point) obj;
-                return x == point.x && y == point.y;
-            }
+        if (obj == null) {
             return false;
         }
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Path)) {
+            return false;
+        }
+        Path path = (Path) obj;
+        int length = points.size();
+        if (path.points.size() != length) {
+            return false;
+        }
+        for (int i = 0; i < length; i++) {
+            if (!path.points.get(i).equals(points.get(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -1,22 +1,22 @@
 package eg.game.world.path;
 
+import eg.game.world.Coordinate;
 import eg.game.world.Direction;
-import eg.game.world.path.Path.Point;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class PathManager {
     
-    private Point point;
+    private Coordinate point;
     private Path path;
     private int index;
     
-    public PathManager(Point point) {
+    public PathManager(Coordinate point) {
         this.point = point;
     }
     
-    public void setPoint(Point point) {
+    public void setPoint(Coordinate point) {
         this.point = point;
         path = null;
     }
@@ -25,6 +25,9 @@ public final class PathManager {
         if (path.getLength() == 0) {
             clearPath();
             return;
+        }
+        if (path.getPoint(0).getHeight() != point.getHeight()) {
+            throw new IllegalArgumentException("Path height mismatch.");
         }
         if (path.getPoint(0).equals(point)) {
             this.path = path;
@@ -67,7 +70,7 @@ public final class PathManager {
         return path != null && index != path.getLength();
     }
     
-    public Point getNextPoint() {
+    public Coordinate getNextPoint() {
         if (index == path.getLength()) {
             throw new IllegalStateException("No next point available.");
         }

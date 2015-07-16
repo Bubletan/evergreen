@@ -3,8 +3,8 @@ package eg.game.world.path;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import eg.game.world.Coordinate;
 import eg.game.world.Direction;
-import eg.game.world.path.Path.Point;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
@@ -12,7 +12,8 @@ import eg.game.world.path.Path.Point;
 public final class PathBuilder {
     
     private boolean interrupted;
-    private final Deque<Point> points = new ArrayDeque<>();
+    private final Deque<Coordinate> points = new ArrayDeque<>();
+    private int height = -1;
     
     public PathBuilder() {
     }
@@ -30,6 +31,8 @@ public final class PathBuilder {
                 return this;
             }
             points.removeLast();
+        } else {
+            height = path.getPoint(0).getHeight();
         }
         points.addAll(path.getPoints());
         return this;
@@ -60,7 +63,9 @@ public final class PathBuilder {
                 return this;
             }
         } else {
-            points.addLast(path.getPoint(beginIndex));
+            Coordinate point = path.getPoint(beginIndex);
+            height = point.getHeight();
+            points.addLast(point);
         }
         if (beginIndex < endIndex) {
             for (int i = beginIndex + 1; i <= endIndex; i++) {
@@ -74,7 +79,7 @@ public final class PathBuilder {
         return this;
     }
     
-    public PathBuilder appendJumpPoint(Point point) {
+    public PathBuilder appendJumpPoint(Coordinate point) {
         if (point == null) {
             throw new IllegalArgumentException("Point must not be null.");
         }
@@ -82,12 +87,15 @@ public final class PathBuilder {
             return this;
         }
         if (points.isEmpty()) {
-            points.add(point);
+            height = point.getHeight();
+            points.addLast(point);
             return this;
+        } else if (point.getHeight() != height) {
+            throw new IllegalArgumentException("Point height mismatch.");
         }
         int x = point.getX();
         int y = point.getY();
-        Point last = points.getLast();
+        Coordinate last = points.getLast();
         int dx = x - last.getX();
         int dy = y - last.getY();
         if (dx == 0 && dy == 0) {
@@ -109,7 +117,7 @@ public final class PathBuilder {
             } else if (dy > 0) {
                 dy--;
             }
-            points.addLast(new Point(x - dx, y - dy));
+            points.addLast(new Coordinate(x - dx, y - dy, height));
         }
         points.addLast(point);
         return this;

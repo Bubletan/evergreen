@@ -4,7 +4,6 @@ import eg.Server;
 import eg.game.event.impl.ButtonEvent;
 import eg.game.event.impl.CommandEvent;
 import eg.game.world.Coordinate;
-import eg.game.world.path.Path;
 import eg.game.world.path.PathBuilder;
 import eg.game.world.sync.SyncBlock;
 import eg.net.game.in.ButtonPacket;
@@ -94,8 +93,9 @@ public final class PlayerProcessTask implements Task {
     private void handleMovementPacket(MovementPacket packet) {
         player.getMovement().setRunningEnabled(packet.isCtrlRun());
         PathBuilder pb = new PathBuilder();
+        int height = player.getCoordinate().getHeight();
         for (int i = 0, n = packet.getJumpPointCount(); i < n; i++) {
-            pb.appendJumpPoint(new Path.Point(packet.getJumpPointX(i), packet.getJumpPointY(i)));
+            pb.appendJumpPoint(new Coordinate(packet.getJumpPointX(i), packet.getJumpPointY(i), height));
         }
         player.getMovement().setPath(pb.toPath());
     }

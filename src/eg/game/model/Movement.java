@@ -26,7 +26,7 @@ public final class Movement {
     
     public Movement(Coordinate coordinate) {
         currentCoordinate = coordinate;
-        pathManager = new PathManager(new Path.Point(coordinate));
+        pathManager = new PathManager(coordinate);
         transitionDestination = coordinate;
     }
     
@@ -36,27 +36,25 @@ public final class Movement {
     public void preSyncProcess() {
        
         if (transitionDestination != null) {
-            pathManager.setPoint(new Path.Point(transitionDestination));
+            pathManager.setPoint(transitionDestination);
             currentCoordinate = transitionDestination;
             primaryDirection = secondaryDirection = Direction.UNKNOWN;
         } else {
             if (pathManager.hasNextPoint()) {
-                int x = currentCoordinate.getX();
-                int y = currentCoordinate.getY();
-                Path.Point primaryPoint = pathManager.getNextPoint();
-                primaryDirection = Direction.get(primaryPoint.getX() - x, primaryPoint.getY() - y);
+                Coordinate point;
+                Coordinate primaryPoint = pathManager.getNextPoint();
+                primaryDirection = Direction.get(primaryPoint.getX() - currentCoordinate.getX(),
+                        primaryPoint.getY() - currentCoordinate.getY());
                 if (runningEnabled && pathManager.hasNextPoint()) {
-                    Path.Point secondaryPoint = pathManager.getNextPoint();
+                    Coordinate secondaryPoint = pathManager.getNextPoint();
                     secondaryDirection = Direction.get(secondaryPoint.getX() - primaryPoint.getX(),
                             secondaryPoint.getY() - primaryPoint.getY());
-                    x = secondaryPoint.getX();
-                    y = secondaryPoint.getY();
+                    point = secondaryPoint;
                 } else {
                     secondaryDirection = Direction.UNKNOWN;
-                    x = primaryPoint.getX();
-                    y = primaryPoint.getY();
+                    point = primaryPoint;
                 }
-                currentCoordinate = new Coordinate(x, y, currentCoordinate.getHeight());
+                currentCoordinate = point;
             } else if (primaryDirection != Direction.UNKNOWN) {
                 primaryDirection = secondaryDirection = Direction.UNKNOWN; 
             }
