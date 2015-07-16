@@ -1,5 +1,7 @@
 package eg.game.world;
 
+import java.util.Objects;
+
 /**
  * Represents a three-dimensional (x, y, height) coordinate in the world.
  * 
@@ -44,21 +46,24 @@ public final class Coordinate {
     }
     
     public int getDistance(Coordinate other) {
+        Objects.requireNonNull(other, "Other must not be null.");
         int dx = x - other.x;
         int dy = y - other.y;
         return dx == 0 ? dy : dy == 0 ? dx : (int) Math.ceil(Math.sqrt(dx * dx + dy * dy));
     }
     
     public int getBoxDistance(Coordinate other) {
+        Objects.requireNonNull(other, "Other must not be null.");
         int dx = x - other.x;
         int dy = y - other.y;
         return Math.max(Math.abs(dx), Math.abs(dy));
     }
     
     public Direction getDirection(Coordinate other) {
+        Objects.requireNonNull(other, "Other must not be null.");
         int dx = other.x - x;
         int dy = other.y - y;
-        return Direction.get(Integer.signum(dx), Integer.signum(dy));
+        return Direction.get(dx, dy);
     }
     
     public Coordinate translate(int dx, int dy) {
@@ -72,18 +77,26 @@ public final class Coordinate {
         return new Coordinate(x + dx, y + dy, height + dheight);
     }
     
-    public Coordinate above() {
+    public Coordinate toAbove() {
         if (height == 3) {
             throw new IllegalStateException("You cannot go above the height 3.");
         }
         return new Coordinate(x, y, height + 1);
     }
     
-    public Coordinate below() {
+    public Coordinate toBelow() {
         if (height == 0) {
             throw new IllegalStateException("You cannot go below the height 0.");
         }
         return new Coordinate(x, y, height - 1);
+    }
+    
+    public Coordinate toDirection(Direction direction) {
+        Objects.requireNonNull(direction, "Direction must not be null.");
+        if (direction == Direction.UNKNOWN) {
+            throw new IllegalArgumentException("Direction must not be unknown.");
+        }
+        return new Coordinate(x + direction.getDeltaX(), y + direction.getDeltaY(), height);
     }
     
     @Override
