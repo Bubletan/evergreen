@@ -7,66 +7,9 @@ import eg.net.game.AbstractGamePacket;
 import eg.net.game.AbstractGamePacketDecoder;
 import eg.net.game.AbstractGamePacketEncoder;
 import eg.net.game.GameProtocol;
-import eg.net.game.out.CameraFocusPacket;
-import eg.net.game.out.CameraResetPacket;
-import eg.net.game.out.CameraPositionPacket;
-import eg.net.game.out.CameraWavePacket;
-import eg.net.game.out.ConfigPacket;
-import eg.net.game.out.DialogueInterfacePacket;
-import eg.net.game.out.GameMessagePacket;
-import eg.net.game.out.InterfaceTextPacket;
-import eg.net.game.out.LogoutPacket;
-import eg.net.game.out.GameInterfacePacket;
-import eg.net.game.out.MapLoadingPacket;
-import eg.net.game.out.MulticombatOverlayPacket;
-import eg.net.game.out.NpcSyncPacket;
-import eg.net.game.out.PlayerInitPacket;
-import eg.net.game.out.PlayerSyncPacket;
-import eg.net.game.out.TabFlashPacket;
-import eg.net.game.out.TabInterfacePacket;
-import eg.net.game.out.SystemUpdatePacket;
-import eg.net.game.out.TabSelectPacket;
-import eg.net.game.out.WeightAlteredPacket;
-import eg.net.game.r317.in.ButtonPacketDecoder;
-import eg.net.game.r317.in.CameraAlteredPacketDecoder;
-import eg.net.game.r317.in.ChatMessagePacketDecoder;
-import eg.net.game.r317.in.CommandPacketDecoder;
-import eg.net.game.r317.in.KeepalivePacketDecoder;
-import eg.net.game.r317.in.MapLoadedPacketDecoder;
-import eg.net.game.r317.in.MouseClickPacketDecoder;
-import eg.net.game.r317.in.MovementPacketDecoder;
-import eg.net.game.r317.in.NpcOptionOnePacketDecoder;
-import eg.net.game.r317.in.NpcOptionThreePacketDecoder;
-import eg.net.game.r317.in.NpcOptionTwoPacketDecoder;
-import eg.net.game.r317.in.ObjectOptionOnePacketDecoder;
-import eg.net.game.r317.in.ObjectOptionThreePacketDecoder;
-import eg.net.game.r317.in.ObjectOptionTwoPacketDecoder;
-import eg.net.game.r317.in.PlayerOptionFivePacketDecoder;
-import eg.net.game.r317.in.PlayerOptionFourPacketDecoder;
-import eg.net.game.r317.in.PlayerOptionOnePacketDecoder;
-import eg.net.game.r317.in.PlayerOptionThreePacketDecoder;
-import eg.net.game.r317.in.PlayerOptionTwoPacketDecoder;
-import eg.net.game.r317.in.WindowFocusAlteredPacketDecoder;
-import eg.net.game.r317.out.CameraFocusPacketEncoder;
-import eg.net.game.r317.out.CameraPositionPacketEncoder;
-import eg.net.game.r317.out.CameraResetPacketEncoder;
-import eg.net.game.r317.out.CameraWavePacketEncoder;
-import eg.net.game.r317.out.ConfigPacketEncoder;
-import eg.net.game.r317.out.DialogueInterfacePacketEncoder;
-import eg.net.game.r317.out.GameMessagePacketEncoder;
-import eg.net.game.r317.out.InterfaceTextPacketEncoder;
-import eg.net.game.r317.out.LogoutPacketEncoder;
-import eg.net.game.r317.out.GameInterfacePacketEncoder;
-import eg.net.game.r317.out.MapLoadingPacketEncoder;
-import eg.net.game.r317.out.MulticombatOverlayPacketEncoder;
-import eg.net.game.r317.out.NpcSyncPacketEncoder;
-import eg.net.game.r317.out.PlayerInitPacketEncoder;
-import eg.net.game.r317.out.PlayerSyncPacketEncoder;
-import eg.net.game.r317.out.TabFlashPacketEncoder;
-import eg.net.game.r317.out.TabInterfacePacketEncoder;
-import eg.net.game.r317.out.SystemUpdatePacketEncoder;
-import eg.net.game.r317.out.TabSelectPacketEncoder;
-import eg.net.game.r317.out.WeightAlteredPacketEncoder;
+import eg.net.game.out.*;
+import eg.net.game.r317.in.*;
+import eg.net.game.r317.out.*;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
@@ -145,14 +88,18 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(MapLoadingPacket.class, new MapLoadingPacketEncoder()); // 73
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
         putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
+        putEncoder(MinimapStatePacket.class, new MinimapStatePacketEncoder()); // 99
         putEncoder(TabSelectPacket.class, new TabSelectPacketEncoder()); // 106
         putEncoder(CameraResetPacket.class, new CameraResetPacketEncoder()); // 107
         putEncoder(LogoutPacket.class, new LogoutPacketEncoder()); // 109
+        putEncoder(EnergyAlteredPacket.class, new EnergyAlteredPacketEncoder()); // 110
         putEncoder(SystemUpdatePacket.class, new SystemUpdatePacketEncoder()); // 114
+        putEncoder(InterfaceColorPacket.class, new InterfaceColorPacketEncoder()); // 122
         putEncoder(InterfaceTextPacket.class, new InterfaceTextPacketEncoder()); // 126
         putEncoder(DialogueInterfacePacket.class, new DialogueInterfacePacketEncoder()); // 164
         putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
         putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
+        putEncoder(WalkableGameInterfacePacket.class, new WalkableGameInterfacePacketEncoder()); // 208
         putEncoder(WeightAlteredPacket.class, new WeightAlteredPacketEncoder()); // 240
         putEncoder(PlayerInitPacket.class, new PlayerInitPacketEncoder()); // 249
         putEncoder(GameMessagePacket.class, new GameMessagePacketEncoder()); // 253
