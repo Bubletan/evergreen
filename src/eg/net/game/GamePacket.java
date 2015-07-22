@@ -9,9 +9,9 @@ import eg.util.io.Buffer;
  */
 public final class GamePacket {
     
-    private int type;
-    private byte[] data;
-    private int size;
+    private final int type;
+    private final byte[] data;
+    private final int size;
     
     public GamePacket(int type) {
         this(type, null);
