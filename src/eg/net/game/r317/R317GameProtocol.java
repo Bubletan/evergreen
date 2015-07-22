@@ -84,8 +84,10 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(ConfigPacket.class, new ConfigPacketEncoder()); // 36, 87
         putEncoder(MulticombatOverlayPacket.class, new MulticombatOverlayPacketEncoder()); // 61
         putEncoder(NpcSyncPacket.class, new NpcSyncPacketEncoder()); // 65
+        putEncoder(InterfaceOffsetPacket.class, new InterfaceOffsetPacketEncoder()); // 70
         putEncoder(TabInterfacePacket.class, new TabInterfacePacketEncoder()); // 71
         putEncoder(MapLoadingPacket.class, new MapLoadingPacketEncoder()); // 73
+        putEncoder(InterfaceScrollPositionPacket.class, new InterfaceScrollPositionPacketEncoder()); // 79
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
         putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
         putEncoder(MinimapStatePacket.class, new MinimapStatePacketEncoder()); // 99
@@ -96,6 +98,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(SystemUpdatePacket.class, new SystemUpdatePacketEncoder()); // 114
         putEncoder(InterfaceColorPacket.class, new InterfaceColorPacketEncoder()); // 122
         putEncoder(InterfaceTextPacket.class, new InterfaceTextPacketEncoder()); // 126
+        putEncoder(SkillAlteredPacket.class, new SkillAlteredPacketEncoder()); // 134
         putEncoder(DialogueInterfacePacket.class, new DialogueInterfacePacketEncoder()); // 164
         putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
         putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
