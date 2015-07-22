@@ -62,9 +62,23 @@ public final class Path implements Iterable<Coordinate> {
     
     public Coordinate getPoint(int index) {
         if (index < 0 || index >= points.size()) {
-            throw new ArrayIndexOutOfBoundsException("Point index out of bounds: " + index);
+            throw new IndexOutOfBoundsException("Point index out of bounds: " + index);
         }
         return points.get(index);
+    }
+    
+    public Coordinate getOrigin() {
+        if (points.isEmpty()) {
+            throw new IllegalStateException("An empty path has no origin.");
+        }
+        return points.get(0);
+    }
+    
+    public Coordinate getDestination() {
+        if (points.isEmpty()) {
+            throw new IllegalStateException("An empty path has no destination.");
+        }
+        return points.get(points.size() - 1);
     }
     
     public int getLength() {

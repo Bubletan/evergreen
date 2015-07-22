@@ -2,6 +2,7 @@ package eg.game.world.path;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Objects;
 
 import eg.game.world.Coordinate;
 import eg.game.world.Direction;
@@ -79,10 +80,28 @@ public final class PathBuilder {
         return this;
     }
     
-    public PathBuilder appendJumpPoint(Coordinate point) {
-        if (point == null) {
-            throw new IllegalArgumentException("Point must not be null.");
+    public PathBuilder appendPoint(Coordinate point) {
+        Objects.requireNonNull(point, "Point must not be null.");
+        if (interrupted) {
+            return this;
         }
+        if (points.isEmpty()) {
+            height = point.getHeight();
+            points.addLast(point);
+            return this;
+        } else if (point.getHeight() != height) {
+            throw new IllegalArgumentException("Point height mismatch.");
+        }
+        if (points.getLast().getBoxDistance(point) != 1) {
+            interrupted = true;
+            return this;
+        }
+        points.addLast(point);
+        return this;
+    }
+    
+    public PathBuilder appendJumpPoint(Coordinate point) {
+        Objects.requireNonNull(point, "Point must not be null.");
         if (interrupted) {
             return this;
         }
