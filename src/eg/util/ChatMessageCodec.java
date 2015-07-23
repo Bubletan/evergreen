@@ -3,7 +3,7 @@ package eg.util;
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class ChatMessageUtils {
+public final class ChatMessageCodec {
     
     private static final char[] CHAT_MESSAGE_CHAR_TABLE = {
         ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 
@@ -15,7 +15,7 @@ public final class ChatMessageUtils {
         ']', '>', '<', '^', '/', '_'
     };
     
-    private ChatMessageUtils() {
+    private ChatMessageCodec() {
     }
     
     public static String decode(byte[] in) {

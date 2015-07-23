@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class UsernameUtils {
+public final class UsernameCodec {
     
     private static final char[] USERNAME_CHAR_TABLE = {
         '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
@@ -14,7 +14,7 @@ public final class UsernameUtils {
         '3', '4', '5', '6', '7', '8', '9'
     };
     
-    private UsernameUtils() {
+    private UsernameCodec() {
     }
     
     public static long encode(String name) {
