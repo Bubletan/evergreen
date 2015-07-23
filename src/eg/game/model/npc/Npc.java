@@ -8,12 +8,18 @@ import eg.game.model.MobileEntity;
 public final class Npc extends MobileEntity {
     
     private final NpcType type;
+    private final NpcSize size;
     
-    public Npc(NpcType type) {
+    public Npc(NpcType type, NpcSize size) {
         this.type = type;
+        this.size = size;
     }
     
     public NpcType getType() {
         return type;
+    }
+    
+    public NpcSize getSize() {
+        return size;
     }
 }
