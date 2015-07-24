@@ -12,7 +12,7 @@ import eg.net.game.in.CommandPacket;
 import eg.net.game.in.MovementPacket;
 import eg.net.game.out.GameMessagePacket;
 import eg.net.game.out.GameInterfacePacket;
-import eg.util.ChatMessageUtils;
+import eg.util.ChatMessageCodec;
 import eg.util.task.Task;
 
 /**
@@ -34,8 +34,8 @@ public final class PlayerProcessTask implements Task {
                 handleChatMessagePacket((ChatMessagePacket) packet);
             } else if (packet instanceof CommandPacket) {
                 
-                Server.world().getEventDispatcher().dispatchEvent(new CommandEvent(player,
-                        ((CommandPacket) packet).getCommand()));
+                Server.world().getEventDispatcher().dispatchEvent(player,
+                        new CommandEvent(((CommandPacket) packet).getCommand()));
                 
                 String[] cmd = ((CommandPacket) packet).getCommand().split(" ");
                 switch (cmd[0]) {
@@ -74,8 +74,8 @@ public final class PlayerProcessTask implements Task {
                 
             } else if (packet instanceof ButtonPacket) {
                 
-                Server.world().getEventDispatcher().dispatchEvent(new ButtonEvent(player,
-                        ((ButtonPacket) packet).getId()));
+                Server.world().getEventDispatcher().dispatchEvent(player,
+                        new ButtonEvent(((ButtonPacket) packet).getId()));
                 
             } else if (packet instanceof MovementPacket) {
                 handleMovementPacket((MovementPacket) packet);
@@ -84,8 +84,8 @@ public final class PlayerProcessTask implements Task {
     }
     
     private void handleChatMessagePacket(ChatMessagePacket packet) {
-        String decodedMsg = ChatMessageUtils.decode(packet.getEncodedMessage());
-        byte[] encodedMsg = ChatMessageUtils.encode(decodedMsg);
+        String decodedMsg = ChatMessageCodec.decode(packet.getEncodedMessage());
+        byte[] encodedMsg = ChatMessageCodec.encode(decodedMsg);
         player.getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, packet.getColorEffect(),
                 packet.getAnimationEffect(), player.getPrivilege()));
     }

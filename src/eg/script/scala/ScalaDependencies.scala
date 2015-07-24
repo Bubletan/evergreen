@@ -22,6 +22,17 @@ object ScalaDependencies {
   val World = Server.world
   def Cycle = Server.cycle
   
+  object Animation {
+    import eg.game.model.Animation
+    def apply(id: Int, delay: Int = 0) = new Animation(id, delay)
+    def unapply(anim: Animation) = Some(anim.getId, anim.getDelay)
+  }
+  object Effect {
+    import eg.game.model.Effect
+    def apply(id: Int, height: Int = 100, delay: Int = 0) = new Effect(id, height, delay)
+    def unapply(effect: Effect) = Some(effect.getId, effect.getHeight, effect.getDelay)
+  }
+  
   object Item {
     def apply(typ: ItemType, quantity: Int = 1) = new Item(typ, quantity)
     def unapply(item: Item) = Some(item.getType, item.getQuantity)
@@ -61,26 +72,26 @@ object ScalaDependencies {
   
   // shortened syntax for adding event listeners
   
-  private val tlSelf = new ThreadLocal[Any]
+  private val tlSelf = new ThreadLocal[Player]
   
-  def on[E <: Event[_]: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
+  def on[E <: Event: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
     val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
     World.getEventDispatcher.addEventListener(classOfE, new EventListener[E] {
-      def onEvent(event: E) {
-        tlSelf.set(event.getSelf)
+      def onEvent(self: Player, event: E) {
+        tlSelf.set(self)
         if (action.isDefinedAt(event)) action(event)
         tlSelf.remove
       }
     })
   }
   
-  def self[T] = tlSelf.get.asInstanceOf[T]
+  def self = tlSelf.get
   
   
   // shortened syntax for dispatching events
   
-  def fire[E <: Event[_]](event: E): Boolean =
-    World.getEventDispatcher.dispatchEvent(event)
+  def fire[E <: Event](event: E): Boolean =
+    World.getEventDispatcher.dispatchEvent(self, event)
   
   
   // event types
@@ -89,22 +100,27 @@ object ScalaDependencies {
   
   type Button = ButtonEvent
   object Button {
-    def apply(id: Int) = new Button(self[Player], id)
+    def apply(id: Int) = new Button(id)
     def unapply(event: Button) = Some(event.getId)
   }
   
   type Command = CommandEvent
   object Command {
-    def apply(command: String) = new Command(self[Player], command)
+    def apply(command: String) = new Command(command)
     def unapply(event: Command) = Some(event.getCommand)
   }
   
   type Movement = MovementEvent
-  type PlayerOp1 = PlayerOptionOneEvent
+  object Movement {
+    def apply(coordinate: Coordinate) = new Movement(coordinate)
+    def unapply(event: Movement) = Some(event.getCoordinate)
+  }
+  
+  /*type PlayerOp1 = PlayerOptionOneEvent
   type PlayerOp2 = PlayerOptionTwoEvent
   type PlayerOp3 = PlayerOptionThreeEvent
   type PlayerOp4 = PlayerOptionFourEvent
-  type PlayerOp5 = PlayerOptionFiveEvent
+  type PlayerOp5 = PlayerOptionFiveEvent*/
   
   
   // mobile entity helpers

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import eg.game.model.player.Player;
+
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
@@ -15,7 +17,7 @@ public final class EventDispatcher {
     public EventDispatcher() {
     }
     
-    public <E extends Event<?>> boolean dispatchEvent(E event) {
+    public <E extends Event> boolean dispatchEvent(Player self, E event) {
         boolean fired = false;
         Class<?> type = event.getClass();
         do {
@@ -26,7 +28,7 @@ public final class EventDispatcher {
                     @SuppressWarnings("unchecked")
                     EventListener<? super E> castListener = (EventListener<? super E>) listener;
                     try {
-                        castListener.onEvent(event);
+                        castListener.onEvent(self, event);
                     } catch (Exception e) {
                         System.err.println("Error in event listener.");
                         e.printStackTrace();
@@ -38,7 +40,7 @@ public final class EventDispatcher {
         return fired;
     }
     
-    public <E extends Event<?>> boolean addEventListener(Class<E> type, EventListener<E> listener) {
+    public <E extends Event> boolean addEventListener(Class<E> type, EventListener<E> listener) {
         List<EventListener<?>> list = listeners.get(type);
         if (list == null) {
             list = new ArrayList<>();
@@ -49,7 +51,7 @@ public final class EventDispatcher {
         return list.add(listener);
     }
     
-    public <E extends Event<?>> boolean removeEventListener(Class<E> type, EventListener<E> listener) {
+    public <E extends Event> boolean removeEventListener(Class<E> type, EventListener<E> listener) {
         List<EventListener<?>> list = listeners.get(type);
         if (list == null) {
             return false;

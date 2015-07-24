@@ -1,24 +1,16 @@
 package eg.game.event.impl;
 
 import eg.game.event.Event;
-import eg.game.model.player.Player;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class ButtonEvent implements Event<Player> {
+public final class ButtonEvent implements Event {
     
-    private final Player self;
     private final int id;
 
-    public ButtonEvent(Player self, int id) {
-        this.self = self;
+    public ButtonEvent(int id) {
         this.id = id;
-    }
-    
-    @Override
-    public Player getSelf() {
-        return self;
     }
     
     public int getId() {

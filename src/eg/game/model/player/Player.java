@@ -10,7 +10,7 @@ import eg.game.model.item.inv.SelectivelyStackingInventory;
 import eg.game.world.sync.SyncBlock;
 import eg.game.world.sync.SyncContext;
 import eg.net.game.GameSession;
-import eg.util.UsernameUtils;
+import eg.util.UsernameCodec;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
@@ -52,7 +52,7 @@ public final class Player extends MobileEntity {
     }
     
     public long getHash() {
-        return UsernameUtils.encode(username);
+        return UsernameCodec.encode(username);
     }
     
     public String getPassword() {

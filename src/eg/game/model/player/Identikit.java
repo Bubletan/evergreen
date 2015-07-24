@@ -1,6 +1,8 @@
 package eg.game.model.player;
 
 /**
+ * TODO: Convert to enums.
+ * 
  * @author Bubletan <https://github.com/Bubletan>
  */
 public final class Identikit {

@@ -19,7 +19,7 @@ public final class PostPlayerSyncTask implements Task {
     @Override
     public void execute() {
         if (player.getMovement().isMoving()) {
-            Server.world().getEventDispatcher().dispatchEvent(new MovementEvent(player, player.getCoordinate()));
+            Server.world().getEventDispatcher().dispatchEvent(player, new MovementEvent(player.getCoordinate()));
         }
         player.getMovement().postSyncProcess();
         player.resetSyncBlockSet();

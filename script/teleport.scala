@@ -1,5 +1,3 @@
-import eg.game.model.player.Player
-
 val AlKharid       = (3293, 3174)
 val ArdougneEast   = (2662, 3305)
 val ArdougneWest   = (2529, 3307)
@@ -37,6 +35,6 @@ on[Command] {
       case _ => null
     }
     if (coord != null) 
-      self[Player].getMovement.setCoordinate(coord)
+      self.getMovement.setCoordinate(coord)
   }
 }
