@@ -79,6 +79,7 @@ public final class R317GameProtocol implements GameProtocol {
     
     public R317GameProtocol() {
         
+        putEncoder(AnimationResetPacket.class, new AnimationResetPacketEncoder()); // 1
         putEncoder(TabFlashPacket.class, new TabFlashPacketEncoder()); // 24
         putEncoder(CameraWavePacket.class, new CameraWavePacketEncoder()); // 35
         putEncoder(ConfigPacket.class, new ConfigPacketEncoder()); // 36, 87
@@ -87,6 +88,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(InterfaceOffsetPacket.class, new InterfaceOffsetPacketEncoder()); // 70
         putEncoder(TabInterfacePacket.class, new TabInterfacePacketEncoder()); // 71
         putEncoder(MapLoadingPacket.class, new MapLoadingPacketEncoder()); // 73
+        putEncoder(PathResetPacket.class, new PathResetPacketEncoder()); // 78
         putEncoder(InterfaceScrollPositionPacket.class, new InterfaceScrollPositionPacketEncoder()); // 79
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
         putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
@@ -103,6 +105,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
         putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
         putEncoder(WalkableGameInterfacePacket.class, new WalkableGameInterfacePacketEncoder()); // 208
+        putEncoder(InterfaceClosingPacket.class, new InterfaceClosingPacketEncoder()); // 219
         putEncoder(WeightAlteredPacket.class, new WeightAlteredPacketEncoder()); // 240
         putEncoder(PlayerInitPacket.class, new PlayerInitPacketEncoder()); // 249
         putEncoder(GameMessagePacket.class, new GameMessagePacketEncoder()); // 253
