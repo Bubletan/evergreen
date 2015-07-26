@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import eg.game.model.MobileEntity;
 import eg.game.model.IdleAnimation;
+import eg.game.model.PrayerHeadicon;
+import eg.game.model.SkullHeadicon;
 import eg.game.model.item.inv.AlwaysStackingInventory;
 import eg.game.model.item.inv.Inventory;
 import eg.game.model.item.inv.SelectivelyStackingInventory;
@@ -31,6 +33,8 @@ public final class Player extends MobileEntity {
     private final GameSession session;
     
     private IdleAnimation idleAnimation = IdleAnimation.DEFAULT;
+    private PrayerHeadicon prayerHeadicon = PrayerHeadicon.NONE;
+    private SkullHeadicon skullHeadicon = SkullHeadicon.NONE;
     
     public Player(GameSession session, String username, String password) {
         this.session = session;
@@ -91,6 +95,10 @@ public final class Player extends MobileEntity {
         return stats;
     }
     
+    public SyncContext getSyncContext() {
+        return syncContext;
+    }
+    
     public IdleAnimation getIdleAnimation() {
         return idleAnimation;
     }
@@ -99,12 +107,21 @@ public final class Player extends MobileEntity {
         this.idleAnimation = Objects.requireNonNull(idleAnimation);
     }
     
-    public SyncContext getSyncContext() {
-        return syncContext;
+    public PrayerHeadicon getPrayerHeadicon() {
+        return prayerHeadicon;
     }
     
-    public int headIcon;
-    public int headIconPk;
+    public void setPrayerHeadicon(PrayerHeadicon prayerHeadicon) {
+        this.prayerHeadicon = Objects.requireNonNull(prayerHeadicon);
+    }
+    
+    public SkullHeadicon getSkullHeadicon() {
+        return skullHeadicon;
+    }
+    
+    public void setSkullHeadicon(SkullHeadicon skullHeadicon) {
+        this.skullHeadicon = Objects.requireNonNull(skullHeadicon);
+    }
     
     @Override
     public int hashCode() {

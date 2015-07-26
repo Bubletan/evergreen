@@ -191,8 +191,8 @@ public final class PlayerSyncPacketEncoder implements AbstractGamePacketEncoder<
                 Player player = block.getPlayer();
                 payloadBuf.beginNegatedUByteBlock();
                 payloadBuf.putByte(player.getIdentikit().getGender());
-                payloadBuf.putByte(player.headIcon);
-                payloadBuf.putByte(player.headIconPk);
+                payloadBuf.putByte(SyncUtils.prayerHeadiconToInt(player.getPrayerHeadicon()));
+                payloadBuf.putByte(SyncUtils.skullHeadiconToInt(player.getSkullHeadicon()));
                 if (player.getEquipment().getHeadwear().isPresent()) {
                     payloadBuf.putShort(0x200 + player.getEquipment().getHeadwear().get().getType().getId());
                 } else {
