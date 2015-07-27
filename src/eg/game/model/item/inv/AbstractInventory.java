@@ -11,6 +11,8 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import com.google.common.collect.AbstractIterator;
+
 import eg.game.model.item.Item;
 import eg.game.model.item.ItemType;
 
@@ -714,7 +716,20 @@ public abstract class AbstractInventory implements Inventory {
     
     @Override
     public Iterator<Item> iterator() {
-        return stream().iterator();
+        return new AbstractIterator<Item>() {
+            private int index;
+            
+            @Override
+            protected Item computeNext() {
+                while (index < items.length) {
+                    Item item = items[index++];
+                    if (item != null) {
+                        return item;
+                    }
+                }
+                return endOfData();
+            }
+        };
     }
     
     @Override
