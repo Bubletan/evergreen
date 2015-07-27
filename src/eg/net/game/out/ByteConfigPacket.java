@@ -2,12 +2,12 @@ package eg.net.game.out;
 
 import eg.net.game.AbstractGamePacket;
 
-public final class ConfigPacket implements AbstractGamePacket {
+public final class ByteConfigPacket implements AbstractGamePacket {
     
     private final int id;
-    private final int value;
+    private final byte value;
     
-    public ConfigPacket(int id, int value) {
+    public ByteConfigPacket(int id, byte value) {
         this.id = id;
         this.value = value;
     }
@@ -16,7 +16,7 @@ public final class ConfigPacket implements AbstractGamePacket {
         return id;
     }
     
-    public int getValue() {
+    public byte getValue() {
         return value;
     }
 }

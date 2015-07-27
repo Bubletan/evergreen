@@ -82,7 +82,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(AnimationResetPacket.class, new AnimationResetPacketEncoder()); // 1
         putEncoder(TabFlashPacket.class, new TabFlashPacketEncoder()); // 24
         putEncoder(CameraWavePacket.class, new CameraWavePacketEncoder()); // 35
-        putEncoder(ConfigPacket.class, new ConfigPacketEncoder()); // 36, 87
+        putEncoder(ByteConfigPacket.class, new ByteConfigPacketEncoder()); // 36
         putEncoder(MulticombatOverlayPacket.class, new MulticombatOverlayPacketEncoder()); // 61
         putEncoder(NpcSyncPacket.class, new NpcSyncPacketEncoder()); // 65
         putEncoder(InterfaceOffsetPacket.class, new InterfaceOffsetPacketEncoder()); // 70
@@ -91,6 +91,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(PathResetPacket.class, new PathResetPacketEncoder()); // 78
         putEncoder(InterfaceScrollPositionPacket.class, new InterfaceScrollPositionPacketEncoder()); // 79
         putEncoder(PlayerSyncPacket.class, new PlayerSyncPacketEncoder()); // 81
+        putEncoder(IntConfigPacket.class, new IntConfigPacketEncoder()); // 87
         putEncoder(GameInterfacePacket.class, new GameInterfacePacketEncoder()); // 97
         putEncoder(MinimapStatePacket.class, new MinimapStatePacketEncoder()); // 99
         putEncoder(TabSelectPacket.class, new TabSelectPacketEncoder()); // 106
@@ -104,6 +105,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(DialogueInterfacePacket.class, new DialogueInterfacePacketEncoder()); // 164
         putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
         putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
+        putEncoder(PrivacyConfigPacket.class, new PrivacyConfigPacketEncoder()); // 206
         putEncoder(WalkableGameInterfacePacket.class, new WalkableGameInterfacePacketEncoder()); // 208
         putEncoder(InterfaceClosingPacket.class, new InterfaceClosingPacketEncoder()); // 219
         putEncoder(WeightAlteredPacket.class, new WeightAlteredPacketEncoder()); // 240
