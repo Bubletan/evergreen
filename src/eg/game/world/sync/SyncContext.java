@@ -7,6 +7,7 @@ import java.util.Map;
 
 import eg.game.model.npc.Npc;
 import eg.game.model.player.Player;
+import eg.game.world.Distance;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
@@ -41,7 +42,9 @@ public final class SyncContext {
         appearanceCycle = value;
     }
     
-    public int getViewingDistance() {
-        return 15;
+    private static final Distance VIEWING_DISTANCE = new Distance(15);
+    
+    public Distance getViewingDistance() {
+        return VIEWING_DISTANCE;
     }
 }

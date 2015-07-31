@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import eg.game.world.Coordinate;
 import eg.game.world.Direction;
+import eg.game.world.Distance;
 
 /**
  * @author Bubletan <https://github.com/Bubletan>
@@ -92,7 +93,7 @@ public final class PathBuilder {
         } else if (point.getHeight() != height) {
             throw new IllegalArgumentException("Point height mismatch.");
         }
-        if (points.getLast().getBoxDistance(point) != 1) {
+        if (points.getLast().getBoxDistance(point).compareTo(Distance.ONE) != 0) {
             interrupted = true;
             return this;
         }

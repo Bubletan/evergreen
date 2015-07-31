@@ -39,7 +39,7 @@ public final class NpcSyncTask implements Task {
         for (Iterator<Npc> it = player.getSyncContext().getNpcList().iterator(); it.hasNext();) {
             Npc npc = it.next();
             if (!npc.isActive() || npc.getMovement().isTransiting()
-                    || player.getCoordinate().getBoxDistance(npc.getCoordinate()) > player.getSyncContext().getViewingDistance()) {
+                    || player.getCoordinate().getBoxDistance(npc.getCoordinate()).compareTo(player.getSyncContext().getViewingDistance()) > 0) {
                 it.remove();
                 sections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
             } else if (npc.getMovement().isRunning()) {
@@ -61,7 +61,7 @@ public final class NpcSyncTask implements Task {
             if (added >= NEW_NPCS_PER_CYCLE) {
                 break;
             }
-            if (!npc.isActive() || player.getCoordinate().getBoxDistance(npc.getCoordinate()) > player.getSyncContext().getViewingDistance()
+            if (!npc.isActive() || player.getCoordinate().getBoxDistance(npc.getCoordinate()).compareTo(player.getSyncContext().getViewingDistance()) > 0
                     || player.getSyncContext().getNpcList().contains(npc)) {
                 continue;
             }

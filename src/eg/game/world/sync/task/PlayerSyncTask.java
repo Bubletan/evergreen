@@ -56,7 +56,7 @@ public final class PlayerSyncTask implements Task {
         for (Iterator<Player> it = player.getSyncContext().getPlayerList().iterator(); it.hasNext();) {
             Player p = it.next();
             if (!p.isActive() || p.getMovement().isTransiting()
-                    || player.getCoordinate().getBoxDistance(p.getCoordinate()) > player.getSyncContext().getViewingDistance()) {
+                    || player.getCoordinate().getBoxDistance(p.getCoordinate()).compareTo(player.getSyncContext().getViewingDistance()) > 0) {
                 it.remove();
                 nonLocalSections.add(new SyncSection(SYNC_STATUS_REMOVAL, emptyBlockSet));
                 continue;
@@ -84,7 +84,7 @@ public final class PlayerSyncTask implements Task {
                 break;
             }
             if (p == player || !player.isActive()
-                    || player.getCoordinate().getBoxDistance(p.getCoordinate()) > player.getSyncContext().getViewingDistance()
+                    || player.getCoordinate().getBoxDistance(p.getCoordinate()).compareTo(player.getSyncContext().getViewingDistance()) > 0
                     || player.getSyncContext().getPlayerList().contains(p)) {
                 continue;
             }

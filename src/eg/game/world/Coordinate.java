@@ -45,18 +45,20 @@ public final class Coordinate {
         return height;
     }
     
-    public int getDistance(Coordinate other) {
+    public Distance getDistance(Coordinate other) {
         Objects.requireNonNull(other, "Other must not be null.");
         int dx = x - other.x;
         int dy = y - other.y;
-        return dx == 0 ? dy : dy == 0 ? dx : (int) Math.ceil(Math.sqrt(dx * dx + dy * dy));
+        int value =  dx == 0 ? dy : dy == 0 ? dx : (int) Math.ceil(Math.sqrt(dx * dx + dy * dy));
+        return new Distance(value);
     }
     
-    public int getBoxDistance(Coordinate other) {
+    public Distance getBoxDistance(Coordinate other) {
         Objects.requireNonNull(other, "Other must not be null.");
         int dx = x - other.x;
         int dy = y - other.y;
-        return Math.max(Math.abs(dx), Math.abs(dy));
+        int value = Math.max(Math.abs(dx), Math.abs(dy));
+        return new Distance(value);
     }
     
     public Direction getDirection(Coordinate other) {
