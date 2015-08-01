@@ -86,8 +86,22 @@ public final class PlayerProcessTask implements Task {
     private void handleChatMessagePacket(ChatMessagePacket packet) {
         String decodedMsg = ChatMessageCodec.decode(packet.getEncodedMessage());
         byte[] encodedMsg = ChatMessageCodec.encode(decodedMsg);
+        int privilege;
+        switch (player.getPrivilege()) {
+        case ADMINISTRATOR:
+            privilege = 2;
+            break;
+        case MODERATOR:
+            privilege = 1;
+            break;
+        case NONE:
+            privilege = 0;
+            break;
+        default:
+            throw new AssertionError();
+        }
         player.getSyncBlockSet().add(new SyncBlock.ChatMessage(encodedMsg, packet.getColorEffect(),
-                packet.getAnimationEffect(), player.getPrivilege()));
+                packet.getAnimationEffect(), privilege));
     }
     
     private void handleMovementPacket(MovementPacket packet) {

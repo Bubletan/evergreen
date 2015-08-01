@@ -19,9 +19,14 @@ import eg.util.UsernameCodec;
  */
 public final class Player extends MobileEntity {
     
-    private String username;
+    private final GameSession session;
+    
+    private final long hash;
+    private final String username;
     private String password;
-    private int privilege = 2; // TODO: Remove default 2
+    
+    
+    private Privilege privilege = Privilege.NONE;
     
     private final Identikit identikit = new Identikit();
     private final Equipment equipment = new Equipment();
@@ -30,16 +35,16 @@ public final class Player extends MobileEntity {
     private final SkillSet stats = new SkillSet();
     private final SyncContext syncContext = new SyncContext();
     
-    private final GameSession session;
-    
     private IdleAnimation idleAnimation = IdleAnimation.DEFAULT;
     private PrayerHeadicon prayerHeadicon = PrayerHeadicon.NONE;
     private SkullHeadicon skullHeadicon = SkullHeadicon.NONE;
     
     public Player(GameSession session, String username, String password) {
         this.session = session;
+        this.hash = UsernameCodec.encode(username);
         this.username = username;
         this.password = password;
+        this.privilege = Privilege.ADMINISTRATOR;
         getSyncBlockSet().add(new SyncBlock.Appearance(this));
     }
     
@@ -47,16 +52,12 @@ public final class Player extends MobileEntity {
         return session;
     }
     
+    public long getHash() {
+        return hash;
+    }
+    
     public String getUsername() {
         return username;
-    }
-    
-    public String getDatabaseUsername() {
-        return username.toLowerCase().replace(" ", "_");
-    }
-    
-    public long getHash() {
-        return UsernameCodec.encode(username);
     }
     
     public String getPassword() {
@@ -71,7 +72,7 @@ public final class Player extends MobileEntity {
         return true;
     }
     
-    public int getPrivilege() {
+    public Privilege getPrivilege() {
         return privilege;
     }
     
