@@ -5,7 +5,7 @@ import eg.net.game.GamePacket;
 import eg.net.game.out.CameraWavePacket;
 import eg.util.io.Buffer;
 
-public class CameraWavePacketEncoder implements AbstractGamePacketEncoder<CameraWavePacket> {
+public final class CameraWavePacketEncoder implements AbstractGamePacketEncoder<CameraWavePacket> {
     
     @Override
     public GamePacket encode(CameraWavePacket packet) throws Exception {

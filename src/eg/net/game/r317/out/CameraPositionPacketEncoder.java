@@ -5,7 +5,7 @@ import eg.net.game.GamePacket;
 import eg.net.game.out.CameraPositionPacket;
 import eg.util.io.Buffer;
 
-public class CameraPositionPacketEncoder implements AbstractGamePacketEncoder<CameraPositionPacket> {
+public final class CameraPositionPacketEncoder implements AbstractGamePacketEncoder<CameraPositionPacket> {
     
     @Override
     public GamePacket encode(CameraPositionPacket packet) throws Exception {
