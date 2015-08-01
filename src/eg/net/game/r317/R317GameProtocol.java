@@ -81,6 +81,7 @@ public final class R317GameProtocol implements GameProtocol {
         
         putEncoder(AnimationResetPacket.class, new AnimationResetPacketEncoder()); // 1
         putEncoder(TabFlashPacket.class, new TabFlashPacketEncoder()); // 24
+        putEncoder(AmountInputInterfacePacket.class, new AmountInputInterfacePacketEncoder()); // 27
         putEncoder(CameraWavePacket.class, new CameraWavePacketEncoder()); // 35
         putEncoder(ByteConfigPacket.class, new ByteConfigPacketEncoder()); // 36
         putEncoder(MulticombatOverlayPacket.class, new MulticombatOverlayPacketEncoder()); // 61
@@ -105,6 +106,7 @@ public final class R317GameProtocol implements GameProtocol {
         putEncoder(DialogueInterfacePacket.class, new DialogueInterfacePacketEncoder()); // 164
         putEncoder(CameraPositionPacket.class, new CameraPositionPacketEncoder()); // 166
         putEncoder(CameraFocusPacket.class, new CameraFocusPacketEncoder()); // 177
+        putEncoder(NameInputInterfacePacket.class, new NameInputInterfacePacketEncoder()); // 187
         putEncoder(PrivacyConfigPacket.class, new PrivacyConfigPacketEncoder()); // 206
         putEncoder(WalkableGameInterfacePacket.class, new WalkableGameInterfacePacketEncoder()); // 208
         putEncoder(InterfaceClosingPacket.class, new InterfaceClosingPacketEncoder()); // 219
