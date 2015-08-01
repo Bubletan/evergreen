@@ -7,7 +7,7 @@ import eg.game.world.Coordinate;
 import eg.game.world.path.PathBuilder;
 import eg.game.world.sync.SyncBlock;
 import eg.net.game.in.ButtonPacket;
-import eg.net.game.in.ChatMessagePacket;
+import eg.net.game.in.PublicChatMessagePacket;
 import eg.net.game.in.CommandPacket;
 import eg.net.game.in.MovementPacket;
 import eg.net.game.out.GameMessagePacket;
@@ -30,8 +30,8 @@ public final class PlayerProcessTask implements Task {
     public void execute() {
         
         player.getSession().receive().forEach(packet -> {
-            if (packet instanceof ChatMessagePacket) {
-                handleChatMessagePacket((ChatMessagePacket) packet);
+            if (packet instanceof PublicChatMessagePacket) {
+                handleChatMessagePacket((PublicChatMessagePacket) packet);
             } else if (packet instanceof CommandPacket) {
                 
                 Server.world().getEventDispatcher().dispatchEvent(player,
@@ -83,7 +83,7 @@ public final class PlayerProcessTask implements Task {
         });
     }
     
-    private void handleChatMessagePacket(ChatMessagePacket packet) {
+    private void handleChatMessagePacket(PublicChatMessagePacket packet) {
         String decodedMsg = ChatMessageCodec.decode(packet.getEncodedMessage());
         byte[] encodedMsg = ChatMessageCodec.encode(decodedMsg);
         int privilege;

@@ -116,12 +116,13 @@ public final class R317GameProtocol implements GameProtocol {
         
         putDecoder(0, new KeepalivePacketDecoder());
         putDecoder(3, new WindowFocusAlteredPacketDecoder());
-        putDecoder(4, new ChatMessagePacketDecoder());
+        putDecoder(4, new PublicChatMessagePacketDecoder());
         putDecoder(86, new CameraAlteredPacketDecoder());
         MovementPacketDecoder mpd = new MovementPacketDecoder();
         putDecoder(98, mpd);
         putDecoder(103, new CommandPacketDecoder());
         putDecoder(121, new MapLoadedPacketDecoder());
+        putDecoder(126, new PrivateChatMessagePacketDecoder());
         putDecoder(164, mpd);
         putDecoder(185, new ButtonPacketDecoder());
         putDecoder(241, new MouseClickPacketDecoder());

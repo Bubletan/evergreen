@@ -4,13 +4,13 @@ import java.util.Objects;
 
 import eg.net.game.AbstractGamePacket;
 
-public final class ChatMessagePacket implements AbstractGamePacket {
+public final class PublicChatMessagePacket implements AbstractGamePacket {
     
     private final int colorEffect;
     private final int animationEffect;
     private final byte[] encodedMessage;
     
-    public ChatMessagePacket(int colorEffect, int animationEffect, byte[] encodedMessage) {
+    public PublicChatMessagePacket(int colorEffect, int animationEffect, byte[] encodedMessage) {
         this.animationEffect = animationEffect;
         this.colorEffect = colorEffect;
         this.encodedMessage = Objects.requireNonNull(encodedMessage);
