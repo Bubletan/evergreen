@@ -12,11 +12,7 @@ public final class PublicChatMessagePacketDecoder implements AbstractGamePacketD
         Buffer buf = packet.toBuffer();
         int animationEffect = buf.getSubtractedUByte();
         int colorEffect = buf.getSubtractedUByte();
-        int length = packet.getSize() - 2;
-        byte[] encodedMessage = buf.getBytesReversely(null, 0, length);
-        for (int i = 0; i < length; i++) {
-            encodedMessage[i] = (byte) (encodedMessage[i] + 128);
-        }
+        byte[] encodedMessage = buf.getAddedBytesReversely(null, 0, packet.getSize() - 2);
         return new PublicChatMessagePacket(colorEffect, animationEffect, encodedMessage);
     }
 }

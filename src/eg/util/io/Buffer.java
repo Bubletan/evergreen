@@ -800,6 +800,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      * 
      * @see #putBytes(byte[], int, int)
+     * @see #getBytes(byte[])
      * @see #getBytes(byte[], int, int)
      */
     public Buffer putBytes(byte[] array) {
@@ -811,6 +812,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      * 
      * @see #putBytes(byte[])
+     * @see #getBytes(byte[])
      * @see #getBytes(byte[], int, int)
      */
     public Buffer putBytes(byte[] array, int offset, int length) {
@@ -823,11 +825,75 @@ public final class Buffer {
     }
     
     /**
+     * TODO document
+     */
+    public Buffer putNegatedBytes(byte[] array) {
+        return putNegatedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putNegatedBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        int end = offset + length;
+        checkByteArray(array, end);
+        for (int i = offset; i < end; i++) {
+            data[pos++] = (byte) -array[i];
+        }
+        return this;
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putSubtractedBytes(byte[] array) {
+        return putSubtractedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putSubtractedBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        int end = offset + length;
+        checkByteArray(array, end);
+        for (int i = offset; i < end; i++) {
+            data[pos++] = (byte) (128 - array[i]);
+        }
+        return this;
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putAddedBytes(byte[] array) {
+        return putAddedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putAddedBytes(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        int end = offset + length;
+        checkByteArray(array, end);
+        for (int i = offset; i < end; i++) {
+            data[pos++] = (byte) (array[i] + 128);
+        }
+        return this;
+    }
+    
+    /**
      * A shorthand alternative to {@link #putBytesReversely(byte[], int, int)}.<br>
      * Equivalent to calling: <pre>putBytesReversely(array, 0, array.length)</pre>
      * Returns itself to allow method chaining.
      * 
      * @see #putBytesReversely(byte[], int, int)
+     * @see #getBytesReversely(byte[])
      * @see #getBytesReversely(byte[], int, int)
      */
     public Buffer putBytesReversely(byte[] array) {
@@ -839,6 +905,7 @@ public final class Buffer {
      * Returns itself to allow method chaining.
      * 
      * @see #putBytesReversely(byte[])
+     * @see #getBytesReversely(byte[])
      * @see #getBytesReversely(byte[], int, int)
      */
     public Buffer putBytesReversely(byte[] array, int offset, int length) {
@@ -851,7 +918,57 @@ public final class Buffer {
         return this;
     }
     
-    public Buffer putAddedBytes(byte[] array, int offset, int length) {
+    /**
+     * TODO document
+     */
+    public Buffer putNegatedBytesReversely(byte[] array) {
+        return putNegatedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putNegatedBytesReversely(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        checkByteArray(array, offset + length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            data[pos++] = (byte) -array[i];
+        }
+        return this;
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putSubtractedBytesReversely(byte[] array) {
+        return putSubtractedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putSubtractedBytesReversely(byte[] array, int offset, int length) {
+        requireBitAccess(false);
+        requirePuttingCapacity(length);
+        checkByteArray(array, offset + length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            data[pos++] = (byte) (128 - array[i]);
+        }
+        return this;
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putAddedBytesReversely(byte[] array) {
+        return putAddedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public Buffer putAddedBytesReversely(byte[] array, int offset, int length) {
         requireBitAccess(false);
         requirePuttingCapacity(length);
         checkByteArray(array, offset + length);
@@ -1321,6 +1438,7 @@ public final class Buffer {
      * If destination array is {@code null}, it is automatically created with a
      * length that is able to store the required bytes.
      * 
+     * @see #getBytes(byte[])
      * @see #putBytes(byte[])
      * @see #putBytes(byte[], int, int)
      * @return The array the bytes were stored to.
@@ -1339,10 +1457,84 @@ public final class Buffer {
     }
     
     /**
+     * TODO document
+     */
+    public byte[] getNegatedBytes(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getNegatedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getNegatedBytes(byte[] array, int offset, int length) {
+        array = getBytes(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) -array[i];
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getSubtractedBytes(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getSubtractedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getSubtractedBytes(byte[] array, int offset, int length) {
+        array = getBytes(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) (128 - array[i]);
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getAddedBytes(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getAddedBytes(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getAddedBytes(byte[] array, int offset, int length) {
+        array = getBytes(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) (array[i] - 128);
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getBytesReversely(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getBytesReversely(array, 0, array.length);
+    }
+    
+    /**
      * Gets a {@code byte[]} as an array copy in a reversed byte order. If
      * destination array is {@code null}, it is automatically created with a
      * length that is able to store the required bytes.
      * 
+     * @see #getBytesReversely(byte[])
      * @see #putBytesReversely(byte[])
      * @see #putBytesReversely(byte[], int, int)
      * @return The array the bytes were stored to.
@@ -1357,6 +1549,69 @@ public final class Buffer {
         }
         for (int i = offset + length - 1; i >= offset; i--) {
             array[i] = data[pos++];
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getNegatedBytesReversely(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getNegatedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getNegatedBytesReversely(byte[] array, int offset, int length) {
+        array = getBytesReversely(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) -array[i];
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getSubtractedBytesReversely(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getSubtractedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getSubtractedBytesReversely(byte[] array, int offset, int length) {
+        array = getBytesReversely(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) (128 - array[i]);
+        }
+        return array;
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getAddedBytesReversely(byte[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null.");
+        }
+        return getAddedBytesReversely(array, 0, array.length);
+    }
+    
+    /**
+     * TODO document
+     */
+    public byte[] getAddedBytesReversely(byte[] array, int offset, int length) {
+        array = getBytesReversely(array, offset, length);
+        for (int i = offset + length - 1; i >= offset; i--) {
+            array[i] = (byte) (array[i] - 128);
         }
         return array;
     }
