@@ -2,8 +2,8 @@ package eg.script.scala
 
 import scala.language.dynamics
 import scala.language.experimental.macros
-import scala.reflect.ClassTag
 import scala.reflect._
+import scala.util.DynamicVariable
 
 import eg.Server
 import eg.game.event.{Event, EventListener}
@@ -72,20 +72,18 @@ object ScalaDependencies {
   
   // shortened syntax for adding event listeners
   
-  private val tlSelf = new ThreadLocal[Player]
+  private val dynSelf = new DynamicVariable[Player](null)
   
   def on[E <: Event: ClassTag](action: PartialFunction[E, Unit]): Boolean = {
     val classOfE = classTag[E].runtimeClass.asInstanceOf[Class[E]]
     World.getEventDispatcher.addEventListener(classOfE, new EventListener[E] {
       def onEvent(self: Player, event: E) {
-        tlSelf.set(self)
-        if (action.isDefinedAt(event)) action(event)
-        tlSelf.remove
+        dynSelf.withValue(self) { if (action.isDefinedAt(event)) action(event) }
       }
     })
   }
   
-  def self = tlSelf.get
+  def self = dynSelf.value
   
   
   // shortened syntax for dispatching events
@@ -129,6 +127,15 @@ object ScalaDependencies {
     import eg.game.world.sync._
     import eg.game.model._
     
+    def attr = new AttributeHelpers
+    class AttributeHelpers {
+      def apply(ident: Symbol): Any = ???
+      def update(ident: Symbol, value: Any): Unit = ???
+    }
+    
+    def apply(ident: Symbol): Any = ???
+    def update(ident: Symbol, value: Any): Unit = ???
+    
     def forceMovement = ???
     def effect = ???
     def anim = ???
@@ -142,17 +149,6 @@ object ScalaDependencies {
       if (!set.contains(SyncBlock.Type.PRIMARY_HIT)) set.add(new PrimaryHit(???, ???, ???))
       else if (!set.contains(SyncBlock.Type.SECONDARY_HIT)) set.add(new SecondaryHit(???, ???, ???))
     }
-    
-    def attr = new AttributeHelper
-    class AttributeHelper private[MobileEntityHelpers] {
-      def apply[A](name: String): A = ???//me.getAttributes.getOrDeclareAttribute(name).getValue[A]
-      def update[A](name: String, value: A): Unit = ???//me.getAttributes.getOrDeclareAttribute(name).setValue(value)
-    }
-  }
-  
-  private[ScalaDependencies] class attr[T: ClassTag](name: String)
-  object attr extends Dynamic {
-    def selectDynamic[T](name: String): T = ???
   }
   
   
