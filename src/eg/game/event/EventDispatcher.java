@@ -1,9 +1,9 @@
 package eg.game.event;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 
 import eg.game.model.player.Player;
 
@@ -12,7 +12,7 @@ import eg.game.model.player.Player;
  */
 public final class EventDispatcher {
     
-    private final Map<Class<?>, List<EventListener<?>>> listeners = new HashMap<>();
+    private final ListMultimap<Class<?>, EventListener<?>> listeners = ArrayListMultimap.create();
     
     public EventDispatcher() {
     }
@@ -41,25 +41,10 @@ public final class EventDispatcher {
     }
     
     public <E extends Event> boolean addEventListener(Class<E> type, EventListener<E> listener) {
-        List<EventListener<?>> list = listeners.get(type);
-        if (list == null) {
-            list = new ArrayList<>();
-            listeners.put(type, list);
-        } else if (list.contains(listener)) {
-            return false;
-        }
-        return list.add(listener);
+        return listeners.put(type, listener);
     }
     
     public <E extends Event> boolean removeEventListener(Class<E> type, EventListener<E> listener) {
-        List<EventListener<?>> list = listeners.get(type);
-        if (list == null) {
-            return false;
-        }
-        boolean remove = list.remove(listener);
-        if (list.isEmpty()) {
-            listeners.remove(type);
-        }
-        return remove;
+        return listeners.remove(type, listener);
     }
 }
