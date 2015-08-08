@@ -5,12 +5,12 @@ import java.util.Objects;
 /**
  * @author Bubletan <https://github.com/Bubletan>
  */
-public final class AttributeIdent<T> {
+public final class AttributeKey<T> {
     
     private final AttributeSystem system;
     protected final String name;
     
-    protected AttributeIdent(AttributeSystem system, String name) {
+    protected AttributeKey(AttributeSystem system, String name) {
         this.system = Objects.requireNonNull(system);
         this.name = Objects.requireNonNull(name);
     }

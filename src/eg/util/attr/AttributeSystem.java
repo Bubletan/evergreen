@@ -10,21 +10,21 @@ import java.util.concurrent.ConcurrentMap;
  */
 public final class AttributeSystem {
     
-    protected final ConcurrentMap<String, WeakReference<AttributeIdent<?>>> idents = new ConcurrentHashMap<>();
+    protected final ConcurrentMap<String, WeakReference<AttributeKey<?>>> keys = new ConcurrentHashMap<>();
     
     public AttributeSystem() {
     }
     
-    public <T> AttributeIdent<T> newIdent(String name) {
+    public <T> AttributeKey<T> newKey(String name) {
         Objects.requireNonNull(name);
-        AttributeIdent<T> ident = new AttributeIdent<>(this, name);
-        WeakReference<AttributeIdent<?>> old = idents.get(name);
+        AttributeKey<T> ident = new AttributeKey<>(this, name);
+        WeakReference<AttributeKey<?>> old = keys.get(name);
         if (old != null) {
-            if (old.get() != null || !idents.replace(name, old, new WeakReference<>(ident))) {
-                throw new IllegalArgumentException("Identifier \"" + name + "\" already exists.");
+            if (old.get() != null || !keys.replace(name, old, new WeakReference<>(ident))) {
+                throw new IllegalArgumentException("Key \"" + name + "\" already exists.");
             }
-        } else if (idents.putIfAbsent(name, new WeakReference<>(ident)) != null) {
-            throw new IllegalArgumentException("Identifier \"" + name + "\" already exists.");
+        } else if (keys.putIfAbsent(name, new WeakReference<>(ident)) != null) {
+            throw new IllegalArgumentException("Key \"" + name + "\" already exists.");
         }
         return ident;
     }

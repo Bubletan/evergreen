@@ -14,7 +14,7 @@ import com.google.common.cache.CacheBuilder;
 public final class AttributeMap {
     
     private final AttributeSystem system;
-    private final Cache<AttributeIdent<?>, Object> values;
+    private final Cache<AttributeKey<?>, Object> values;
     
     protected AttributeMap(AttributeSystem system) {
         this.system = Objects.requireNonNull(system);
@@ -26,37 +26,37 @@ public final class AttributeMap {
     }
     
     @SuppressWarnings("unchecked")
-    public <T> T get(AttributeIdent<T> ident) {
+    public <T> T get(AttributeKey<T> ident) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         return (T) values.getIfPresent(ident);
     }
     
-    public <T> void set(AttributeIdent<T> ident, T value) {
+    public <T> void set(AttributeKey<T> ident, T value) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         values.put(ident, value);
     }
     
     @SuppressWarnings("unchecked")
-    public <T> void update(AttributeIdent<T> ident, UnaryOperator<T> updater) {
+    public <T> void update(AttributeKey<T> ident, UnaryOperator<T> updater) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         Objects.requireNonNull(updater);
         values.asMap().compute(ident, (k, v) -> updater.apply((T) v));
     }
     
     @SuppressWarnings("unchecked")
-    public <T> T getAndSet(AttributeIdent<T> ident, T value) {
+    public <T> T getAndSet(AttributeKey<T> ident, T value) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         return (T) values.asMap().put(ident, value);
     }
     
-    public <T> T setAndGet(AttributeIdent<T> ident, T value) {
+    public <T> T setAndGet(AttributeKey<T> ident, T value) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         values.put(ident, value);
         return value;
     }
     
     @SuppressWarnings("unchecked")
-    public <T> T getAndUpdate(AttributeIdent<T> ident, UnaryOperator<T> updater) {
+    public <T> T getAndUpdate(AttributeKey<T> ident, UnaryOperator<T> updater) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         Objects.requireNonNull(updater);
         Object[] old = new Object[1]; // reference to the old value
@@ -68,7 +68,7 @@ public final class AttributeMap {
     }
     
     @SuppressWarnings("unchecked")
-    public <T> T updateAndGet(AttributeIdent<T> ident, UnaryOperator<T> updater) {
+    public <T> T updateAndGet(AttributeKey<T> ident, UnaryOperator<T> updater) {
         Preconditions.checkArgument(ident.getSystem() == system, "System mismatch.");
         Objects.requireNonNull(updater);
         return (T) values.asMap().compute(ident, (k, v) -> updater.apply((T) v));
@@ -76,7 +76,7 @@ public final class AttributeMap {
     
     @Override
     public String toString() {
-        return system.idents.entrySet().stream()
+        return system.keys.entrySet().stream()
                 .map(e -> e.getValue().get())
                 .filter(Objects::nonNull)
                 .map(id -> id.name + "=" + values.getIfPresent(id))
