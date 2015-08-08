@@ -2,6 +2,9 @@ package eg.util.attr;
 
 import java.util.Objects;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class AttributeIdent<T> {
     
     private final AttributeSystem system;

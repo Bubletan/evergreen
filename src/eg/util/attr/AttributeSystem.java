@@ -5,6 +5,9 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+/**
+ * @author Bubletan <https://github.com/Bubletan>
+ */
 public final class AttributeSystem {
     
     protected final ConcurrentMap<String, WeakReference<AttributeIdent<?>>> idents = new ConcurrentHashMap<>();
